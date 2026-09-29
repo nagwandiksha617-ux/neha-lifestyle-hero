@@ -1,20 +1,22 @@
-# NEHA Lifestyle Luxury Homepage Hero
+# NEHA Lifestyle Premium Homepage Hero
 
 ## Build
-- Create a clean, full-width homepage hero with a realistic Jal Mahal photograph, softened by a restrained warm ivory/cream overlay.
+- Create a fresh, clean, full-width homepage hero with a realistic, natural photograph of Jaipur’s Jal Mahal clearly visible in the background.
+- Add only a subtle warm ivory overlay for text readability; keep the setting natural, never cinematic or fantasy-like.
 - Place the supplied NEHA Lifestyle logo in a restrained top navigation without redrawing it.
 - Professionally isolate the supplied original ornate golden clutch from its white background, preserving its exact shape, stones, pearls, chains, and metallic detail without generating or redesigning the product.
-- Compose the supplied headline, supporting copy, and two shopping actions on the left, with the clutch prominent on the right.
+- Place the exact headline and supporting copy on the left, with the clutch prominently on the right.
 - Use the exact actions “Shop Now” and “Explore Collection”.
 - Adapt the same composition for desktop, tablet, and mobile while keeping the product and text clear.
 
 ## Visual direction
 - Use soft blush, dusty rose, ivory, charcoal, and subtle gold accents.
-- Favor spacious editorial typography, realistic photography, minimal decoration, and no excessive animation.
-- Do not add models, jewellery, extra products, collages, cinematic effects, heavy red/dark backgrounds, or poster-like decoration.
+- Favor a clean, spacious premium fashion e-commerce composition with realistic photography and elegant typography.
+- Use ivory, soft blush, dusty rose, charcoal, and subtle gold.
+- Do not add models, extra jewellery, extra bags, collages, cinematic effects, heavy red/dark backgrounds, fantasy effects, excessive gradients, excessive animation, or poster-like decoration.
 
 ## Technical details
 - Store the supplied original logo and original clutch through the project asset system; create only a clean transparent-background derivative of the clutch.
-- Generate only the realistic Jal Mahal setting, never the logo or product.
+- Generate only the realistic Jal Mahal background photograph, never the logo or product.
 - Add page-specific social metadata and accessible image/button labels.
 - Verify the final homepage visually at desktop and mobile sizes and confirm the preview builds successfully.
