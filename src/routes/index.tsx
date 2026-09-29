@@ -39,7 +39,7 @@ function Index() {
           alt="Hawa Mahal in Jaipur at golden hour"
           width={1920}
           height={1088}
-          className="absolute inset-0 -z-30 h-full w-full object-cover object-[70%_center] blur-[1px] scale-[1.02]"
+          className="absolute inset-0 -z-30 h-full w-full object-cover object-[70%_center] blur-[0.5px] scale-[1.02]"
         />
         <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_center,var(--hero-veil-strong)_0%,var(--hero-veil)_45%,var(--hero-veil-soft)_100%)]" />
 
@@ -49,7 +49,7 @@ function Index() {
             alt="NEHA Lifestyle"
             width={240}
             height={140}
-            className="h-20 w-32 rounded-sm object-cover shadow-sm sm:h-24 sm:w-44"
+            className="h-16 w-28 rounded-sm object-cover shadow-sm sm:h-[4.4rem] sm:w-36"
           />
           <p className="mt-5 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-foreground/85 sm:text-xs">
             Bags <span className="mx-2 text-gold">|</span> Jewellery{" "}
@@ -61,7 +61,7 @@ function Index() {
             <span className="italic text-rose">Everyday Luxury</span>
           </h1>
           <span className="mt-6 h-px w-16 bg-gold" aria-hidden="true" />
-          <p className="mt-6 max-w-md text-sm leading-7 text-foreground/85 sm:text-lg">
+          <p className="mt-6 max-w-md text-sm leading-7 text-foreground/95 sm:text-lg">
             Discover Bags &amp; Jewellery Made to Make You Shine
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3 sm:mt-8 sm:gap-4">
