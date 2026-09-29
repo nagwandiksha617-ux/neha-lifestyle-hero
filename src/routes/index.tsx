@@ -43,18 +43,22 @@ function Index() {
         />
         <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_center,var(--hero-veil-strong)_0%,var(--hero-veil)_45%,var(--hero-veil-soft)_100%)]" />
 
-        <div className="mx-auto flex w-[min(92%,60rem)] flex-1 flex-col items-center justify-center py-10 text-center sm:py-14">
+        <div className="relative z-10 flex flex-col items-center pt-10 text-center sm:absolute sm:left-[7%] sm:top-[16%] sm:z-20 sm:items-start sm:pt-0 sm:text-left lg:left-[8%] lg:top-[15%]">
           <img
             src={logoAsset.url}
             alt="NEHA Lifestyle"
             width={240}
             height={140}
-            className="h-16 w-28 -translate-x-[1.5rem] rounded-sm object-cover shadow-sm sm:h-[4.4rem] sm:w-36 sm:-translate-x-[2.5rem] lg:-translate-x-[4rem]"
+            className="h-16 w-28 rounded-sm object-cover shadow-sm sm:h-[4.4rem] sm:w-36"
           />
-          <p className="mt-5 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-foreground/85 sm:text-xs">
+          <p className="mt-5 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-foreground/85 sm:mt-6 sm:text-xs">
             Bags <span className="mx-2 text-gold">|</span> Jewellery{" "}
             <span className="mx-2 text-gold">|</span> Your Style, Always
           </p>
+        </div>
+
+        <div className="mx-auto flex w-[min(92%,60rem)] flex-1 flex-col items-center justify-center py-10 text-center sm:py-14">
+          <span aria-hidden="true" className="hidden sm:block sm:h-[6.6rem]" />
           <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,5.8rem)] font-normal leading-[1.02] text-foreground sm:mt-8">
             Where Elegance Meets
             <br />
