@@ -49,7 +49,7 @@ function Index() {
             alt="NEHA Lifestyle"
             width={240}
             height={140}
-            className="h-16 w-28 rounded-sm object-cover shadow-sm sm:h-[4.4rem] sm:w-36"
+            className="h-16 w-28 -translate-x-[2.75rem] rounded-sm object-cover shadow-sm sm:h-[4.4rem] sm:w-36 sm:-translate-x-[4.5rem] lg:-translate-x-[7rem]"
           />
           <p className="mt-5 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-foreground/85 sm:text-xs">
             Bags <span className="mx-2 text-gold">|</span> Jewellery{" "}
