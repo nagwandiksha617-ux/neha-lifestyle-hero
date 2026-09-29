@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { categories } from "@/lib/categories";
+import { NewArrivals } from "@/components/NewArrivals";
 import { ArrowRight, Headphones, RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import heroImage from "../assets/hawa-mahal-hero.jpg";
 import logoAsset from "../assets/neha-lifestyle-logo.jpeg.asset.json";
@@ -129,11 +130,11 @@ function Index() {
           </ul>
         </div>
       </section>
+      <NewArrivals />
       {/* Upcoming homepage sections — built separately */}
       {[
         "new-collection",
         "best-sellers",
-        "new-arrivals",
         "bags",
         "jewellery",
         "brand-story",
