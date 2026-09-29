@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ArrowRight, Headphones, RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import clutchImage from "../assets/neha-golden-clutch.png";
-import jalMahalImage from "../assets/jal-mahal-hero.jpg";
+import heroImage from "../assets/hawa-mahal-hero.jpg";
 import logoAsset from "../assets/neha-lifestyle-logo.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -9,14 +10,12 @@ export const Route = createFileRoute("/")({
       { title: "NEHA Lifestyle — Everyday Luxury" },
       {
         name: "description",
-        content:
-          "Discover premium bags and jewellery crafted to bring elegance to every occasion.",
+        content: "Discover premium bags and jewellery crafted to bring elegance to every occasion.",
       },
       { property: "og:title", content: "NEHA Lifestyle — Everyday Luxury" },
       {
         property: "og:description",
-        content:
-          "Discover premium bags and jewellery crafted to bring elegance to every occasion.",
+        content: "Discover premium bags and jewellery crafted to bring elegance to every occasion.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -25,90 +24,91 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const services = [
+  { icon: Truck, label: "Pan India Delivery" },
+  { icon: ShieldCheck, label: "Secure Payments" },
+  { icon: RotateCcw, label: "Easy Returns" },
+  { icon: Headphones, label: "24/7 Customer Support" },
+];
+
 function Index() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background">
-      <section className="relative isolate min-h-screen overflow-hidden">
+    <main className="bg-background">
+      <section className="relative isolate flex min-h-screen flex-col overflow-hidden">
         <img
-          src={jalMahalImage}
-          alt="Jal Mahal reflected in Man Sagar Lake, Jaipur"
+          src={heroImage}
+          alt="Hawa Mahal in Jaipur at golden hour"
           width={1920}
-          height={1080}
-          className="absolute inset-0 -z-30 h-full w-full scale-[1.02] object-cover object-[61%_center] motion-safe:animate-[hero-breathe_18s_ease-in-out_infinite_alternate]"
+          height={1088}
+          className="absolute inset-0 -z-30 h-full w-full object-cover object-[70%_center]"
         />
-        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,var(--hero-veil-strong)_0%,var(--hero-veil)_42%,var(--hero-veil-soft)_70%,var(--hero-veil-clear)_100%)]" />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,var(--hero-top)_0%,transparent_32%,var(--hero-bottom)_100%)]" />
+        <div className="absolute inset-0 -z-20 bg-[linear-gradient(270deg,var(--hero-veil-strong)_0%,var(--hero-veil)_40%,var(--hero-veil-soft)_72%,var(--hero-veil-clear)_100%)] max-lg:bg-[linear-gradient(180deg,var(--hero-veil-strong)_0%,var(--hero-veil)_55%,var(--hero-veil-soft)_100%)]" />
 
-        <header className="mx-auto grid h-24 w-[min(92%,90rem)] grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center border-b border-foreground/10 sm:h-28">
-          <span className="hidden text-[0.65rem] font-medium uppercase tracking-[0.26em] text-foreground/65 sm:block">
-            Jaipur, India
-          </span>
-          <div className="flex justify-self-start sm:justify-self-center">
+        <div className="mx-auto grid w-[min(92%,88rem)] flex-1 grid-cols-1 items-center gap-6 py-8 lg:grid-cols-[1fr_1fr] lg:gap-10 lg:py-10">
+          {/* Clutch — left on desktop, below text on mobile */}
+          <div className="relative order-2 flex items-end justify-center lg:order-1 lg:h-full">
+            <div className="relative flex items-end justify-center">
+              <img
+                src={clutchImage}
+                alt="NEHA Lifestyle golden ornate clutch with pearls and gemstones"
+                className="relative z-10 max-h-[42vh] w-auto object-contain drop-shadow-[0_18px_22px_var(--product-shadow)] sm:max-h-[52vh] lg:max-h-[72vh]"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute -bottom-1 left-1/2 h-5 w-[70%] -translate-x-1/2 rounded-[50%] bg-foreground/25 blur-xl"
+              />
+            </div>
+          </div>
+
+          {/* Logo + text — right */}
+          <div className="order-1 flex flex-col items-center text-center lg:order-2 lg:items-start lg:text-left">
             <img
               src={logoAsset.url}
               alt="NEHA Lifestyle"
-              width={140}
-              height={82}
-              className="h-16 w-28 rounded-sm object-cover object-center shadow-sm sm:h-[4.6rem] sm:w-32"
+              width={220}
+              height={130}
+              className="h-24 w-40 rounded-sm object-cover shadow-sm sm:h-28 sm:w-48 lg:h-32 lg:w-56"
             />
-          </div>
-          <span className="justify-self-end text-[0.65rem] font-medium uppercase tracking-[0.26em] text-foreground/65">
-            Bags · Jewellery
-          </span>
-        </header>
-
-        <div className="relative mx-auto grid min-h-[calc(100vh-6rem)] w-[min(92%,90rem)] grid-cols-1 items-center gap-2 pb-10 pt-8 sm:min-h-[calc(100vh-7rem)] sm:gap-8 sm:pb-12 lg:grid-cols-[minmax(0,0.96fr)_minmax(22rem,0.74fr)] lg:pt-0">
-          <div className="relative z-10 max-w-[46rem] self-start pt-2 sm:self-center sm:pt-0">
-            <p className="mb-4 flex items-center gap-3 text-[0.67rem] font-semibold uppercase tracking-[0.32em] text-accent-foreground sm:mb-6 sm:text-xs">
-              <span className="h-px w-9 bg-accent" aria-hidden="true" />
-              NEHA Lifestyle
+            <p className="mt-4 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-foreground/70 sm:text-xs">
+              Bags <span className="mx-2 text-gold">|</span> Jewellery{" "}
+              <span className="mx-2 text-gold">|</span> Your Style, Always
             </p>
-            <h1 className="max-w-[13ch] font-display text-[clamp(2.7rem,6.1vw,6.2rem)] font-normal leading-[0.98] text-foreground">
-              Where Elegance Meets Everyday Luxury
+            <h1 className="mt-6 font-display text-[clamp(2.4rem,5vw,5.2rem)] font-normal leading-[1.02] text-foreground sm:mt-8">
+              Where Elegance Meets
+              <br />
+              <span className="italic text-rose">Everyday Luxury</span>
             </h1>
-            <p className="mt-5 max-w-lg text-sm leading-7 text-foreground/75 sm:mt-7 sm:text-lg sm:leading-8">
+            <p className="mt-4 max-w-md text-sm leading-7 text-foreground/75 sm:mt-6 sm:text-lg">
               Discover Bags &amp; Jewellery Made to Make You Shine
             </p>
-            <div className="mt-7 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
+            <div className="mt-6 flex flex-wrap justify-center gap-3 sm:mt-8 sm:gap-4 lg:justify-start">
               <a
                 href="#shop"
-                className="inline-flex min-h-12 items-center justify-center bg-primary px-7 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-colors duration-300 hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:px-9"
+                className="inline-flex min-h-12 items-center gap-2 bg-wine px-8 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-wine-foreground shadow-[0_10px_24px_-12px_var(--wine)] ring-1 ring-gold/40 transition-colors hover:bg-rose"
               >
-                Shop Now
+                Shop Now <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
                 href="#collection"
-                className="inline-flex min-h-12 items-center justify-center border border-foreground/40 bg-background/20 px-7 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm transition-colors duration-300 hover:bg-background/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:px-9"
+                className="inline-flex min-h-12 items-center border border-foreground/30 bg-background/60 px-8 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm transition-colors hover:bg-background"
               >
                 Explore Collection
               </a>
             </div>
           </div>
-
-          <div className="absolute bottom-0 right-[-2%] flex h-[46vh] w-[58vw] items-end justify-center pb-3 sm:relative sm:bottom-auto sm:right-auto sm:min-h-[52vh] sm:w-auto sm:self-start sm:pb-8 lg:min-h-[calc(100vh-9rem)] lg:self-stretch lg:pb-[7vh]">
-            <div
-              className="absolute bottom-2 h-4 w-[48%] rounded-[50%] bg-foreground/20 blur-xl sm:bottom-7 sm:h-5 sm:w-[52%] lg:bottom-[6.5vh]"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute bottom-1 h-2 w-[26%] rounded-[50%] bg-foreground/25 blur-md sm:bottom-6 lg:bottom-[6.2vh]"
-              aria-hidden="true"
-            />
-            <img
-              src={clutchImage}
-              alt="Ornate golden NEHA Lifestyle clutch with emerald and ruby stones and pearl chains"
-              width={768}
-              height={1152}
-              className="relative z-10 max-h-[45vh] w-auto max-w-[56vw] object-contain drop-shadow-[0_10px_10px_var(--product-shadow)] sm:max-h-[66vh] sm:max-w-[48vw] lg:max-h-[77vh] lg:max-w-full"
-            />
-          </div>
         </div>
 
-        <div className="pointer-events-none absolute bottom-5 left-1/2 hidden -translate-x-1/2 items-center gap-3 text-[0.6rem] uppercase tracking-[0.24em] text-foreground/55 sm:flex">
-          <span className="h-px w-10 bg-foreground/30" />
-          An Indian edit
-          <span className="h-px w-10 bg-foreground/30" />
-        </div>
+        <ul className="grid grid-cols-2 gap-y-4 bg-wine/90 px-4 py-5 backdrop-blur-sm lg:grid-cols-4 lg:py-6">
+          {services.map(({ icon: Icon, label }) => (
+            <li
+              key={label}
+              className="flex items-center justify-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.18em] text-wine-foreground sm:text-xs"
+            >
+              <Icon className="h-5 w-5 shrink-0 text-gold" strokeWidth={1.3} aria-hidden="true" />
+              {label}
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );

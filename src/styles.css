@@ -42,6 +42,10 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-wine: var(--wine);
+  --color-wine-foreground: var(--wine-foreground);
+  --color-gold: var(--gold);
+  --color-rose: var(--rose);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -97,6 +101,10 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --wine: oklch(0.36 0.09 15);
+  --wine-foreground: oklch(0.97 0.014 68);
+  --gold: oklch(0.76 0.09 78);
+  --rose: oklch(0.47 0.1 12);
   --hero-veil-strong: oklch(0.98 0.018 65 / 0.94);
   --hero-veil: oklch(0.96 0.026 52 / 0.73);
   --hero-veil-soft: oklch(0.96 0.018 58 / 0.36);
