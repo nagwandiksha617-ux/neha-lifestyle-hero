@@ -105,9 +105,9 @@
   --wine-foreground: oklch(0.97 0.014 68);
   --gold: oklch(0.76 0.09 78);
   --rose: oklch(0.47 0.1 12);
-  --hero-veil-strong: oklch(0.98 0.018 65 / 0.94);
-  --hero-veil: oklch(0.96 0.026 52 / 0.73);
-  --hero-veil-soft: oklch(0.96 0.018 58 / 0.36);
+  --hero-veil-strong: oklch(0.98 0.018 65 / 0.86);
+  --hero-veil: oklch(0.96 0.026 52 / 0.58);
+  --hero-veil-soft: oklch(0.96 0.018 58 / 0.26);
   --hero-veil-clear: oklch(0.97 0.012 65 / 0.12);
   --hero-top: oklch(0.99 0.01 64 / 0.3);
   --hero-bottom: oklch(0.9 0.035 50 / 0.28);

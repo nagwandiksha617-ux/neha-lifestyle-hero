@@ -39,32 +39,32 @@ function Index() {
           alt="Hawa Mahal in Jaipur at golden hour"
           width={1920}
           height={1088}
-          className="absolute inset-0 -z-30 h-full w-full object-cover object-[70%_center] blur-[2px] scale-[1.03]"
+          className="absolute inset-0 -z-30 h-full w-full object-cover object-[70%_center] blur-[1px] scale-[1.02]"
         />
         <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_center,var(--hero-veil-strong)_0%,var(--hero-veil)_45%,var(--hero-veil-soft)_100%)]" />
 
-        <div className="mx-auto flex w-[min(92%,60rem)] flex-1 flex-col items-center justify-center py-14 text-center sm:py-20">
+        <div className="mx-auto flex w-[min(92%,60rem)] flex-1 flex-col items-center justify-center py-10 text-center sm:py-14">
           <img
             src={logoAsset.url}
             alt="NEHA Lifestyle"
             width={240}
             height={140}
-            className="h-24 w-40 rounded-sm object-cover shadow-sm sm:h-32 sm:w-56"
+            className="h-20 w-32 rounded-sm object-cover shadow-sm sm:h-24 sm:w-44"
           />
-          <p className="mt-5 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-foreground/70 sm:text-xs">
+          <p className="mt-5 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-foreground/85 sm:text-xs">
             Bags <span className="mx-2 text-gold">|</span> Jewellery{" "}
             <span className="mx-2 text-gold">|</span> Your Style, Always
           </p>
-          <h1 className="mt-8 font-display text-[clamp(2.5rem,6vw,5.8rem)] font-normal leading-[1.02] text-foreground sm:mt-10">
+          <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,5.8rem)] font-normal leading-[1.02] text-foreground sm:mt-8">
             Where Elegance Meets
             <br />
             <span className="italic text-rose">Everyday Luxury</span>
           </h1>
           <span className="mt-6 h-px w-16 bg-gold" aria-hidden="true" />
-          <p className="mt-6 max-w-md text-sm leading-7 text-foreground/75 sm:text-lg">
+          <p className="mt-6 max-w-md text-sm leading-7 text-foreground/85 sm:text-lg">
             Discover Bags &amp; Jewellery Made to Make You Shine
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3 sm:mt-10 sm:gap-4">
+          <div className="mt-7 flex flex-wrap justify-center gap-3 sm:mt-8 sm:gap-4">
             <a
               href="#new-collection"
               className="inline-flex min-h-12 items-center gap-2 bg-wine px-8 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-wine-foreground shadow-[0_10px_24px_-12px_var(--wine)] ring-1 ring-gold/40 transition-colors hover:bg-rose"
