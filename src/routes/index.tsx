@@ -57,8 +57,8 @@ function Index() {
           </span>
         </header>
 
-        <div className="mx-auto grid min-h-[calc(100vh-6rem)] w-[min(92%,90rem)] grid-cols-1 items-center gap-2 pb-10 pt-8 sm:min-h-[calc(100vh-7rem)] sm:gap-8 sm:pb-12 lg:grid-cols-[minmax(0,0.96fr)_minmax(22rem,0.74fr)] lg:pt-0">
-          <div className="relative z-10 max-w-[46rem] self-end pb-3 sm:self-center sm:pb-0">
+        <div className="relative mx-auto grid min-h-[calc(100vh-6rem)] w-[min(92%,90rem)] grid-cols-1 items-center gap-2 pb-10 pt-8 sm:min-h-[calc(100vh-7rem)] sm:gap-8 sm:pb-12 lg:grid-cols-[minmax(0,0.96fr)_minmax(22rem,0.74fr)] lg:pt-0">
+          <div className="relative z-10 max-w-[46rem] self-start pt-2 sm:self-center sm:pt-0">
             <p className="mb-4 flex items-center gap-3 text-[0.67rem] font-semibold uppercase tracking-[0.32em] text-accent-foreground sm:mb-6 sm:text-xs">
               <span className="h-px w-9 bg-accent" aria-hidden="true" />
               NEHA Lifestyle
@@ -85,14 +85,14 @@ function Index() {
             </div>
           </div>
 
-          <div className="relative flex min-h-[46vh] items-center justify-center self-start sm:min-h-[52vh] lg:min-h-[calc(100vh-9rem)] lg:self-center">
+          <div className="absolute -bottom-3 right-0 flex h-[38vh] w-[50vw] items-center justify-center sm:relative sm:bottom-auto sm:right-auto sm:min-h-[52vh] sm:w-auto sm:self-start lg:min-h-[calc(100vh-9rem)] lg:self-center">
             <div className="absolute bottom-[8%] h-[8%] w-[46%] rounded-[50%] bg-foreground/20 blur-2xl" aria-hidden="true" />
             <img
               src={clutchImage}
               alt="Ornate golden NEHA Lifestyle clutch with emerald and ruby stones and pearl chains"
               width={768}
               height={1152}
-              className="relative z-10 max-h-[58vh] w-auto max-w-[68vw] object-contain drop-shadow-[0_22px_24px_var(--product-shadow)] sm:max-h-[62vh] sm:max-w-[46vw] lg:max-h-[74vh] lg:max-w-full"
+              className="relative z-10 max-h-[38vh] w-auto max-w-[48vw] object-contain drop-shadow-[0_22px_24px_var(--product-shadow)] sm:max-h-[62vh] sm:max-w-[46vw] lg:max-h-[74vh] lg:max-w-full"
             />
           </div>
         </div>
