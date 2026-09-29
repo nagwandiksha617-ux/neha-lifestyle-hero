@@ -85,14 +85,21 @@ function Index() {
             </div>
           </div>
 
-          <div className="absolute -bottom-3 right-0 flex h-[38vh] w-[50vw] items-center justify-center sm:relative sm:bottom-auto sm:right-auto sm:min-h-[52vh] sm:w-auto sm:self-start lg:min-h-[calc(100vh-9rem)] lg:self-center">
-            <div className="absolute bottom-[8%] h-[8%] w-[46%] rounded-[50%] bg-foreground/20 blur-2xl" aria-hidden="true" />
+          <div className="absolute bottom-0 right-[-2%] flex h-[46vh] w-[58vw] items-end justify-center pb-3 sm:relative sm:bottom-auto sm:right-auto sm:min-h-[52vh] sm:w-auto sm:self-start sm:pb-8 lg:min-h-[calc(100vh-9rem)] lg:self-stretch lg:pb-[7vh]">
+            <div
+              className="absolute bottom-2 h-4 w-[48%] rounded-[50%] bg-foreground/20 blur-xl sm:bottom-7 sm:h-5 sm:w-[52%] lg:bottom-[6.5vh]"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute bottom-1 h-2 w-[26%] rounded-[50%] bg-foreground/25 blur-md sm:bottom-6 lg:bottom-[6.2vh]"
+              aria-hidden="true"
+            />
             <img
               src={clutchImage}
               alt="Ornate golden NEHA Lifestyle clutch with emerald and ruby stones and pearl chains"
               width={768}
               height={1152}
-              className="relative z-10 max-h-[38vh] w-auto max-w-[48vw] object-contain drop-shadow-[0_22px_24px_var(--product-shadow)] sm:max-h-[62vh] sm:max-w-[46vw] lg:max-h-[74vh] lg:max-w-full"
+              className="relative z-10 max-h-[45vh] w-auto max-w-[56vw] object-contain drop-shadow-[0_10px_10px_var(--product-shadow)] sm:max-h-[66vh] sm:max-w-[48vw] lg:max-h-[77vh] lg:max-w-full"
             />
           </div>
         </div>
