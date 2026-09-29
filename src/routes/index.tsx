@@ -43,15 +43,15 @@ function Index() {
         />
         <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_center,var(--hero-veil-strong)_0%,var(--hero-veil)_45%,var(--hero-veil-soft)_100%)]" />
 
-        <div className="relative z-10 flex flex-col items-center px-6 pt-8 text-center sm:absolute sm:left-[4%] sm:top-[9%] sm:z-20 sm:w-[26%] sm:min-w-52 sm:items-start sm:px-0 sm:pt-0 sm:text-left lg:left-[5%] lg:top-[10%]">
+        <div className="relative z-10 flex flex-col items-center px-6 pt-8 text-center sm:absolute sm:left-[4%] sm:top-[7.5%] sm:z-20 sm:w-[26%] sm:min-w-52 sm:items-start sm:px-0 sm:pt-0 sm:text-left lg:left-[5%] lg:top-[8.5%]">
           <img
             src={logoAsset.url}
             alt="NEHA Lifestyle"
             width={240}
             height={140}
-            className="h-16 w-28 rounded-sm object-cover shadow-sm sm:h-[4.2rem] sm:w-32"
+            className="h-14 w-24 rounded-sm object-cover shadow-sm sm:h-[3.5rem] sm:w-[6.75rem]"
           />
-          <p className="mt-4 text-[0.6rem] font-semibold uppercase leading-relaxed tracking-[0.26em] text-foreground/85 sm:mt-5 sm:text-[0.65rem]">
+          <p className="mt-3 text-[0.6rem] font-semibold uppercase leading-relaxed tracking-[0.26em] text-foreground/85 sm:mt-4 sm:whitespace-nowrap sm:text-[0.6rem] sm:tracking-[0.22em]">
             Bags <span className="mx-1 text-gold">|</span> Jewellery{" "}
             <span className="mx-1 text-gold">|</span> Your Style, Always
           </p>
