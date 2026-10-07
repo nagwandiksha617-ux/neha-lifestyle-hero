@@ -111,44 +111,47 @@ export function SiteFooter() {
   const linkClass = "text-xs leading-6 text-footer-foreground/80 transition-colors hover:text-footer-accent focus-visible:outline focus-visible:outline-gold";
   return (
     <>
-      <footer id="footer" className="border-t border-gold/35 bg-footer-surface text-footer-foreground">
+      <footer id="footer" className="border-t border-gold/35 bg-[image:var(--gradient-footer)] text-footer-foreground">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-10 px-6 py-16 sm:px-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-12 lg:px-12">
           <div className="col-span-2 lg:col-span-1">
             <Link to="/" className="inline-block" aria-label="NEHA Lifestyle home"><img src={logo.url} alt="NEHA Lifestyle" width={108} height={63} loading="lazy" className="h-14 w-24 object-contain" /></Link>
             <p className="mt-5 font-display text-3xl">NEHA Lifestyle</p>
             <p className="mt-3 text-xs leading-6 text-footer-foreground/80">Bags &amp; Jewellery. Your Style, Always.</p>
+            <p className="mt-3 max-w-xs text-xs leading-6 text-footer-foreground/75">Discover elegant bags and jewellery designed to add a touch of everyday luxury to your style.</p>
             <div className="mt-5 flex gap-2" aria-label="Social media">
               {[{ label: "Instagram", icon: Instagram }, { label: "Facebook", icon: Facebook }].map(({ label, icon: Icon }) => <Button key={label} variant="ghost" size="icon" aria-label={label} title={label} onClick={() => setTopic(label)} className="rounded-none text-footer-accent hover:bg-footer-accent/10 hover:text-footer-foreground"><Icon strokeWidth={1.5} /></Button>)}
             </div>
           </div>
           <div>
-            <h2 className="font-display text-xl text-footer-accent">Shop</h2>
+            <h2 className="font-display text-xl text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Shop</h2>
             <ul className="mt-5 space-y-2">
-              {[{ label: "Bags", slug: "bags" }, { label: "Clutches", slug: "party-clutch-bags" }, { label: "Jewellery", slug: "jewellery" }].map((item) => <li key={item.label}><Link to="/category/$slug" params={{ slug: item.slug }} className={linkClass}>{item.label}</Link></li>)}
+              {[{ label: "Bags", slug: "bags" }, { label: "Travel & Gym Bags", slug: "travel-gym-bags" }, { label: "Party & Clutch Bags", slug: "party-clutch-bags" }, { label: "Jewellery", slug: "jewellery" }].map((item) => <li key={item.label}><Link to="/category/$slug" params={{ slug: item.slug }} className={linkClass}>{item.label}</Link></li>)}
               <li><a href="/#new-arrivals" className={linkClass}>New Arrivals</a></li>
               <li><a href="/#best-sellers" className={linkClass}>Best Sellers</a></li>
             </ul>
           </div>
           <div>
-            <h2 className="font-display text-xl text-footer-accent">Customer Care</h2>
-            <ul className="mt-5 space-y-2">{["Contact", "FAQ", "Shipping", "Returns", "Order Tracking"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}</ul>
+            <h2 className="font-display text-xl text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Customer Care</h2>
+            <ul className="mt-5 space-y-2">{["Contact Us", "FAQ", "Shipping", "Returns", "Order Tracking"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}</ul>
           </div>
           <div>
-            <h2 className="font-display text-xl text-footer-accent">Company</h2>
+            <h2 className="font-display text-xl text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Company</h2>
             <ul className="mt-5 space-y-2">
               <li><a href="/#brand-story" className={linkClass}>About Us</a></li>
               {["Privacy Policy", "Terms & Conditions"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}
             </ul>
           </div>
         </div>
-        <div className="border-t border-gold/30">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12"><div className="h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" /></div>
+        <div>
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-6 text-center sm:flex-row sm:px-8 lg:px-12">
-            <p className="text-[0.65rem] leading-6 text-footer-foreground/75">© {new Date().getUTCFullYear()} NEHA Lifestyle. All rights reserved.</p>
+            <p className="text-[0.65rem] leading-6 text-footer-foreground/75">© 2026 NEHA Lifestyle. All rights reserved.</p>
             <ul aria-label="Payment methods" className="flex flex-wrap items-center justify-center gap-4 text-footer-foreground/80">
+              <li className="text-[0.6rem] uppercase tracking-[0.2em] text-footer-accent">Secure Payments</li>
+              <li className="text-[0.65rem] font-semibold italic">UPI</li>
               <li className="flex items-center gap-1.5 text-[0.65rem]"><CreditCard className="h-5 w-5" strokeWidth={1.3} aria-hidden="true" />Visa</li>
               <li className="flex items-center gap-1.5 text-[0.65rem]"><span className="relative flex w-7" aria-hidden="true"><span className="h-4 w-4 rounded-full border border-gold" /><span className="-ml-1 h-4 w-4 rounded-full border border-footer-accent/70" /></span>Mastercard</li>
               <li className="text-[0.65rem] font-semibold italic">RuPay</li>
-              <li className="text-[0.65rem] font-semibold italic">UPI</li>
             </ul>
           </div>
         </div>
