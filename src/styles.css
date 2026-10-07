@@ -111,6 +111,7 @@
   --footer-surface: oklch(0.955 0.018 15);
   --footer-foreground: oklch(0.28 0.012 15);
   --footer-accent: oklch(0.51 0.06 15);
+  --gradient-footer: linear-gradient(180deg, oklch(0.965 0.016 20), oklch(0.925 0.03 12));
   --hero-veil-strong: oklch(0.98 0.018 65 / 0.7);
   --hero-veil: oklch(0.95 0.03 48 / 0.44);
   --hero-veil-soft: oklch(0.95 0.024 52 / 0.16);
@@ -124,6 +125,7 @@
   --footer-surface: oklch(0.26 0.015 15);
   --footer-foreground: oklch(0.95 0.012 15);
   --footer-accent: oklch(0.78 0.05 15);
+  --gradient-footer: linear-gradient(180deg, oklch(0.27 0.015 15), oklch(0.23 0.02 12));
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
