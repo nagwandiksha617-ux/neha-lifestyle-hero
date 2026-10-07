@@ -3,7 +3,6 @@ import { categories } from "@/lib/categories";
 import { NewArrivals } from "@/components/NewArrivals";
 import { ArrowRight, Headphones, RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import heroImage from "../assets/hawa-mahal-hero.jpg";
-import logoAsset from "../assets/neha-lifestyle-logo.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,20 +43,6 @@ function Index() {
           className="absolute inset-0 -z-30 h-full w-full object-cover object-[70%_center] blur-[0.5px] scale-[1.02]"
         />
         <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_center,var(--hero-veil-strong)_0%,var(--hero-veil)_45%,var(--hero-veil-soft)_100%)]" />
-
-        <div className="relative z-10 flex flex-col items-center px-6 pt-8 text-center sm:absolute sm:left-[4%] sm:top-[7.5%] sm:z-20 sm:w-[26%] sm:min-w-52 sm:items-start sm:px-0 sm:pt-0 sm:text-left lg:left-[5%] lg:top-[8.5%]">
-          <img
-            src={logoAsset.url}
-            alt="NEHA Lifestyle"
-            width={240}
-            height={140}
-            className="h-14 w-24 rounded-sm object-cover shadow-sm sm:h-[3.5rem] sm:w-[6.75rem]"
-          />
-          <p className="mt-3 text-[0.6rem] font-semibold uppercase leading-relaxed tracking-[0.26em] text-foreground/85 sm:mt-4 sm:whitespace-nowrap sm:text-[0.6rem] sm:tracking-[0.22em]">
-            Bags <span className="mx-1 text-gold">|</span> Jewellery{" "}
-            <span className="mx-1 text-gold">|</span> Your Style, Always
-          </p>
-        </div>
 
         <div className="mx-auto flex w-[min(92%,60rem)] flex-1 flex-col items-center justify-center py-10 text-center sm:py-14">
           <span aria-hidden="true" className="hidden sm:block sm:h-[6.6rem]" />
