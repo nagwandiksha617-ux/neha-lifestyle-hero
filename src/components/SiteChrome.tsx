@@ -1,0 +1,159 @@
+import { useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { ArrowUpRight, CreditCard, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, UserRound } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { categories } from "@/lib/categories";
+import logo from "@/assets/neha-lifestyle-logo.jpeg.asset.json";
+
+const navigation = [
+  { label: "Home", href: "/" },
+  { label: "Shop", href: "/#shop-by-category" },
+  { label: "Bags", slug: "bags" },
+  { label: "Jewellery", slug: "jewellery" },
+  { label: "New Arrivals", href: "/#new-arrivals" },
+  { label: "Best Sellers", href: "/#best-sellers" },
+  { label: "About", href: "/#brand-story" },
+  { label: "Contact", info: "Contact" },
+];
+
+function InformationDialog({ topic, close }: { topic: string | null; close: () => void }) {
+  const descriptions: Record<string, string> = {
+    Contact: "Contact details have not been provided yet.",
+    FAQ: "Frequently asked questions have not been published yet.",
+    Shipping: "Shipping information has not been published yet.",
+    Returns: "The returns policy has not been published yet.",
+    "Order Tracking": "Order tracking is not connected yet.",
+    "Privacy Policy": "The privacy policy has not been published yet.",
+    "Terms & Conditions": "Terms and conditions have not been published yet.",
+    Instagram: "The official Instagram link has not been provided yet.",
+    Facebook: "The official Facebook link has not been provided yet.",
+    Account: "Account sign-in is not connected yet.",
+    Cart: "Checkout and shopping cart are not connected yet.",
+  };
+  return (
+    <Dialog open={topic !== null} onOpenChange={(open) => { if (!open) close(); }}>
+      <DialogContent className="w-[calc(100%-2rem)] border-gold/25">
+        <DialogTitle className="font-display text-3xl font-normal text-wine">{topic}</DialogTitle>
+        <DialogDescription className="leading-7 text-foreground/75">{topic ? descriptions[topic] : ""}</DialogDescription>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+export function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const [topic, setTopic] = useState<string | null>(null);
+  const results = categories.filter((category) => `${category.name} ${category.description}`.toLowerCase().includes(query.toLowerCase().trim()));
+
+  function navItems(mobile = false) {
+    return navigation.map((item) => {
+      const className = mobile
+        ? "block border-b border-gold/15 py-4 text-sm text-foreground transition-colors hover:text-rose"
+        : "whitespace-nowrap py-3 text-[0.65rem] font-medium uppercase text-foreground transition-colors hover:text-rose";
+      if (item.slug) return <Link key={item.label} to="/category/$slug" params={{ slug: item.slug }} className={className} onClick={() => setMenuOpen(false)}>{item.label}</Link>;
+      if (item.info) return <Button key={item.label} variant="link" className={`${className} h-auto justify-start rounded-none px-0 no-underline hover:no-underline`} onClick={() => { setMenuOpen(false); setTopic(item.info ?? null); }}>{item.label}</Button>;
+      return <a key={item.label} href={item.href} className={className} onClick={() => setMenuOpen(false)}>{item.label}</a>;
+    });
+  }
+
+  const iconClass = "h-10 w-10 rounded-none text-foreground hover:bg-wine/5 hover:text-wine";
+  return (
+    <>
+      <header className="sticky top-0 z-40 border-b border-gold/25 bg-background/95 backdrop-blur-md" aria-label="NEHA Lifestyle header">
+        <div className="mx-auto flex min-h-20 max-w-[1440px] items-center justify-between gap-3 px-4 sm:px-8 xl:px-10">
+          <div className="flex items-center gap-2">
+            <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+              <SheetTrigger asChild><Button variant="ghost" size="icon" className={`${iconClass} xl:hidden`} aria-label="Open navigation" title="Navigation"><Menu strokeWidth={1.5} /></Button></SheetTrigger>
+              <SheetContent side="left" className="w-[min(85vw,24rem)] overflow-y-auto border-gold/25">
+                <SheetTitle className="font-display text-2xl font-normal text-wine">NEHA Lifestyle</SheetTitle>
+                <SheetDescription className="mt-2 text-xs text-foreground/65">Your Style, Always</SheetDescription>
+                <nav aria-label="Mobile navigation" className="mt-8 flex flex-col">{navItems(true)}</nav>
+              </SheetContent>
+            </Sheet>
+            <Link to="/" aria-label="NEHA Lifestyle home" className="shrink-0">
+              <img src={logo.url} alt="NEHA Lifestyle" width={108} height={63} className="h-12 w-20 object-contain sm:h-14 sm:w-24" />
+            </Link>
+          </div>
+          <nav aria-label="Main navigation" className="hidden items-center gap-5 xl:flex">{navItems()}</nav>
+          <div className="flex shrink-0 items-center gap-0 sm:gap-1">
+            <Button variant="ghost" size="icon" className={iconClass} aria-label="Search" title="Search" onClick={() => setSearchOpen(true)}><Search strokeWidth={1.5} /></Button>
+            <Button variant="ghost" size="icon" asChild className={iconClass}><a href="/#new-arrivals" aria-label="Wishlist" title="Wishlist"><Heart strokeWidth={1.5} /></a></Button>
+            <Button variant="ghost" size="icon" className={iconClass} aria-label="Account" title="Account" onClick={() => setTopic("Account")}><UserRound strokeWidth={1.5} /></Button>
+            <Button variant="ghost" size="icon" className={iconClass} aria-label="Cart" title="Cart" onClick={() => setTopic("Cart")}><ShoppingBag strokeWidth={1.5} /></Button>
+          </div>
+        </div>
+      </header>
+      <Dialog open={searchOpen} onOpenChange={setSearchOpen}>
+        <DialogContent className="w-[calc(100%-2rem)] border-gold/25">
+          <DialogTitle className="font-display text-3xl font-normal text-wine">Search collections</DialogTitle>
+          <DialogDescription className="sr-only">Find bags and jewellery collections.</DialogDescription>
+          <label className="relative block">
+            <Search className="absolute left-3 top-3.5 h-4 w-4 text-wine" aria-hidden="true" />
+            <input aria-label="Search collections" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search collections" className="h-11 w-full border border-gold/30 bg-card pl-10 pr-3 text-sm text-foreground outline-none focus:ring-1 focus:ring-wine" />
+          </label>
+          <ul className="divide-y divide-gold/20">
+            {results.map((category) => <li key={category.slug}><Link to="/category/$slug" params={{ slug: category.slug }} onClick={() => setSearchOpen(false)} className="flex items-center justify-between gap-4 py-4 text-sm text-foreground hover:text-rose">{category.name}<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link></li>)}
+          </ul>
+          {results.length === 0 && <p className="text-sm text-foreground/70">No collections found.</p>}
+        </DialogContent>
+      </Dialog>
+      <InformationDialog topic={topic} close={() => setTopic(null)} />
+    </>
+  );
+}
+
+export function SiteFooter() {
+  const [topic, setTopic] = useState<string | null>(null);
+  const linkClass = "text-xs leading-6 text-wine-foreground/75 transition-colors hover:text-gold focus-visible:outline focus-visible:outline-gold";
+  return (
+    <>
+      <footer id="footer" className="border-t border-gold/35 bg-wine text-wine-foreground">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-10 px-6 py-16 sm:px-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-12 lg:px-12">
+          <div className="col-span-2 lg:col-span-1">
+            <Link to="/" className="inline-block" aria-label="NEHA Lifestyle home"><img src={logo.url} alt="NEHA Lifestyle" width={108} height={63} loading="lazy" className="h-14 w-24 object-contain" /></Link>
+            <p className="mt-5 font-display text-3xl">NEHA Lifestyle</p>
+            <p className="mt-3 text-xs leading-6 text-wine-foreground/75">Bags &amp; Jewellery. Your Style, Always.</p>
+            <div className="mt-5 flex gap-2" aria-label="Social media">
+              {[{ label: "Instagram", icon: Instagram }, { label: "Facebook", icon: Facebook }].map(({ label, icon: Icon }) => <Button key={label} variant="ghost" size="icon" aria-label={label} title={label} onClick={() => setTopic(label)} className="rounded-none text-wine-foreground hover:bg-wine-foreground/10 hover:text-gold"><Icon strokeWidth={1.5} /></Button>)}
+            </div>
+          </div>
+          <div>
+            <h2 className="font-display text-xl text-gold">Shop</h2>
+            <ul className="mt-5 space-y-2">
+              {[{ label: "Bags", slug: "bags" }, { label: "Clutches", slug: "party-clutch-bags" }, { label: "Jewellery", slug: "jewellery" }].map((item) => <li key={item.label}><Link to="/category/$slug" params={{ slug: item.slug }} className={linkClass}>{item.label}</Link></li>)}
+              <li><a href="/#new-arrivals" className={linkClass}>New Arrivals</a></li>
+              <li><a href="/#best-sellers" className={linkClass}>Best Sellers</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 className="font-display text-xl text-gold">Customer Care</h2>
+            <ul className="mt-5 space-y-2">{["Contact", "FAQ", "Shipping", "Returns", "Order Tracking"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}</ul>
+          </div>
+          <div>
+            <h2 className="font-display text-xl text-gold">Company</h2>
+            <ul className="mt-5 space-y-2">
+              <li><a href="/#brand-story" className={linkClass}>About Us</a></li>
+              {["Privacy Policy", "Terms & Conditions"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-wine-foreground/15">
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-6 text-center sm:flex-row sm:px-8 lg:px-12">
+            <p className="text-[0.65rem] leading-6 text-wine-foreground/65">© {new Date().getUTCFullYear()} NEHA Lifestyle. All rights reserved.</p>
+            <ul aria-label="Payment methods" className="flex flex-wrap items-center justify-center gap-4 text-wine-foreground/80">
+              <li className="flex items-center gap-1.5 text-[0.65rem]"><CreditCard className="h-5 w-5" strokeWidth={1.3} aria-hidden="true" />Visa</li>
+              <li className="flex items-center gap-1.5 text-[0.65rem]"><span className="relative flex w-7" aria-hidden="true"><span className="h-4 w-4 rounded-full border border-gold" /><span className="-ml-1 h-4 w-4 rounded-full border border-wine-foreground/70" /></span>Mastercard</li>
+              <li className="text-[0.65rem] font-semibold italic">RuPay</li>
+              <li className="text-[0.65rem] font-semibold italic">UPI</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      <InformationDialog topic={topic} close={() => setTopic(null)} />
+    </>
+  );
+}
