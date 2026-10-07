@@ -52,19 +52,19 @@ export function SiteHeader() {
   function navItems(mobile = false) {
     return navigation.map((item) => {
       const className = mobile
-        ? "block border-b border-gold/15 py-4 text-sm text-foreground transition-colors hover:text-rose"
-        : "whitespace-nowrap py-3 text-xs font-medium font-medium uppercase text-foreground transition-colors hover:text-rose";
+        ? "block border-b border-gold/15 py-4 font-footer text-sm tracking-[0.08em] text-foreground transition-colors hover:text-wine"
+        : "relative whitespace-nowrap py-2 font-footer text-[11.5px] font-medium uppercase tracking-[0.14em] text-foreground transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:scale-x-0 after:bg-wine/70 after:transition-transform hover:text-wine hover:after:scale-x-100";
       if (item.slug) return <Link key={item.label} to="/category/$slug" params={{ slug: item.slug }} className={className} onClick={() => setMenuOpen(false)}>{item.label}</Link>;
       if (item.info) return <Button key={item.label} variant="link" className={`${className} h-auto justify-start rounded-none px-0 no-underline hover:no-underline`} onClick={() => { setMenuOpen(false); setTopic(item.info ?? null); }}>{item.label}</Button>;
       return <a key={item.label} href={item.href} className={className} onClick={() => setMenuOpen(false)}>{item.label}</a>;
     });
   }
 
-  const iconClass = "h-10 w-10 rounded-none text-foreground hover:bg-wine/5 hover:text-wine";
+  const iconClass = "h-9 w-9 rounded-full text-foreground hover:bg-wine/5 hover:text-wine [&_svg]:size-[18px]";
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-gold/25 bg-background/95 backdrop-blur-md" aria-label="NEHA Lifestyle header">
-        <div className="mx-auto flex min-h-20 max-w-[1440px] items-center justify-between gap-3 px-4 sm:px-8 xl:px-10">
+      <header className="sticky top-0 z-40 border-b border-gold/30 bg-background/95 shadow-[0_1px_0_0_var(--color-blush,transparent)] backdrop-blur-md" aria-label="NEHA Lifestyle header">
+        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-3 lg:h-[78px] px-4 sm:px-8 xl:px-10">
           <div className="flex items-center gap-2">
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
               <SheetTrigger asChild><Button variant="ghost" size="icon" className={`${iconClass} min-[960px]:hidden`} aria-label="Open navigation" title="Navigation"><Menu strokeWidth={1.5} /></Button></SheetTrigger>
@@ -78,7 +78,7 @@ export function SiteHeader() {
               <img src={logo.url} alt="NEHA Lifestyle" width={108} height={63} className="h-12 w-20 object-contain sm:h-14 sm:w-24" />
             </Link>
           </div>
-          <nav aria-label="Main navigation" className="hidden items-center gap-3 min-[960px]:flex xl:gap-5">{navItems()}</nav>
+          <nav aria-label="Main navigation" className="hidden items-center gap-4 min-[960px]:flex xl:gap-7">{navItems()}</nav>
           <div className="flex shrink-0 items-center gap-0 sm:gap-1">
             <Button variant="ghost" size="icon" className={iconClass} aria-label="Search" title="Search" onClick={() => setSearchOpen(true)}><Search strokeWidth={1.5} /></Button>
             <Button variant="ghost" size="icon" asChild className={iconClass}><a href="/#new-arrivals" aria-label="Wishlist" title="Wishlist"><Heart strokeWidth={1.5} /></a></Button>
