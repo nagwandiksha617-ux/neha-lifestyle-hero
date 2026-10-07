@@ -53,7 +53,7 @@ export function SiteHeader() {
     return navigation.map((item) => {
       const className = mobile
         ? "block border-b border-gold/15 py-4 text-sm text-foreground transition-colors hover:text-rose"
-        : "whitespace-nowrap py-3 text-[0.65rem] font-medium uppercase text-foreground transition-colors hover:text-rose";
+        : "whitespace-nowrap py-3 text-xs font-medium font-medium uppercase text-foreground transition-colors hover:text-rose";
       if (item.slug) return <Link key={item.label} to="/category/$slug" params={{ slug: item.slug }} className={className} onClick={() => setMenuOpen(false)}>{item.label}</Link>;
       if (item.info) return <Button key={item.label} variant="link" className={`${className} h-auto justify-start rounded-none px-0 no-underline hover:no-underline`} onClick={() => { setMenuOpen(false); setTopic(item.info ?? null); }}>{item.label}</Button>;
       return <a key={item.label} href={item.href} className={className} onClick={() => setMenuOpen(false)}>{item.label}</a>;
@@ -108,22 +108,23 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   const [topic, setTopic] = useState<string | null>(null);
-  const linkClass = "text-xs leading-6 text-footer-foreground transition-colors hover:text-footer-accent focus-visible:outline focus-visible:outline-gold";
+  const linkClass = "text-sm font-medium leading-7 text-footer-foreground transition-colors hover:text-footer-accent focus-visible:outline focus-visible:outline-gold";
   return (
     <>
-      <footer id="footer" className="border-t border-gold/35 bg-[image:var(--gradient-footer)] text-footer-foreground">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-10 px-6 py-16 sm:px-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-12 lg:px-12">
+      <footer id="footer" className="relative overflow-hidden border-t border-gold/35 bg-[image:var(--gradient-footer)] text-footer-foreground">
+        {["left-0", "right-0 -scale-x-100"].map((pos) => <svg key={pos} aria-hidden="true" viewBox="0 0 160 120" className={`pointer-events-none absolute bottom-0 ${pos} h-28 w-36 text-footer-accent/25 sm:h-36 sm:w-48`} fill="none" stroke="currentColor" strokeWidth="1"><path d="M0 118 C30 90 50 70 60 40 M60 40 C62 25 72 18 80 20 C74 30 68 36 60 40 M38 76 C28 66 26 54 32 46 C40 54 42 66 38 76 M38 76 C52 74 62 80 66 90 C54 92 44 86 38 76 M14 104 C8 92 10 82 16 76 C22 86 20 96 14 104 M14 104 C26 100 36 104 40 112 C30 116 20 112 14 104" /><circle cx="84" cy="14" r="3" /></svg>)}
+        <div className="mx-auto grid max-w-7xl relative grid-cols-2 gap-x-8 gap-y-10 px-6 py-16 sm:px-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-0 lg:px-12 lg:[&>div+div]:border-l lg:[&>div+div]:border-gold/40 lg:[&>div+div]:pl-10 lg:[&>div]:pr-8">
           <div className="col-span-2 lg:col-span-1">
             <Link to="/" className="inline-block" aria-label="NEHA Lifestyle home"><img src={logo.url} alt="NEHA Lifestyle" width={108} height={63} loading="lazy" className="h-14 w-24 object-contain" /></Link>
             <p className="mt-5 font-display text-3xl text-footer-accent">NEHA Lifestyle</p>
-            <p className="mt-3 text-xs leading-6 text-footer-foreground">Bags &amp; Jewellery. Your Style, Always.</p>
-            <p className="mt-3 max-w-xs text-xs leading-6 text-footer-foreground">Discover elegant bags and jewellery designed to add a touch of everyday luxury to your style.</p>
+            <p className="mt-3 text-sm font-medium leading-6 text-footer-foreground">Bags &amp; Jewellery. Your Style, Always.</p>
+            <p className="mt-3 max-w-xs text-sm leading-6 text-footer-foreground">Discover elegant bags and jewellery designed to add a touch of everyday luxury to your style.</p>
             <div className="mt-5 flex gap-2" aria-label="Social media">
-              {[{ label: "Instagram", icon: Instagram }, { label: "Facebook", icon: Facebook }].map(({ label, icon: Icon }) => <Button key={label} variant="ghost" size="icon" aria-label={label} title={label} onClick={() => setTopic(label)} className="rounded-none text-footer-accent hover:bg-footer-accent/10 hover:text-footer-foreground"><Icon strokeWidth={1.5} /></Button>)}
+              {[{ label: "Instagram", icon: Instagram }, { label: "Facebook", icon: Facebook }].map(({ label, icon: Icon }) => <Button key={label} variant="ghost" size="icon" aria-label={label} title={label} onClick={() => setTopic(label)} className="rounded-full bg-footer-accent text-footer-surface hover:bg-footer-foreground hover:text-footer-surface"><Icon strokeWidth={1.5} /></Button>)}
             </div>
           </div>
           <div>
-            <h2 className="font-display text-xl text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Shop</h2>
+            <h2 className="font-display text-2xl font-semibold text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Shop</h2>
             <ul className="mt-5 space-y-2">
               {[{ label: "Bags", slug: "bags" }, { label: "Travel & Gym Bags", slug: "travel-gym-bags" }, { label: "Party & Clutch Bags", slug: "party-clutch-bags" }, { label: "Jewellery", slug: "jewellery" }].map((item) => <li key={item.label}><Link to="/category/$slug" params={{ slug: item.slug }} className={linkClass}>{item.label}</Link></li>)}
               <li><a href="/#new-arrivals" className={linkClass}>New Arrivals</a></li>
@@ -131,27 +132,27 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h2 className="font-display text-xl text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Customer Care</h2>
+            <h2 className="font-display text-2xl font-semibold text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Customer Care</h2>
             <ul className="mt-5 space-y-2">{["Contact Us", "FAQ", "Shipping", "Returns", "Order Tracking"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}</ul>
           </div>
           <div>
-            <h2 className="font-display text-xl text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Company</h2>
+            <h2 className="font-display text-2xl font-semibold text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Company</h2>
             <ul className="mt-5 space-y-2">
               <li><a href="/#brand-story" className={linkClass}>About Us</a></li>
               {["Privacy Policy", "Terms & Conditions"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}
             </ul>
           </div>
         </div>
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12"><div className="h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" /></div>
-        <div>
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12"><div className="h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" /></div>
+        <div className="relative">
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-6 text-center sm:flex-row sm:px-8 lg:px-12">
-            <p className="text-[0.65rem] leading-6 text-footer-foreground">© 2026 NEHA Lifestyle. All rights reserved.</p>
+            <p className="text-xs font-medium leading-6 text-footer-foreground">© 2026 NEHA Lifestyle. All rights reserved.</p>
             <ul aria-label="Payment methods" className="flex flex-wrap items-center justify-center gap-4 text-footer-foreground">
-              <li className="text-[0.6rem] uppercase tracking-[0.2em] text-footer-foreground">Secure Payments</li>
-              <li className="text-[0.65rem] font-semibold italic">UPI</li>
-              <li className="flex items-center gap-1.5 text-[0.65rem]"><CreditCard className="h-5 w-5" strokeWidth={1.3} aria-hidden="true" />Visa</li>
-              <li className="flex items-center gap-1.5 text-[0.65rem]"><span className="relative flex w-7" aria-hidden="true"><span className="h-4 w-4 rounded-full border border-gold" /><span className="-ml-1 h-4 w-4 rounded-full border border-footer-accent/70" /></span>Mastercard</li>
-              <li className="text-[0.65rem] font-semibold italic">RuPay</li>
+              <li className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-footer-foreground">Secure Payments</li>
+              <li className="text-xs font-medium font-semibold italic">UPI</li>
+              <li className="flex items-center gap-1.5 text-xs font-medium"><CreditCard className="h-5 w-5" strokeWidth={1.3} aria-hidden="true" />Visa</li>
+              <li className="flex items-center gap-1.5 text-xs font-medium"><span className="relative flex w-7" aria-hidden="true"><span className="h-4 w-4 rounded-full border border-gold" /><span className="-ml-1 h-4 w-4 rounded-full border border-footer-accent/70" /></span>Mastercard</li>
+              <li className="text-xs font-medium font-semibold italic">RuPay</li>
             </ul>
           </div>
         </div>

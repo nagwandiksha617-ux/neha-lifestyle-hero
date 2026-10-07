@@ -109,9 +109,9 @@
   --gold: oklch(0.76 0.09 78);
   --rose: oklch(0.47 0.1 12);
   --footer-surface: oklch(0.955 0.018 15);
-  --footer-foreground: oklch(0.24 0.014 15);
-  --footer-accent: oklch(0.42 0.095 15);
-  --gradient-footer: linear-gradient(180deg, oklch(0.93 0.03 15), oklch(0.88 0.045 12));
+  --footer-foreground: oklch(0.22 0.014 15);
+  --footer-accent: oklch(0.38 0.1 12);
+  --gradient-footer: linear-gradient(180deg, oklch(0.91 0.04 14), oklch(0.86 0.055 12));
   --hero-veil-strong: oklch(0.98 0.018 65 / 0.7);
   --hero-veil: oklch(0.95 0.03 48 / 0.44);
   --hero-veil-soft: oklch(0.95 0.024 52 / 0.16);
