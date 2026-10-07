@@ -108,16 +108,16 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   const [topic, setTopic] = useState<string | null>(null);
-  const linkClass = "text-xs leading-6 text-footer-foreground/80 transition-colors hover:text-footer-accent focus-visible:outline focus-visible:outline-gold";
+  const linkClass = "text-xs leading-6 text-footer-foreground transition-colors hover:text-footer-accent focus-visible:outline focus-visible:outline-gold";
   return (
     <>
       <footer id="footer" className="border-t border-gold/35 bg-[image:var(--gradient-footer)] text-footer-foreground">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-10 px-6 py-16 sm:px-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-12 lg:px-12">
           <div className="col-span-2 lg:col-span-1">
             <Link to="/" className="inline-block" aria-label="NEHA Lifestyle home"><img src={logo.url} alt="NEHA Lifestyle" width={108} height={63} loading="lazy" className="h-14 w-24 object-contain" /></Link>
-            <p className="mt-5 font-display text-3xl">NEHA Lifestyle</p>
-            <p className="mt-3 text-xs leading-6 text-footer-foreground/80">Bags &amp; Jewellery. Your Style, Always.</p>
-            <p className="mt-3 max-w-xs text-xs leading-6 text-footer-foreground/75">Discover elegant bags and jewellery designed to add a touch of everyday luxury to your style.</p>
+            <p className="mt-5 font-display text-3xl text-footer-accent">NEHA Lifestyle</p>
+            <p className="mt-3 text-xs leading-6 text-footer-foreground">Bags &amp; Jewellery. Your Style, Always.</p>
+            <p className="mt-3 max-w-xs text-xs leading-6 text-footer-foreground">Discover elegant bags and jewellery designed to add a touch of everyday luxury to your style.</p>
             <div className="mt-5 flex gap-2" aria-label="Social media">
               {[{ label: "Instagram", icon: Instagram }, { label: "Facebook", icon: Facebook }].map(({ label, icon: Icon }) => <Button key={label} variant="ghost" size="icon" aria-label={label} title={label} onClick={() => setTopic(label)} className="rounded-none text-footer-accent hover:bg-footer-accent/10 hover:text-footer-foreground"><Icon strokeWidth={1.5} /></Button>)}
             </div>
@@ -145,9 +145,9 @@ export function SiteFooter() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12"><div className="h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" /></div>
         <div>
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-6 text-center sm:flex-row sm:px-8 lg:px-12">
-            <p className="text-[0.65rem] leading-6 text-footer-foreground/75">© 2026 NEHA Lifestyle. All rights reserved.</p>
-            <ul aria-label="Payment methods" className="flex flex-wrap items-center justify-center gap-4 text-footer-foreground/80">
-              <li className="text-[0.6rem] uppercase tracking-[0.2em] text-footer-accent">Secure Payments</li>
+            <p className="text-[0.65rem] leading-6 text-footer-foreground">© 2026 NEHA Lifestyle. All rights reserved.</p>
+            <ul aria-label="Payment methods" className="flex flex-wrap items-center justify-center gap-4 text-footer-foreground">
+              <li className="text-[0.6rem] uppercase tracking-[0.2em] text-footer-foreground">Secure Payments</li>
               <li className="text-[0.65rem] font-semibold italic">UPI</li>
               <li className="flex items-center gap-1.5 text-[0.65rem]"><CreditCard className="h-5 w-5" strokeWidth={1.3} aria-hidden="true" />Visa</li>
               <li className="flex items-center gap-1.5 text-[0.65rem]"><span className="relative flex w-7" aria-hidden="true"><span className="h-4 w-4 rounded-full border border-gold" /><span className="-ml-1 h-4 w-4 rounded-full border border-footer-accent/70" /></span>Mastercard</li>
