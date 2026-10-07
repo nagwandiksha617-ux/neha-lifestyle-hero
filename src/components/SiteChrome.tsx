@@ -63,7 +63,7 @@ export function SiteHeader() {
   const iconClass = "h-9 w-9 rounded-full text-foreground hover:bg-wine/5 hover:text-wine [&_svg]:size-[18px]";
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-gold/30 bg-ivory/95 shadow-[0_1px_0_0_oklch(0.88_0.04_12/0.6)] backdrop-blur-md" aria-label="NEHA Lifestyle header">
+      <header className="sticky top-0 z-40 border-b border-gold/30 bg-background/95 shadow-[0_1px_0_0_var(--color-blush,transparent)] backdrop-blur-md" aria-label="NEHA Lifestyle header">
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-3 lg:h-[78px] px-4 sm:px-8 xl:px-10">
           <div className="flex items-center gap-2">
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
