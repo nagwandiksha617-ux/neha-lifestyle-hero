@@ -1,0 +1,4 @@
+# Restoration
+- [x] Restore shared sticky header and responsive navigation without changing homepage content.
+- [x] Restore full footer using existing typography, colors, logo and valid navigation targets.
+- [x] Verify header/footer display and mobile controls; preserve product data and homepage sections.

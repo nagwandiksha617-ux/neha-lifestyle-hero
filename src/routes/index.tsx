@@ -143,7 +143,6 @@ function Index() {
       ].map((id) => (
         <section key={id} id={id} aria-hidden="true" />
       ))}
-      <footer id="footer" />
     </main>
   );
 }

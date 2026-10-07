@@ -10,3 +10,5 @@
 <!-- LOVABLE:END -->
 
 - Keep the homepage as a single full-viewport editorial hero using imported photographic assets and semantic design tokens, because NEHA Lifestyle's first impression depends on a consistent luxury composition.
+- Render shared header and footer around Outlet in the root layout; keep homepage sections and product data independent so site navigation stays consistent without altering merchandise.
+- Link collection navigation to existing category routes and homepage section anchors; show unavailable service details explicitly rather than invent policies, contact information, social URLs, or checkout behavior.
