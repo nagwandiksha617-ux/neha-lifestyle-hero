@@ -67,7 +67,7 @@ export function SiteHeader() {
         <div className="mx-auto flex min-h-20 max-w-[1440px] items-center justify-between gap-3 px-4 sm:px-8 xl:px-10">
           <div className="flex items-center gap-2">
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
-              <SheetTrigger asChild><Button variant="ghost" size="icon" className={`${iconClass} xl:hidden`} aria-label="Open navigation" title="Navigation"><Menu strokeWidth={1.5} /></Button></SheetTrigger>
+              <SheetTrigger asChild><Button variant="ghost" size="icon" className={`${iconClass} min-[960px]:hidden`} aria-label="Open navigation" title="Navigation"><Menu strokeWidth={1.5} /></Button></SheetTrigger>
               <SheetContent side="left" className="w-[min(85vw,24rem)] overflow-y-auto border-gold/25">
                 <SheetTitle className="font-display text-2xl font-normal text-wine">NEHA Lifestyle</SheetTitle>
                 <SheetDescription className="mt-2 text-xs text-foreground/65">Your Style, Always</SheetDescription>
@@ -78,7 +78,7 @@ export function SiteHeader() {
               <img src={logo.url} alt="NEHA Lifestyle" width={108} height={63} className="h-12 w-20 object-contain sm:h-14 sm:w-24" />
             </Link>
           </div>
-          <nav aria-label="Main navigation" className="hidden items-center gap-5 xl:flex">{navItems()}</nav>
+          <nav aria-label="Main navigation" className="hidden items-center gap-3 min-[960px]:flex xl:gap-5">{navItems()}</nav>
           <div className="flex shrink-0 items-center gap-0 sm:gap-1">
             <Button variant="ghost" size="icon" className={iconClass} aria-label="Search" title="Search" onClick={() => setSearchOpen(true)}><Search strokeWidth={1.5} /></Button>
             <Button variant="ghost" size="icon" asChild className={iconClass}><a href="/#new-arrivals" aria-label="Wishlist" title="Wishlist"><Heart strokeWidth={1.5} /></a></Button>
@@ -108,21 +108,21 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   const [topic, setTopic] = useState<string | null>(null);
-  const linkClass = "text-xs leading-6 text-wine-foreground/75 transition-colors hover:text-gold focus-visible:outline focus-visible:outline-gold";
+  const linkClass = "text-xs leading-6 text-footer-foreground/80 transition-colors hover:text-footer-accent focus-visible:outline focus-visible:outline-gold";
   return (
     <>
-      <footer id="footer" className="border-t border-gold/35 bg-wine text-wine-foreground">
+      <footer id="footer" className="border-t border-gold/35 bg-footer-surface text-footer-foreground">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-10 px-6 py-16 sm:px-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-12 lg:px-12">
           <div className="col-span-2 lg:col-span-1">
             <Link to="/" className="inline-block" aria-label="NEHA Lifestyle home"><img src={logo.url} alt="NEHA Lifestyle" width={108} height={63} loading="lazy" className="h-14 w-24 object-contain" /></Link>
             <p className="mt-5 font-display text-3xl">NEHA Lifestyle</p>
-            <p className="mt-3 text-xs leading-6 text-wine-foreground/75">Bags &amp; Jewellery. Your Style, Always.</p>
+            <p className="mt-3 text-xs leading-6 text-footer-foreground/80">Bags &amp; Jewellery. Your Style, Always.</p>
             <div className="mt-5 flex gap-2" aria-label="Social media">
-              {[{ label: "Instagram", icon: Instagram }, { label: "Facebook", icon: Facebook }].map(({ label, icon: Icon }) => <Button key={label} variant="ghost" size="icon" aria-label={label} title={label} onClick={() => setTopic(label)} className="rounded-none text-wine-foreground hover:bg-wine-foreground/10 hover:text-gold"><Icon strokeWidth={1.5} /></Button>)}
+              {[{ label: "Instagram", icon: Instagram }, { label: "Facebook", icon: Facebook }].map(({ label, icon: Icon }) => <Button key={label} variant="ghost" size="icon" aria-label={label} title={label} onClick={() => setTopic(label)} className="rounded-none text-footer-accent hover:bg-footer-accent/10 hover:text-footer-foreground"><Icon strokeWidth={1.5} /></Button>)}
             </div>
           </div>
           <div>
-            <h2 className="font-display text-xl text-gold">Shop</h2>
+            <h2 className="font-display text-xl text-footer-accent">Shop</h2>
             <ul className="mt-5 space-y-2">
               {[{ label: "Bags", slug: "bags" }, { label: "Clutches", slug: "party-clutch-bags" }, { label: "Jewellery", slug: "jewellery" }].map((item) => <li key={item.label}><Link to="/category/$slug" params={{ slug: item.slug }} className={linkClass}>{item.label}</Link></li>)}
               <li><a href="/#new-arrivals" className={linkClass}>New Arrivals</a></li>
@@ -130,23 +130,23 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h2 className="font-display text-xl text-gold">Customer Care</h2>
+            <h2 className="font-display text-xl text-footer-accent">Customer Care</h2>
             <ul className="mt-5 space-y-2">{["Contact", "FAQ", "Shipping", "Returns", "Order Tracking"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}</ul>
           </div>
           <div>
-            <h2 className="font-display text-xl text-gold">Company</h2>
+            <h2 className="font-display text-xl text-footer-accent">Company</h2>
             <ul className="mt-5 space-y-2">
               <li><a href="/#brand-story" className={linkClass}>About Us</a></li>
               {["Privacy Policy", "Terms & Conditions"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}
             </ul>
           </div>
         </div>
-        <div className="border-t border-wine-foreground/15">
+        <div className="border-t border-gold/30">
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-6 text-center sm:flex-row sm:px-8 lg:px-12">
-            <p className="text-[0.65rem] leading-6 text-wine-foreground/65">© {new Date().getUTCFullYear()} NEHA Lifestyle. All rights reserved.</p>
-            <ul aria-label="Payment methods" className="flex flex-wrap items-center justify-center gap-4 text-wine-foreground/80">
+            <p className="text-[0.65rem] leading-6 text-footer-foreground/75">© {new Date().getUTCFullYear()} NEHA Lifestyle. All rights reserved.</p>
+            <ul aria-label="Payment methods" className="flex flex-wrap items-center justify-center gap-4 text-footer-foreground/80">
               <li className="flex items-center gap-1.5 text-[0.65rem]"><CreditCard className="h-5 w-5" strokeWidth={1.3} aria-hidden="true" />Visa</li>
-              <li className="flex items-center gap-1.5 text-[0.65rem]"><span className="relative flex w-7" aria-hidden="true"><span className="h-4 w-4 rounded-full border border-gold" /><span className="-ml-1 h-4 w-4 rounded-full border border-wine-foreground/70" /></span>Mastercard</li>
+              <li className="flex items-center gap-1.5 text-[0.65rem]"><span className="relative flex w-7" aria-hidden="true"><span className="h-4 w-4 rounded-full border border-gold" /><span className="-ml-1 h-4 w-4 rounded-full border border-footer-accent/70" /></span>Mastercard</li>
               <li className="text-[0.65rem] font-semibold italic">RuPay</li>
               <li className="text-[0.65rem] font-semibold italic">UPI</li>
             </ul>

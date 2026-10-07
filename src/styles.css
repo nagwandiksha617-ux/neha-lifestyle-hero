@@ -46,6 +46,9 @@
   --color-wine-foreground: var(--wine-foreground);
   --color-gold: var(--gold);
   --color-rose: var(--rose);
+  --color-footer-surface: var(--footer-surface);
+  --color-footer-foreground: var(--footer-foreground);
+  --color-footer-accent: var(--footer-accent);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -105,6 +108,9 @@
   --wine-foreground: oklch(0.97 0.014 68);
   --gold: oklch(0.76 0.09 78);
   --rose: oklch(0.47 0.1 12);
+  --footer-surface: oklch(0.955 0.018 15);
+  --footer-foreground: oklch(0.28 0.012 15);
+  --footer-accent: oklch(0.51 0.06 15);
   --hero-veil-strong: oklch(0.98 0.018 65 / 0.7);
   --hero-veil: oklch(0.95 0.03 48 / 0.44);
   --hero-veil-soft: oklch(0.95 0.024 52 / 0.16);
@@ -115,6 +121,9 @@
 }
 
 .dark {
+  --footer-surface: oklch(0.26 0.015 15);
+  --footer-foreground: oklch(0.95 0.012 15);
+  --footer-accent: oklch(0.78 0.05 15);
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
