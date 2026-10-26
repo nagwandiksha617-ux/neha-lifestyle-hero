@@ -25,3 +25,12 @@ describe("Travel & Gym Bags", () => {
     expect(byColor("Blue").description).not.toMatch(/synthetic|450|waterproof|handmade/i);
   });
 });
+
+describe("Delivery", () => {
+  test("estimate is 5–7 days and is not presented as a guarantee", async () => {
+    const { deliveryEstimate, deliveryEstimateLabel } = await import("./travel-gym-bags");
+    expect(deliveryEstimate).toEqual({ minDays: 5, maxDays: 7 });
+    expect(deliveryEstimateLabel).toContain("5–7 days");
+    expect(deliveryEstimateLabel).toMatch(/not a guaranteed/i);
+  });
+});

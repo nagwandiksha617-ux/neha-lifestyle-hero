@@ -63,3 +63,7 @@ export const travelGymBagInfo: TravelGymBagInfo[] = [
 ];
 
 export const formatPrice = (amount: number) => `₹${amount.toLocaleString("en-IN")}`;
+
+// Intended delivery estimate (not a guarantee). Shipping charges are not decided yet — keep unset.
+export const deliveryEstimate = { minDays: 5, maxDays: 7 };
+export const deliveryEstimateLabel = `Estimated delivery: ${deliveryEstimate.minDays}–${deliveryEstimate.maxDays} days. This is an estimate, not a guaranteed delivery date.`;
