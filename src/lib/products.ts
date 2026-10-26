@@ -11,8 +11,6 @@ import silver3 from "@/assets/elegant-waist-clutch/silver-3-open.jpg.asset.json"
 import silver4 from "@/assets/elegant-waist-clutch/silver-4-worn.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
-// A colour option with its own photos. The first photo is the main (front-view) image.
-export type ProductColour = { name: string; photos: ProductPhoto[] };
 
 export type Product = {
   id: string;
@@ -21,28 +19,9 @@ export type Product = {
   categorySlug?: string;
   image: string | null;
   newArrival?: boolean;
-  colours?: ProductColour[];
+  colour?: string; // shown under the name when two listings share a name
+  gallery?: ProductPhoto[]; // first photo is the main image
 };
-
-const elegantWaistClutchColours: ProductColour[] = [
-  {
-    name: "Gold",
-    photos: [
-      { src: gold1.url, alt: "Elegant Waist Clutch in gold — front view" },
-      { src: gold2.url, alt: "Elegant Waist Clutch in gold — open flap" },
-      { src: gold3.url, alt: "Elegant Waist Clutch in gold — worn at the waist" },
-    ],
-  },
-  {
-    name: "Silver",
-    photos: [
-      { src: silver1.url, alt: "Elegant Waist Clutch in silver — front view" },
-      { src: silver2.url, alt: "Elegant Waist Clutch in silver — side view" },
-      { src: silver3.url, alt: "Elegant Waist Clutch in silver — open flap" },
-      { src: silver4.url, alt: "Elegant Waist Clutch in silver — worn at the waist" },
-    ],
-  },
-];
 
 export const products: Product[] = [
   { id: "na-1", name: "Peacock Pearl Jhumka Earrings", category: "Jewellery", categorySlug: "jewellery", image: null, newArrival: true },
@@ -51,12 +30,31 @@ export const products: Product[] = [
   { id: "na-5", name: "Red & Green Velvet Potli Bag", category: "Potli Bags", image: null, newArrival: true },
   { id: "na-6", name: "Green Pearl Embroidered Potli Bag", category: "Potli Bags", image: null, newArrival: true },
   {
-    id: "elegant-waist-clutch",
+    id: "elegant-waist-clutch-silver",
     name: "Elegant Waist Clutch",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
+    colour: "Silver",
+    image: silver1.url,
+    gallery: [
+      { src: silver1.url, alt: "Elegant Waist Clutch in silver — front view" },
+      { src: silver2.url, alt: "Elegant Waist Clutch in silver — side view" },
+      { src: silver3.url, alt: "Elegant Waist Clutch in silver — open flap" },
+      { src: silver4.url, alt: "Elegant Waist Clutch in silver — worn at the waist" },
+    ],
+  },
+  {
+    id: "elegant-waist-clutch-gold",
+    name: "Elegant Waist Clutch",
+    category: "Party & Clutch Bags",
+    categorySlug: "party-clutch-bags",
+    colour: "Gold",
     image: gold1.url,
-    colours: elegantWaistClutchColours,
+    gallery: [
+      { src: gold1.url, alt: "Elegant Waist Clutch in gold — front view" },
+      { src: gold2.url, alt: "Elegant Waist Clutch in gold — open flap" },
+      { src: gold3.url, alt: "Elegant Waist Clutch in gold — worn at the waist" },
+    ],
   },
 ];
 

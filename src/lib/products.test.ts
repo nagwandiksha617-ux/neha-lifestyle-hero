@@ -5,16 +5,28 @@ import { newArrivals, products, productsForCategoryPage } from "./products";
 
 describe("Party & Clutch Bags listing", () => {
   test("lists every product assigned to the Party & Clutch Bags category", () => {
-    expect(productsForCategoryPage("party-clutch-bags").map((p) => p.name)).toEqual(["Silver Shell Embellished Clutch", "Elegant Waist Clutch"]);
+    expect(productsForCategoryPage("party-clutch-bags").map((p) => [p.name, p.colour])).toEqual([
+      ["Silver Shell Embellished Clutch", undefined],
+      ["Elegant Waist Clutch", "Silver"],
+      ["Elegant Waist Clutch", "Gold"],
+    ]);
   });
 
-  test("Elegant Waist Clutch is one product with Gold (3 photos) and Silver (4 photos)", () => {
-    const matches = products.filter((p) => p.name === "Elegant Waist Clutch");
-    expect(matches).toHaveLength(1);
-    expect(matches[0]?.colours?.map((c) => [c.name, c.photos.length])).toEqual([["Gold", 3], ["Silver", 4]]);
+  test("Silver Elegant Waist Clutch has only its 4 silver photos, silver main image", () => {
+    const silver = products.find((p) => p.id === "elegant-waist-clutch-silver");
+    const files = silver?.gallery?.map((g) => g.src.split("/").pop());
+    expect(files).toEqual(["silver-1-front.jpg", "silver-2-side.jpg", "silver-3-open.jpg", "silver-4-worn.png"]);
+    expect(silver?.image).toBe(silver?.gallery?.[0]?.src);
   });
 
-  test("Elegant Waist Clutch is not added to New Arrivals", () => {
+  test("Gold Elegant Waist Clutch has only its 3 gold photos, gold main image", () => {
+    const gold = products.find((p) => p.id === "elegant-waist-clutch-gold");
+    const files = gold?.gallery?.map((g) => g.src.split("/").pop());
+    expect(files).toEqual(["gold-1-front.jpg", "gold-2-open.jpg", "gold-3-worn.png"]);
+    expect(gold?.image).toBe(gold?.gallery?.[0]?.src);
+  });
+
+  test("Elegant Waist Clutch listings are not added to New Arrivals", () => {
     expect(newArrivals().map((p) => p.name)).not.toContain("Elegant Waist Clutch");
   });
 

@@ -19,11 +19,12 @@ export function ProductGrid({ products, showNewBadge = false, className = "mt-14
       <ul className={`${className} grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-14`}>
         {products.map((p) => {
           const saved = wishlist.has(p.id);
+          const label = p.colour ? `${p.name} (${p.colour})` : p.name;
           return (
             <li key={p.id} className="group flex flex-col">
               <div className="relative overflow-hidden rounded-sm bg-card shadow-sm ring-1 ring-gold/15 transition-shadow duration-500 group-hover:shadow-lg">
-                {p.colours ? (
-                  <ProductGallery name={p.name} colours={p.colours} />
+                {p.gallery ? (
+                  <ProductGallery title={p.colour ? `${p.name} — ${p.colour}` : p.name} photos={p.gallery} />
                 ) : p.image ? (
                   <img src={p.image} alt={p.name} width={768} height={960} loading="lazy" className="aspect-[4/5] w-full object-contain p-6 transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
                 ) : (
@@ -37,7 +38,7 @@ export function ProductGrid({ products, showNewBadge = false, className = "mt-14
                   type="button"
                   onClick={() => toggle(p.id)}
                   aria-pressed={saved}
-                  aria-label={saved ? `Remove ${p.name} from wishlist` : `Add ${p.name} to wishlist`}
+                  aria-label={saved ? `Remove ${label} from wishlist` : `Add ${label} to wishlist`}
                   className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-background/85 text-wine shadow-sm backdrop-blur-sm transition-colors hover:bg-background"
                 >
                   <Heart className="h-4 w-4" fill={saved ? "currentColor" : "none"} strokeWidth={1.5} />
@@ -46,6 +47,7 @@ export function ProductGrid({ products, showNewBadge = false, className = "mt-14
               <div className="flex flex-1 flex-col pt-4 text-center">
                 <p className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-gold">{p.category}</p>
                 <h3 className="mt-2 font-display min-h-[3.5rem] text-lg leading-snug text-foreground sm:text-xl">{p.name}</h3>
+                {p.colour && <p className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-foreground/70">{p.colour}</p>}
                 <p className="mt-1 text-sm text-foreground/60">Price to be updated</p>
                 <button
                   type="button"
