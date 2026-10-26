@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
-import type { ProductColour } from "@/lib/products";
+import type { ProductPhoto } from "@/lib/products";
 
-// Main photo + thumbnails for one product, with an optional colour switch.
-// Clicking the main photo opens a large viewer where every photo of the colour can be browsed.
-export function ProductGallery({ name, colours }: { name: string; colours: ProductColour[] }) {
-  const [colourIndex, setColourIndex] = useState(0);
+// Main photo + thumbnails for one product.
+// Clicking the main photo opens a large viewer where every photo can be browsed.
+export function ProductGallery({ title, photos }: { title: string; photos: ProductPhoto[] }) {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [open, setOpen] = useState(false);
-  const colour = colours[colourIndex] ?? colours[0]!;
-  const photos = colour.photos;
   const photo = photos[photoIndex] ?? photos[0]!;
   const step = (d: number) => setPhotoIndex((i) => (i + d + photos.length) % photos.length);
 
@@ -55,31 +52,12 @@ export function ProductGallery({ name, colours }: { name: string; colours: Produ
           <Expand className="h-3.5 w-3.5" strokeWidth={1.5} />
         </span>
       </button>
-      <div className="px-3 pb-3">{thumbs("h-11 w-11 sm:h-12 sm:w-12")}</div>
-
-      {colours.length > 1 && (
-        <div role="group" aria-label="Colour" className="flex justify-center gap-2 px-3 pb-4">
-          {colours.map((c, i) => (
-            <button
-              key={c.name}
-              type="button"
-              aria-pressed={i === colourIndex}
-              onClick={() => {
-                setColourIndex(i);
-                setPhotoIndex(0);
-              }}
-              className={`min-h-9 px-4 text-[0.6rem] font-semibold uppercase tracking-[0.2em] ring-1 transition-colors ${i === colourIndex ? "bg-wine text-wine-foreground ring-wine" : "bg-background text-foreground/75 ring-gold/40 hover:text-wine"}`}
-            >
-              {c.name}
-            </button>
-          ))}
-        </div>
-      )}
+      <div className="px-3 pb-4">{thumbs("h-11 w-11 sm:h-12 sm:w-12")}</div>
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-h-[95vh] w-[calc(100vw-1.5rem)] max-w-4xl gap-4 overflow-y-auto bg-card p-4 sm:p-6">
           <DialogTitle className="pr-8 font-display text-xl font-normal text-foreground sm:text-2xl">
-            {name} — {colour.name}
+            {title}
           </DialogTitle>
           <DialogDescription className="sr-only">
             Photo {photoIndex + 1} of {photos.length}. Use the arrows to see the other photos.
