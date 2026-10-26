@@ -12,17 +12,17 @@ describe("Party & Clutch Bags listing", () => {
     ]);
   });
 
-  test("Silver Elegant Waist Clutch has only its 4 silver photos, silver main image", () => {
+  test("Silver Elegant Waist Clutch has only its 4 silver photos, model photo first", () => {
     const silver = products.find((p) => p.id === "elegant-waist-clutch-silver");
     const files = silver?.gallery?.map((g) => g.src.split("/").pop());
-    expect(files).toEqual(["silver-1-front.jpg", "silver-2-side.jpg", "silver-3-open.jpg", "silver-4-worn.png"]);
+    expect(files).toEqual(["silver-4-worn.png", "silver-1-front.jpg", "silver-2-side.jpg", "silver-3-open.jpg"]);
     expect(silver?.image).toBe(silver?.gallery?.[0]?.src);
   });
 
-  test("Gold Elegant Waist Clutch has only its 3 gold photos, gold main image", () => {
+  test("Gold Elegant Waist Clutch has only its 3 gold photos, model photo first", () => {
     const gold = products.find((p) => p.id === "elegant-waist-clutch-gold");
     const files = gold?.gallery?.map((g) => g.src.split("/").pop());
-    expect(files).toEqual(["gold-1-front.jpg", "gold-2-open.jpg", "gold-3-worn.png"]);
+    expect(files).toEqual(["gold-3-worn.png", "gold-1-front.jpg", "gold-2-open.jpg"]);
     expect(gold?.image).toBe(gold?.gallery?.[0]?.src);
   });
 
