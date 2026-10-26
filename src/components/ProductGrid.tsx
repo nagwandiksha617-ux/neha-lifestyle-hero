@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Heart, ImageIcon, ShoppingBag } from "lucide-react";
 import { InformationDialog } from "@/components/SiteChrome";
+import { ProductGallery } from "@/components/ProductGallery";
 import type { Product } from "@/lib/products";
 
 export function ProductGrid({ products, showNewBadge = false, className = "mt-14" }: { products: Product[]; showNewBadge?: boolean; className?: string }) {
@@ -21,7 +22,9 @@ export function ProductGrid({ products, showNewBadge = false, className = "mt-14
           return (
             <li key={p.id} className="group flex flex-col">
               <div className="relative overflow-hidden rounded-sm bg-card shadow-sm ring-1 ring-gold/15 transition-shadow duration-500 group-hover:shadow-lg">
-                {p.image ? (
+                {p.colours ? (
+                  <ProductGallery name={p.name} colours={p.colours} />
+                ) : p.image ? (
                   <img src={p.image} alt={p.name} width={768} height={960} loading="lazy" className="aspect-[4/5] w-full object-contain p-6 transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
                 ) : (
                   <div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-3 bg-[linear-gradient(160deg,var(--hero-veil-strong),var(--hero-veil))] text-foreground/45">
