@@ -1,6 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { categories } from "@/lib/categories";
-import { TravelGymBags } from "@/components/TravelGymBags";
 
 export const Route = createFileRoute("/category/$slug")({
   loader: ({ params }) => {
@@ -43,12 +42,11 @@ function CategoryPage() {
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-gold">NEHA Lifestyle</p>
         <h1 className="mt-4 font-display text-4xl text-foreground sm:text-5xl">{category.name}</h1>
         <p className="mt-4 text-foreground/75">{category.description}</p>
-        {category.slug !== "travel-gym-bags" && <p className="mt-8 text-sm text-foreground/60">Our collection is coming soon.</p>}
+        <p className="mt-8 text-sm text-foreground/60">Our collection is coming soon.</p>
         <Link to="/" className="mt-8 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-wine hover:text-rose">
           ← Back to home
         </Link>
       </div>
-      {category.slug === "travel-gym-bags" && <TravelGymBags />}
     </main>
   );
 }

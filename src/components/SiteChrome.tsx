@@ -127,7 +127,7 @@ export function SiteFooter() {
           <div>
             <h2 className="font-display text-2xl font-semibold leading-none lg:whitespace-nowrap text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Shop</h2>
             <ul className="mt-4 space-y-1.5">
-              {[{ label: "Bags", slug: "bags" }, { label: "Travel & Gym Bags", slug: "travel-gym-bags" }, { label: "Party & Clutch Bags", slug: "party-clutch-bags" }, { label: "Jewellery", slug: "jewellery" }].map((item) => <li key={item.label}><Link to="/category/$slug" params={{ slug: item.slug }} className={linkClass}>{item.label}</Link></li>)}
+              {[{ label: "Bags", slug: "bags" }, { label: "Party & Clutch Bags", slug: "party-clutch-bags" }, { label: "Jewellery", slug: "jewellery" }].map((item) => <li key={item.label}><Link to="/category/$slug" params={{ slug: item.slug }} className={linkClass}>{item.label}</Link></li>)}
               <li><a href="/#new-arrivals" className={linkClass}>New Arrivals</a></li>
               <li><a href="/#best-sellers" className={linkClass}>Best Sellers</a></li>
             </ul>
