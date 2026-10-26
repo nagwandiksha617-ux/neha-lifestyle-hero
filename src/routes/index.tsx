@@ -57,13 +57,13 @@ function Index() {
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3 sm:mt-8 sm:gap-4">
             <a
-              href="#new-collection"
+              href="#shop-by-category"
               className="inline-flex min-h-12 items-center gap-2 bg-wine px-8 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-wine-foreground shadow-[0_10px_24px_-12px_var(--wine)] ring-1 ring-gold/40 transition-colors hover:bg-rose"
             >
               Shop Now <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
-              href="#bags"
+              href="#new-arrivals"
               className="inline-flex min-h-12 items-center border border-foreground/30 bg-background/60 px-8 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm transition-colors hover:bg-background"
             >
               Explore Collection
