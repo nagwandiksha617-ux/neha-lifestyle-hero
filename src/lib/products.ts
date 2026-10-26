@@ -35,12 +35,12 @@ export const products: Product[] = [
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
     colour: "Silver",
-    image: silver1.url,
+    image: silver4.url,
     gallery: [
+      { src: silver4.url, alt: "Elegant Waist Clutch in silver — worn at the waist" },
       { src: silver1.url, alt: "Elegant Waist Clutch in silver — front view" },
       { src: silver2.url, alt: "Elegant Waist Clutch in silver — side view" },
       { src: silver3.url, alt: "Elegant Waist Clutch in silver — open flap" },
-      { src: silver4.url, alt: "Elegant Waist Clutch in silver — worn at the waist" },
     ],
   },
   {
@@ -49,11 +49,11 @@ export const products: Product[] = [
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
     colour: "Gold",
-    image: gold1.url,
+    image: gold3.url,
     gallery: [
+      { src: gold3.url, alt: "Elegant Waist Clutch in gold — worn at the waist" },
       { src: gold1.url, alt: "Elegant Waist Clutch in gold — front view" },
       { src: gold2.url, alt: "Elegant Waist Clutch in gold — open flap" },
-      { src: gold3.url, alt: "Elegant Waist Clutch in gold — worn at the waist" },
     ],
   },
 ];
