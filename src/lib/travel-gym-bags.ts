@@ -33,7 +33,7 @@ const confirmedGymBagSpecs: BagSpecs = {
 };
 
 const confirmedDescription = (color: string) =>
-  `A handmade ${color.toLowerCase()} duffel bag crafted in synthetic leather. It measures 18 × 9 × 8 inches (L × W × H), weighs 450 g and offers three compartments to keep your essentials organised. The supplier states that the bag is waterproof. Suitable for men and women, for the gym and for travel.`;
+  `A ${color.toLowerCase()} synthetic leather duffel bag for gym sessions and travel. It features three compartments, a handmade finish, and dimensions of 18 × 9 × 8 inches. Weight: 450 g. Waterproofing is stated by the supplier.`;
 
 export const travelGymBagInfo: TravelGymBagInfo[] = [
   {
@@ -42,7 +42,7 @@ export const travelGymBagInfo: TravelGymBagInfo[] = [
     color: "Blue",
     price: 799,
     description:
-      "A blue duffel bag from the NEHA Lifestyle Travel & Gym Bags collection, made for carrying your everyday essentials to the gym or on your travels.",
+      "A blue duffel bag from the NEHA Lifestyle Travel & Gym Bags collection, designed for carrying everyday essentials to the gym or on your travels. Product specifications will be added once confirmed.",
   },
   {
     id: "tg-black",
