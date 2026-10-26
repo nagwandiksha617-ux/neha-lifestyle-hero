@@ -24,6 +24,16 @@ describe("Travel & Gym Bags", () => {
     expect(byColor("Blue").specs).toBeUndefined();
     expect(byColor("Blue").description).not.toMatch(/synthetic|450|waterproof|handmade/i);
   });
+
+  test("exactly three bags: Blue, Black, Brown", () => {
+    expect(travelGymBagInfo.map((b) => b.color)).toEqual(["Blue", "Black", "Brown"]);
+  });
+
+  test("Black description matches the supplied wording", () => {
+    expect(byColor("Black").description).toBe(
+      "A black synthetic leather duffel bag for gym sessions and travel. It features three compartments, a handmade finish, and dimensions of 18 × 9 × 8 inches. Weight: 450 g. Waterproofing is stated by the supplier.",
+    );
+  });
 });
 
 describe("Delivery", () => {

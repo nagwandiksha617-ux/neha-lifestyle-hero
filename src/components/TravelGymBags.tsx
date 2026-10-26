@@ -31,7 +31,7 @@ const specRows = (s: BagSpecs): [string, string][] => [
   ["Waterproof", s.waterproof],
   ["Manufacturing", s.manufacturing],
   ["Suitable for", s.suitableFor],
-  ["Recommended use", s.recommendedUse],
+  ["Intended use", s.recommendedUse],
 ];
 
 function Gallery({ product }: { product: Product }) {
@@ -104,7 +104,7 @@ export function TravelGymBags() {
                   ))}
                 </dl>
               ) : (
-                <p className="text-sm text-foreground/60">Colour: {open.color}. Specifications will be added once confirmed.</p>
+                <p className="text-sm text-foreground/60">Colour: {open.color}</p>
               )}
               <p className="text-sm text-foreground/70">{deliveryEstimateLabel}</p>
             </>
