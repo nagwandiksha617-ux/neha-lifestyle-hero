@@ -21,7 +21,7 @@ const imagesById: Record<string, string[]> = {
   "tg-black": [black1.url, black2.url, black3.url],
   "tg-brown": [brown1.url, brown2.url, brown3.url],
 };
-const products: Product[] = travelGymBagInfo.map((info) => ({ ...info, images: imagesById[info.id] }));
+const products: Product[] = travelGymBagInfo.map((info) => ({ ...info, images: imagesById[info.id] ?? [] }));
 
 const specRows = (s: BagSpecs): [string, string][] => [
   ["Material", s.material],
