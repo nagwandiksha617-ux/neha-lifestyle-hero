@@ -166,6 +166,11 @@
     border-color: var(--color-border);
   }
 
+  /* Keep in-page section links clear of the sticky header. */
+  html {
+    scroll-padding-top: 6rem;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
