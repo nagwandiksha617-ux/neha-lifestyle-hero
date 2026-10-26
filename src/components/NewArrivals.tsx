@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Heart, ImageIcon, ShoppingBag } from "lucide-react";
 import clutch from "@/assets/neha-golden-clutch.png";
+import { InformationDialog } from "@/components/SiteChrome";
 
 // Real product names; prices pending. Photos pending for items with image: null.
 const products = [
@@ -14,6 +15,7 @@ const products = [
 
 export function NewArrivals() {
   const [wishlist, setWishlist] = useState<Set<string>>(new Set());
+  const [topic, setTopic] = useState<string | null>(null);
   const toggle = (id: string) =>
     setWishlist((prev) => {
       const next = new Set(prev);
@@ -62,6 +64,7 @@ export function NewArrivals() {
                   <p className="mt-1 text-sm text-foreground/60">Price to be updated</p>
                   <button
                     type="button"
+                    onClick={() => setTopic("Cart")}
                     className="mx-auto mt-4 inline-flex min-h-11 w-full max-w-60 items-center justify-center gap-2 bg-wine px-4 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-wine-foreground ring-1 ring-gold/40 transition-colors hover:bg-rose sm:text-[0.68rem]"
                   >
                     <ShoppingBag className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" /> Add to Cart
@@ -72,6 +75,7 @@ export function NewArrivals() {
           })}
         </ul>
       </div>
+      <InformationDialog topic={topic} close={() => setTopic(null)} />
     </section>
   );
 }

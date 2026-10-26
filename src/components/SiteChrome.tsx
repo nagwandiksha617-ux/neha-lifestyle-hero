@@ -18,9 +18,10 @@ const navigation = [
   { label: "Contact", info: "Contact" },
 ];
 
-function InformationDialog({ topic, close }: { topic: string | null; close: () => void }) {
+export function InformationDialog({ topic, close }: { topic: string | null; close: () => void }) {
   const descriptions: Record<string, string> = {
     Contact: "Contact details have not been provided yet.",
+    "Contact Us": "Contact details have not been provided yet.",
     FAQ: "Frequently asked questions have not been published yet.",
     Shipping: "Shipping information has not been published yet.",
     Returns: "The returns policy has not been published yet.",
