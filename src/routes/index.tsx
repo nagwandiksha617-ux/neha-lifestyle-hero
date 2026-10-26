@@ -74,7 +74,7 @@ function Index() {
             <span className="mx-auto mt-5 block h-px w-14 bg-gold" aria-hidden="true" />
             <p className="mt-5 text-sm leading-7 text-foreground/75 sm:text-base">Discover bags and jewellery designed to add elegance to every occasion.</p>
           </header>
-          <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {categories.map((c) => (
               <li key={c.slug}>
                 <Link
