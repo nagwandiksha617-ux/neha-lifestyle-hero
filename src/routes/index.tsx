@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { categories } from "@/lib/categories";
 import { NewArrivals } from "@/components/NewArrivals";
-import { ArrowRight, Headphones, RotateCcw, ShieldCheck, Truck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroImage from "../assets/hawa-mahal-hero.jpg";
 
 export const Route = createFileRoute("/")({
@@ -24,12 +24,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const services = [
-  { icon: Truck, label: "Pan India Delivery" },
-  { icon: ShieldCheck, label: "Secure Payments" },
-  { icon: RotateCcw, label: "Easy Returns" },
-  { icon: Headphones, label: "24/7 Customer Support" },
-];
 
 function Index() {
   return (
@@ -71,17 +65,6 @@ function Index() {
           </div>
         </div>
 
-        <ul className="grid grid-cols-2 gap-y-4 bg-wine/90 px-4 py-5 backdrop-blur-sm lg:grid-cols-4 lg:py-6">
-          {services.map(({ icon: Icon, label }) => (
-            <li
-              key={label}
-              className="flex items-center justify-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.18em] text-wine-foreground sm:text-xs"
-            >
-              <Icon className="h-5 w-5 shrink-0 text-gold" strokeWidth={1.3} aria-hidden="true" />
-              {label}
-            </li>
-          ))}
-        </ul>
       </section>
       <section aria-labelledby="shop-by-category" className="bg-background px-6 py-20 sm:py-24 lg:px-12">
         <div className="mx-auto max-w-7xl">
