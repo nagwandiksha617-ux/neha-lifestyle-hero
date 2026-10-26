@@ -11,13 +11,27 @@ import brown1 from "@/assets/travel/brown-1.jpg.asset.json";
 import brown2 from "@/assets/travel/brown-2.jpg.asset.json";
 import brown3 from "@/assets/travel/brown-3.jpg.asset.json";
 
-type Product = { id: string; name: string; color: string; images: string[] };
+import { formatPrice, travelGymBagInfo, type BagSpecs, type TravelGymBagInfo } from "@/lib/travel-gym-bags";
 
-// Travel & Gym Bags only — real product photos, grouped by colour.
-const products: Product[] = [
-  { id: "tg-blue", name: "Travel & Gym Duffel Bag – Blue", color: "Blue", images: [blue3.url, blue1.url, blue2.url] },
-  { id: "tg-black", name: "Travel & Gym Duffel Bag – Black", color: "Black", images: [black1.url, black2.url, black3.url] },
-  { id: "tg-brown", name: "Travel & Gym Duffel Bag – Brown", color: "Brown", images: [brown1.url, brown2.url, brown3.url] },
+type Product = TravelGymBagInfo & { images: string[] };
+
+// Travel & Gym Bags only — real product photos, grouped by colour (cover image first).
+const imagesById: Record<string, string[]> = {
+  "tg-blue": [blue3.url, blue1.url, blue2.url],
+  "tg-black": [black1.url, black2.url, black3.url],
+  "tg-brown": [brown1.url, brown2.url, brown3.url],
+};
+const products: Product[] = travelGymBagInfo.map((info) => ({ ...info, images: imagesById[info.id] }));
+
+const specRows = (s: BagSpecs): [string, string][] => [
+  ["Material", s.material],
+  ["Dimensions", s.dimensions],
+  ["Weight", s.weight],
+  ["Compartments", String(s.compartments)],
+  ["Waterproof", s.waterproof],
+  ["Manufacturing", s.manufacturing],
+  ["Suitable for", s.suitableFor],
+  ["Recommended use", s.recommendedUse],
 ];
 
 function Gallery({ product }: { product: Product }) {
@@ -64,6 +78,7 @@ export function TravelGymBags() {
               <p className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-gold">Travel & Gym Bags</p>
               <h3 className="mt-2 font-display text-lg leading-snug text-foreground sm:text-xl">{p.name}</h3>
               <p className="mt-1 text-sm text-foreground/65">Colour: {p.color}</p>
+              <p className="mt-2 font-display text-xl text-wine">{formatPrice(p.price)}</p>
               <button type="button" onClick={() => setOpen(p)} className="mx-auto mt-4 inline-flex min-h-11 w-full max-w-60 items-center justify-center bg-wine px-4 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-wine-foreground ring-1 ring-gold/40 transition-colors hover:bg-rose">
                 View Details
               </button>
@@ -72,12 +87,25 @@ export function TravelGymBags() {
         ))}
       </ul>
       <Dialog open={open !== null} onOpenChange={(o) => { if (!o) setOpen(null); }}>
-        <DialogContent className="w-[calc(100%-2rem)] max-w-md border-gold/25">
+        <DialogContent className="max-h-[90vh] w-[calc(100%-2rem)] max-w-md overflow-y-auto border-gold/25">
           {open && (
             <>
               <Gallery product={open} />
               <DialogTitle className="font-display text-2xl font-normal text-wine">{open.name}</DialogTitle>
-              <DialogDescription className="leading-7 text-foreground/75">Colour: {open.color}. Price and product details will be updated soon.</DialogDescription>
+              <p className="-mt-2 font-display text-xl text-foreground">{formatPrice(open.price)}</p>
+              <DialogDescription className="leading-7 text-foreground/75">{open.description}</DialogDescription>
+              {open.specs ? (
+                <dl className="divide-y divide-gold/15 border-y border-gold/20 text-sm">
+                  {specRows(open.specs).map(([label, value]) => (
+                    <div key={label} className="flex justify-between gap-4 py-2">
+                      <dt className="text-foreground/60">{label}</dt>
+                      <dd className="text-right text-foreground">{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              ) : (
+                <p className="text-sm text-foreground/60">Colour: {open.color}. Specifications will be added once confirmed.</p>
+              )}
             </>
           )}
         </DialogContent>
