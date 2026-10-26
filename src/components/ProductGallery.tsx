@@ -9,8 +9,9 @@ export function ProductGallery({ name, colours }: { name: string; colours: Produ
   const [colourIndex, setColourIndex] = useState(0);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [open, setOpen] = useState(false);
-  const photos = colours[colourIndex].photos;
-  const photo = photos[photoIndex];
+  const colour = colours[colourIndex] ?? colours[0]!;
+  const photos = colour.photos;
+  const photo = photos[photoIndex] ?? photos[0]!;
   const step = (d: number) => setPhotoIndex((i) => (i + d + photos.length) % photos.length);
 
   useEffect(() => {
@@ -78,7 +79,7 @@ export function ProductGallery({ name, colours }: { name: string; colours: Produ
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-h-[95vh] w-[calc(100vw-1.5rem)] max-w-4xl gap-4 overflow-y-auto bg-card p-4 sm:p-6">
           <DialogTitle className="pr-8 font-display text-xl font-normal text-foreground sm:text-2xl">
-            {name} — {colours[colourIndex].name}
+            {name} — {colour.name}
           </DialogTitle>
           <DialogDescription className="sr-only">
             Photo {photoIndex + 1} of {photos.length}. Use the arrows to see the other photos.

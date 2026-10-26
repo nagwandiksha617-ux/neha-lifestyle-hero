@@ -55,7 +55,7 @@ export const products: Product[] = [
     name: "Elegant Waist Clutch",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
-    image: elegantWaistClutchColours[0].photos[0].src,
+    image: gold1.url,
     colours: elegantWaistClutchColours,
   },
 ];

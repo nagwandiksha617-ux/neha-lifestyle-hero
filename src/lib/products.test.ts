@@ -11,7 +11,7 @@ describe("Party & Clutch Bags listing", () => {
   test("Elegant Waist Clutch is one product with Gold (3 photos) and Silver (4 photos)", () => {
     const matches = products.filter((p) => p.name === "Elegant Waist Clutch");
     expect(matches).toHaveLength(1);
-    expect(matches[0].colours?.map((c) => [c.name, c.photos.length])).toEqual([["Gold", 3], ["Silver", 4]]);
+    expect(matches[0]?.colours?.map((c) => [c.name, c.photos.length])).toEqual([["Gold", 3], ["Silver", 4]]);
   });
 
   test("Elegant Waist Clutch is not added to New Arrivals", () => {
