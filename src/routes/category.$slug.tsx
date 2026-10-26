@@ -1,5 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { categories } from "@/lib/categories";
+import { productsForCategoryPage } from "@/lib/products";
+import { ProductGrid } from "@/components/ProductGrid";
 
 export const Route = createFileRoute("/category/$slug")({
   loader: ({ params }) => {
@@ -36,17 +38,23 @@ export const Route = createFileRoute("/category/$slug")({
 
 function CategoryPage() {
   const { category } = Route.useLoaderData();
+  const listed = productsForCategoryPage(category.slug);
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background px-6 py-20 text-center">
       <div className="max-w-xl">
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-gold">NEHA Lifestyle</p>
         <h1 className="mt-4 font-display text-4xl text-foreground sm:text-5xl">{category.name}</h1>
         <p className="mt-4 text-foreground/75">{category.description}</p>
-        <p className="mt-8 text-sm text-foreground/60">Our collection is coming soon.</p>
+        {listed.length === 0 && <p className="mt-8 text-sm text-foreground/60">Our collection is coming soon.</p>}
         <Link to="/" className="mt-8 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-wine hover:text-rose">
           ← Back to home
         </Link>
       </div>
+      {listed.length > 0 && (
+        <section aria-label={`${category.name} products`} className="mx-auto w-full max-w-7xl">
+          <ProductGrid products={listed} />
+        </section>
+      )}
     </main>
   );
 }
