@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { Heart, ImageIcon, ShoppingBag } from "lucide-react";
-import clutch from "@/assets/neha-golden-clutch.png";
 import { InformationDialog } from "@/components/SiteChrome";
 
 // Real product names; prices pending. Photos pending for items with image: null.
 const products = [
   { id: "na-1", name: "Peacock Pearl Jhumka Earrings", category: "Jewellery", image: null as string | null },
   { id: "na-2", name: "Green Stone Jhumka Earrings", category: "Jewellery", image: null as string | null },
-  { id: "na-3", name: "Golden Traditional Embroidered Clutch", category: "Party & Clutch Bags", image: clutch as string | null },
   { id: "na-4", name: "Silver Shell Embellished Clutch", category: "Party & Clutch Bags", image: null as string | null },
   { id: "na-5", name: "Red & Green Velvet Potli Bag", category: "Potli Bags", image: null as string | null },
   { id: "na-6", name: "Green Pearl Embroidered Potli Bag", category: "Potli Bags", image: null as string | null },
