@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, CreditCard, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, UserRound } from "lucide-react";
+import { ArrowUpRight, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -148,13 +148,6 @@ export function SiteFooter() {
         <div className="relative">
           <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6 py-4 text-center sm:flex-nowrap sm:justify-between sm:px-8 lg:px-12">
             <p className="text-xs font-medium leading-5 text-footer-foreground">© 2026 NEHA Lifestyle. All rights reserved.</p>
-            <ul aria-label="Payment methods" className="flex flex-wrap items-center justify-center gap-x-3.5 gap-y-2 text-footer-foreground">
-              <li className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-footer-foreground">Secure Payments</li>
-              <li className="text-xs font-medium font-semibold">UPI</li>
-              <li className="flex items-center gap-1.5 text-xs font-medium"><CreditCard className="h-5 w-5" strokeWidth={1.3} aria-hidden="true" />Visa</li>
-              <li className="flex items-center gap-1.5 text-xs font-medium"><span className="relative flex w-7" aria-hidden="true"><span className="h-4 w-4 rounded-full border border-gold" /><span className="-ml-1 h-4 w-4 rounded-full border border-footer-accent/70" /></span>Mastercard</li>
-              <li className="text-xs font-medium font-semibold">RuPay</li>
-            </ul>
           </div>
         </div>
       </footer>
