@@ -11,7 +11,7 @@ import brown1 from "@/assets/travel/brown-1.jpg.asset.json";
 import brown2 from "@/assets/travel/brown-2.jpg.asset.json";
 import brown3 from "@/assets/travel/brown-3.jpg.asset.json";
 
-import { formatPrice, travelGymBagInfo, type BagSpecs, type TravelGymBagInfo } from "@/lib/travel-gym-bags";
+import { deliveryEstimateLabel, formatPrice, travelGymBagInfo, type BagSpecs, type TravelGymBagInfo } from "@/lib/travel-gym-bags";
 
 type Product = TravelGymBagInfo & { images: string[] };
 
