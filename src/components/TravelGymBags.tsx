@@ -106,6 +106,7 @@ export function TravelGymBags() {
               ) : (
                 <p className="text-sm text-foreground/60">Colour: {open.color}. Specifications will be added once confirmed.</p>
               )}
+              <p className="text-sm text-foreground/70">{deliveryEstimateLabel}</p>
             </>
           )}
         </DialogContent>
