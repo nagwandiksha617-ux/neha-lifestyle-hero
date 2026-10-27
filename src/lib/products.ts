@@ -113,19 +113,6 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "golden-crescent-handbag",
-    name: "Golden Crescent Handbag",
-    category: "Party & Clutch Bags",
-    categorySlug: "party-clutch-bags",
-    image: crescent1.url,
-    gallery: [
-      { src: crescent1.url, alt: "Golden Crescent Handbag held in hand by a model" },
-      { src: crescent2.url, alt: "Golden Crescent Handbag — stone-studded front view" },
-      { src: crescent3.url, alt: "Golden Crescent Handbag — side view" },
-      { src: crescent4.url, alt: "Golden Crescent Handbag — open top view" },
-    ],
-  },
-  {
     id: "golden-traditional-potli-bag",
     name: "Golden Traditional Potli Bag",
     category: "Party & Clutch Bags",
@@ -138,6 +125,19 @@ export const products: Product[] = [
       { src: gtp2.url, alt: "Golden Traditional Potli Bag — front view with beaded handle" },
       { src: gtp3.url, alt: "Golden Traditional Potli Bag — open view" },
       { src: gtp4.url, alt: "Golden Traditional Potli Bag — full view with hanging chains" },
+    ],
+  },
+  {
+    id: "golden-crescent-handbag",
+    name: "Golden Crescent Handbag",
+    category: "Party & Clutch Bags",
+    categorySlug: "party-clutch-bags",
+    image: crescent1.url,
+    gallery: [
+      { src: crescent1.url, alt: "Golden Crescent Handbag held in hand by a model" },
+      { src: crescent2.url, alt: "Golden Crescent Handbag — stone-studded front view" },
+      { src: crescent3.url, alt: "Golden Crescent Handbag — side view" },
+      { src: crescent4.url, alt: "Golden Crescent Handbag — open top view" },
     ],
   },
 ];

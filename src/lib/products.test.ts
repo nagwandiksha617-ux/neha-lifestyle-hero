@@ -11,8 +11,8 @@ describe("Party & Clutch Bags listing", () => {
       ["Elegant Waist Clutch", "Gold"],
       ["Golden Traditional Designer Potli Bag", undefined],
       ["Silver Potli Bag", undefined],
-      ["Golden Crescent Handbag", undefined],
       ["Golden Traditional Potli Bag", undefined],
+      ["Golden Crescent Handbag", undefined],
     ]);
   });
 
