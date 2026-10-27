@@ -12,6 +12,9 @@ import silver4 from "@/assets/elegant-waist-clutch/silver-4-worn.png.asset.json"
 import potli1 from "@/assets/silver-potli/silver-potli-1-model.png.asset.json";
 import potli2 from "@/assets/silver-potli/silver-potli-2-front.jpg.asset.json";
 import potli3 from "@/assets/silver-potli/silver-potli-3-handle.jpg.asset.json";
+import goldPotli1 from "@/assets/golden-potli/golden-potli-1-hand.png.asset.json";
+import goldPotli2 from "@/assets/golden-potli/golden-potli-2-standalone.png.asset.json";
+import goldPotli3 from "@/assets/golden-potli/golden-potli-3-jewellery.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -62,6 +65,18 @@ export const products: Product[] = [
   {
     id: "golden-traditional-designer-potli-bag",
     name: "Golden Traditional Designer Potli Bag",
+    category: "Party & Clutch Bags",
+    categorySlug: "party-clutch-bags",
+    image: goldPotli1.url,
+    gallery: [
+      { src: goldPotli1.url, alt: "Golden Traditional Designer Potli Bag held in hand" },
+      { src: goldPotli2.url, alt: "Golden Traditional Designer Potli Bag — standalone view" },
+      { src: goldPotli3.url, alt: "Golden Traditional Designer Potli Bag shown with jewellery" },
+    ],
+  },
+  {
+    id: "silver-potli-bag",
+    name: "Silver Potli Bag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
     image: potli1.url,
