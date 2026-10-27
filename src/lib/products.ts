@@ -43,6 +43,7 @@ export type Product = {
   colour?: string; // shown under the name when two listings share a name
   description?: string;
   gallery?: ProductPhoto[]; // first photo is the main image
+  showLastOnCategoryPage?: boolean; // keeps existing category rows in place
 };
 
 export const products: Product[] = [
@@ -66,6 +67,8 @@ export const products: Product[] = [
     id: "na-5",
     name: "Red & Green Velvet Potli Bag",
     category: "Potli Bags",
+    categorySlug: "party-clutch-bags",
+    showLastOnCategoryPage: true,
     image: vp1.url,
     newArrival: true,
     gallery: [
@@ -162,4 +165,8 @@ export const listedCategorySlugs = ["party-clutch-bags"];
 export const newArrivals = () => products.filter((p) => p.newArrival);
 
 export const productsForCategoryPage = (slug: string) =>
-  listedCategorySlugs.includes(slug) ? products.filter((p) => p.categorySlug === slug) : [];
+  listedCategorySlugs.includes(slug)
+    ? products
+        .filter((p) => p.categorySlug === slug)
+        .sort((a, b) => Number(!!a.showLastOnCategoryPage) - Number(!!b.showLastOnCategoryPage))
+    : [];
