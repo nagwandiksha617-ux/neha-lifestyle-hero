@@ -113,19 +113,6 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "golden-crescent-handbag",
-    name: "Golden Crescent Handbag",
-    category: "Party & Clutch Bags",
-    categorySlug: "party-clutch-bags",
-    image: crescent1.url,
-    gallery: [
-      { src: crescent1.url, alt: "Golden Crescent Handbag held in hand by a model" },
-      { src: crescent2.url, alt: "Golden Crescent Handbag — stone-studded front view" },
-      { src: crescent3.url, alt: "Golden Crescent Handbag — side view" },
-      { src: crescent4.url, alt: "Golden Crescent Handbag — open top view" },
-    ],
-  },
-  {
     id: "golden-traditional-potli-bag",
     name: "Golden Traditional Potli Bag",
     category: "Party & Clutch Bags",
@@ -148,4 +135,17 @@ export const listedCategorySlugs = ["party-clutch-bags"];
 export const newArrivals = () => products.filter((p) => p.newArrival);
 
 export const productsForCategoryPage = (slug: string) =>
-  listedCategorySlugs.includes(slug) ? products.filter((p) => p.categorySlug === slug) : [];
+  listedCategorySlugs.includes(slug) ? products.filter((p) => p.categorySlug === slug) : [  {
+    id: "golden-crescent-handbag",
+    name: "Golden Crescent Handbag",
+    category: "Party & Clutch Bags",
+    categorySlug: "party-clutch-bags",
+    image: crescent1.url,
+    gallery: [
+      { src: crescent1.url, alt: "Golden Crescent Handbag held in hand by a model" },
+      { src: crescent2.url, alt: "Golden Crescent Handbag — stone-studded front view" },
+      { src: crescent3.url, alt: "Golden Crescent Handbag — side view" },
+      { src: crescent4.url, alt: "Golden Crescent Handbag — open top view" },
+    ],
+  },
+];
