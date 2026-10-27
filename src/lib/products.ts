@@ -19,7 +19,7 @@ import potli3 from "@/assets/silver-potli/silver-potli-3-handle.jpg.asset.json";
 import goldPotli1 from "@/assets/golden-potli/golden-potli-1-hand.png.asset.json";
 import goldPotli2 from "@/assets/golden-potli/golden-potli-2-standalone.png.asset.json";
 import goldPotli3 from "@/assets/golden-potli/golden-potli-3-jewellery.png.asset.json";
-import crescent1 from "@/assets/golden-crescent/crescent-1-model.png.asset.json";
+import crescent1 from "@/assets/golden-crescent/crescent-1-cream.png.asset.json";
 import crescent2 from "@/assets/golden-crescent/crescent-2-stones.jpg.asset.json";
 import crescent3 from "@/assets/golden-crescent/crescent-3-side.jpg.asset.json";
 import crescent4 from "@/assets/golden-crescent/crescent-4-top.jpg.asset.json";
@@ -169,7 +169,7 @@ export const products: Product[] = [
     categorySlug: "party-clutch-bags",
     image: crescent1.url,
     gallery: [
-      { src: crescent1.url, alt: "Golden Crescent Handbag held in hand by a model" },
+      { src: crescent1.url, alt: "Golden Crescent Handbag held by a model in a cream outfit" },
       { src: crescent2.url, alt: "Golden Crescent Handbag — stone-studded front view" },
       { src: crescent3.url, alt: "Golden Crescent Handbag — side view" },
       { src: crescent4.url, alt: "Golden Crescent Handbag — open top view" },
