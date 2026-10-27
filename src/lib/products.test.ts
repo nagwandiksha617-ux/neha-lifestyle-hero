@@ -10,11 +10,19 @@ describe("Party & Clutch Bags listing", () => {
       ["Elegant Waist Clutch", "Silver"],
       ["Elegant Waist Clutch", "Gold"],
       ["Golden Traditional Designer Potli Bag", undefined],
+      ["Silver Potli Bag", undefined],
     ]);
   });
 
-  test("Golden Potli Bag uses only its 3 original photos: silver photos, model photo first", () => {
+  test("Golden Potli Bag has its 3 golden photos, hand-held photo first", () => {
     const potli = products.find((p) => p.id === "golden-traditional-designer-potli-bag");
+    const files = potli?.gallery?.map((g) => g.src.split("/").pop());
+    expect(files).toEqual(["golden-potli-1-hand.png", "golden-potli-2-standalone.png", "golden-potli-3-jewellery.png"]);
+    expect(potli?.image).toBe(potli?.gallery?.[0]?.src);
+  });
+
+  test("Silver Potli Bag is separate with its 3 silver photos, model photo first", () => {
+    const potli = products.find((p) => p.id === "silver-potli-bag");
     const files = potli?.gallery?.map((g) => g.src.split("/").pop());
     expect(files).toEqual(["silver-potli-1-model.png", "silver-potli-2-front.jpg", "silver-potli-3-handle.jpg"]);
     expect(potli?.image).toBe(potli?.gallery?.[0]?.src);
