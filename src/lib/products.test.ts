@@ -13,10 +13,10 @@ describe("Party & Clutch Bags listing", () => {
     ]);
   });
 
-  test("Golden Potli Bag uses only its 3 original photos: hand-held first, then standalone, jewellery", () => {
+  test("Golden Potli Bag uses only its 3 original photos: silver photos, model photo first", () => {
     const potli = products.find((p) => p.id === "golden-traditional-designer-potli-bag");
     const files = potli?.gallery?.map((g) => g.src.split("/").pop());
-    expect(files).toEqual(["potli-3-hand.png", "potli-2-standalone.png", "potli-4-jewellery.png"]);
+    expect(files).toEqual(["silver-potli-1-model.png", "silver-potli-2-front.jpg", "silver-potli-3-handle.jpg"]);
     expect(potli?.image).toBe(potli?.gallery?.[0]?.src);
   });
 
