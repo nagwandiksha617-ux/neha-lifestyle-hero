@@ -13,6 +13,7 @@ describe("Party & Clutch Bags listing", () => {
       ["Silver Potli Bag", undefined],
       ["Golden Traditional Designer Potli Bag", undefined],
       ["Golden Crescent Handbag", undefined],
+      ["Maroon Potli Bag", undefined],
       ["Red & Green Velvet Potli Bag", undefined],
     ]);
   });
@@ -87,6 +88,13 @@ describe("Party & Clutch Bags listing", () => {
     const bag = products.find((p) => p.id === "na-5");
     expect(bag?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["velvet-potli-1-model.png", "velvet-potli-2-green.png", "velvet-potli-3-green-maroon.jpg"]);
     expect(bag?.image).toBe(bag?.gallery?.[0]?.src);
+  });
+
+  test("Maroon Potli Bag has its 2 photos, model photo first, not in New Arrivals", () => {
+    const bag = products.find((p) => p.id === "maroon-potli-bag");
+    expect(bag?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["maroon-potli-1-model.png", "maroon-potli-2-white.png"]);
+    expect(bag?.image).toBe(bag?.gallery?.[0]?.src);
+    expect(bag?.newArrival).toBeUndefined();
   });
 
   test("New Arrivals keeps its five products in order", () => {

@@ -26,6 +26,8 @@ import crescent4 from "@/assets/golden-crescent/crescent-4-top.jpg.asset.json";
 import vp1 from "@/assets/velvet-potli/velvet-potli-1-model.png.asset.json";
 import vp2 from "@/assets/velvet-potli/velvet-potli-2-green.png.asset.json";
 import vp3 from "@/assets/velvet-potli/velvet-potli-3-green-maroon.jpg.asset.json";
+import mp1 from "@/assets/maroon-potli/maroon-potli-1-model.png.asset.json";
+import mp2 from "@/assets/maroon-potli/maroon-potli-2-white.png.asset.json";
 import gtp1 from "@/assets/golden-traditional-potli/gtp-1-model.png.asset.json";
 import gtp2 from "@/assets/golden-traditional-potli/gtp-2-front.jpg.asset.json";
 import gtp3 from "@/assets/golden-traditional-potli/gtp-3-open.jpg.asset.json";
@@ -155,6 +157,17 @@ export const products: Product[] = [
       { src: crescent2.url, alt: "Golden Crescent Handbag — stone-studded front view" },
       { src: crescent3.url, alt: "Golden Crescent Handbag — side view" },
       { src: crescent4.url, alt: "Golden Crescent Handbag — open top view" },
+    ],
+  },
+  {
+    id: "maroon-potli-bag",
+    name: "Maroon Potli Bag",
+    category: "Party & Clutch Bags",
+    categorySlug: "party-clutch-bags",
+    image: mp1.url,
+    gallery: [
+      { src: mp1.url, alt: "Maroon velvet potli bag with gold filigree held by a model" },
+      { src: mp2.url, alt: "Maroon velvet potli bag on a white background" },
     ],
   },
 ];
