@@ -23,6 +23,9 @@ import crescent1 from "@/assets/golden-crescent/crescent-1-model.png.asset.json"
 import crescent2 from "@/assets/golden-crescent/crescent-2-stones.jpg.asset.json";
 import crescent3 from "@/assets/golden-crescent/crescent-3-side.jpg.asset.json";
 import crescent4 from "@/assets/golden-crescent/crescent-4-top.jpg.asset.json";
+import vp1 from "@/assets/velvet-potli/velvet-potli-1-model.png.asset.json";
+import vp2 from "@/assets/velvet-potli/velvet-potli-2-green.png.asset.json";
+import vp3 from "@/assets/velvet-potli/velvet-potli-3-green-maroon.jpg.asset.json";
 import gtp1 from "@/assets/golden-traditional-potli/gtp-1-model.png.asset.json";
 import gtp2 from "@/assets/golden-traditional-potli/gtp-2-front.jpg.asset.json";
 import gtp3 from "@/assets/golden-traditional-potli/gtp-3-open.jpg.asset.json";
@@ -59,7 +62,18 @@ export const products: Product[] = [
       { src: shell4.url, alt: "Silver Shell Embellished Clutch with chain handle" },
     ],
   },
-  { id: "na-5", name: "Red & Green Velvet Potli Bag", category: "Potli Bags", image: null, newArrival: true },
+  {
+    id: "na-5",
+    name: "Red & Green Velvet Potli Bag",
+    category: "Potli Bags",
+    image: vp1.url,
+    newArrival: true,
+    gallery: [
+      { src: vp1.url, alt: "Green velvet potli bag with gold filigree held by a model in a traditional outfit" },
+      { src: vp2.url, alt: "Green velvet potli bag — gold filigree, beaded handle and hanging beads" },
+      { src: vp3.url, alt: "Green and maroon velvet potli bags shown together" },
+    ],
+  },
   { id: "na-6", name: "Green Pearl Embroidered Potli Bag", category: "Potli Bags", image: null, newArrival: true },
   {
     id: "elegant-waist-clutch-silver",
