@@ -64,10 +64,10 @@ export const products: Product[] = [
     name: "Golden Traditional Designer Potli Bag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
-    image: potli2.url,
+    image: potli3.url,
     gallery: [
-      { src: potli2.url, alt: "Golden Traditional Designer Potli Bag — standalone view" },
       { src: potli3.url, alt: "Golden Traditional Designer Potli Bag held in hand" },
+      { src: potli2.url, alt: "Golden Traditional Designer Potli Bag — standalone view" },
       { src: potli4.url, alt: "Golden Traditional Designer Potli Bag shown with jewellery" },
     ],
   },
