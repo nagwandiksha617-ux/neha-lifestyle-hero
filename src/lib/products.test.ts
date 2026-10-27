@@ -82,6 +82,12 @@ describe("Party & Clutch Bags listing", () => {
     expect(productsForCategoryPage("bags")).toEqual([]);
   });
 
+  test("Red & Green Velvet Potli Bag has its 3 photos, model photo first", () => {
+    const bag = products.find((p) => p.id === "na-5");
+    expect(bag?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["velvet-potli-1-model.png", "velvet-potli-2-green.png", "velvet-potli-3-green-maroon.jpg"]);
+    expect(bag?.image).toBe(bag?.gallery?.[0]?.src);
+  });
+
   test("New Arrivals keeps its five products in order", () => {
     expect(newArrivals().map((p) => p.name)).toEqual([
       "Peacock Pearl Jhumka Earrings",
