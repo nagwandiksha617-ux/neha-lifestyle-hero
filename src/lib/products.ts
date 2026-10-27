@@ -23,6 +23,10 @@ import crescent1 from "@/assets/golden-crescent/crescent-1-model.png.asset.json"
 import crescent2 from "@/assets/golden-crescent/crescent-2-stones.jpg.asset.json";
 import crescent3 from "@/assets/golden-crescent/crescent-3-side.jpg.asset.json";
 import crescent4 from "@/assets/golden-crescent/crescent-4-top.jpg.asset.json";
+import gtp1 from "@/assets/golden-traditional-potli/gtp-1-model.png.asset.json";
+import gtp2 from "@/assets/golden-traditional-potli/gtp-2-front.jpg.asset.json";
+import gtp3 from "@/assets/golden-traditional-potli/gtp-3-open.jpg.asset.json";
+import gtp4 from "@/assets/golden-traditional-potli/gtp-4-front.jpg.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -34,6 +38,7 @@ export type Product = {
   image: string | null;
   newArrival?: boolean;
   colour?: string; // shown under the name when two listings share a name
+  description?: string;
   gallery?: ProductPhoto[]; // first photo is the main image
 };
 
@@ -118,6 +123,21 @@ export const products: Product[] = [
       { src: crescent2.url, alt: "Golden Crescent Handbag — stone-studded front view" },
       { src: crescent3.url, alt: "Golden Crescent Handbag — side view" },
       { src: crescent4.url, alt: "Golden Crescent Handbag — open top view" },
+    ],
+  },
+  {
+    id: "golden-traditional-potli-bag",
+    name: "Golden Traditional Potli Bag",
+    category: "Party & Clutch Bags",
+    categorySlug: "party-clutch-bags",
+    description:
+      "An elegant golden traditional potli bag featuring intricate gold-tone detailing, decorative beads, an ornate design, and hanging chain embellishments. Perfect for weddings, festive occasions, parties, and ethnic outfits.",
+    image: gtp1.url,
+    gallery: [
+      { src: gtp1.url, alt: "Golden Traditional Potli Bag held by a model" },
+      { src: gtp2.url, alt: "Golden Traditional Potli Bag — front view with beaded handle" },
+      { src: gtp3.url, alt: "Golden Traditional Potli Bag — open view" },
+      { src: gtp4.url, alt: "Golden Traditional Potli Bag — full view with hanging chains" },
     ],
   },
 ];

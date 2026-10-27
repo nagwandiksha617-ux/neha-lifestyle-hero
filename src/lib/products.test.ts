@@ -12,7 +12,15 @@ describe("Party & Clutch Bags listing", () => {
       ["Golden Traditional Designer Potli Bag", undefined],
       ["Silver Potli Bag", undefined],
       ["Golden Crescent Handbag", undefined],
+      ["Golden Traditional Potli Bag", undefined],
     ]);
+  });
+
+  test("Golden Traditional Potli Bag has its 4 photos, model photo first, price pending", () => {
+    const bag = products.find((p) => p.id === "golden-traditional-potli-bag");
+    expect(bag?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["gtp-1-model.png", "gtp-2-front.jpg", "gtp-3-open.jpg", "gtp-4-front.jpg"]);
+    expect(bag?.image).toBe(bag?.gallery?.[0]?.src);
+    expect(bag?.newArrival).toBeUndefined();
   });
 
   test("Golden Crescent Handbag has its 4 photos, model photo first", () => {
