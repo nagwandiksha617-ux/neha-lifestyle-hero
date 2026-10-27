@@ -97,9 +97,9 @@ describe("Party & Clutch Bags listing", () => {
     expect(bag?.newArrival).toBeUndefined();
   });
 
-  test("Green Pearl Embroidered Potli Bag has its 4 photos, light background first", () => {
+  test("Green Pearl Embroidered Potli Bag has its 4 photos, dark background first", () => {
     const bag = products.find((p) => p.id === "na-6");
-    expect(bag?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["gpp-1-light.png", "gpp-2-side.png", "gpp-3-back.png", "gpp-4-dark.png"]);
+    expect(bag?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["gpp-4-dark.png", "gpp-1-light.png", "gpp-2-side.png", "gpp-3-back.png"]);
     expect(bag?.image).toBe(bag?.gallery?.[0]?.src);
   });
 
