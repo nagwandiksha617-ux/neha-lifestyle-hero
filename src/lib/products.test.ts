@@ -97,6 +97,12 @@ describe("Party & Clutch Bags listing", () => {
     expect(bag?.newArrival).toBeUndefined();
   });
 
+  test("Green Pearl Embroidered Potli Bag has its 4 photos, light background first", () => {
+    const bag = products.find((p) => p.id === "na-6");
+    expect(bag?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["gpp-1-light.png", "gpp-2-side.png", "gpp-3-back.png", "gpp-4-dark.png"]);
+    expect(bag?.image).toBe(bag?.gallery?.[0]?.src);
+  });
+
   test("New Arrivals keeps its five products in order", () => {
     expect(newArrivals().map((p) => p.name)).toEqual([
       "Peacock Pearl Jhumka Earrings",
