@@ -13,6 +13,7 @@ describe("Party & Clutch Bags listing", () => {
       ["Silver Potli Bag", undefined],
       ["Golden Traditional Designer Potli Bag", undefined],
       ["Golden Crescent Handbag", undefined],
+      ["Red & Green Velvet Potli Bag", undefined],
     ]);
   });
 
