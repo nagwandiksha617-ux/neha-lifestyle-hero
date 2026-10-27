@@ -87,13 +87,13 @@ export const products: Product[] = [
     id: "na-6",
     name: "Green Pearl Embroidered Potli Bag",
     category: "Potli Bags",
-    image: gpp1.url,
+    image: gpp4.url,
     newArrival: true,
     gallery: [
+      { src: gpp4.url, alt: "Green pearl-embroidered potli bag on a dark luxurious background" },
       { src: gpp1.url, alt: "Green pearl-embroidered potli bag on a soft light background" },
       { src: gpp2.url, alt: "Green pearl-embroidered potli bag — side view on white" },
       { src: gpp3.url, alt: "Green pearl-embroidered potli bag — back view on white" },
-      { src: gpp4.url, alt: "Green pearl-embroidered potli bag on a dark luxurious background" },
     ],
   },
   {
