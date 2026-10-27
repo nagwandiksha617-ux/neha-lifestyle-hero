@@ -9,6 +9,10 @@ import silver1 from "@/assets/elegant-waist-clutch/silver-1-front.jpg.asset.json
 import silver2 from "@/assets/elegant-waist-clutch/silver-2-side.jpg.asset.json";
 import silver3 from "@/assets/elegant-waist-clutch/silver-3-open.jpg.asset.json";
 import silver4 from "@/assets/elegant-waist-clutch/silver-4-worn.png.asset.json";
+import potliModel from "@/assets/golden-potli/model.jpg";
+import potli2 from "@/assets/golden-potli/potli-2-standalone.png.asset.json";
+import potli3 from "@/assets/golden-potli/potli-3-hand.png.asset.json";
+import potli4 from "@/assets/golden-potli/potli-4-jewellery.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -54,6 +58,19 @@ export const products: Product[] = [
       { src: gold3.url, alt: "Elegant Waist Clutch in gold — worn at the waist" },
       { src: gold1.url, alt: "Elegant Waist Clutch in gold — front view" },
       { src: gold2.url, alt: "Elegant Waist Clutch in gold — open flap" },
+    ],
+  },
+  {
+    id: "golden-traditional-designer-potli-bag",
+    name: "Golden Traditional Designer Potli Bag",
+    category: "Party & Clutch Bags",
+    categorySlug: "party-clutch-bags",
+    image: potliModel,
+    gallery: [
+      { src: potliModel, alt: "Golden Traditional Designer Potli Bag held by a model in a blush lehenga" },
+      { src: potli2.url, alt: "Golden Traditional Designer Potli Bag — standalone view" },
+      { src: potli3.url, alt: "Golden Traditional Designer Potli Bag held in hand" },
+      { src: potli4.url, alt: "Golden Traditional Designer Potli Bag shown with jewellery" },
     ],
   },
 ];

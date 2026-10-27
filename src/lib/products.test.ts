@@ -9,7 +9,17 @@ describe("Party & Clutch Bags listing", () => {
       ["Silver Shell Embellished Clutch", undefined],
       ["Elegant Waist Clutch", "Silver"],
       ["Elegant Waist Clutch", "Gold"],
+      ["Golden Traditional Designer Potli Bag", undefined],
     ]);
+  });
+
+  test("Golden Potli Bag gallery: model photo first, then standalone, hand-held, jewellery", () => {
+    const potli = products.find((p) => p.id === "golden-traditional-designer-potli-bag");
+    const files = potli?.gallery?.slice(1).map((g) => g.src.split("/").pop());
+    expect(potli?.gallery?.length).toBe(4);
+    expect(potli?.gallery?.[0]?.alt).toContain("model");
+    expect(files).toEqual(["potli-2-standalone.png", "potli-3-hand.png", "potli-4-jewellery.png"]);
+    expect(potli?.image).toBe(potli?.gallery?.[0]?.src);
   });
 
   test("Silver Elegant Waist Clutch has only its 4 silver photos, model photo first", () => {
