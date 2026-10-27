@@ -32,6 +32,10 @@ import gtp1 from "@/assets/golden-traditional-potli/gtp-1-model.png.asset.json";
 import gtp2 from "@/assets/golden-traditional-potli/gtp-2-front.jpg.asset.json";
 import gtp3 from "@/assets/golden-traditional-potli/gtp-3-open.jpg.asset.json";
 import gtp4 from "@/assets/golden-traditional-potli/gtp-4-front.jpg.asset.json";
+import gpp1 from "@/assets/green-pearl-potli/gpp-1-light.png.asset.json";
+import gpp2 from "@/assets/green-pearl-potli/gpp-2-side.png.asset.json";
+import gpp3 from "@/assets/green-pearl-potli/gpp-3-back.png.asset.json";
+import gpp4 from "@/assets/green-pearl-potli/gpp-4-dark.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -79,7 +83,19 @@ export const products: Product[] = [
       { src: vp3.url, alt: "Green and maroon velvet potli bags shown together" },
     ],
   },
-  { id: "na-6", name: "Green Pearl Embroidered Potli Bag", category: "Potli Bags", image: null, newArrival: true },
+  {
+    id: "na-6",
+    name: "Green Pearl Embroidered Potli Bag",
+    category: "Potli Bags",
+    image: gpp1.url,
+    newArrival: true,
+    gallery: [
+      { src: gpp1.url, alt: "Green pearl-embroidered potli bag on a soft light background" },
+      { src: gpp2.url, alt: "Green pearl-embroidered potli bag — side view on white" },
+      { src: gpp3.url, alt: "Green pearl-embroidered potli bag — back view on white" },
+      { src: gpp4.url, alt: "Green pearl-embroidered potli bag on a dark luxurious background" },
+    ],
+  },
   {
     id: "elegant-waist-clutch-silver",
     name: "Elegant Waist Clutch",
