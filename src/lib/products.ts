@@ -9,6 +9,10 @@ import silver1 from "@/assets/elegant-waist-clutch/silver-1-front.jpg.asset.json
 import silver2 from "@/assets/elegant-waist-clutch/silver-2-side.jpg.asset.json";
 import silver3 from "@/assets/elegant-waist-clutch/silver-3-open.jpg.asset.json";
 import silver4 from "@/assets/elegant-waist-clutch/silver-4-worn.png.asset.json";
+import shell1 from "@/assets/silver-shell-clutch/shell-1-model.png.asset.json";
+import shell2 from "@/assets/silver-shell-clutch/shell-2-open.jpg.asset.json";
+import shell3 from "@/assets/silver-shell-clutch/shell-3-angled.jpg.asset.json";
+import shell4 from "@/assets/silver-shell-clutch/shell-4-chain.jpg.asset.json";
 import potli1 from "@/assets/silver-potli/silver-potli-1-model.png.asset.json";
 import potli2 from "@/assets/silver-potli/silver-potli-2-front.jpg.asset.json";
 import potli3 from "@/assets/silver-potli/silver-potli-3-handle.jpg.asset.json";
@@ -32,7 +36,20 @@ export type Product = {
 export const products: Product[] = [
   { id: "na-1", name: "Peacock Pearl Jhumka Earrings", category: "Jewellery", categorySlug: "jewellery", image: null, newArrival: true },
   { id: "na-2", name: "Green Stone Jhumka Earrings", category: "Jewellery", categorySlug: "jewellery", image: null, newArrival: true },
-  { id: "na-4", name: "Silver Shell Embellished Clutch", category: "Party & Clutch Bags", categorySlug: "party-clutch-bags", image: null, newArrival: true },
+  {
+    id: "na-4",
+    name: "Silver Shell Embellished Clutch",
+    category: "Party & Clutch Bags",
+    categorySlug: "party-clutch-bags",
+    image: shell1.url,
+    newArrival: true,
+    gallery: [
+      { src: shell1.url, alt: "Silver Shell Embellished Clutch held by a model" },
+      { src: shell2.url, alt: "Silver Shell Embellished Clutch — open view" },
+      { src: shell3.url, alt: "Silver Shell Embellished Clutch — front angled view" },
+      { src: shell4.url, alt: "Silver Shell Embellished Clutch with chain handle" },
+    ],
+  },
   { id: "na-5", name: "Red & Green Velvet Potli Bag", category: "Potli Bags", image: null, newArrival: true },
   { id: "na-6", name: "Green Pearl Embroidered Potli Bag", category: "Potli Bags", image: null, newArrival: true },
   {

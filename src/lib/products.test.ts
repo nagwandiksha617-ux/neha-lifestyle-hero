@@ -28,6 +28,13 @@ describe("Party & Clutch Bags listing", () => {
     expect(potli?.image).toBe(potli?.gallery?.[0]?.src);
   });
 
+  test("Silver Shell Embellished Clutch has its 4 photos in order, model photo first", () => {
+    const shell = products.find((p) => p.id === "na-4");
+    expect(shell?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["shell-1-model.png", "shell-2-open.jpg", "shell-3-angled.jpg", "shell-4-chain.jpg"]);
+    expect(shell?.image).toBe(shell?.gallery?.[0]?.src);
+    expect(shell?.categorySlug).toBe("party-clutch-bags");
+  });
+
   test("Silver Elegant Waist Clutch has only its 4 silver photos, model photo first", () => {
     const silver = products.find((p) => p.id === "elegant-waist-clutch-silver");
     const files = silver?.gallery?.map((g) => g.src.split("/").pop());
