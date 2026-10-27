@@ -89,15 +89,18 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "golden-traditional-designer-potli-bag",
-    name: "Golden Traditional Designer Potli Bag",
+    id: "golden-traditional-potli-bag",
+    name: "Golden Traditional Potli Bag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
-    image: goldPotli1.url,
+    description:
+      "An elegant golden traditional potli bag featuring intricate gold-tone detailing, decorative beads, an ornate design, and hanging chain embellishments. Perfect for weddings, festive occasions, parties, and ethnic outfits.",
+    image: gtp1.url,
     gallery: [
-      { src: goldPotli1.url, alt: "Golden Traditional Designer Potli Bag held in hand" },
-      { src: goldPotli2.url, alt: "Golden Traditional Designer Potli Bag — standalone view" },
-      { src: goldPotli3.url, alt: "Golden Traditional Designer Potli Bag shown with jewellery" },
+      { src: gtp1.url, alt: "Golden Traditional Potli Bag held by a model" },
+      { src: gtp2.url, alt: "Golden Traditional Potli Bag — front view with beaded handle" },
+      { src: gtp3.url, alt: "Golden Traditional Potli Bag — open view" },
+      { src: gtp4.url, alt: "Golden Traditional Potli Bag — full view with hanging chains" },
     ],
   },
   {
@@ -113,18 +116,15 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "golden-traditional-potli-bag",
-    name: "Golden Traditional Potli Bag",
+    id: "golden-traditional-designer-potli-bag",
+    name: "Golden Traditional Designer Potli Bag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
-    description:
-      "An elegant golden traditional potli bag featuring intricate gold-tone detailing, decorative beads, an ornate design, and hanging chain embellishments. Perfect for weddings, festive occasions, parties, and ethnic outfits.",
-    image: gtp1.url,
+    image: goldPotli1.url,
     gallery: [
-      { src: gtp1.url, alt: "Golden Traditional Potli Bag held by a model" },
-      { src: gtp2.url, alt: "Golden Traditional Potli Bag — front view with beaded handle" },
-      { src: gtp3.url, alt: "Golden Traditional Potli Bag — open view" },
-      { src: gtp4.url, alt: "Golden Traditional Potli Bag — full view with hanging chains" },
+      { src: goldPotli1.url, alt: "Golden Traditional Designer Potli Bag held in hand" },
+      { src: goldPotli2.url, alt: "Golden Traditional Designer Potli Bag — standalone view" },
+      { src: goldPotli3.url, alt: "Golden Traditional Designer Potli Bag shown with jewellery" },
     ],
   },
   {
