@@ -24,7 +24,7 @@ describe("Party & Clutch Bags listing", () => {
   test("Silver Potli Bag is separate with its 3 silver photos, model photo first", () => {
     const potli = products.find((p) => p.id === "silver-potli-bag");
     const files = potli?.gallery?.map((g) => g.src.split("/").pop());
-    expect(files).toEqual(["silver-potli-1-model.png", "silver-potli-2-front.jpg", "silver-potli-3-handle.jpg"]);
+    expect(files).toEqual(["silver-potli-1-model-pink.png", "silver-potli-2-front.jpg", "silver-potli-3-handle.jpg"]);
     expect(potli?.image).toBe(potli?.gallery?.[0]?.src);
   });
 

@@ -13,7 +13,7 @@ import shell1 from "@/assets/silver-shell-clutch/shell-1-model.png.asset.json";
 import shell2 from "@/assets/silver-shell-clutch/shell-2-open.jpg.asset.json";
 import shell3 from "@/assets/silver-shell-clutch/shell-3-angled.jpg.asset.json";
 import shell4 from "@/assets/silver-shell-clutch/shell-4-chain.jpg.asset.json";
-import potli1 from "@/assets/silver-potli/silver-potli-1-model.png.asset.json";
+import potli1 from "@/assets/silver-potli/silver-potli-1-model-pink.png.asset.json";
 import potli2 from "@/assets/silver-potli/silver-potli-2-front.jpg.asset.json";
 import potli3 from "@/assets/silver-potli/silver-potli-3-handle.jpg.asset.json";
 import goldPotli1 from "@/assets/golden-potli/golden-potli-1-hand.png.asset.json";
@@ -98,7 +98,7 @@ export const products: Product[] = [
     categorySlug: "party-clutch-bags",
     image: potli1.url,
     gallery: [
-      { src: potli1.url, alt: "Silver potli bag held by a model in a green outfit" },
+      { src: potli1.url, alt: "Silver potli bag held by a model in a pink outfit" },
       { src: potli2.url, alt: "Silver potli bag — front view" },
       { src: potli3.url, alt: "Silver potli bag — full view with beaded handle" },
     ],
