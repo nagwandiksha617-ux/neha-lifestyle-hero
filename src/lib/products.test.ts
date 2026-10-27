@@ -11,7 +11,14 @@ describe("Party & Clutch Bags listing", () => {
       ["Elegant Waist Clutch", "Gold"],
       ["Golden Traditional Designer Potli Bag", undefined],
       ["Silver Potli Bag", undefined],
+      ["Golden Crescent Handbag", undefined],
     ]);
+  });
+
+  test("Golden Crescent Handbag has its 4 photos, model photo first", () => {
+    const bag = products.find((p) => p.id === "golden-crescent-handbag");
+    expect(bag?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["crescent-1-model.png", "crescent-2-stones.jpg", "crescent-3-side.jpg", "crescent-4-top.jpg"]);
+    expect(bag?.image).toBe(bag?.gallery?.[0]?.src);
   });
 
   test("Golden Potli Bag has its 3 golden photos, hand-held photo first", () => {
