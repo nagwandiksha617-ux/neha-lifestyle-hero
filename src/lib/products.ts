@@ -127,15 +127,7 @@ export const products: Product[] = [
       { src: gtp4.url, alt: "Golden Traditional Potli Bag — full view with hanging chains" },
     ],
   },
-];
-
-// Category pages that list their products. Others keep their "coming soon" note.
-export const listedCategorySlugs = ["party-clutch-bags"];
-
-export const newArrivals = () => products.filter((p) => p.newArrival);
-
-export const productsForCategoryPage = (slug: string) =>
-  listedCategorySlugs.includes(slug) ? products.filter((p) => p.categorySlug === slug) : [  {
+  {
     id: "golden-crescent-handbag",
     name: "Golden Crescent Handbag",
     category: "Party & Clutch Bags",
@@ -149,3 +141,11 @@ export const productsForCategoryPage = (slug: string) =>
     ],
   },
 ];
+
+// Category pages that list their products. Others keep their "coming soon" note.
+export const listedCategorySlugs = ["party-clutch-bags"];
+
+export const newArrivals = () => products.filter((p) => p.newArrival);
+
+export const productsForCategoryPage = (slug: string) =>
+  listedCategorySlugs.includes(slug) ? products.filter((p) => p.categorySlug === slug) : [];
