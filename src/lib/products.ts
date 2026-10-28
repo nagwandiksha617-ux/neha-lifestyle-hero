@@ -56,6 +56,9 @@ import bbs3 from "@/assets/brown-beige-shoulder/bbs-3-back.png.asset.json";
 import sbc1 from "@/assets/sky-blue-crossbody/sbc-1-model.png.asset.json";
 import sbc2 from "@/assets/sky-blue-crossbody/sbc-2-front.png.asset.json";
 import sbc3 from "@/assets/sky-blue-crossbody/sbc-3-back.png.asset.json";
+import cbt1 from "@/assets/cream-beige-tote/cbt-1-lifestyle.png.asset.json";
+import cbt2 from "@/assets/cream-beige-tote/cbt-2-back.png.asset.json";
+import cbt3 from "@/assets/cream-beige-tote/cbt-3-side.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -288,6 +291,18 @@ export const products: Product[] = [
       { src: sbc1.url, alt: "Sky blue crossbody bag with mini pouch worn by a model" },
       { src: sbc2.url, alt: "Sky blue crossbody bag with mini pouch — front view" },
       { src: sbc3.url, alt: "Sky blue crossbody bag with mini pouch — back view" },
+    ],
+  },
+  {
+    id: "cream-beige-tote-bag-gold-chain",
+    bagCategorySlug: "tote-bags",
+    name: "Cream Beige Tote Bag with Gold Chain Handles",
+    category: "Tote Bags",
+    image: cbt1.url,
+    gallery: [
+      { src: cbt1.url, alt: "Cream beige tote bag with gold chain handles styled on satin" },
+      { src: cbt2.url, alt: "Cream beige tote bag with gold chain handles — back view" },
+      { src: cbt3.url, alt: "Cream beige tote bag with gold chain handles — side view" },
     ],
   },
 ];
