@@ -39,6 +39,13 @@ import gpp4 from "@/assets/green-pearl-potli/gpp-4-dark.png.asset.json";
 import bcc1 from "@/assets/brown-checkered-crossbody/bcc-1-model.png.asset.json";
 import bcc2 from "@/assets/brown-checkered-crossbody/bcc-2-front.png.asset.json";
 import bcc3 from "@/assets/brown-checkered-crossbody/bcc-3-back.png.asset.json";
+import bpc1 from "@/assets/blue-printed-crossbody/bpc-1-model.png.asset.json";
+import bpc2 from "@/assets/blue-printed-crossbody/bpc-2-front.png.asset.json";
+import bpc3 from "@/assets/blue-printed-crossbody/bpc-3-back.png.asset.json";
+import bpc4 from "@/assets/blue-printed-crossbody/bpc-4-side.png.asset.json";
+import wcc1 from "@/assets/white-checkered-crossbody/wcc-1-model.png.asset.json";
+import wcc2 from "@/assets/white-checkered-crossbody/wcc-2-front.png.asset.json";
+import wcc3 from "@/assets/white-checkered-crossbody/wcc-3-back.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -209,6 +216,31 @@ export const products: Product[] = [
       { src: bcc1.url, alt: "Brown checkered crossbody bag with mini pouch worn by a model" },
       { src: bcc2.url, alt: "Brown checkered crossbody bag with mini pouch — front view" },
       { src: bcc3.url, alt: "Brown checkered crossbody bag with mini pouch — back view" },
+    ],
+  },
+  {
+    id: "blue-printed-crossbody-bag",
+    bagCategorySlug: "handbags",
+    name: "Blue Printed Crossbody Bag with Mini Pouch",
+    category: "Handbags",
+    image: bpc1.url,
+    gallery: [
+      { src: bpc1.url, alt: "Blue printed crossbody bag with mini pouch worn by a model" },
+      { src: bpc2.url, alt: "Blue printed crossbody bag with mini pouch — front view" },
+      { src: bpc3.url, alt: "Blue printed crossbody bag with mini pouch — back view" },
+      { src: bpc4.url, alt: "Blue printed crossbody bag with mini pouch — side view" },
+    ],
+  },
+  {
+    id: "white-checkered-crossbody-bag",
+    bagCategorySlug: "handbags",
+    name: "White Checkered Crossbody Bag with Mini Pouch",
+    category: "Handbags",
+    image: wcc1.url,
+    gallery: [
+      { src: wcc1.url, alt: "White checkered crossbody bag with mini pouch worn by a model" },
+      { src: wcc2.url, alt: "White checkered crossbody bag with mini pouch — front view" },
+      { src: wcc3.url, alt: "White checkered crossbody bag with mini pouch — back view" },
     ],
   },
 ];
