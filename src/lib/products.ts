@@ -36,6 +36,9 @@ import gpp1 from "@/assets/green-pearl-potli/gpp-1-light.png.asset.json";
 import gpp2 from "@/assets/green-pearl-potli/gpp-2-side.png.asset.json";
 import gpp3 from "@/assets/green-pearl-potli/gpp-3-back.png.asset.json";
 import gpp4 from "@/assets/green-pearl-potli/gpp-4-dark.png.asset.json";
+import bcc1 from "@/assets/brown-checkered-crossbody/bcc-1-model.png.asset.json";
+import bcc2 from "@/assets/brown-checkered-crossbody/bcc-2-front.png.asset.json";
+import bcc3 from "@/assets/brown-checkered-crossbody/bcc-3-back.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -194,6 +197,18 @@ export const products: Product[] = [
     gallery: [
       { src: mp1.url, alt: "Maroon velvet potli bag with gold filigree held by a model" },
       { src: mp2.url, alt: "Maroon velvet potli bag on a white background" },
+    ],
+  },
+  {
+    id: "brown-checkered-crossbody-bag",
+    bagCategorySlug: "handbags",
+    name: "Brown Checkered Crossbody Bag with Mini Pouch",
+    category: "Handbags",
+    image: bcc1.url,
+    gallery: [
+      { src: bcc1.url, alt: "Brown checkered crossbody bag with mini pouch worn by a model" },
+      { src: bcc2.url, alt: "Brown checkered crossbody bag with mini pouch — front view" },
+      { src: bcc3.url, alt: "Brown checkered crossbody bag with mini pouch — back view" },
     ],
   },
 ];
