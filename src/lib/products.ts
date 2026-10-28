@@ -53,6 +53,9 @@ import obs4 from "@/assets/olive-beige-shoulder/obs-4-bottom.png.asset.json";
 import bbs1 from "@/assets/brown-beige-shoulder/bbs-1-model.png.asset.json";
 import bbs2 from "@/assets/brown-beige-shoulder/bbs-2-front.png.asset.json";
 import bbs3 from "@/assets/brown-beige-shoulder/bbs-3-back.png.asset.json";
+import sbc1 from "@/assets/sky-blue-crossbody/sbc-1-model.png.asset.json";
+import sbc2 from "@/assets/sky-blue-crossbody/sbc-2-front.png.asset.json";
+import sbc3 from "@/assets/sky-blue-crossbody/sbc-3-back.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -273,6 +276,18 @@ export const products: Product[] = [
       { src: bbs1.url, alt: "Brown and beige printed shoulder bag worn by a model" },
       { src: bbs2.url, alt: "Brown and beige printed shoulder bag — front view" },
       { src: bbs3.url, alt: "Brown and beige printed shoulder bag — back view" },
+    ],
+  },
+  {
+    id: "sky-blue-crossbody-bag",
+    bagCategorySlug: "handbags",
+    name: "Sky Blue Crossbody Bag with Mini Pouch",
+    category: "Handbags",
+    image: sbc1.url,
+    gallery: [
+      { src: sbc1.url, alt: "Sky blue crossbody bag with mini pouch worn by a model" },
+      { src: sbc2.url, alt: "Sky blue crossbody bag with mini pouch — front view" },
+      { src: sbc3.url, alt: "Sky blue crossbody bag with mini pouch — back view" },
     ],
   },
 ];
