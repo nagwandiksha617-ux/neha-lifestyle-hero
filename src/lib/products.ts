@@ -46,6 +46,10 @@ import bpc4 from "@/assets/blue-printed-crossbody/bpc-4-side.png.asset.json";
 import wcc1 from "@/assets/white-checkered-crossbody/wcc-1-model.png.asset.json";
 import wcc2 from "@/assets/white-checkered-crossbody/wcc-2-front.png.asset.json";
 import wcc3 from "@/assets/white-checkered-crossbody/wcc-3-back.png.asset.json";
+import obs1 from "@/assets/olive-beige-shoulder/obs-1-model.png.asset.json";
+import obs2 from "@/assets/olive-beige-shoulder/obs-2-front.png.asset.json";
+import obs3 from "@/assets/olive-beige-shoulder/obs-3-back.png.asset.json";
+import obs4 from "@/assets/olive-beige-shoulder/obs-4-bottom.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -241,6 +245,19 @@ export const products: Product[] = [
       { src: wcc1.url, alt: "White checkered crossbody bag with mini pouch worn by a model" },
       { src: wcc2.url, alt: "White checkered crossbody bag with mini pouch — front view" },
       { src: wcc3.url, alt: "White checkered crossbody bag with mini pouch — back view" },
+    ],
+  },
+  {
+    id: "olive-green-beige-printed-shoulder-bag",
+    bagCategorySlug: "handbags",
+    name: "Olive Green Beige Printed Shoulder Bag",
+    category: "Handbags",
+    image: obs1.url,
+    gallery: [
+      { src: obs1.url, alt: "Olive green and beige printed shoulder bag worn by a model" },
+      { src: obs2.url, alt: "Olive green and beige printed shoulder bag — front view" },
+      { src: obs3.url, alt: "Olive green and beige printed shoulder bag — back view" },
+      { src: obs4.url, alt: "Olive green and beige printed shoulder bag — bottom view" },
     ],
   },
 ];
