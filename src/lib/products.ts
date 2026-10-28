@@ -59,10 +59,11 @@ import sbc3 from "@/assets/sky-blue-crossbody/sbc-3-back.png.asset.json";
 import cbt1 from "@/assets/cream-beige-tote/cbt-1-lifestyle.png.asset.json";
 import cbt2 from "@/assets/cream-beige-tote/cbt-2-back.png.asset.json";
 import cbt3 from "@/assets/cream-beige-tote/cbt-3-side.png.asset.json";
-import bbt1 from "@/assets/beige-black-tote/bbt-1-model.png.asset.json";
-import bbt2 from "@/assets/beige-black-tote/bbt-2-front.png.asset.json";
-import bbt3 from "@/assets/beige-black-tote/bbt-3-back.png.asset.json";
-import bbt4 from "@/assets/beige-black-tote/bbt-4-bottom.png.asset.json";
+import bbt1 from "@/assets/beige-black-tote/bbt-d1-front.png.asset.json";
+import bbt2 from "@/assets/beige-black-tote/bbt-d2-side.png.asset.json";
+import bbt3 from "@/assets/beige-black-tote/bbt-d3-bottom.png.asset.json";
+import bbt4 from "@/assets/beige-black-tote/bbt-d4-model.png.asset.json";
+import bbt5 from "@/assets/beige-black-tote/bbt-d5-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -316,10 +317,11 @@ export const products: Product[] = [
     category: "Tote Bags",
     image: bbt1.url,
     gallery: [
-      { src: bbt1.url, alt: "Beige and black printed tote bag carried by a model in a black blazer and white trousers" },
-      { src: bbt2.url, alt: "Beige and black printed tote bag with black handles — front view" },
-      { src: bbt3.url, alt: "Beige and black printed tote bag — handles lowered view" },
-      { src: bbt4.url, alt: "Beige and black printed tote bag — bottom view" },
+      { src: bbt1.url, alt: "Beige and black printed tote bag with black handles — front view" },
+      { src: bbt2.url, alt: "Beige and black printed tote bag — side view" },
+      { src: bbt3.url, alt: "Beige and black printed tote bag — bottom view" },
+      { src: bbt4.url, alt: "Model in a white dress carrying the beige and black printed tote bag" },
+      { src: bbt5.url, alt: "Beige and black printed tote bag held in hand — close-up" },
     ],
   },
 ];
