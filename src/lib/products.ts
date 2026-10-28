@@ -44,6 +44,7 @@ export type Product = {
   name: string;
   category: string; // label shown on the card
   categorySlug?: string;
+  bagCategorySlug?: "tote-bags" | "handbags" | "clutch-bags" | "potli-bags"; // page under the header's Bags menu
   image: string | null;
   newArrival?: boolean;
   colour?: string; // shown under the name when two listings share a name
@@ -57,6 +58,7 @@ export const products: Product[] = [
   { id: "na-2", name: "Green Stone Jhumka Earrings", category: "Jewellery", categorySlug: "jewellery", image: null, newArrival: true },
   {
     id: "na-4",
+    bagCategorySlug: "clutch-bags",
     name: "Silver Shell Embellished Clutch",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
@@ -71,6 +73,7 @@ export const products: Product[] = [
   },
   {
     id: "na-5",
+    bagCategorySlug: "potli-bags",
     name: "Red & Green Velvet Potli Bag",
     category: "Potli Bags",
     categorySlug: "party-clutch-bags",
@@ -85,6 +88,7 @@ export const products: Product[] = [
   },
   {
     id: "na-6",
+    bagCategorySlug: "potli-bags",
     name: "Green Pearl Embroidered Potli Bag",
     category: "Potli Bags",
     image: gpp4.url,
@@ -98,6 +102,7 @@ export const products: Product[] = [
   },
   {
     id: "elegant-waist-clutch-silver",
+    bagCategorySlug: "clutch-bags",
     name: "Elegant Waist Clutch",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
@@ -112,6 +117,7 @@ export const products: Product[] = [
   },
   {
     id: "elegant-waist-clutch-gold",
+    bagCategorySlug: "clutch-bags",
     name: "Elegant Waist Clutch",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
@@ -125,6 +131,7 @@ export const products: Product[] = [
   },
   {
     id: "golden-traditional-potli-bag",
+    bagCategorySlug: "potli-bags",
     name: "Golden Traditional Potli Bag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
@@ -140,6 +147,7 @@ export const products: Product[] = [
   },
   {
     id: "silver-potli-bag",
+    bagCategorySlug: "potli-bags",
     name: "Silver Potli Bag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
@@ -152,6 +160,7 @@ export const products: Product[] = [
   },
   {
     id: "golden-traditional-designer-potli-bag",
+    bagCategorySlug: "potli-bags",
     name: "Golden Traditional Designer Potli Bag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
@@ -177,6 +186,7 @@ export const products: Product[] = [
   },
   {
     id: "maroon-potli-bag",
+    bagCategorySlug: "potli-bags",
     name: "Maroon Potli Bag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
@@ -189,13 +199,13 @@ export const products: Product[] = [
 ];
 
 // Category pages that list their products. Others keep their "coming soon" note.
-export const listedCategorySlugs = ["party-clutch-bags"];
+export const listedCategorySlugs = ["party-clutch-bags", "tote-bags", "handbags", "clutch-bags", "potli-bags"];
 
 export const newArrivals = () => products.filter((p) => p.newArrival);
 
 export const productsForCategoryPage = (slug: string) =>
   listedCategorySlugs.includes(slug)
     ? products
-        .filter((p) => p.categorySlug === slug)
+        .filter((p) => p.categorySlug === slug || p.bagCategorySlug === slug)
         .sort((a, b) => Number(!!a.showLastOnCategoryPage) - Number(!!b.showLastOnCategoryPage))
     : [];
