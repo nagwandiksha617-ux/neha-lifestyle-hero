@@ -136,9 +136,16 @@ describe("Bags menu categories", () => {
     ]);
   });
 
-  test("Tote Bags and Handbags have no products yet", () => {
+  test("Tote Bags has no products yet; Handbags lists the brown crossbody", () => {
     expect(names("tote-bags")).toEqual([]);
-    expect(names("handbags")).toEqual([]);
+    expect(names("handbags")).toEqual([["Brown Checkered Crossbody Bag with Mini Pouch", undefined]]);
+  });
+
+  test("Brown Checkered Crossbody has its 3 photos, model collage first, price pending", () => {
+    const bag = products.find((p) => p.id === "brown-checkered-crossbody-bag");
+    expect(bag?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["bcc-1-model.png", "bcc-2-front.png", "bcc-3-back.png"]);
+    expect(bag?.image).toBe(bag?.gallery?.[0]?.src);
+    expect(bag?.newArrival).toBeUndefined();
   });
 
   test("no product is duplicated", () => {
