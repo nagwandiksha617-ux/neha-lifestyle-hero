@@ -143,6 +143,7 @@ describe("Bags menu categories", () => {
       ["Blue Printed Crossbody Bag with Mini Pouch", undefined],
       ["White Checkered Crossbody Bag with Mini Pouch", undefined],
       ["Olive Green Beige Printed Shoulder Bag", undefined],
+      ["Brown Beige Printed Shoulder Bag", undefined],
     ]);
   });
 
@@ -151,6 +152,7 @@ describe("Bags menu categories", () => {
     expect(files("blue-printed-crossbody-bag")).toEqual(["bpc-1-model.png", "bpc-2-front.png", "bpc-3-back.png", "bpc-4-side.png"]);
     expect(files("white-checkered-crossbody-bag")).toEqual(["wcc-1-model.png", "wcc-2-front.png", "wcc-3-back.png"]);
     expect(files("olive-green-beige-printed-shoulder-bag")).toEqual(["obs-1-model.png", "obs-2-front.png", "obs-3-back.png", "obs-4-bottom.png"]);
+    expect(files("brown-beige-printed-shoulder-bag")).toEqual(["bbs-1-model.png", "bbs-2-front.png", "bbs-3-back.png"]);
   });
 
   test("Brown Checkered Crossbody has its 3 photos, model collage first, price pending", () => {
