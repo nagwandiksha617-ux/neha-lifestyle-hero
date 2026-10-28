@@ -1,11 +1,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { categories } from "@/lib/categories";
+import { bagCategories, findCategory } from "@/lib/categories";
 import { productsForCategoryPage } from "@/lib/products";
 import { ProductGrid } from "@/components/ProductGrid";
 
 export const Route = createFileRoute("/category/$slug")({
   loader: ({ params }) => {
-    const category = categories.find((c) => c.slug === params.slug);
+    const category = findCategory(params.slug);
     if (!category) throw notFound();
     return { category };
   },
@@ -45,7 +45,16 @@ function CategoryPage() {
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-gold">NEHA Lifestyle</p>
         <h1 className="mt-4 font-display text-4xl text-foreground sm:text-5xl">{category.name}</h1>
         <p className="mt-4 text-foreground/75">{category.description}</p>
-        {listed.length === 0 && <p className="mt-8 text-sm text-foreground/60">Our collection is coming soon.</p>}
+        {category.slug === "bags" && (
+          <nav aria-label="Bag categories" className="mt-8 flex flex-wrap justify-center gap-3">
+            {bagCategories.map((c) => (
+              <Link key={c.slug} to="/category/$slug" params={{ slug: c.slug }} className="inline-flex min-h-11 items-center border border-gold/40 px-5 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-wine transition-colors hover:bg-wine/5 hover:text-rose">
+                {c.name}
+              </Link>
+            ))}
+          </nav>
+        )}
+        {listed.length === 0 && category.slug !== "bags" && <p className="mt-8 text-sm text-foreground/60">Our collection is coming soon.</p>}
         <Link to="/" className="mt-8 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-wine hover:text-rose">
           ← Back to home
         </Link>
