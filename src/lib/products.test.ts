@@ -113,3 +113,36 @@ describe("Party & Clutch Bags listing", () => {
     ]);
   });
 });
+
+describe("Bags menu categories", () => {
+  const names = (slug: string) => productsForCategoryPage(slug).map((p) => [p.name, p.colour]);
+
+  test("Clutch Bags lists only the clutch products", () => {
+    expect(names("clutch-bags")).toEqual([
+      ["Silver Shell Embellished Clutch", undefined],
+      ["Elegant Waist Clutch", "Silver"],
+      ["Elegant Waist Clutch", "Gold"],
+    ]);
+  });
+
+  test("Potli Bags lists only the potli products", () => {
+    expect(names("potli-bags")).toEqual([
+      ["Green Pearl Embroidered Potli Bag", undefined],
+      ["Golden Traditional Potli Bag", undefined],
+      ["Silver Potli Bag", undefined],
+      ["Golden Traditional Designer Potli Bag", undefined],
+      ["Maroon Potli Bag", undefined],
+      ["Red & Green Velvet Potli Bag", undefined],
+    ]);
+  });
+
+  test("Tote Bags and Handbags have no products yet", () => {
+    expect(names("tote-bags")).toEqual([]);
+    expect(names("handbags")).toEqual([]);
+  });
+
+  test("no product is duplicated", () => {
+    const ids = products.map((p) => p.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+});
