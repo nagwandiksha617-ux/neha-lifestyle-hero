@@ -50,6 +50,9 @@ import obs1 from "@/assets/olive-beige-shoulder/obs-1-model.png.asset.json";
 import obs2 from "@/assets/olive-beige-shoulder/obs-2-front.png.asset.json";
 import obs3 from "@/assets/olive-beige-shoulder/obs-3-back.png.asset.json";
 import obs4 from "@/assets/olive-beige-shoulder/obs-4-bottom.png.asset.json";
+import bbs1 from "@/assets/brown-beige-shoulder/bbs-1-model.png.asset.json";
+import bbs2 from "@/assets/brown-beige-shoulder/bbs-2-front.png.asset.json";
+import bbs3 from "@/assets/brown-beige-shoulder/bbs-3-back.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -258,6 +261,18 @@ export const products: Product[] = [
       { src: obs2.url, alt: "Olive green and beige printed shoulder bag — front view" },
       { src: obs3.url, alt: "Olive green and beige printed shoulder bag — back view" },
       { src: obs4.url, alt: "Olive green and beige printed shoulder bag — bottom view" },
+    ],
+  },
+  {
+    id: "brown-beige-printed-shoulder-bag",
+    bagCategorySlug: "handbags",
+    name: "Brown Beige Printed Shoulder Bag",
+    category: "Handbags",
+    image: bbs1.url,
+    gallery: [
+      { src: bbs1.url, alt: "Brown and beige printed shoulder bag worn by a model" },
+      { src: bbs2.url, alt: "Brown and beige printed shoulder bag — front view" },
+      { src: bbs3.url, alt: "Brown and beige printed shoulder bag — back view" },
     ],
   },
 ];
