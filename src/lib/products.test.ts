@@ -136,10 +136,11 @@ describe("Bags menu categories", () => {
     ]);
   });
 
-  test("Tote Bags has no products yet; Handbags lists the brown crossbody", () => {
-    expect(names("tote-bags")).toEqual([["Cream Beige Tote Bag with Gold Chain Handles", undefined], ["Beige & Black Printed Tote Bag", undefined]]);
+  test("Tote Bags lists the tote products with their own photos", () => {
+    expect(names("tote-bags")).toEqual([["Cream Beige Tote Bag with Gold Chain Handles", undefined], ["Beige & Black Printed Tote Bag", undefined], ["Beige & Black Monogram Tote Bag", undefined]]);
     expect(products.find((p) => p.id === "cream-beige-tote-bag-gold-chain")?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["cbt-1-lifestyle.png", "cbt-2-back.png", "cbt-3-side.png"]);
     expect(products.find((p) => p.id === "beige-black-printed-tote-bag")?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["bbt-d1-front.png", "bbt-d2-side.png", "bbt-d4-model.png", "bbt-d5-model.png"]);
+    expect(products.find((p) => p.id === "beige-black-monogram-tote-bag")?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["bbm-1-front.png", "bbm-2-bottom.png", "bbm-3-model.png"]);
     expect(names("handbags")).toEqual([
       ["Brown Checkered Crossbody Bag with Mini Pouch", undefined],
       ["Blue Printed Crossbody Bag with Mini Pouch", undefined],
