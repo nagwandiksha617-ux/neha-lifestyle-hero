@@ -63,6 +63,9 @@ import bbt1 from "@/assets/beige-black-tote/bbt-d1-front.png.asset.json";
 import bbt2 from "@/assets/beige-black-tote/bbt-d2-side.png.asset.json";
 import bbt4 from "@/assets/beige-black-tote/bbt-d4-model.png.asset.json";
 import bbt5 from "@/assets/beige-black-tote/bbt-d5-model.png.asset.json";
+import bbm1 from "@/assets/beige-black-monogram-tote/bbm-1-front.png.asset.json";
+import bbm2 from "@/assets/beige-black-monogram-tote/bbm-2-bottom.png.asset.json";
+import bbm3 from "@/assets/beige-black-monogram-tote/bbm-3-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -320,6 +323,18 @@ export const products: Product[] = [
       { src: bbt2.url, alt: "Beige and black printed tote bag — side view" },
       { src: bbt4.url, alt: "Model in a white dress carrying the beige and black printed tote bag" },
       { src: bbt5.url, alt: "Beige and black printed tote bag held in hand — close-up" },
+    ],
+  },
+  {
+    id: "beige-black-monogram-tote-bag",
+    bagCategorySlug: "tote-bags",
+    name: "Beige & Black Monogram Tote Bag",
+    category: "Tote Bags",
+    image: bbm1.url,
+    gallery: [
+      { src: bbm1.url, alt: "Beige and black monogram tote bag with black straps — front view" },
+      { src: bbm2.url, alt: "Beige and black monogram tote bag — bottom view with gold studs" },
+      { src: bbm3.url, alt: "Model in a black blazer and white trousers carrying the beige and black monogram tote bag" },
     ],
   },
 ];
