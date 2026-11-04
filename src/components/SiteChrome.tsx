@@ -8,10 +8,10 @@ import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from 
 import { bagCategories, categories } from "@/lib/categories";
 import logo from "@/assets/neha-lifestyle-logo.jpeg.asset.json";
 
+// Bags menu temporarily hidden from header navigation only; category pages and data remain intact.
 const navigation = [
   { label: "Home", href: "/" },
   { label: "Shop", href: "/#shop-by-category" },
-  { label: "Bags", slug: "bags" },
   { label: "Jewellery", slug: "jewellery" },
   { label: "New Arrivals", href: "/#new-arrivals" },
   { label: "Best Sellers", href: "/#best-sellers" },
