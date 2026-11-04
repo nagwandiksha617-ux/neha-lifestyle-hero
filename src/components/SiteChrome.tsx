@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, ChevronDown, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, UserRound } from "lucide-react";
+import { ArrowUpRight, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { bagCategories, categories } from "@/lib/categories";
+import { categories } from "@/lib/categories";
 import logo from "@/assets/neha-lifestyle-logo.jpeg.asset.json";
 
-// Bags menu temporarily hidden from header navigation only; category pages and data remain intact.
+// Bags is a plain header link to the main Bags page; its dropdown submenu is intentionally omitted.
+// Bag category pages and products remain intact and are linked from the footer and Shop section.
 const navigation = [
   { label: "Home", href: "/" },
   { label: "Shop", href: "/#shop-by-category" },
+  { label: "Bags", slug: "bags" },
   { label: "Jewellery", slug: "jewellery" },
   { label: "New Arrivals", href: "/#new-arrivals" },
   { label: "Best Sellers", href: "/#best-sellers" },
