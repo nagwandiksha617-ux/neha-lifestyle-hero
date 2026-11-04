@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, ChevronDown, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, UserRound } from "lucide-react";
+import { ArrowUpRight, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { bagCategories, categories } from "@/lib/categories";
+import { categories } from "@/lib/categories";
 import logo from "@/assets/neha-lifestyle-logo.jpeg.asset.json";
 
-// Bags menu temporarily hidden from header navigation only; category pages and data remain intact.
+// Bags is a plain header link to the main Bags page; its dropdown submenu is intentionally omitted.
+// Bag category pages and products remain intact and are linked from the footer and Shop section.
 const navigation = [
   { label: "Home", href: "/" },
   { label: "Shop", href: "/#shop-by-category" },
+  { label: "Bags", slug: "bags" },
   { label: "Jewellery", slug: "jewellery" },
   { label: "New Arrivals", href: "/#new-arrivals" },
   { label: "Best Sellers", href: "/#best-sellers" },
@@ -56,25 +57,6 @@ export function SiteHeader() {
       const className = mobile
         ? "block border-b border-gold/15 py-4 font-footer text-sm tracking-[0.08em] text-foreground transition-colors hover:text-wine"
         : "relative whitespace-nowrap py-2 font-footer text-[11.5px] font-medium uppercase tracking-[0.14em] text-foreground transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:scale-x-0 after:bg-wine/70 after:transition-transform hover:text-wine hover:after:scale-x-100";
-      if (item.slug === "bags") {
-        if (mobile) return (
-          <div key={item.label}>
-            <Link to="/category/$slug" params={{ slug: "bags" }} className={className} onClick={() => setMenuOpen(false)}>{item.label}</Link>
-            <ul aria-label="Bag categories" className="border-b border-gold/15 py-2 pl-4">
-              {bagCategories.map((c) => <li key={c.slug}><Link to="/category/$slug" params={{ slug: c.slug }} className="block py-2.5 font-footer text-sm tracking-[0.06em] text-foreground/80 transition-colors hover:text-wine" onClick={() => setMenuOpen(false)}>{c.name}</Link></li>)}
-            </ul>
-          </div>
-        );
-        return (
-          <DropdownMenu key={item.label} modal={false}>
-            <DropdownMenuTrigger className={`${className} inline-flex items-center gap-1 outline-none focus-visible:text-wine`}>{item.label}<ChevronDown className="h-3 w-3" strokeWidth={1.5} aria-hidden="true" /></DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="min-w-48 rounded-none border-gold/25 bg-background p-1">
-              <DropdownMenuItem asChild className="rounded-none font-footer text-[11.5px] uppercase tracking-[0.14em] text-foreground focus:bg-wine/5 focus:text-wine"><Link to="/category/$slug" params={{ slug: "bags" }}>All Bags</Link></DropdownMenuItem>
-              {bagCategories.map((c) => <DropdownMenuItem key={c.slug} asChild className="rounded-none font-footer text-[11.5px] uppercase tracking-[0.14em] text-foreground focus:bg-wine/5 focus:text-wine"><Link to="/category/$slug" params={{ slug: c.slug }}>{c.name}</Link></DropdownMenuItem>)}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        );
-      }
       if (item.slug) return <Link key={item.label} to="/category/$slug" params={{ slug: item.slug }} className={className} onClick={() => setMenuOpen(false)}>{item.label}</Link>;
       if (item.info) return <Button key={item.label} variant="link" className={`${className} h-auto justify-start rounded-none px-0 no-underline hover:no-underline`} onClick={() => { setMenuOpen(false); setTopic(item.info ?? null); }}>{item.label}</Button>;
       return <a key={item.label} href={item.href} className={className} onClick={() => setMenuOpen(false)}>{item.label}</a>;
