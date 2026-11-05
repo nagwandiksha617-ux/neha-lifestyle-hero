@@ -120,6 +120,8 @@
   --hero-top: oklch(0.99 0.01 64 / 0.22);
   --hero-bottom: oklch(0.88 0.04 48 / 0.24);
   --product-shadow: oklch(0.28 0.04 45 / 0.34);
+  --gradient-hero-blush: linear-gradient(150deg, oklch(0.97 0.02 42), oklch(0.93 0.035 28));
+  --gradient-banner-veil: linear-gradient(180deg, oklch(0.97 0.02 62 / 0.2), oklch(0.94 0.03 50 / 0.78));
 }
 
 .dark {
