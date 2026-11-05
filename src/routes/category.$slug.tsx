@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { bagCategories, findCategory } from "@/lib/categories";
 import { productsForCategoryPage } from "@/lib/products";
 import { ProductGrid } from "@/components/ProductGrid";
+import { BagsCollection } from "@/components/BagsCollection";
 
 export const Route = createFileRoute("/category/$slug")({
   loader: ({ params }) => {
@@ -38,6 +39,8 @@ export const Route = createFileRoute("/category/$slug")({
 
 function CategoryPage() {
   const { category } = Route.useLoaderData();
+  // The Bags collection has its own premium redesigned layout.
+  if (category.slug === "bags") return <BagsCollection />;
   const listed = productsForCategoryPage(category.slug);
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background px-6 py-20 text-center">
