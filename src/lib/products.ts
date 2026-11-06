@@ -2,70 +2,70 @@
 // To add a product: append an entry with its `categorySlug` (see src/lib/categories.ts)
 // and its uploaded photo. It then appears automatically on that category's page
 // when the category's listing is enabled below. Leave `image` null until a real photo exists.
-import gold1 from "@/assets/elegant-waist-clutch/gold-1-front.jpg.asset.json";
-import gold2 from "@/assets/elegant-waist-clutch/gold-2-open.jpg.asset.json";
-import gold3 from "@/assets/elegant-waist-clutch/gold-3-worn.png.asset.json";
-import silver1 from "@/assets/elegant-waist-clutch/silver-1-front.jpg.asset.json";
-import silver2 from "@/assets/elegant-waist-clutch/silver-2-side.jpg.asset.json";
-import silver3 from "@/assets/elegant-waist-clutch/silver-3-open.jpg.asset.json";
-import silver4 from "@/assets/elegant-waist-clutch/silver-4-worn.png.asset.json";
-import shell1 from "@/assets/silver-shell-clutch/shell-1-model.png.asset.json";
-import shell2 from "@/assets/silver-shell-clutch/shell-2-open.jpg.asset.json";
-import shell3 from "@/assets/silver-shell-clutch/shell-3-angled.jpg.asset.json";
-import shell4 from "@/assets/silver-shell-clutch/shell-4-chain.jpg.asset.json";
-import potli1 from "@/assets/silver-potli/silver-potli-1-model-pink.png.asset.json";
-import potli2 from "@/assets/silver-potli/silver-potli-2-front.jpg.asset.json";
-import potli3 from "@/assets/silver-potli/silver-potli-3-handle.jpg.asset.json";
-import goldPotli1 from "@/assets/golden-potli/golden-potli-1-hand.png.asset.json";
-import goldPotli2 from "@/assets/golden-potli/golden-potli-2-standalone.png.asset.json";
-import goldPotli3 from "@/assets/golden-potli/golden-potli-3-jewellery.png.asset.json";
-import crescent1 from "@/assets/golden-crescent/crescent-1-cream.png.asset.json";
-import crescent2 from "@/assets/golden-crescent/crescent-2-stones.jpg.asset.json";
-import crescent3 from "@/assets/golden-crescent/crescent-3-side.jpg.asset.json";
-import crescent4 from "@/assets/golden-crescent/crescent-4-top.jpg.asset.json";
-import vp1 from "@/assets/velvet-potli/velvet-potli-1-model.png.asset.json";
-import vp2 from "@/assets/velvet-potli/velvet-potli-2-green.png.asset.json";
-import vp3 from "@/assets/velvet-potli/velvet-potli-3-green-maroon.jpg.asset.json";
-import mp1 from "@/assets/maroon-potli/maroon-potli-1-model.png.asset.json";
-import mp2 from "@/assets/maroon-potli/maroon-potli-2-white.png.asset.json";
-import gtp1 from "@/assets/golden-traditional-potli/gtp-1-model.png.asset.json";
-import gtp2 from "@/assets/golden-traditional-potli/gtp-2-front.jpg.asset.json";
-import gtp3 from "@/assets/golden-traditional-potli/gtp-3-open.jpg.asset.json";
-import gtp4 from "@/assets/golden-traditional-potli/gtp-4-front.jpg.asset.json";
-import gpp1 from "@/assets/green-pearl-potli/gpp-1-light.png.asset.json";
-import gpp2 from "@/assets/green-pearl-potli/gpp-2-side.png.asset.json";
-import gpp3 from "@/assets/green-pearl-potli/gpp-3-back.png.asset.json";
-import gpp4 from "@/assets/green-pearl-potli/gpp-4-dark.png.asset.json";
-import bcc1 from "@/assets/brown-checkered-crossbody/bcc-1-model.png.asset.json";
-import bcc2 from "@/assets/brown-checkered-crossbody/bcc-2-front.png.asset.json";
-import bcc3 from "@/assets/brown-checkered-crossbody/bcc-3-back.png.asset.json";
-import bpc1 from "@/assets/blue-printed-crossbody/bpc-1-model.png.asset.json";
-import bpc2 from "@/assets/blue-printed-crossbody/bpc-2-front.png.asset.json";
-import bpc3 from "@/assets/blue-printed-crossbody/bpc-3-back.png.asset.json";
-import bpc4 from "@/assets/blue-printed-crossbody/bpc-4-side.png.asset.json";
-import wcc1 from "@/assets/white-checkered-crossbody/wcc-1-model.png.asset.json";
-import wcc2 from "@/assets/white-checkered-crossbody/wcc-2-front.png.asset.json";
-import wcc3 from "@/assets/white-checkered-crossbody/wcc-3-back.png.asset.json";
-import obs1 from "@/assets/olive-beige-shoulder/obs-1-model.png.asset.json";
-import obs2 from "@/assets/olive-beige-shoulder/obs-2-front.png.asset.json";
-import obs3 from "@/assets/olive-beige-shoulder/obs-3-back.png.asset.json";
-import obs4 from "@/assets/olive-beige-shoulder/obs-4-bottom.png.asset.json";
-import bbs1 from "@/assets/brown-beige-shoulder/bbs-1-model.png.asset.json";
-import bbs2 from "@/assets/brown-beige-shoulder/bbs-2-front.png.asset.json";
-import bbs3 from "@/assets/brown-beige-shoulder/bbs-3-back.png.asset.json";
-import sbc1 from "@/assets/sky-blue-crossbody/sbc-1-model.png.asset.json";
-import sbc2 from "@/assets/sky-blue-crossbody/sbc-2-front.png.asset.json";
-import sbc3 from "@/assets/sky-blue-crossbody/sbc-3-back.png.asset.json";
-import cbt1 from "@/assets/cream-beige-tote/cbt-1-lifestyle.png.asset.json";
-import cbt2 from "@/assets/cream-beige-tote/cbt-2-back.png.asset.json";
-import cbt3 from "@/assets/cream-beige-tote/cbt-3-side.png.asset.json";
-import bbt1 from "@/assets/beige-black-tote/bbt-d1-front.png.asset.json";
-import bbt2 from "@/assets/beige-black-tote/bbt-d2-side.png.asset.json";
-import bbt4 from "@/assets/beige-black-tote/bbt-d4-model.png.asset.json";
-import bbt5 from "@/assets/beige-black-tote/bbt-d5-model.png.asset.json";
-import bbm1 from "@/assets/beige-black-monogram-tote/bbm-1-front.png.asset.json";
-import bbm2 from "@/assets/beige-black-monogram-tote/bbm-2-bottom.png.asset.json";
-import bbm3 from "@/assets/beige-black-monogram-tote/bbm-3-model.png.asset.json";
+import gold1 from "@/assets/elegant-waist-clutch/gold-1-front.jpg";
+import gold2 from "@/assets/elegant-waist-clutch/gold-2-open.jpg";
+import gold3 from "@/assets/elegant-waist-clutch/gold-3-worn.png";
+import silver1 from "@/assets/elegant-waist-clutch/silver-1-front.jpg";
+import silver2 from "@/assets/elegant-waist-clutch/silver-2-side.jpg";
+import silver3 from "@/assets/elegant-waist-clutch/silver-3-open.jpg";
+import silver4 from "@/assets/elegant-waist-clutch/silver-4-worn.png";
+import shell1 from "@/assets/silver-shell-clutch/shell-1-model.png";
+import shell2 from "@/assets/silver-shell-clutch/shell-2-open.jpg";
+import shell3 from "@/assets/silver-shell-clutch/shell-3-angled.jpg";
+import shell4 from "@/assets/silver-shell-clutch/shell-4-chain.jpg";
+import potli1 from "@/assets/silver-potli/silver-potli-1-model-pink.png";
+import potli2 from "@/assets/silver-potli/silver-potli-2-front.jpg";
+import potli3 from "@/assets/silver-potli/silver-potli-3-handle.jpg";
+import goldPotli1 from "@/assets/golden-potli/golden-potli-1-hand.png";
+import goldPotli2 from "@/assets/golden-potli/golden-potli-2-standalone.png";
+import goldPotli3 from "@/assets/golden-potli/golden-potli-3-jewellery.png";
+import crescent1 from "@/assets/golden-crescent/crescent-1-cream.png";
+import crescent2 from "@/assets/golden-crescent/crescent-2-stones.jpg";
+import crescent3 from "@/assets/golden-crescent/crescent-3-side.jpg";
+import crescent4 from "@/assets/golden-crescent/crescent-4-top.jpg";
+import vp1 from "@/assets/velvet-potli/velvet-potli-1-model.png";
+import vp2 from "@/assets/velvet-potli/velvet-potli-2-green.png";
+import vp3 from "@/assets/velvet-potli/velvet-potli-3-green-maroon.jpg";
+import mp1 from "@/assets/maroon-potli/maroon-potli-1-model.png";
+import mp2 from "@/assets/maroon-potli/maroon-potli-2-white.png";
+import gtp1 from "@/assets/golden-traditional-potli/gtp-1-model.png";
+import gtp2 from "@/assets/golden-traditional-potli/gtp-2-front.jpg";
+import gtp3 from "@/assets/golden-traditional-potli/gtp-3-open.jpg";
+import gtp4 from "@/assets/golden-traditional-potli/gtp-4-front.jpg";
+import gpp1 from "@/assets/green-pearl-potli/gpp-1-light.png";
+import gpp2 from "@/assets/green-pearl-potli/gpp-2-side.png";
+import gpp3 from "@/assets/green-pearl-potli/gpp-3-back.png";
+import gpp4 from "@/assets/green-pearl-potli/gpp-4-dark.png";
+import bcc1 from "@/assets/brown-checkered-crossbody/bcc-1-model.png";
+import bcc2 from "@/assets/brown-checkered-crossbody/bcc-2-front.png";
+import bcc3 from "@/assets/brown-checkered-crossbody/bcc-3-back.png";
+import bpc1 from "@/assets/blue-printed-crossbody/bpc-1-model.png";
+import bpc2 from "@/assets/blue-printed-crossbody/bpc-2-front.png";
+import bpc3 from "@/assets/blue-printed-crossbody/bpc-3-back.png";
+import bpc4 from "@/assets/blue-printed-crossbody/bpc-4-side.png";
+import wcc1 from "@/assets/white-checkered-crossbody/wcc-1-model.png";
+import wcc2 from "@/assets/white-checkered-crossbody/wcc-2-front.png";
+import wcc3 from "@/assets/white-checkered-crossbody/wcc-3-back.png";
+import obs1 from "@/assets/olive-beige-shoulder/obs-1-model.png";
+import obs2 from "@/assets/olive-beige-shoulder/obs-2-front.png";
+import obs3 from "@/assets/olive-beige-shoulder/obs-3-back.png";
+import obs4 from "@/assets/olive-beige-shoulder/obs-4-bottom.png";
+import bbs1 from "@/assets/brown-beige-shoulder/bbs-1-model.png";
+import bbs2 from "@/assets/brown-beige-shoulder/bbs-2-front.png";
+import bbs3 from "@/assets/brown-beige-shoulder/bbs-3-back.png";
+import sbc1 from "@/assets/sky-blue-crossbody/sbc-1-model.png";
+import sbc2 from "@/assets/sky-blue-crossbody/sbc-2-front.png";
+import sbc3 from "@/assets/sky-blue-crossbody/sbc-3-back.png";
+import cbt1 from "@/assets/cream-beige-tote/cbt-1-lifestyle.png";
+import cbt2 from "@/assets/cream-beige-tote/cbt-2-back.png";
+import cbt3 from "@/assets/cream-beige-tote/cbt-3-side.png";
+import bbt1 from "@/assets/beige-black-tote/bbt-d1-front.png";
+import bbt2 from "@/assets/beige-black-tote/bbt-d2-side.png";
+import bbt4 from "@/assets/beige-black-tote/bbt-d4-model.png";
+import bbt5 from "@/assets/beige-black-tote/bbt-d5-model.png";
+import bbm1 from "@/assets/beige-black-monogram-tote/bbm-1-front.png";
+import bbm2 from "@/assets/beige-black-monogram-tote/bbm-2-bottom.png";
+import bbm3 from "@/assets/beige-black-monogram-tote/bbm-3-model.png";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -92,13 +92,13 @@ export const products: Product[] = [
     name: "Silver Shell Embellished Clutch",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
-    image: shell1.url,
+    image: shell1,
     newArrival: true,
     gallery: [
-      { src: shell1.url, alt: "Silver Shell Embellished Clutch held by a model" },
-      { src: shell2.url, alt: "Silver Shell Embellished Clutch — open view" },
-      { src: shell3.url, alt: "Silver Shell Embellished Clutch — front angled view" },
-      { src: shell4.url, alt: "Silver Shell Embellished Clutch with chain handle" },
+      { src: shell1, alt: "Silver Shell Embellished Clutch held by a model" },
+      { src: shell2, alt: "Silver Shell Embellished Clutch — open view" },
+      { src: shell3, alt: "Silver Shell Embellished Clutch — front angled view" },
+      { src: shell4, alt: "Silver Shell Embellished Clutch with chain handle" },
     ],
   },
   {
@@ -108,12 +108,12 @@ export const products: Product[] = [
     category: "Potli Bags",
     categorySlug: "party-clutch-bags",
     showLastOnCategoryPage: true,
-    image: vp1.url,
+    image: vp1,
     newArrival: true,
     gallery: [
-      { src: vp1.url, alt: "Green velvet potli bag with gold filigree held by a model in a traditional outfit" },
-      { src: vp2.url, alt: "Green velvet potli bag — gold filigree, beaded handle and hanging beads" },
-      { src: vp3.url, alt: "Green and maroon velvet potli bags shown together" },
+      { src: vp1, alt: "Green velvet potli bag with gold filigree held by a model in a traditional outfit" },
+      { src: vp2, alt: "Green velvet potli bag — gold filigree, beaded handle and hanging beads" },
+      { src: vp3, alt: "Green and maroon velvet potli bags shown together" },
     ],
   },
   {
@@ -121,13 +121,13 @@ export const products: Product[] = [
     bagCategorySlug: "potli-bags",
     name: "Green Pearl Embroidered Potli Bag",
     category: "Potli Bags",
-    image: gpp4.url,
+    image: gpp4,
     newArrival: true,
     gallery: [
-      { src: gpp4.url, alt: "Green pearl-embroidered potli bag on a dark luxurious background" },
-      { src: gpp1.url, alt: "Green pearl-embroidered potli bag on a soft light background" },
-      { src: gpp2.url, alt: "Green pearl-embroidered potli bag — side view on white" },
-      { src: gpp3.url, alt: "Green pearl-embroidered potli bag — back view on white" },
+      { src: gpp4, alt: "Green pearl-embroidered potli bag on a dark luxurious background" },
+      { src: gpp1, alt: "Green pearl-embroidered potli bag on a soft light background" },
+      { src: gpp2, alt: "Green pearl-embroidered potli bag — side view on white" },
+      { src: gpp3, alt: "Green pearl-embroidered potli bag — back view on white" },
     ],
   },
   {
@@ -137,12 +137,12 @@ export const products: Product[] = [
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
     colour: "Silver",
-    image: silver4.url,
+    image: silver4,
     gallery: [
-      { src: silver4.url, alt: "Elegant Waist Clutch in silver — worn at the waist" },
-      { src: silver1.url, alt: "Elegant Waist Clutch in silver — front view" },
-      { src: silver2.url, alt: "Elegant Waist Clutch in silver — side view" },
-      { src: silver3.url, alt: "Elegant Waist Clutch in silver — open flap" },
+      { src: silver4, alt: "Elegant Waist Clutch in silver — worn at the waist" },
+      { src: silver1, alt: "Elegant Waist Clutch in silver — front view" },
+      { src: silver2, alt: "Elegant Waist Clutch in silver — side view" },
+      { src: silver3, alt: "Elegant Waist Clutch in silver — open flap" },
     ],
   },
   {
@@ -152,11 +152,11 @@ export const products: Product[] = [
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
     colour: "Gold",
-    image: gold3.url,
+    image: gold3,
     gallery: [
-      { src: gold3.url, alt: "Elegant Waist Clutch in gold — worn at the waist" },
-      { src: gold1.url, alt: "Elegant Waist Clutch in gold — front view" },
-      { src: gold2.url, alt: "Elegant Waist Clutch in gold — open flap" },
+      { src: gold3, alt: "Elegant Waist Clutch in gold — worn at the waist" },
+      { src: gold1, alt: "Elegant Waist Clutch in gold — front view" },
+      { src: gold2, alt: "Elegant Waist Clutch in gold — open flap" },
     ],
   },
   {
@@ -167,12 +167,12 @@ export const products: Product[] = [
     categorySlug: "party-clutch-bags",
     description:
       "An elegant golden traditional potli bag featuring intricate gold-tone detailing, decorative beads, an ornate design, and hanging chain embellishments. Perfect for weddings, festive occasions, parties, and ethnic outfits.",
-    image: gtp1.url,
+    image: gtp1,
     gallery: [
-      { src: gtp1.url, alt: "Golden Traditional Potli Bag held by a model" },
-      { src: gtp2.url, alt: "Golden Traditional Potli Bag — front view with beaded handle" },
-      { src: gtp3.url, alt: "Golden Traditional Potli Bag — open view" },
-      { src: gtp4.url, alt: "Golden Traditional Potli Bag — full view with hanging chains" },
+      { src: gtp1, alt: "Golden Traditional Potli Bag held by a model" },
+      { src: gtp2, alt: "Golden Traditional Potli Bag — front view with beaded handle" },
+      { src: gtp3, alt: "Golden Traditional Potli Bag — open view" },
+      { src: gtp4, alt: "Golden Traditional Potli Bag — full view with hanging chains" },
     ],
   },
   {
@@ -181,11 +181,11 @@ export const products: Product[] = [
     name: "Silver Potli Bag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
-    image: potli1.url,
+    image: potli1,
     gallery: [
-      { src: potli1.url, alt: "Silver potli bag held by a model in a pink outfit" },
-      { src: potli2.url, alt: "Silver potli bag — front view" },
-      { src: potli3.url, alt: "Silver potli bag — full view with beaded handle" },
+      { src: potli1, alt: "Silver potli bag held by a model in a pink outfit" },
+      { src: potli2, alt: "Silver potli bag — front view" },
+      { src: potli3, alt: "Silver potli bag — full view with beaded handle" },
     ],
   },
   {
@@ -194,11 +194,11 @@ export const products: Product[] = [
     name: "Golden Traditional Designer Potli Bag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
-    image: goldPotli1.url,
+    image: goldPotli1,
     gallery: [
-      { src: goldPotli1.url, alt: "Golden Traditional Designer Potli Bag held in hand" },
-      { src: goldPotli2.url, alt: "Golden Traditional Designer Potli Bag — standalone view" },
-      { src: goldPotli3.url, alt: "Golden Traditional Designer Potli Bag shown with jewellery" },
+      { src: goldPotli1, alt: "Golden Traditional Designer Potli Bag held in hand" },
+      { src: goldPotli2, alt: "Golden Traditional Designer Potli Bag — standalone view" },
+      { src: goldPotli3, alt: "Golden Traditional Designer Potli Bag shown with jewellery" },
     ],
   },
   {
@@ -206,12 +206,12 @@ export const products: Product[] = [
     name: "Golden Crescent Handbag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
-    image: crescent1.url,
+    image: crescent1,
     gallery: [
-      { src: crescent1.url, alt: "Golden Crescent Handbag held by a model in a cream outfit" },
-      { src: crescent2.url, alt: "Golden Crescent Handbag — stone-studded front view" },
-      { src: crescent3.url, alt: "Golden Crescent Handbag — side view" },
-      { src: crescent4.url, alt: "Golden Crescent Handbag — open top view" },
+      { src: crescent1, alt: "Golden Crescent Handbag held by a model in a cream outfit" },
+      { src: crescent2, alt: "Golden Crescent Handbag — stone-studded front view" },
+      { src: crescent3, alt: "Golden Crescent Handbag — side view" },
+      { src: crescent4, alt: "Golden Crescent Handbag — open top view" },
     ],
   },
   {
@@ -220,10 +220,10 @@ export const products: Product[] = [
     name: "Maroon Potli Bag",
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
-    image: mp1.url,
+    image: mp1,
     gallery: [
-      { src: mp1.url, alt: "Maroon velvet potli bag with gold filigree held by a model" },
-      { src: mp2.url, alt: "Maroon velvet potli bag on a white background" },
+      { src: mp1, alt: "Maroon velvet potli bag with gold filigree held by a model" },
+      { src: mp2, alt: "Maroon velvet potli bag on a white background" },
     ],
   },
   {
@@ -231,11 +231,11 @@ export const products: Product[] = [
     bagCategorySlug: "handbags",
     name: "Brown Checkered Crossbody Bag with Mini Pouch",
     category: "Handbags",
-    image: bcc1.url,
+    image: bcc1,
     gallery: [
-      { src: bcc1.url, alt: "Brown checkered crossbody bag with mini pouch worn by a model" },
-      { src: bcc2.url, alt: "Brown checkered crossbody bag with mini pouch — front view" },
-      { src: bcc3.url, alt: "Brown checkered crossbody bag with mini pouch — back view" },
+      { src: bcc1, alt: "Brown checkered crossbody bag with mini pouch worn by a model" },
+      { src: bcc2, alt: "Brown checkered crossbody bag with mini pouch — front view" },
+      { src: bcc3, alt: "Brown checkered crossbody bag with mini pouch — back view" },
     ],
   },
   {
@@ -243,12 +243,12 @@ export const products: Product[] = [
     bagCategorySlug: "handbags",
     name: "Blue Printed Crossbody Bag with Mini Pouch",
     category: "Handbags",
-    image: bpc1.url,
+    image: bpc1,
     gallery: [
-      { src: bpc1.url, alt: "Blue printed crossbody bag with mini pouch worn by a model" },
-      { src: bpc2.url, alt: "Blue printed crossbody bag with mini pouch — front view" },
-      { src: bpc3.url, alt: "Blue printed crossbody bag with mini pouch — back view" },
-      { src: bpc4.url, alt: "Blue printed crossbody bag with mini pouch — side view" },
+      { src: bpc1, alt: "Blue printed crossbody bag with mini pouch worn by a model" },
+      { src: bpc2, alt: "Blue printed crossbody bag with mini pouch — front view" },
+      { src: bpc3, alt: "Blue printed crossbody bag with mini pouch — back view" },
+      { src: bpc4, alt: "Blue printed crossbody bag with mini pouch — side view" },
     ],
   },
   {
@@ -256,11 +256,11 @@ export const products: Product[] = [
     bagCategorySlug: "handbags",
     name: "White Checkered Crossbody Bag with Mini Pouch",
     category: "Handbags",
-    image: wcc1.url,
+    image: wcc1,
     gallery: [
-      { src: wcc1.url, alt: "White checkered crossbody bag with mini pouch worn by a model" },
-      { src: wcc2.url, alt: "White checkered crossbody bag with mini pouch — front view" },
-      { src: wcc3.url, alt: "White checkered crossbody bag with mini pouch — back view" },
+      { src: wcc1, alt: "White checkered crossbody bag with mini pouch worn by a model" },
+      { src: wcc2, alt: "White checkered crossbody bag with mini pouch — front view" },
+      { src: wcc3, alt: "White checkered crossbody bag with mini pouch — back view" },
     ],
   },
   {
@@ -268,12 +268,12 @@ export const products: Product[] = [
     bagCategorySlug: "handbags",
     name: "Olive Green Beige Printed Shoulder Bag",
     category: "Handbags",
-    image: obs1.url,
+    image: obs1,
     gallery: [
-      { src: obs1.url, alt: "Olive green and beige printed shoulder bag worn by a model" },
-      { src: obs2.url, alt: "Olive green and beige printed shoulder bag — front view" },
-      { src: obs3.url, alt: "Olive green and beige printed shoulder bag — back view" },
-      { src: obs4.url, alt: "Olive green and beige printed shoulder bag — bottom view" },
+      { src: obs1, alt: "Olive green and beige printed shoulder bag worn by a model" },
+      { src: obs2, alt: "Olive green and beige printed shoulder bag — front view" },
+      { src: obs3, alt: "Olive green and beige printed shoulder bag — back view" },
+      { src: obs4, alt: "Olive green and beige printed shoulder bag — bottom view" },
     ],
   },
   {
@@ -281,11 +281,11 @@ export const products: Product[] = [
     bagCategorySlug: "handbags",
     name: "Brown Beige Printed Shoulder Bag",
     category: "Handbags",
-    image: bbs1.url,
+    image: bbs1,
     gallery: [
-      { src: bbs1.url, alt: "Brown and beige printed shoulder bag worn by a model" },
-      { src: bbs2.url, alt: "Brown and beige printed shoulder bag — front view" },
-      { src: bbs3.url, alt: "Brown and beige printed shoulder bag — back view" },
+      { src: bbs1, alt: "Brown and beige printed shoulder bag worn by a model" },
+      { src: bbs2, alt: "Brown and beige printed shoulder bag — front view" },
+      { src: bbs3, alt: "Brown and beige printed shoulder bag — back view" },
     ],
   },
   {
@@ -293,11 +293,11 @@ export const products: Product[] = [
     bagCategorySlug: "handbags",
     name: "Sky Blue Crossbody Bag with Mini Pouch",
     category: "Handbags",
-    image: sbc1.url,
+    image: sbc1,
     gallery: [
-      { src: sbc1.url, alt: "Sky blue crossbody bag with mini pouch worn by a model" },
-      { src: sbc2.url, alt: "Sky blue crossbody bag with mini pouch — front view" },
-      { src: sbc3.url, alt: "Sky blue crossbody bag with mini pouch — back view" },
+      { src: sbc1, alt: "Sky blue crossbody bag with mini pouch worn by a model" },
+      { src: sbc2, alt: "Sky blue crossbody bag with mini pouch — front view" },
+      { src: sbc3, alt: "Sky blue crossbody bag with mini pouch — back view" },
     ],
   },
   {
@@ -305,11 +305,11 @@ export const products: Product[] = [
     bagCategorySlug: "tote-bags",
     name: "Cream Beige Tote Bag with Gold Chain Handles",
     category: "Tote Bags",
-    image: cbt1.url,
+    image: cbt1,
     gallery: [
-      { src: cbt1.url, alt: "Cream beige tote bag with gold chain handles styled on satin" },
-      { src: cbt2.url, alt: "Cream beige tote bag with gold chain handles — back view" },
-      { src: cbt3.url, alt: "Cream beige tote bag with gold chain handles — side view" },
+      { src: cbt1, alt: "Cream beige tote bag with gold chain handles styled on satin" },
+      { src: cbt2, alt: "Cream beige tote bag with gold chain handles — back view" },
+      { src: cbt3, alt: "Cream beige tote bag with gold chain handles — side view" },
     ],
   },
   {
@@ -317,12 +317,12 @@ export const products: Product[] = [
     bagCategorySlug: "tote-bags",
     name: "Beige & Black Printed Tote Bag",
     category: "Tote Bags",
-    image: bbt1.url,
+    image: bbt1,
     gallery: [
-      { src: bbt1.url, alt: "Beige and black printed tote bag with black handles — front view" },
-      { src: bbt2.url, alt: "Beige and black printed tote bag — side view" },
-      { src: bbt4.url, alt: "Model in a white dress carrying the beige and black printed tote bag" },
-      { src: bbt5.url, alt: "Beige and black printed tote bag held in hand — close-up" },
+      { src: bbt1, alt: "Beige and black printed tote bag with black handles — front view" },
+      { src: bbt2, alt: "Beige and black printed tote bag — side view" },
+      { src: bbt4, alt: "Model in a white dress carrying the beige and black printed tote bag" },
+      { src: bbt5, alt: "Beige and black printed tote bag held in hand — close-up" },
     ],
   },
   {
@@ -330,11 +330,11 @@ export const products: Product[] = [
     bagCategorySlug: "tote-bags",
     name: "Beige & Black Monogram Tote Bag",
     category: "Tote Bags",
-    image: bbm1.url,
+    image: bbm1,
     gallery: [
-      { src: bbm1.url, alt: "Beige and black monogram tote bag with black straps — front view" },
-      { src: bbm2.url, alt: "Beige and black monogram tote bag — bottom view with gold studs" },
-      { src: bbm3.url, alt: "Model in a black blazer and white trousers carrying the beige and black monogram tote bag" },
+      { src: bbm1, alt: "Beige and black monogram tote bag with black straps — front view" },
+      { src: bbm2, alt: "Beige and black monogram tote bag — bottom view with gold studs" },
+      { src: bbm3, alt: "Model in a black blazer and white trousers carrying the beige and black monogram tote bag" },
     ],
   },
 ];

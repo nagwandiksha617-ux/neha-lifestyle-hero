@@ -5,20 +5,20 @@ import { products, type Product } from "@/lib/products";
 import { ProductGrid } from "@/components/ProductGrid";
 
 // Hero visual and section imagery reuse existing uploaded product photos only.
-import heroBag from "@/assets/beige-black-tote/bbt-d4-model.png.asset.json";
-import toteCard from "@/assets/cream-beige-tote/cbt-1-lifestyle.png.asset.json";
-import handbagCard from "@/assets/brown-checkered-crossbody/bcc-1-model.png.asset.json";
-import clutchCard from "@/assets/silver-shell-clutch/shell-1-model.png.asset.json";
-import potliCard from "@/assets/golden-traditional-potli/gtp-1-model.png.asset.json";
-import bannerEveryday from "@/assets/olive-beige-shoulder/obs-1-model.png.asset.json";
-import bannerNew from "@/assets/green-pearl-potli/gpp-4-dark.png.asset.json";
-import bannerParty from "@/assets/golden-crescent/crescent-1-cream.png.asset.json";
+import heroBag from "@/assets/beige-black-tote/bbt-d4-model.png";
+import toteCard from "@/assets/cream-beige-tote/cbt-1-lifestyle.png";
+import handbagCard from "@/assets/brown-checkered-crossbody/bcc-1-model.png";
+import clutchCard from "@/assets/silver-shell-clutch/shell-1-model.png";
+import potliCard from "@/assets/golden-traditional-potli/gtp-1-model.png";
+import bannerEveryday from "@/assets/olive-beige-shoulder/obs-1-model.png";
+import bannerNew from "@/assets/green-pearl-potli/gpp-4-dark.png";
+import bannerParty from "@/assets/golden-crescent/crescent-1-cream.png";
 
 const categoryCardImages: Record<string, { src: string; alt: string }> = {
-  "tote-bags": { src: toteCard.url, alt: "Cream beige tote bag with gold chain handles styled on satin" },
-  handbags: { src: handbagCard.url, alt: "Brown checkered crossbody bag with mini pouch worn by a model" },
-  "clutch-bags": { src: clutchCard.url, alt: "Silver Shell Embellished Clutch held by a model" },
-  "potli-bags": { src: potliCard.url, alt: "Golden Traditional Potli Bag held by a model" },
+  "tote-bags": { src: toteCard, alt: "Cream beige tote bag with gold chain handles styled on satin" },
+  handbags: { src: handbagCard, alt: "Brown checkered crossbody bag with mini pouch worn by a model" },
+  "clutch-bags": { src: clutchCard, alt: "Silver Shell Embellished Clutch held by a model" },
+  "potli-bags": { src: potliCard, alt: "Golden Traditional Potli Bag held by a model" },
 };
 
 const banners = [
@@ -53,7 +53,7 @@ export function BagsCollection() {
           </div>
           <div className="relative mx-auto w-full max-w-md lg:max-w-none">
             <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-sm border border-gold/40" aria-hidden="true" />
-            <img src={heroBag.url} alt="Model in a white dress carrying an elegant beige tote bag" className="relative aspect-[4/5] w-full rounded-sm object-cover shadow-lg" />
+            <img src={heroBag} alt="Model in a white dress carrying an elegant beige tote bag" className="relative aspect-[4/5] w-full rounded-sm object-cover shadow-lg" />
           </div>
         </div>
       </section>
@@ -91,7 +91,7 @@ export function BagsCollection() {
           {banners.map((b) => {
             const inner = (
               <>
-                <img src={b.image.url} alt={b.alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+                <img src={b.image} alt={b.alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
                 <span className="absolute inset-0 bg-[image:var(--gradient-banner-veil)]" aria-hidden="true" />
                 <span className="relative font-display text-2xl text-foreground sm:text-3xl">{b.title}</span>
                 <span className="relative mt-1 inline-flex items-center gap-2 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-wine">
