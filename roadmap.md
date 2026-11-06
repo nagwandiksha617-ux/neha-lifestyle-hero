@@ -1,6 +1,8 @@
-# Restoration
-- [x] Restore shared sticky header and responsive navigation without changing homepage content.
-- [x] Restore full footer using existing typography, colors, logo and valid navigation targets.
-- [x] Verify header/footer display and mobile controls; preserve product data and homepage sections.
-- [x] Remove the duplicate hero logo/tagline and show desktop navigation at the current desktop width.
-- [x] Refine only footer colors to soft blush, charcoal, dusty rose and gold; verify one shared header/footer.
+# Static shared-hosting migration (FTP, no Node at runtime)
+
+- [ ] Phase 1 — Static export: prerender all routes, self-host catalogue images (Option B), .htaccess, sitemap.xml, local static-server verification
+- [ ] Phase 2 — External Supabase integration: products table + RLS, admin roles, email/password admin login, /admin panel (product CRUD, category management, gallery management, admin-only image uploads to private bucket via Option A Edge Function)
+- [ ] Phase 3 — GitHub Actions build + FTP deploy to nehalifestyle.com, automatic rebuild when the catalogue changes
+- [ ] Cutover checklist and post-deploy verification
+
+Standing constraints: preserve existing design, product data and galleries exactly; no cart, checkout, payments, COD, or ordering; never make the storage bucket public; never expose the service role key in frontend code; user connects their own external Supabase project (Settings → External Supabase) — do not enable Lovable Cloud.
