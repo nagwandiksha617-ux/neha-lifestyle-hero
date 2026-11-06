@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { categories } from "@/lib/categories";
-import logo from "@/assets/neha-lifestyle-logo.jpeg.asset.json";
+import logo from "@/assets/neha-lifestyle-logo.jpeg";
 
 // Bags is a plain header link to the main Bags page; its dropdown submenu is intentionally omitted.
 // Bag category pages and products remain intact and are linked from the footer and Shop section.
@@ -78,7 +78,7 @@ export function SiteHeader() {
               </SheetContent>
             </Sheet>
             <Link to="/" aria-label="NEHA Lifestyle home" className="shrink-0">
-              <img src={logo.url} alt="NEHA Lifestyle" width={108} height={63} className="h-12 w-20 object-contain sm:h-14 sm:w-24" />
+              <img src={logo} alt="NEHA Lifestyle" width={108} height={63} className="h-12 w-20 object-contain sm:h-14 sm:w-24" />
             </Link>
           </div>
           <nav aria-label="Main navigation" className="hidden items-center gap-4 min-[960px]:flex xl:gap-7">{navItems()}</nav>
@@ -118,7 +118,7 @@ export function SiteFooter() {
         {["left-0", "right-0 -scale-x-100"].map((pos) => <svg key={pos} aria-hidden="true" viewBox="0 0 160 120" className={`pointer-events-none absolute bottom-0 ${pos} h-28 w-36 text-footer-accent/25 sm:h-36 sm:w-48`} fill="none" stroke="currentColor" strokeWidth="1"><path d="M0 118 C30 90 50 70 60 40 M60 40 C62 25 72 18 80 20 C74 30 68 36 60 40 M38 76 C28 66 26 54 32 46 C40 54 42 66 38 76 M38 76 C52 74 62 80 66 90 C54 92 44 86 38 76 M14 104 C8 92 10 82 16 76 C22 86 20 96 14 104 M14 104 C26 100 36 104 40 112 C30 116 20 112 14 104" /><circle cx="84" cy="14" r="3" /></svg>)}
         <div className="mx-auto grid max-w-7xl relative grid-cols-2 gap-x-8 gap-y-10 px-6 py-12 sm:px-8 lg:grid-cols-[1.45fr_1fr_1fr_0.95fr] lg:gap-0 lg:px-12 lg:[&>div+div]:border-l lg:[&>div+div]:border-gold/40 lg:[&>div+div]:pl-7 lg:[&>div]:pr-5">
           <div className="col-span-2 lg:col-span-1">
-            <Link to="/" className="inline-block" aria-label="NEHA Lifestyle home"><img src={logo.url} alt="NEHA Lifestyle" width={108} height={63} loading="lazy" className="h-14 w-24 object-contain" /></Link>
+            <Link to="/" className="inline-block" aria-label="NEHA Lifestyle home"><img src={logo} alt="NEHA Lifestyle" width={108} height={63} loading="lazy" className="h-14 w-24 object-contain" /></Link>
             <p className="mt-4 font-display text-3xl font-semibold text-footer-accent">NEHA Lifestyle</p>
             <p className="mt-3 text-sm font-medium leading-6 text-footer-foreground">Bags &amp; Jewellery. Your Style, Always.</p>
             <p className="mt-3 max-w-xs text-sm leading-6 text-footer-foreground">Discover elegant bags and jewellery designed to add a touch of everyday luxury to your style.</p>
