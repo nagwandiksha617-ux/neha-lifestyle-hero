@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Facebook, Instagram, Menu, Search } from "lucide-react";
+import { ArrowUpRight, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { categories } from "@/lib/categories";
 import logo from "@/assets/neha-lifestyle-logo.jpeg";
-import searchIcon from "@/assets/header-search-luxury.png.asset.json";
-import wishlistIcon from "@/assets/header-wishlist-luxury.png.asset.json";
-import accountIcon from "@/assets/header-account-luxury.png.asset.json";
-import cartIcon from "@/assets/header-cart-luxury.png.asset.json";
+
+// Header action icons use the Luxury Premium Bold Outline set: Search, Heart, User, ShoppingBag.
+// The previously uploaded pink icon artwork is no longer rendered in the header.
 
 // Header shows Home, Shop, New Arrivals, About and Contact only.
 // Bags, Jewellery and Best Sellers pages, categories and homepage sections remain intact and are reachable from the footer, search and the Shop section.
@@ -65,6 +64,8 @@ export function SiteHeader() {
 
   const iconClass = "h-9 w-9 rounded-full text-foreground hover:bg-wine/5 hover:text-wine [&_svg]:size-[18px]";
   const actionClass = "size-9 rounded-none border-0 bg-transparent p-0 shadow-none hover:bg-transparent motion-safe:transition-transform motion-safe:duration-200 motion-safe:hover:scale-105";
+  // One shared size and stroke weight keeps all four header icons visually identical.
+  const actionIcon = "size-[22px] shrink-0";
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-gold/30 bg-background/95 shadow-[0_1px_0_0_var(--color-blush,transparent)] backdrop-blur-md" aria-label="NEHA Lifestyle header">
@@ -84,10 +85,10 @@ export function SiteHeader() {
           </div>
           <nav aria-label="Main navigation" className="hidden items-center gap-4 min-[960px]:flex xl:gap-7">{navItems()}</nav>
           <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-            <Button variant="ghost" size="icon" className={actionClass} aria-label="Search" title="Search" onClick={() => setSearchOpen(true)}><img src={searchIcon.url} alt="" aria-hidden="true" width={36} height={36} className="size-9 shrink-0 object-contain" /></Button>
-            <Button variant="ghost" size="icon" asChild className={actionClass}><a href="/#new-arrivals" aria-label="Wishlist" title="Wishlist"><img src={wishlistIcon.url} alt="" aria-hidden="true" width={36} height={36} className="size-9 shrink-0 object-contain" /></a></Button>
-            <Button variant="ghost" size="icon" className={actionClass} aria-label="Account" title="Account" onClick={() => setTopic("Account")}><img src={accountIcon.url} alt="" aria-hidden="true" width={36} height={36} className="size-9 shrink-0 object-contain" /></Button>
-            <Button variant="ghost" size="icon" className={actionClass} aria-label="Cart" title="Cart" onClick={() => setTopic("Cart")}><img src={cartIcon.url} alt="" aria-hidden="true" width={36} height={36} className="size-9 shrink-0 object-contain" /></Button>
+            <Button variant="ghost" size="icon" className={actionClass} aria-label="Search" title="Search" onClick={() => setSearchOpen(true)}><Search size={22} strokeWidth={2.4} aria-hidden="true" className={actionIcon} /></Button>
+            <Button variant="ghost" size="icon" asChild className={actionClass}><a href="/#new-arrivals" aria-label="Wishlist" title="Wishlist"><Heart size={22} strokeWidth={2.4} aria-hidden="true" className={actionIcon} /></a></Button>
+            <Button variant="ghost" size="icon" className={actionClass} aria-label="Account" title="Account" onClick={() => setTopic("Account")}><User size={22} strokeWidth={2.4} aria-hidden="true" className={actionIcon} /></Button>
+            <Button variant="ghost" size="icon" className={actionClass} aria-label="Cart" title="Cart" onClick={() => setTopic("Cart")}><ShoppingBag size={22} strokeWidth={2.4} aria-hidden="true" className={actionIcon} /></Button>
           </div>
         </div>
       </header>
