@@ -7,15 +7,12 @@ import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from 
 import { categories } from "@/lib/categories";
 import logo from "@/assets/neha-lifestyle-logo.jpeg";
 
-// Bags is a plain header link to the main Bags page; its dropdown submenu is intentionally omitted.
-// Bag category pages and products remain intact and are linked from the footer and Shop section.
+// Header shows Home, Shop, New Arrivals, About and Contact only.
+// Bags, Jewellery and Best Sellers pages, categories and homepage sections remain intact and are reachable from the footer, search and the Shop section.
 const navigation = [
   { label: "Home", href: "/" },
   { label: "Shop", href: "/#shop-by-category" },
-  { label: "Bags", slug: "bags" },
-  { label: "Jewellery", slug: "jewellery" },
   { label: "New Arrivals", href: "/#new-arrivals" },
-  { label: "Best Sellers", href: "/#best-sellers" },
   { label: "About", href: "/#brand-story" },
   { label: "Contact", info: "Contact" },
 ];
@@ -57,7 +54,6 @@ export function SiteHeader() {
       const className = mobile
         ? "block border-b border-gold/15 py-4 font-footer text-sm tracking-[0.08em] text-foreground transition-colors hover:text-wine"
         : "relative whitespace-nowrap py-2 font-footer text-[11.5px] font-medium uppercase tracking-[0.14em] text-foreground transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:scale-x-0 after:bg-wine/70 after:transition-transform hover:text-wine hover:after:scale-x-100";
-      if (item.slug) return <Link key={item.label} to="/category/$slug" params={{ slug: item.slug }} className={className} onClick={() => setMenuOpen(false)}>{item.label}</Link>;
       if (item.info) return <Button key={item.label} variant="link" className={`${className} h-auto justify-start rounded-none px-0 no-underline hover:no-underline`} onClick={() => { setMenuOpen(false); setTopic(item.info ?? null); }}>{item.label}</Button>;
       return <a key={item.label} href={item.href} className={className} onClick={() => setMenuOpen(false)}>{item.label}</a>;
     });
