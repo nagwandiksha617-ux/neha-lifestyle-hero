@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Facebook, Instagram, Menu, Search } from "lucide-react";
+import { ArrowUpRight, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { categories } from "@/lib/categories";
 import logo from "@/assets/neha-lifestyle-logo.jpeg";
-import searchIcon from "@/assets/header-search-luxury.png.asset.json";
-import wishlistIcon from "@/assets/header-wishlist-luxury.png.asset.json";
-import accountIcon from "@/assets/header-account-luxury.png.asset.json";
-import cartIcon from "@/assets/header-cart-luxury.png.asset.json";
+
+// Header action icons use the Luxury Premium Bold Outline set: Search, Heart, User, ShoppingBag.
+// The previously uploaded pink icon artwork is no longer rendered in the header.
 
 // Header shows Home, Shop, New Arrivals, About and Contact only.
 // Bags, Jewellery and Best Sellers pages, categories and homepage sections remain intact and are reachable from the footer, search and the Shop section.
@@ -65,6 +64,8 @@ export function SiteHeader() {
 
   const iconClass = "h-9 w-9 rounded-full text-foreground hover:bg-wine/5 hover:text-wine [&_svg]:size-[18px]";
   const actionClass = "size-9 rounded-none border-0 bg-transparent p-0 shadow-none hover:bg-transparent motion-safe:transition-transform motion-safe:duration-200 motion-safe:hover:scale-105";
+  // One shared size and stroke weight keeps all four header icons visually identical.
+  const actionIcon = "size-[22px] shrink-0";
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-gold/30 bg-background/95 shadow-[0_1px_0_0_var(--color-blush,transparent)] backdrop-blur-md" aria-label="NEHA Lifestyle header">
