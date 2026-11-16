@@ -7,15 +7,12 @@ import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from 
 import { categories } from "@/lib/categories";
 import logo from "@/assets/neha-lifestyle-logo.jpeg";
 
-// Bags is a plain header link to the main Bags page; its dropdown submenu is intentionally omitted.
-// Bag category pages and products remain intact and are linked from the footer and Shop section.
+// Header shows Home, Shop, New Arrivals, About and Contact only.
+// Bags, Jewellery and Best Sellers pages, categories and homepage sections remain intact and are reachable from the footer, search and the Shop section.
 const navigation = [
   { label: "Home", href: "/" },
   { label: "Shop", href: "/#shop-by-category" },
-  { label: "Bags", slug: "bags" },
-  { label: "Jewellery", slug: "jewellery" },
   { label: "New Arrivals", href: "/#new-arrivals" },
-  { label: "Best Sellers", href: "/#best-sellers" },
   { label: "About", href: "/#brand-story" },
   { label: "Contact", info: "Contact" },
 ];
