@@ -1,12 +1,12 @@
 import bags from "@/assets/category-bags.jpg";
 import jewellery from "@/assets/category-jewellery.jpg";
-import party from "@/assets/category-party.jpg";
+import potli from "@/assets/category-potli.jpg";
 
 // Homepage "Shop by Category" cards.
 export const categories = [
-  { slug: "bags", name: "Bags", description: "Elegant bags designed for everyday style.", image: bags, alt: "Blush leather handbag resting on an ivory marble ledge in soft window light" },
-  { slug: "jewellery", name: "Jewellery", description: "Timeless pieces made to elevate your look.", image: jewellery, alt: "Gold jhumka earrings and a delicate necklace on ivory silk" },
-  { slug: "party-clutch-bags", name: "Party & Clutch Bags", description: "Statement pieces for celebrations and special occasions.", image: party, alt: "Embellished gold evening clutch on burgundy velvet" },
+  { slug: "bags", name: "Bags", description: "Elegant bags designed for everyday style.", image: bags, alt: "Cream and gold chain-strap handbag on a polished marble vanity with white flowers" },
+  { slug: "jewellery", name: "Jewellery", description: "Timeless pieces made to elevate your look.", image: jewellery, alt: "Gold and ruby-red beaded necklace set with matching earrings on champagne silk" },
+  { slug: "party-clutch-bags", name: "Party & Clutch Bags", description: "Statement pieces for celebrations and special occasions.", image: potli, alt: "Golden embroidered potli bag with pearl trim and beaded fringe on champagne satin" },
 ];
 
 // Bag types shown in the header's Bags menu and on the Bags page. Each has its own listing page.
