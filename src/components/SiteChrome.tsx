@@ -6,10 +6,10 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { categories } from "@/lib/categories";
 import logo from "@/assets/neha-lifestyle-logo.jpeg";
-import searchIcon from "@/assets/header-search-transparent.png.asset.json";
-import wishlistIcon from "@/assets/header-wishlist-transparent.png.asset.json";
-import accountIcon from "@/assets/header-account-transparent.png.asset.json";
-import cartIcon from "@/assets/header-cart-transparent.png.asset.json";
+import searchIcon from "@/assets/header-search-luxury.png.asset.json";
+import wishlistIcon from "@/assets/header-wishlist-luxury.png.asset.json";
+import accountIcon from "@/assets/header-account-luxury.png.asset.json";
+import cartIcon from "@/assets/header-cart-luxury.png.asset.json";
 
 // Header shows Home, Shop, New Arrivals, About and Contact only.
 // Bags, Jewellery and Best Sellers pages, categories and homepage sections remain intact and are reachable from the footer, search and the Shop section.
