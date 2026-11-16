@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, UserRound } from "lucide-react";
+import { ArrowUpRight, Facebook, Instagram, Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { categories } from "@/lib/categories";
 import logo from "@/assets/neha-lifestyle-logo.jpeg";
+import searchIcon from "@/assets/header-search-original.jpg.asset.json";
+import wishlistIcon from "@/assets/header-wishlist-original.jpg.asset.json";
+import accountIcon from "@/assets/header-account-original.jpg.asset.json";
+import cartIcon from "@/assets/header-cart-original.jpg.asset.json";
 
 // Header shows Home, Shop, New Arrivals, About and Contact only.
 // Bags, Jewellery and Best Sellers pages, categories and homepage sections remain intact and are reachable from the footer, search and the Shop section.
@@ -79,10 +83,10 @@ export function SiteHeader() {
           </div>
           <nav aria-label="Main navigation" className="hidden items-center gap-4 min-[960px]:flex xl:gap-7">{navItems()}</nav>
           <div className="flex shrink-0 items-center gap-0 sm:gap-1">
-            <Button variant="ghost" size="icon" className={iconClass} aria-label="Search" title="Search" onClick={() => setSearchOpen(true)}><Search strokeWidth={1.5} /></Button>
-            <Button variant="ghost" size="icon" asChild className={iconClass}><a href="/#new-arrivals" aria-label="Wishlist" title="Wishlist"><Heart strokeWidth={1.5} /></a></Button>
-            <Button variant="ghost" size="icon" className={iconClass} aria-label="Account" title="Account" onClick={() => setTopic("Account")}><UserRound strokeWidth={1.5} /></Button>
-            <Button variant="ghost" size="icon" className={iconClass} aria-label="Cart" title="Cart" onClick={() => setTopic("Cart")}><ShoppingBag strokeWidth={1.5} /></Button>
+            <Button variant="ghost" size="icon" className={iconClass} aria-label="Search" title="Search" onClick={() => setSearchOpen(true)}><img src={searchIcon.url} alt="" aria-hidden="true" width={30} height={30} className="size-[30px] shrink-0 object-contain" /></Button>
+            <Button variant="ghost" size="icon" asChild className={iconClass}><a href="/#new-arrivals" aria-label="Wishlist" title="Wishlist"><img src={wishlistIcon.url} alt="" aria-hidden="true" width={30} height={30} className="size-[30px] shrink-0 object-contain" /></a></Button>
+            <Button variant="ghost" size="icon" className={iconClass} aria-label="Account" title="Account" onClick={() => setTopic("Account")}><img src={accountIcon.url} alt="" aria-hidden="true" width={30} height={30} className="size-[30px] shrink-0 object-contain" /></Button>
+            <Button variant="ghost" size="icon" className={iconClass} aria-label="Cart" title="Cart" onClick={() => setTopic("Cart")}><img src={cartIcon.url} alt="" aria-hidden="true" width={30} height={30} className="size-[30px] shrink-0 object-contain" /></Button>
           </div>
         </div>
       </header>
