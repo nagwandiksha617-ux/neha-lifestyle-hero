@@ -85,10 +85,10 @@ export function SiteHeader() {
           </div>
           <nav aria-label="Main navigation" className="hidden items-center gap-4 min-[960px]:flex xl:gap-7">{navItems()}</nav>
           <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-            <Button variant="ghost" size="icon" className={actionClass} aria-label="Search" title="Search" onClick={() => setSearchOpen(true)}><img src={searchIcon.url} alt="" aria-hidden="true" width={36} height={36} className="size-9 shrink-0 object-contain" /></Button>
-            <Button variant="ghost" size="icon" asChild className={actionClass}><a href="/#new-arrivals" aria-label="Wishlist" title="Wishlist"><img src={wishlistIcon.url} alt="" aria-hidden="true" width={36} height={36} className="size-9 shrink-0 object-contain" /></a></Button>
-            <Button variant="ghost" size="icon" className={actionClass} aria-label="Account" title="Account" onClick={() => setTopic("Account")}><img src={accountIcon.url} alt="" aria-hidden="true" width={36} height={36} className="size-9 shrink-0 object-contain" /></Button>
-            <Button variant="ghost" size="icon" className={actionClass} aria-label="Cart" title="Cart" onClick={() => setTopic("Cart")}><img src={cartIcon.url} alt="" aria-hidden="true" width={36} height={36} className="size-9 shrink-0 object-contain" /></Button>
+            <Button variant="ghost" size="icon" className={actionClass} aria-label="Search" title="Search" onClick={() => setSearchOpen(true)}><Search size={22} strokeWidth={2.4} aria-hidden="true" className={actionIcon} /></Button>
+            <Button variant="ghost" size="icon" asChild className={actionClass}><a href="/#new-arrivals" aria-label="Wishlist" title="Wishlist"><Heart size={22} strokeWidth={2.4} aria-hidden="true" className={actionIcon} /></a></Button>
+            <Button variant="ghost" size="icon" className={actionClass} aria-label="Account" title="Account" onClick={() => setTopic("Account")}><User size={22} strokeWidth={2.4} aria-hidden="true" className={actionIcon} /></Button>
+            <Button variant="ghost" size="icon" className={actionClass} aria-label="Cart" title="Cart" onClick={() => setTopic("Cart")}><ShoppingBag size={22} strokeWidth={2.4} aria-hidden="true" className={actionIcon} /></Button>
           </div>
         </div>
       </header>
