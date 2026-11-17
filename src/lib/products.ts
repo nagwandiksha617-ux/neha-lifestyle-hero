@@ -330,11 +330,11 @@ export const products: Product[] = [
     bagCategorySlug: "tote-bags",
     name: "Beige & Black Monogram Tote Bag",
     category: "Tote Bags",
-    image: bbm1,
+    image: bbm3,
     gallery: [
+      { src: bbm3, alt: "Model in a black blazer and white trousers carrying the beige and black monogram tote bag" },
       { src: bbm1, alt: "Beige and black monogram tote bag with black straps — front view" },
       { src: bbm2, alt: "Beige and black monogram tote bag — bottom view with gold studs" },
-      { src: bbm3, alt: "Model in a black blazer and white trousers carrying the beige and black monogram tote bag" },
     ],
   },
 ];
