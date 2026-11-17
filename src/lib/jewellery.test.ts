@@ -12,7 +12,7 @@ test("Jewellery New Arrivals uses only the two existing jewellery arrivals", () 
   expect(jewelleryNewArrivals.map((p) => p.id)).toEqual(["na-1", "na-2"]);
 });
 
-const sets = [
+const sets: Array<[string, string]> = [
   ["Navy Blue & Silver Crystal Necklace Set", "navy-silver"],
   ["Pink & Gold Statement Necklace Set", "pink-gold"],
   ["Gold & Ruby Red Necklace Set", "gold-ruby"],
