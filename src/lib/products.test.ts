@@ -140,7 +140,6 @@ describe("Bags menu categories", () => {
     expect(names("tote-bags")).toEqual([["Cream Beige Tote Bag with Gold Chain Handles", undefined], ["Beige & Black Printed Tote Bag", undefined], ["Beige & Black Monogram Tote Bag", undefined]]);
     expect(products.find((p) => p.id === "cream-beige-tote-bag-gold-chain")?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["cbt-1-lifestyle.png", "cbt-2-back.png", "cbt-3-side.png"]);
     expect(products.find((p) => p.id === "beige-black-printed-tote-bag")?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["bbt-d1-front.png", "bbt-d2-side.png", "bbt-d4-model.png", "bbt-d5-model.png"]);
-    expect(products.find((p) => p.id === "beige-black-monogram-tote-bag")?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["bbm-1-front.png", "bbm-2-bottom.png", "bbm-3-model.png"]);
     expect(names("handbags")).toEqual([
       ["Brown Checkered Crossbody Bag with Mini Pouch", undefined],
       ["Blue Printed Crossbody Bag with Mini Pouch", undefined],
@@ -149,6 +148,13 @@ describe("Bags menu categories", () => {
       ["Brown Beige Printed Shoulder Bag", undefined],
       ["Sky Blue Crossbody Bag with Mini Pouch", undefined],
     ]);
+  });
+
+  test("Monogram Tote uses its model photo as main image, followed by front and bottom", () => {
+    const bag = products.find((p) => p.id === "beige-black-monogram-tote-bag");
+    expect(bag?.image?.split("/").pop()).toBe("bbm-3-model.png");
+    expect(bag?.gallery?.map((g) => g.src.split("/").pop())).toEqual(["bbm-3-model.png", "bbm-1-front.png", "bbm-2-bottom.png"]);
+    expect(bag?.image).toBe(bag?.gallery?.[0]?.src);
   });
 
   test("Blue and White crossbody bags keep only their own photos", () => {
