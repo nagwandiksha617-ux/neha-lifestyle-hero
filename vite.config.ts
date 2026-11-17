@@ -19,6 +19,11 @@ const PRERENDER_PATHS = [
   "/category/handbags",
   "/category/clutch-bags",
   "/category/potli-bags",
+  "/category/earrings",
+  "/category/jewellery-sets",
+  "/category/bracelets",
+  "/category/ethnic-jewellery",
+  "/category/wedding-occasion-jewellery",
 ];
 
 export default defineConfig({
