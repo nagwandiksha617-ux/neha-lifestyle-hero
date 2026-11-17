@@ -74,6 +74,14 @@ import rubyDisplay from "@/assets/jewellery-sets/gold-ruby-display.png.asset.jso
 import rubyModel from "@/assets/jewellery-sets/gold-ruby-model.png.asset.json";
 import pearlDisplay from "@/assets/jewellery-sets/pearl-pink-green-display.png.asset.json";
 import pearlModel from "@/assets/jewellery-sets/pearl-pink-green-model.png.asset.json";
+import rubyMultilayerDisplay from "@/assets/jewellery-sets/ruby-multilayer-display.png.asset.json";
+import rubyMultilayerModel from "@/assets/jewellery-sets/ruby-multilayer-model.png.asset.json";
+import peacockDisplay from "@/assets/jewellery-sets/peacock-green-pink-display.png.asset.json";
+import peacockModel from "@/assets/jewellery-sets/peacock-green-pink-model.png.asset.json";
+import kundanDisplay from "@/assets/jewellery-sets/kundan-white-pink-display.png.asset.json";
+import kundanModel from "@/assets/jewellery-sets/kundan-white-pink-model.png.asset.json";
+import maroonDeerDisplay from "@/assets/jewellery-sets/maroon-deer-display.png.asset.json";
+import maroonDeerModel from "@/assets/jewellery-sets/maroon-deer-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -387,6 +395,50 @@ export const products: Product[] = [
     gallery: [
       { src: pearlDisplay.url, alt: "Pearl, Pink & Green Ethnic Necklace Set — product display on white background" },
       { src: pearlModel.url, alt: "Model wearing the Pearl, Pink & Green Ethnic Necklace Set" },
+    ],
+  },
+  {
+    id: "gold-multi-layer-ruby-necklace-set",
+    name: "Gold Multi-Layer Ruby Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: rubyMultilayerDisplay.url,
+    gallery: [
+      { src: rubyMultilayerDisplay.url, alt: "Gold Multi-Layer Ruby Necklace Set — product display on white background" },
+      { src: rubyMultilayerModel.url, alt: "Model wearing the Gold Multi-Layer Ruby Necklace Set" },
+    ],
+  },
+  {
+    id: "green-pink-peacock-designer-necklace-set",
+    name: "Green & Pink Peacock Designer Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: peacockDisplay.url,
+    gallery: [
+      { src: peacockDisplay.url, alt: "Green & Pink Peacock Designer Necklace Set — product display on white background" },
+      { src: peacockModel.url, alt: "Model wearing the Green & Pink Peacock Designer Necklace Set" },
+    ],
+  },
+  {
+    id: "gold-white-pink-kundan-necklace-set",
+    name: "Gold, White & Pink Kundan Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: kundanDisplay.url,
+    gallery: [
+      { src: kundanDisplay.url, alt: "Gold, White & Pink Kundan Necklace Set — product display on white background" },
+      { src: kundanModel.url, alt: "Model wearing the Gold, White & Pink Kundan Necklace Set" },
+    ],
+  },
+  {
+    id: "maroon-deer-pendant-statement-necklace-set",
+    name: "Maroon Deer Pendant Statement Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: maroonDeerDisplay.url,
+    gallery: [
+      { src: maroonDeerDisplay.url, alt: "Maroon Deer Pendant Statement Necklace Set — product display on white background" },
+      { src: maroonDeerModel.url, alt: "Model wearing the Maroon Deer Pendant Statement Necklace Set" },
     ],
   },
 ];
