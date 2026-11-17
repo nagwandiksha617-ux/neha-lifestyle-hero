@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { bagCategories } from "@/lib/categories";
 import { products, type Product } from "@/lib/products";
 import { ProductGrid } from "@/components/ProductGrid";
+import { Button } from "@/components/ui/button";
 
 // Hero visual and section imagery reuse existing uploaded product photos only.
 import heroBag from "@/assets/beige-black-tote/bbt-d4-model.png";
@@ -36,24 +37,19 @@ export function BagsCollection() {
   return (
     <main className="bg-background">
       {/* 1. Hero */}
-      <section className="relative overflow-hidden bg-[image:var(--gradient-hero-blush)]" aria-label="Bags collection hero">
-        <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-6 pb-16 pt-12 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:px-12 lg:pb-24 lg:pt-16">
-          <div className="text-center lg:text-left">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-gold">NEHA Lifestyle</p>
-            <h1 className="mt-4 font-display text-5xl leading-tight text-foreground sm:text-6xl">
-              Discover Your <em className="text-wine">Perfect Bag</em>
+      <section className="relative isolate overflow-hidden border-b border-gold/20 bg-background" aria-label="Bags collection hero">
+        <img src={heroBag} alt="Model in a white dress carrying the Beige & Black Printed Tote Bag" width={768} height={1152} fetchPriority="high" className="absolute bottom-0 right-0 -z-10 h-[380px] w-full object-contain sm:h-[440px] lg:h-full lg:w-3/5" />
+        <div className="mx-auto flex min-h-[700px] max-w-7xl items-start px-6 pt-9 sm:min-h-[750px] sm:px-8 lg:min-h-[560px] lg:items-center lg:px-12 lg:py-16">
+          <div className="w-full text-center lg:max-w-[44%] lg:text-left">
+            <p className="text-[0.65rem] font-semibold uppercase text-wine">NEHA Lifestyle · Bags Collection</p>
+            <h1 className="mt-4 font-display text-4xl leading-tight text-foreground sm:text-5xl lg:text-6xl">
+              Discover Your <em className="block text-wine">Perfect Bag</em>
             </h1>
-            <p className="mt-4 text-base text-foreground/75 sm:text-lg">Timeless Style. Everyday Elegance.</p>
-            <a
-              href="#bags-collection"
-              className="mt-8 inline-flex min-h-12 items-center gap-2 bg-wine px-8 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-wine-foreground ring-1 ring-gold/40 transition-colors hover:bg-rose"
-            >
-              Shop Bags <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-            </a>
-          </div>
-          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-sm border border-gold/40" aria-hidden="true" />
-            <img src={heroBag} alt="Model in a white dress carrying an elegant beige tote bag" className="relative aspect-[4/5] w-full rounded-sm object-cover shadow-lg" />
+            <span className="mx-auto mt-5 block h-px w-14 bg-gold lg:mx-0" aria-hidden="true" />
+            <p className="mt-4 text-sm text-foreground/75 sm:text-base">Timeless Style. Everyday Elegance.</p>
+            <Button asChild className="mt-6 min-h-12 rounded-sm bg-wine px-8 text-xs font-semibold uppercase text-wine-foreground ring-1 ring-gold/40 hover:bg-rose">
+              <a href="#bags-collection">Shop Bags <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" /></a>
+            </Button>
           </div>
         </div>
       </section>
@@ -71,7 +67,7 @@ export function BagsCollection() {
               <li key={c.slug}>
                 <Link to="/category/$slug" params={{ slug: c.slug }} className="group flex flex-col items-center text-center">
                   <span className="relative block h-32 w-32 overflow-hidden rounded-full bg-card ring-1 ring-gold/40 transition-shadow duration-500 group-hover:shadow-lg sm:h-40 sm:w-40 lg:h-44 lg:w-44">
-                    {img && <img src={img.src} alt={img.alt} className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />}
+                    {img && <img src={img.src} alt={img.alt} loading="lazy" className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-105" />}
                   </span>
                   <span className="mt-4 font-display text-lg text-foreground transition-colors group-hover:text-wine sm:text-xl">{c.name}</span>
                   <span className="mt-1 inline-flex items-center gap-1 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-wine">
@@ -91,15 +87,16 @@ export function BagsCollection() {
           {banners.map((b) => {
             const inner = (
               <>
-                <img src={b.image} alt={b.alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
-                <span className="absolute inset-0 bg-[image:var(--gradient-banner-veil)]" aria-hidden="true" />
-                <span className="relative font-display text-2xl text-foreground sm:text-3xl">{b.title}</span>
-                <span className="relative mt-1 inline-flex items-center gap-2 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-wine">
-                  {b.note} <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                <span className="block overflow-hidden rounded-sm bg-card ring-1 ring-gold/20">
+                  <img src={b.image} alt={b.alt} loading="lazy" className="aspect-[4/5] w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-105" />
+                </span>
+                <span className="mt-5 block font-display text-2xl text-foreground sm:text-3xl">{b.title}</span>
+                <span className="mt-2 inline-flex items-center gap-2 text-xs text-wine">
+                  {b.note} <ArrowUpRight className="h-3.5 w-3.5 motion-safe:transition-transform motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5" aria-hidden="true" />
                 </span>
               </>
             );
-            const cardClass = "group relative flex min-h-56 flex-col justify-end overflow-hidden rounded-sm p-6 ring-1 ring-gold/30 sm:min-h-64";
+            const cardClass = "group flex min-w-0 flex-col pb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine";
             return b.slug ? (
               <Link key={b.title} to="/category/$slug" params={{ slug: b.slug }} className={cardClass}>{inner}</Link>
             ) : (
