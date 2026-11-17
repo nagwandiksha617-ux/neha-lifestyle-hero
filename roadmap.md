@@ -1,5 +1,7 @@
 # Static shared-hosting migration (FTP, no Node at runtime)
 
+- [x] Jewellery redesign — isolated collection page, five category destinations, existing arrivals only; no product reassignment or invented best sellers.
+
 - [ ] Phase 1 — Static export: prerender all routes, self-host catalogue images (Option B), .htaccess, sitemap.xml, local static-server verification
 - [ ] Phase 2 — External Supabase integration: products table + RLS, admin roles, email/password admin login, /admin panel (product CRUD, category management, gallery management, admin-only image uploads to private bucket via Option A Edge Function)
 - [ ] Phase 3 — GitHub Actions build + FTP deploy to nehalifestyle.com, automatic rebuild when the catalogue changes
