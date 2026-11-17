@@ -17,12 +17,16 @@ const sets: Array<[string, string]> = [
   ["Pink & Gold Statement Necklace Set", "pink-gold"],
   ["Gold & Ruby Red Necklace Set", "gold-ruby"],
   ["Pearl, Pink & Green Ethnic Necklace Set", "pearl-pink-green"],
+  ["Gold Multi-Layer Ruby Necklace Set", "ruby-multilayer"],
+  ["Green & Pink Peacock Designer Necklace Set", "peacock-green-pink"],
+  ["Gold, White & Pink Kundan Necklace Set", "kundan-white-pink"],
+  ["Maroon Deer Pendant Statement Necklace Set", "maroon-deer"],
 ];
 
-test("Jewellery Sets lists exactly four distinct new sets in requested order", () => {
+test("Jewellery Sets lists exactly eight distinct sets in requested order", () => {
   const listed = productsForCategoryPage("jewellery-sets");
   expect(listed.map((p) => p.name)).toEqual(sets.map(([name]) => name));
-  expect(new Set(listed.map((p) => p.id)).size).toBe(4);
+  expect(new Set(listed.map((p) => p.id)).size).toBe(8);
 });
 
 for (const [name, prefix] of sets) {
