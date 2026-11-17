@@ -66,6 +66,14 @@ import bbt5 from "@/assets/beige-black-tote/bbt-d5-model.png";
 import bbm1 from "@/assets/beige-black-monogram-tote/bbm-1-front.png";
 import bbm2 from "@/assets/beige-black-monogram-tote/bbm-2-bottom.png";
 import bbm3 from "@/assets/beige-black-monogram-tote/bbm-3-model.png";
+import navyDisplay from "@/assets/jewellery-sets/navy-silver-display.png.asset.json";
+import navyModel from "@/assets/jewellery-sets/navy-silver-model.png.asset.json";
+import pinkDisplay from "@/assets/jewellery-sets/pink-gold-display.png.asset.json";
+import pinkModel from "@/assets/jewellery-sets/pink-gold-model.png.asset.json";
+import rubyDisplay from "@/assets/jewellery-sets/gold-ruby-display.png.asset.json";
+import rubyModel from "@/assets/jewellery-sets/gold-ruby-model.png.asset.json";
+import pearlDisplay from "@/assets/jewellery-sets/pearl-pink-green-display.png.asset.json";
+import pearlModel from "@/assets/jewellery-sets/pearl-pink-green-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -337,10 +345,54 @@ export const products: Product[] = [
       { src: bbm2, alt: "Beige and black monogram tote bag — bottom view with gold studs" },
     ],
   },
+  {
+    id: "navy-blue-silver-crystal-necklace-set",
+    name: "Navy Blue & Silver Crystal Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: navyDisplay.url,
+    gallery: [
+      { src: navyDisplay.url, alt: "Navy Blue & Silver Crystal Necklace Set — product display on white background" },
+      { src: navyModel.url, alt: "Model wearing the Navy Blue & Silver Crystal Necklace Set" },
+    ],
+  },
+  {
+    id: "pink-gold-statement-necklace-set",
+    name: "Pink & Gold Statement Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: pinkDisplay.url,
+    gallery: [
+      { src: pinkDisplay.url, alt: "Pink & Gold Statement Necklace Set — product display on white background" },
+      { src: pinkModel.url, alt: "Model wearing the Pink & Gold Statement Necklace Set" },
+    ],
+  },
+  {
+    id: "gold-ruby-red-necklace-set",
+    name: "Gold & Ruby Red Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: rubyDisplay.url,
+    gallery: [
+      { src: rubyDisplay.url, alt: "Gold & Ruby Red Necklace Set — product display on mannequin" },
+      { src: rubyModel.url, alt: "Model wearing the Gold & Ruby Red Necklace Set" },
+    ],
+  },
+  {
+    id: "pearl-pink-green-ethnic-necklace-set",
+    name: "Pearl, Pink & Green Ethnic Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: pearlDisplay.url,
+    gallery: [
+      { src: pearlDisplay.url, alt: "Pearl, Pink & Green Ethnic Necklace Set — product display on mannequin" },
+      { src: pearlModel.url, alt: "Model wearing the Pearl, Pink & Green Ethnic Necklace Set" },
+    ],
+  },
 ];
 
 // Category pages that list their products. Others keep their "coming soon" note.
-export const listedCategorySlugs = ["party-clutch-bags", "tote-bags", "handbags", "clutch-bags", "potli-bags"];
+export const listedCategorySlugs = ["party-clutch-bags", "tote-bags", "handbags", "clutch-bags", "potli-bags", "jewellery-sets"];
 
 export const newArrivals = () => products.filter((p) => p.newArrival);
 
