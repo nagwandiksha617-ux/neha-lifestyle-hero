@@ -374,7 +374,7 @@ export const products: Product[] = [
     categorySlug: "jewellery-sets",
     image: rubyDisplay.url,
     gallery: [
-      { src: rubyDisplay.url, alt: "Gold & Ruby Red Necklace Set — product display on mannequin" },
+      { src: rubyDisplay.url, alt: "Gold & Ruby Red Necklace Set — product display on white background" },
       { src: rubyModel.url, alt: "Model wearing the Gold & Ruby Red Necklace Set" },
     ],
   },
@@ -385,7 +385,7 @@ export const products: Product[] = [
     categorySlug: "jewellery-sets",
     image: pearlDisplay.url,
     gallery: [
-      { src: pearlDisplay.url, alt: "Pearl, Pink & Green Ethnic Necklace Set — product display on mannequin" },
+      { src: pearlDisplay.url, alt: "Pearl, Pink & Green Ethnic Necklace Set — product display on white background" },
       { src: pearlModel.url, alt: "Model wearing the Pearl, Pink & Green Ethnic Necklace Set" },
     ],
   },
