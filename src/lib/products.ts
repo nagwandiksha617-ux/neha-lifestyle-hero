@@ -104,6 +104,14 @@ import silverFloralPearlDisplay from "@/assets/jewellery-sets/silver-floral-pear
 import silverFloralPearlModel from "@/assets/jewellery-sets/silver-floral-pearl-model.png.asset.json";
 import elephantMotifDisplay from "@/assets/jewellery-sets/elephant-motif-display.jpg.asset.json";
 import elephantMotifModel from "@/assets/jewellery-sets/elephant-motif-model.png.asset.json";
+import goldCoinPendantDisplay from "@/assets/jewellery-sets/gold-coin-pendant-display.jpg.asset.json";
+import goldCoinPendantModel from "@/assets/jewellery-sets/gold-coin-pendant-model.png.asset.json";
+import multicolorKundanDisplay from "@/assets/jewellery-sets/multicolor-kundan-display.png.asset.json";
+import multicolorKundanModel from "@/assets/jewellery-sets/multicolor-kundan-model.png.asset.json";
+import greenMeenakariDisplay from "@/assets/jewellery-sets/green-meenakari-display.png.asset.json";
+import greenMeenakariModel from "@/assets/jewellery-sets/green-meenakari-model.png.asset.json";
+import greenButterflyDisplay from "@/assets/jewellery-sets/green-butterfly-display.jpg.asset.json";
+import greenButterflyModel from "@/assets/jewellery-sets/green-butterfly-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -582,6 +590,50 @@ export const products: Product[] = [
     gallery: [
       { src: elephantMotifDisplay.url, alt: "Antique Silver Elephant Motif Necklace Set — product display on white background" },
       { src: elephantMotifModel.url, alt: "Model wearing the Antique Silver Elephant Motif Necklace Set" },
+    ],
+  },
+  {
+    id: "antique-silver-gold-coin-pendant-necklace-set",
+    name: "Antique Silver Gold Coin Pendant Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: goldCoinPendantDisplay.url,
+    gallery: [
+      { src: goldCoinPendantDisplay.url, alt: "Antique Silver Gold Coin Pendant Necklace Set — product display on white background" },
+      { src: goldCoinPendantModel.url, alt: "Model wearing the Antique Silver Gold Coin Pendant Necklace Set" },
+    ],
+  },
+  {
+    id: "multicolor-kundan-stone-pearl-necklace-set",
+    name: "Multicolor Kundan Stone Pearl Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: multicolorKundanDisplay.url,
+    gallery: [
+      { src: multicolorKundanDisplay.url, alt: "Multicolor Kundan Stone Pearl Necklace Set — product display on white background" },
+      { src: multicolorKundanModel.url, alt: "Model wearing the Multicolor Kundan Stone Pearl Necklace Set" },
+    ],
+  },
+  {
+    id: "traditional-green-meenakari-gold-necklace-set",
+    name: "Traditional Green Meenakari Gold Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: greenMeenakariDisplay.url,
+    gallery: [
+      { src: greenMeenakariDisplay.url, alt: "Traditional Green Meenakari Gold Necklace Set — product display on white background" },
+      { src: greenMeenakariModel.url, alt: "Model wearing the Traditional Green Meenakari Gold Necklace Set" },
+    ],
+  },
+  {
+    id: "green-stone-butterfly-pendant-necklace-set",
+    name: "Green Stone Butterfly Pendant Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: greenButterflyDisplay.url,
+    gallery: [
+      { src: greenButterflyDisplay.url, alt: "Green Stone Butterfly Pendant Necklace Set — product display on white background" },
+      { src: greenButterflyModel.url, alt: "Model wearing the Green Stone Butterfly Pendant Necklace Set" },
     ],
   },
 ];
