@@ -12,31 +12,34 @@ test("Jewellery New Arrivals uses only the two existing jewellery arrivals", () 
   expect(jewelleryNewArrivals.map((p) => p.id)).toEqual(["na-1", "na-2"]);
 });
 
-const sets: Array<[string, string]> = [
-  ["Navy Blue & Silver Crystal Necklace Set", "navy-silver"],
-  ["Pink & Gold Statement Necklace Set", "pink-gold"],
-  ["Gold & Ruby Red Necklace Set", "gold-ruby"],
-  ["Pearl, Pink & Green Ethnic Necklace Set", "pearl-pink-green"],
-  ["Gold Multi-Layer Ruby Necklace Set", "ruby-multilayer"],
-  ["Green & Pink Peacock Designer Necklace Set", "peacock-green-pink"],
-  ["Gold, White & Pink Kundan Necklace Set", "kundan-white-pink"],
-  ["Maroon Deer Pendant Statement Necklace Set", "maroon-deer"],
-  ["Antique Gold Temple Elephant Necklace Set", "temple-elephant"],
-  ["Gold, Black & Pink Beaded Statement Necklace Set", "black-pink-beaded"],
-  ["Green & White Pearl Long Necklace Set", "green-white-pearl"],
-  ["Green & Gold Traditional Long Necklace Set", "green-gold-long"],
+const sets: Array<[string, string, string]> = [
+  ["Navy Blue & Silver Crystal Necklace Set", "navy-silver", "png"],
+  ["Pink & Gold Statement Necklace Set", "pink-gold", "png"],
+  ["Gold & Ruby Red Necklace Set", "gold-ruby", "png"],
+  ["Pearl, Pink & Green Ethnic Necklace Set", "pearl-pink-green", "png"],
+  ["Gold Multi-Layer Ruby Necklace Set", "ruby-multilayer", "png"],
+  ["Green & Pink Peacock Designer Necklace Set", "peacock-green-pink", "png"],
+  ["Gold, White & Pink Kundan Necklace Set", "kundan-white-pink", "png"],
+  ["Maroon Deer Pendant Statement Necklace Set", "maroon-deer", "png"],
+  ["Antique Gold Temple Elephant Necklace Set", "temple-elephant", "png"],
+  ["Gold, Black & Pink Beaded Statement Necklace Set", "black-pink-beaded", "png"],
+  ["Green & White Pearl Long Necklace Set", "green-white-pearl", "png"],
+  ["Green & Gold Traditional Long Necklace Set", "green-gold-long", "png"],
+  ["Antique Silver Oxidised Floral Necklace Set", "oxidised-floral", "jpg"],
+  ["Maroon Thread & Green Stone Oxidised Necklace Set", "maroon-thread-oxidised", "jpg"],
+  ["Golden Green Medallion Necklace Set", "golden-green-medallion", "jpg"],
 ];
 
-test("Jewellery Sets lists exactly twelve distinct sets in requested order", () => {
+test("Jewellery Sets lists exactly fifteen distinct sets in requested order", () => {
   const listed = productsForCategoryPage("jewellery-sets");
   expect(listed.map((p) => p.name)).toEqual(sets.map(([name]) => name));
-  expect(new Set(listed.map((p) => p.id)).size).toBe(12);
+  expect(new Set(listed.map((p) => p.id)).size).toBe(15);
 });
 
-for (const [name, prefix] of sets) {
+for (const [name, prefix, displayExt] of sets) {
   test(`${name} keeps its own display photo first and model photo second, with details pending`, () => {
     const product = products.find((p) => p.name === name);
-    expect(product?.gallery?.map((photo) => photo.src.split("/").pop())).toEqual([`${prefix}-display.png`, `${prefix}-model.png`]);
+    expect(product?.gallery?.map((photo) => photo.src.split("/").pop())).toEqual([`${prefix}-display.${displayExt}`, `${prefix}-model.png`]);
     expect(product?.image).toBe(product?.gallery?.[0]?.src);
     expect(product?.categorySlug).toBe("jewellery-sets");
     expect(product?.description).toBeUndefined();

@@ -90,6 +90,12 @@ import greenGoldLongDisplay from "@/assets/jewellery-sets/green-gold-long-displa
 import greenGoldLongModel from "@/assets/jewellery-sets/green-gold-long-model.png.asset.json";
 import greenWhitePearlDisplay from "@/assets/jewellery-sets/green-white-pearl-display.png.asset.json";
 import greenWhitePearlModel from "@/assets/jewellery-sets/green-white-pearl-model.png.asset.json";
+import oxidisedFloralDisplay from "@/assets/jewellery-sets/oxidised-floral-display.jpg.asset.json";
+import oxidisedFloralModel from "@/assets/jewellery-sets/oxidised-floral-model.png.asset.json";
+import maroonThreadOxidisedDisplay from "@/assets/jewellery-sets/maroon-thread-oxidised-display.jpg.asset.json";
+import maroonThreadOxidisedModel from "@/assets/jewellery-sets/maroon-thread-oxidised-model.png.asset.json";
+import goldenGreenMedallionDisplay from "@/assets/jewellery-sets/golden-green-medallion-display.jpg.asset.json";
+import goldenGreenMedallionModel from "@/assets/jewellery-sets/golden-green-medallion-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -491,6 +497,39 @@ export const products: Product[] = [
     gallery: [
       { src: greenGoldLongDisplay.url, alt: "Green & Gold Traditional Long Necklace Set — product display on white background" },
       { src: greenGoldLongModel.url, alt: "Model wearing the Green & Gold Traditional Long Necklace Set" },
+    ],
+  },
+  {
+    id: "antique-silver-oxidised-floral-necklace-set",
+    name: "Antique Silver Oxidised Floral Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: oxidisedFloralDisplay.url,
+    gallery: [
+      { src: oxidisedFloralDisplay.url, alt: "Antique Silver Oxidised Floral Necklace Set — product display on white background" },
+      { src: oxidisedFloralModel.url, alt: "Model wearing the Antique Silver Oxidised Floral Necklace Set" },
+    ],
+  },
+  {
+    id: "maroon-thread-green-stone-oxidised-necklace-set",
+    name: "Maroon Thread & Green Stone Oxidised Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: maroonThreadOxidisedDisplay.url,
+    gallery: [
+      { src: maroonThreadOxidisedDisplay.url, alt: "Maroon Thread & Green Stone Oxidised Necklace Set — product display on white background" },
+      { src: maroonThreadOxidisedModel.url, alt: "Model wearing the Maroon Thread & Green Stone Oxidised Necklace Set" },
+    ],
+  },
+  {
+    id: "golden-green-medallion-necklace-set",
+    name: "Golden Green Medallion Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: goldenGreenMedallionDisplay.url,
+    gallery: [
+      { src: goldenGreenMedallionDisplay.url, alt: "Golden Green Medallion Necklace Set — product display on white background" },
+      { src: goldenGreenMedallionModel.url, alt: "Model wearing the Golden Green Medallion Necklace Set" },
     ],
   },
 ];
