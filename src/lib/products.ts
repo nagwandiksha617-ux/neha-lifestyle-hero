@@ -82,6 +82,14 @@ import kundanDisplay from "@/assets/jewellery-sets/kundan-white-pink-display.png
 import kundanModel from "@/assets/jewellery-sets/kundan-white-pink-model.png.asset.json";
 import maroonDeerDisplay from "@/assets/jewellery-sets/maroon-deer-display.png.asset.json";
 import maroonDeerModel from "@/assets/jewellery-sets/maroon-deer-model.png.asset.json";
+import templeElephantDisplay from "@/assets/jewellery-sets/temple-elephant-display.png.asset.json";
+import templeElephantModel from "@/assets/jewellery-sets/temple-elephant-model.png.asset.json";
+import blackPinkBeadedDisplay from "@/assets/jewellery-sets/black-pink-beaded-display.png.asset.json";
+import blackPinkBeadedModel from "@/assets/jewellery-sets/black-pink-beaded-model.png.asset.json";
+import greenGoldLongDisplay from "@/assets/jewellery-sets/green-gold-long-display.png.asset.json";
+import greenGoldLongModel from "@/assets/jewellery-sets/green-gold-long-model.png.asset.json";
+import greenWhitePearlDisplay from "@/assets/jewellery-sets/green-white-pearl-display.png.asset.json";
+import greenWhitePearlModel from "@/assets/jewellery-sets/green-white-pearl-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -439,6 +447,50 @@ export const products: Product[] = [
     gallery: [
       { src: maroonDeerDisplay.url, alt: "Maroon Deer Pendant Statement Necklace Set — product display on white background" },
       { src: maroonDeerModel.url, alt: "Model wearing the Maroon Deer Pendant Statement Necklace Set" },
+    ],
+  },
+  {
+    id: "antique-gold-temple-elephant-necklace-set",
+    name: "Antique Gold Temple Elephant Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: templeElephantDisplay.url,
+    gallery: [
+      { src: templeElephantDisplay.url, alt: "Antique Gold Temple Elephant Necklace Set — product display on white background" },
+      { src: templeElephantModel.url, alt: "Model wearing the Antique Gold Temple Elephant Necklace Set" },
+    ],
+  },
+  {
+    id: "gold-black-pink-beaded-statement-necklace-set",
+    name: "Gold, Black & Pink Beaded Statement Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: blackPinkBeadedDisplay.url,
+    gallery: [
+      { src: blackPinkBeadedDisplay.url, alt: "Gold, Black & Pink Beaded Statement Necklace Set — product display on white background" },
+      { src: blackPinkBeadedModel.url, alt: "Model wearing the Gold, Black & Pink Beaded Statement Necklace Set" },
+    ],
+  },
+  {
+    id: "green-white-pearl-long-necklace-set",
+    name: "Green & White Pearl Long Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: greenWhitePearlDisplay.url,
+    gallery: [
+      { src: greenWhitePearlDisplay.url, alt: "Green & White Pearl Long Necklace Set — product display on white background" },
+      { src: greenWhitePearlModel.url, alt: "Model wearing the Green & White Pearl Long Necklace Set" },
+    ],
+  },
+  {
+    id: "green-gold-traditional-long-necklace-set",
+    name: "Green & Gold Traditional Long Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: greenGoldLongDisplay.url,
+    gallery: [
+      { src: greenGoldLongDisplay.url, alt: "Green & Gold Traditional Long Necklace Set — product display on white background" },
+      { src: greenGoldLongModel.url, alt: "Model wearing the Green & Gold Traditional Long Necklace Set" },
     ],
   },
 ];
