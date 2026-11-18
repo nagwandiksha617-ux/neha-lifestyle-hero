@@ -96,6 +96,14 @@ import maroonThreadOxidisedDisplay from "@/assets/jewellery-sets/maroon-thread-o
 import maroonThreadOxidisedModel from "@/assets/jewellery-sets/maroon-thread-oxidised-model.png.asset.json";
 import goldenGreenMedallionDisplay from "@/assets/jewellery-sets/golden-green-medallion-display.jpg.asset.json";
 import goldenGreenMedallionModel from "@/assets/jewellery-sets/golden-green-medallion-model.png.asset.json";
+import blackKrishnaDisplay from "@/assets/jewellery-sets/black-krishna-display.png.asset.json";
+import blackKrishnaModel from "@/assets/jewellery-sets/black-krishna-model.png.asset.json";
+import oxidisedCascadeDisplay from "@/assets/jewellery-sets/oxidised-cascade-display.jpg.asset.json";
+import oxidisedCascadeModel from "@/assets/jewellery-sets/oxidised-cascade-model.png.asset.json";
+import silverFloralPearlDisplay from "@/assets/jewellery-sets/silver-floral-pearl-display.jpg.asset.json";
+import silverFloralPearlModel from "@/assets/jewellery-sets/silver-floral-pearl-model.png.asset.json";
+import elephantMotifDisplay from "@/assets/jewellery-sets/elephant-motif-display.jpg.asset.json";
+import elephantMotifModel from "@/assets/jewellery-sets/elephant-motif-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -530,6 +538,50 @@ export const products: Product[] = [
     gallery: [
       { src: goldenGreenMedallionDisplay.url, alt: "Golden Green Medallion Necklace Set — product display on white background" },
       { src: goldenGreenMedallionModel.url, alt: "Model wearing the Golden Green Medallion Necklace Set" },
+    ],
+  },
+  {
+    id: "black-krishna-face-pendant-necklace-set",
+    name: "Black Krishna Face Pendant Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: blackKrishnaDisplay.url,
+    gallery: [
+      { src: blackKrishnaDisplay.url, alt: "Black Krishna Face Pendant Necklace Set — product display on white background" },
+      { src: blackKrishnaModel.url, alt: "Model wearing the Black Krishna Face Pendant Necklace Set" },
+    ],
+  },
+  {
+    id: "antique-silver-oxidised-cascade-necklace-set",
+    name: "Antique Silver Oxidised Cascade Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: oxidisedCascadeDisplay.url,
+    gallery: [
+      { src: oxidisedCascadeDisplay.url, alt: "Antique Silver Oxidised Cascade Necklace Set — product display on white background" },
+      { src: oxidisedCascadeModel.url, alt: "Model wearing the Antique Silver Oxidised Cascade Necklace Set" },
+    ],
+  },
+  {
+    id: "silver-floral-pearl-pendant-necklace-set",
+    name: "Silver Floral Pearl Pendant Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: silverFloralPearlDisplay.url,
+    gallery: [
+      { src: silverFloralPearlDisplay.url, alt: "Silver Floral Pearl Pendant Necklace Set — product display on white background" },
+      { src: silverFloralPearlModel.url, alt: "Model wearing the Silver Floral Pearl Pendant Necklace Set" },
+    ],
+  },
+  {
+    id: "antique-silver-elephant-motif-necklace-set",
+    name: "Antique Silver Elephant Motif Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: elephantMotifDisplay.url,
+    gallery: [
+      { src: elephantMotifDisplay.url, alt: "Antique Silver Elephant Motif Necklace Set — product display on white background" },
+      { src: elephantMotifModel.url, alt: "Model wearing the Antique Silver Elephant Motif Necklace Set" },
     ],
   },
 ];
