@@ -2,6 +2,7 @@ import bags from "@/assets/category-bags.jpg";
 import jewellery from "@/assets/category-jewellery.jpg";
 import potli from "@/assets/category-potli.jpg";
 import { jewelleryCategories } from "@/lib/jewellery";
+import { watchCategories } from "@/lib/watches";
 
 // Homepage "Shop by Category" cards.
 export const categories = [
@@ -19,4 +20,4 @@ export const bagCategories = [
 ];
 
 export const findCategory = (slug: string) =>
-  categories.find((c) => c.slug === slug) ?? bagCategories.find((c) => c.slug === slug) ?? jewelleryCategories.find((c) => c.slug === slug);
+  categories.find((c) => c.slug === slug) ?? bagCategories.find((c) => c.slug === slug) ?? jewelleryCategories.find((c) => c.slug === slug) ?? watchCategories.find((c) => c.slug === slug);

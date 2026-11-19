@@ -24,6 +24,7 @@ const PRERENDER_PATHS = [
   "/category/bracelets",
   "/category/ethnic-jewellery",
   "/category/wedding-occasion-jewellery",
+  "/category/watches",
 ];
 
 export default defineConfig({

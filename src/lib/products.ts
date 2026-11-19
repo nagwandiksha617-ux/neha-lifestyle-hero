@@ -118,6 +118,12 @@ import multicolorGeometricDisplay from "@/assets/jewellery-sets/multicolor-geome
 import multicolorGeometricModel from "@/assets/jewellery-sets/multicolor-geometric-model.png.asset.json";
 import navyFloralDisplay from "@/assets/jewellery-sets/navy-floral-display.png.asset.json";
 import navyFloralModel from "@/assets/jewellery-sets/navy-floral-model.png.asset.json";
+import kundanFloralWatchDisplay from "@/assets/watches/kundan-floral-watch-display.jpg.asset.json";
+import kundanFloralWatchModel from "@/assets/watches/kundan-floral-watch-model.png.asset.json";
+import templeWatchDisplay from "@/assets/watches/temple-watch-display.jpg.asset.json";
+import templeWatchModel from "@/assets/watches/temple-watch-model.png.asset.json";
+import rubyGreenWatchDisplay from "@/assets/watches/ruby-green-watch-display.png.asset.json";
+import rubyGreenWatchModel from "@/assets/watches/ruby-green-watch-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -675,10 +681,43 @@ export const products: Product[] = [
       { src: navyFloralModel.url, alt: "Model wearing the Navy Blue Floral Statement Necklace Set" },
     ],
   },
+  {
+    id: "traditional-gold-kundan-floral-bracelet-watch",
+    name: "Traditional Gold Kundan Floral Bracelet Watch",
+    category: "Watches",
+    categorySlug: "watches",
+    image: kundanFloralWatchDisplay.url,
+    gallery: [
+      { src: kundanFloralWatchDisplay.url, alt: "Traditional Gold Kundan Floral Bracelet Watch — product display on white background" },
+      { src: kundanFloralWatchModel.url, alt: "Traditional Gold Kundan Floral Bracelet Watch worn on the wrist" },
+    ],
+  },
+  {
+    id: "antique-gold-temple-design-bracelet-watch",
+    name: "Antique Gold Temple Design Bracelet Watch",
+    category: "Watches",
+    categorySlug: "watches",
+    image: templeWatchDisplay.url,
+    gallery: [
+      { src: templeWatchDisplay.url, alt: "Antique Gold Temple Design Bracelet Watch — product display on white background" },
+      { src: templeWatchModel.url, alt: "Antique Gold Temple Design Bracelet Watch worn on the wrist" },
+    ],
+  },
+  {
+    id: "royal-ruby-green-stone-gold-bracelet-watch",
+    name: "Royal Ruby Green Stone Gold Bracelet Watch",
+    category: "Watches",
+    categorySlug: "watches",
+    image: rubyGreenWatchDisplay.url,
+    gallery: [
+      { src: rubyGreenWatchDisplay.url, alt: "Royal Ruby Green Stone Gold Bracelet Watch — product display on white background" },
+      { src: rubyGreenWatchModel.url, alt: "Royal Ruby Green Stone Gold Bracelet Watch worn on the wrist" },
+    ],
+  },
 ];
 
 // Category pages that list their products. Others keep their "coming soon" note.
-export const listedCategorySlugs = ["party-clutch-bags", "tote-bags", "handbags", "clutch-bags", "potli-bags", "jewellery-sets"];
+export const listedCategorySlugs = ["party-clutch-bags", "tote-bags", "handbags", "clutch-bags", "potli-bags", "jewellery-sets", "watches"];
 
 export const newArrivals = () => products.filter((p) => p.newArrival);
 
