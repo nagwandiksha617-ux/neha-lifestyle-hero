@@ -112,6 +112,12 @@ import greenMeenakariDisplay from "@/assets/jewellery-sets/green-meenakari-displ
 import greenMeenakariModel from "@/assets/jewellery-sets/green-meenakari-model.png.asset.json";
 import greenButterflyDisplay from "@/assets/jewellery-sets/green-butterfly-display.jpg.asset.json";
 import greenButterflyModel from "@/assets/jewellery-sets/green-butterfly-model.png.asset.json";
+import royalPurpleDisplay from "@/assets/jewellery-sets/royal-purple-display.png.asset.json";
+import royalPurpleModel from "@/assets/jewellery-sets/royal-purple-model.png.asset.json";
+import multicolorGeometricDisplay from "@/assets/jewellery-sets/multicolor-geometric-display.png.asset.json";
+import multicolorGeometricModel from "@/assets/jewellery-sets/multicolor-geometric-model.png.asset.json";
+import navyFloralDisplay from "@/assets/jewellery-sets/navy-floral-display.png.asset.json";
+import navyFloralModel from "@/assets/jewellery-sets/navy-floral-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -634,6 +640,39 @@ export const products: Product[] = [
     gallery: [
       { src: greenButterflyDisplay.url, alt: "Green Stone Butterfly Pendant Necklace Set — product display on white background" },
       { src: greenButterflyModel.url, alt: "Model wearing the Green Stone Butterfly Pendant Necklace Set" },
+    ],
+  },
+  {
+    id: "royal-purple-beaded-statement-necklace-set",
+    name: "Royal Purple Beaded Statement Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: royalPurpleDisplay.url,
+    gallery: [
+      { src: royalPurpleDisplay.url, alt: "Royal Purple Beaded Statement Necklace Set — product display on white background" },
+      { src: royalPurpleModel.url, alt: "Model wearing the Royal Purple Beaded Statement Necklace Set" },
+    ],
+  },
+  {
+    id: "multicolor-geometric-pendant-necklace-set",
+    name: "Multicolor Geometric Pendant Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: multicolorGeometricDisplay.url,
+    gallery: [
+      { src: multicolorGeometricDisplay.url, alt: "Multicolor Geometric Pendant Necklace Set — product display on white background" },
+      { src: multicolorGeometricModel.url, alt: "Model wearing the Multicolor Geometric Pendant Necklace Set" },
+    ],
+  },
+  {
+    id: "navy-blue-floral-statement-necklace-set",
+    name: "Navy Blue Floral Statement Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: navyFloralDisplay.url,
+    gallery: [
+      { src: navyFloralDisplay.url, alt: "Navy Blue Floral Statement Necklace Set — product display on white background" },
+      { src: navyFloralModel.url, alt: "Model wearing the Navy Blue Floral Statement Necklace Set" },
     ],
   },
 ];
