@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { findCategory } from "./categories";
+import { categories, findCategory } from "./categories";
 import { products, productsForCategoryPage } from "./products";
 import { watchCategories } from "./watches";
 
@@ -12,6 +12,11 @@ const watches: Array<[string, string, string]> = [
 test("Watches is a distinct category page", () => {
   expect(watchCategories.map((c) => c.slug)).toEqual(["watches"]);
   expect(findCategory("watches")?.name).toBe("Watches");
+});
+
+test("Watches appears in Shop by Category after the existing cards, which keep their order", () => {
+  expect(categories.map((c) => c.slug)).toEqual(["bags", "jewellery", "party-clutch-bags", "watches"]);
+  expect(categories.find((c) => c.slug === "watches")?.image).toContain("kundan-floral-watch-display.jpg");
 });
 
 test("Watches lists exactly the three bracelet watches in requested order", () => {
