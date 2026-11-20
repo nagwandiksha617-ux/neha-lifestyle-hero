@@ -1,8 +1,11 @@
+import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { bagCategories } from "@/lib/categories";
 import { products, type Product } from "@/lib/products";
-import { ProductGrid } from "@/components/ProductGrid";
+import { BagProductCard, bagCardPhotos } from "@/components/BagProductCard";
+import { InformationDialog } from "@/components/SiteChrome";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { CatalogueImage } from "@/components/CatalogueImage";
 import { CollectionBreadcrumb } from "@/components/CollectionBreadcrumb";
@@ -35,7 +38,35 @@ export const bagCollection: Product[] = products.filter(
   (p) => p.bagCategorySlug !== undefined || p.categorySlug === "party-clutch-bags",
 );
 
+const sectionLines: Record<string, string> = {
+  "tote-bags": "Roomy, structured carry-alls for every day.",
+  handbags: "Polished shoulder and crossbody styles.",
+  "clutch-bags": "Compact statement pieces for evenings out.",
+  "potli-bags": "Traditional drawstring potlis for festive moments.",
+};
+const filters = [
+  { slug: "all", label: "All" },
+  { slug: "tote-bags", label: "Tote" },
+  { slug: "handbags", label: "Handbags" },
+  { slug: "clutch-bags", label: "Clutch" },
+  { slug: "potli-bags", label: "Potli" },
+];
+type SortKey = "featured" | "az" | "za";
+
 export function BagsCollection() {
+  const [filter, setFilter] = useState("all");
+  const [sort, setSort] = useState<SortKey>("featured");
+  const [topic, setTopic] = useState<string | null>(null);
+  const sections = useMemo(() => bagCategories.map((c) => {
+    // Catalogue order is kept for "Featured"; no products are marked as best sellers yet.
+    const items = products.filter((p) => p.bagCategorySlug === c.slug && bagCardPhotos(p).main);
+    if (sort !== "featured") items.sort((a, b) => a.name.localeCompare(b.name) * (sort === "az" ? 1 : -1));
+    return { ...c, items };
+  }), [sort]);
+  const goTo = (slug: string) => {
+    setFilter(slug);
+    requestAnimationFrame(() => document.getElementById(slug === "all" ? "bags-collection" : `section-${slug}`)?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  };
   return (
     <main className="bg-background">
       {/* 1. Hero */}
@@ -68,7 +99,7 @@ export function BagsCollection() {
             const img = categoryCardImages[c.slug];
             return (
               <li key={c.slug}>
-                <Link to="/category/$slug" params={{ slug: c.slug }} className="group flex flex-col items-center text-center">
+                <a href={`#section-${c.slug}`} onClick={(e) => { e.preventDefault(); setFilter("all"); requestAnimationFrame(() => document.getElementById(`section-${c.slug}`)?.scrollIntoView({ behavior: "smooth", block: "start" })); }} className="group flex flex-col items-center text-center">
                   <span className="relative block h-32 w-32 overflow-hidden rounded-full bg-card ring-1 ring-gold/40 transition-shadow duration-500 group-hover:shadow-lg sm:h-40 sm:w-40 lg:h-44 lg:w-44">
                     <CatalogueImage src={img?.src ?? null} alt={img?.alt ?? c.name} className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-105" />
                   </span>
@@ -76,7 +107,7 @@ export function BagsCollection() {
                   <span className="mt-1 inline-flex items-center gap-1 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-wine">
                     Explore <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </span>
-                </Link>
+                </a>
               </li>
             );
           })}
@@ -109,14 +140,51 @@ export function BagsCollection() {
         </div>
       </section>
 
-      {/* 4. Best sellers — existing bag products, existing data */}
-      <section id="bags-collection" aria-labelledby="bag-products-heading" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
-        <div className="text-center">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-gold">Most Loved</p>
-          <h2 id="bag-products-heading" className="mt-3 font-display text-3xl text-foreground sm:text-4xl">Best Sellers</h2>
+      {/* 4. Bags by type, with sticky filter bar */}
+      <section id="bags-collection" aria-labelledby="bag-products-heading" className="pb-20 pt-12">
+        <h2 id="bag-products-heading" className="sr-only">Shop bags by type</h2>
+        <div className="sticky top-[79px] z-30 border-y border-gold/20 bg-background/95 backdrop-blur-md">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-3 sm:px-8 lg:px-12">
+            <div role="group" aria-label="Filter bags" className="flex flex-wrap gap-2">
+              {filters.map((f) => (
+                <button key={f.slug} type="button" onClick={() => goTo(f.slug)} aria-pressed={filter === f.slug}
+                  className={`min-h-9 rounded-full border px-4 text-[0.65rem] font-semibold uppercase tracking-[0.18em] transition-colors ${filter === f.slug ? "border-wine bg-wine text-wine-foreground" : "border-gold/40 text-wine hover:bg-wine/5"}`}>
+                  {f.label}
+                </button>
+              ))}
+            </div>
+            <Select value={sort} onValueChange={(v) => setSort(v as SortKey)}>
+              <SelectTrigger aria-label="Sort bags" className="h-9 w-44 border-gold/40 text-xs"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="featured">Sort: Featured</SelectItem>
+                <SelectItem value="az">Name: A to Z</SelectItem>
+                <SelectItem value="za">Name: Z to A</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
-        <ProductGrid products={bagCollection} className="mt-12" />
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          {sections.filter((sec) => filter === "all" || sec.slug === filter).map((sec) => (
+            <section key={sec.slug} id={`section-${sec.slug}`} aria-labelledby={`h-${sec.slug}`} className="scroll-mt-40 pt-14">
+              <div className="flex flex-wrap items-end justify-between gap-3 border-b border-gold/20 pb-4">
+                <div>
+                  <h3 id={`h-${sec.slug}`} className="font-display text-3xl text-foreground sm:text-4xl">{sec.name}</h3>
+                  <p className="mt-1 text-sm text-foreground/70">{sectionLines[sec.slug]}</p>
+                </div>
+                <Link to="/category/$slug" params={{ slug: sec.slug }} className="inline-flex items-center gap-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-wine hover:text-rose">
+                  View all <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </Link>
+              </div>
+              {sec.items.length ? (
+                <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
+                  {sec.items.map((p) => <BagProductCard key={p.id} product={p} label={sec.name} onCart={() => setTopic("Cart")} />)}
+                </ul>
+              ) : <p className="mt-8 text-sm text-foreground/60">Our collection is coming soon.</p>}
+            </section>
+          ))}
+        </div>
       </section>
+      <InformationDialog topic={topic} close={() => setTopic(null)} />
     </main>
   );
 }
