@@ -1,5 +1,7 @@
 # Static shared-hosting migration (FTP, no Node at runtime)
 
+- [x] New Arrivals — ten confirmed uploaded photos, five desktop/two mobile columns, wishlist toggle and category navigation verified; catalogue preserved; followed written layout requirements.
+
 - [x] Jewellery redesign — isolated collection page, five category destinations, existing arrivals only; no product reassignment or invented best sellers.
 
 - [ ] Phase 1 — Static export: prerender all routes, self-host catalogue images (Option B), .htaccess, sitemap.xml, local static-server verification
