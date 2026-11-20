@@ -157,8 +157,8 @@ export type Product = {
 };
 
 export const products: Product[] = [
-  { id: "na-1", name: "Peacock Pearl Jhumka Earrings", category: "Jewellery", categorySlug: "jewellery", image: null, newArrival: true },
-  { id: "na-2", name: "Green Stone Jhumka Earrings", category: "Jewellery", categorySlug: "jewellery", image: null, newArrival: true },
+  { id: "na-1", name: "Peacock Pearl Jhumka Earrings", category: "Jewellery", categorySlug: "jewellery", image: null },
+  { id: "na-2", name: "Green Stone Jhumka Earrings", category: "Jewellery", categorySlug: "jewellery", image: null },
   {
     id: "na-4",
     bagCategorySlug: "clutch-bags",
@@ -166,7 +166,6 @@ export const products: Product[] = [
     category: "Party & Clutch Bags",
     categorySlug: "party-clutch-bags",
     image: shell1,
-    newArrival: true,
     gallery: [
       { src: shell1, alt: "Silver Shell Embellished Clutch held by a model" },
       { src: shell2, alt: "Silver Shell Embellished Clutch — open view" },
@@ -182,7 +181,6 @@ export const products: Product[] = [
     categorySlug: "party-clutch-bags",
     showLastOnCategoryPage: true,
     image: vp1,
-    newArrival: true,
     gallery: [
       { src: vp1, alt: "Green velvet potli bag with gold filigree held by a model in a traditional outfit" },
       { src: vp2, alt: "Green velvet potli bag — gold filigree, beaded handle and hanging beads" },
@@ -195,7 +193,6 @@ export const products: Product[] = [
     name: "Green Pearl Embroidered Potli Bag",
     category: "Potli Bags",
     image: gpp4,
-    newArrival: true,
     gallery: [
       { src: gpp4, alt: "Green pearl-embroidered potli bag on a dark luxurious background" },
       { src: gpp1, alt: "Green pearl-embroidered potli bag on a soft light background" },

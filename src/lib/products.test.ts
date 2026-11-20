@@ -103,14 +103,15 @@ describe("Party & Clutch Bags listing", () => {
     expect(bag?.image).toBe(bag?.gallery?.[0]?.src);
   });
 
-  test("New Arrivals keeps its five products in order", () => {
-    expect(newArrivals().map((p) => p.name)).toEqual([
-      "Peacock Pearl Jhumka Earrings",
-      "Green Stone Jhumka Earrings",
-      "Silver Shell Embellished Clutch",
-      "Red & Green Velvet Potli Bag",
-      "Green Pearl Embroidered Potli Bag",
-    ]);
+  test("New Arrivals is empty until new products are provided", () => {
+    expect(newArrivals()).toEqual([]);
+  });
+
+  test("the five former New Arrivals products remain listed on the website", () => {
+    const ids = ["na-1", "na-2", "na-4", "na-5", "na-6"];
+    for (const id of ids) {
+      expect(products.find((p) => p.id === id)).toBeDefined();
+    }
   });
 
   test("the four jewellery and watch products stay listed but out of New Arrivals", () => {
