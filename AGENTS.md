@@ -22,3 +22,4 @@
 - Use CollectionBreadcrumb on collection pages and the homepage collection heading, because a shared presentation keeps navigation consistent.
 - Keep single-photo card selections separate from catalogue galleries, because removing collage presentation must not delete or reorder original photos.
 - Keep enquiry controls disabled until the owner confirms a WhatsApp destination, so no invented contact or ordering flow is exposed.
+- Main collection pages (bags, jewellery, party-clutch-bags, watches) render one shared CategoryCollection driven by src/lib/category-collections.ts, so every collection keeps the same layout and hides photo-less products and empty sub-categories.
