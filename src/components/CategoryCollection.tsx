@@ -37,8 +37,8 @@ export function CategoryCollection({ slug }: { slug: string }) {
               <a href="/#shop-by-category" className="hover:text-wine">Shop</a><span aria-hidden="true">/</span>
               <span aria-current="page" className="font-medium text-wine">{page.crumb}</span>
             </nav>
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-gold-deep">NEHA Lifestyle · {page.label} Collection</p>
-            <h1 className="mt-4 font-display text-4xl leading-tight text-foreground sm:text-5xl lg:text-6xl">{page.title} <em className="block text-wine">{page.accent}</em></h1>
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-gold-deep">{page.eyebrow ?? `NEHA Lifestyle · ${page.label} Collection`}</p>
+            <h1 className="mt-4 font-display text-4xl leading-tight text-foreground sm:text-5xl lg:text-6xl">{page.title} <em className={page.eyebrow ? "text-wine" : "block text-wine"}>{page.accent}</em></h1>
             <p className="mt-5 text-sm text-foreground/75 sm:text-base">{page.tagline}</p>
             <Button asChild className="mt-7 min-h-12 rounded-sm bg-wine px-8 text-xs font-semibold uppercase tracking-[0.2em] text-wine-foreground hover:bg-rose">
               <a href="#collection-products" onClick={(e) => { e.preventDefault(); go("all"); }}>{page.cta} <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>

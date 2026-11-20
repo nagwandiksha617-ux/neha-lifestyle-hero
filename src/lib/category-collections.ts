@@ -4,7 +4,7 @@ import { bagCategories } from "./categories";
 import { jewelleryCategories } from "./jewellery";
 
 export type CollectionCopy = {
-  slug: string; label: string; crumb: string; title: string; accent: string; tagline: string; cta: string;
+  slug: string; label: string; eyebrow?: string; crumb: string; title: string; accent: string; tagline: string; cta: string;
   sections: { slug: string; name: string; line: string; viewAll: string }[];
   match: (p: Product, sectionSlug: string) => boolean;
 };
@@ -20,6 +20,8 @@ const jewelleryLines: Record<string, string> = {
   "jewellery-sets": "Necklace sets paired with matching earrings.",
 };
 
+const jewelleryNames: Record<string, string> = { "jewellery-sets": "Necklace Sets", "ethnic-jewellery": "Ethnic", "wedding-occasion-jewellery": "Wedding & Occasion" };
+
 export const collectionPages: Record<string, CollectionCopy> = {
   bags: {
     slug: "bags", label: "Bags", crumb: "Bags", title: "Discover Your", accent: "Perfect Bag", tagline: "Timeless Style. Everyday Elegance.", cta: "Shop Bags",
@@ -27,8 +29,8 @@ export const collectionPages: Record<string, CollectionCopy> = {
     match: (p, s) => p.bagCategorySlug === s,
   },
   jewellery: {
-    slug: "jewellery", label: "Jewellery", crumb: "Jewellery", title: "Jewellery That Makes", accent: "Every Moment Special", tagline: "Discover timeless elegance, designed to make you shine.", cta: "Shop Jewellery",
-    sections: jewelleryCategories.map((c) => ({ slug: c.slug, name: c.name, line: jewelleryLines[c.slug] ?? c.description, viewAll: c.slug })),
+    slug: "jewellery", label: "Jewellery", eyebrow: "NEHA Lifestyle · Jewellery", crumb: "Jewellery", title: "Jewellery", accent: "Collections", tagline: "Handcrafted jewellery inspired by the Pink City, made to make you shine.", cta: "Shop Jewellery",
+    sections: jewelleryCategories.map((c) => ({ slug: c.slug, name: jewelleryNames[c.slug] ?? c.name, line: jewelleryLines[c.slug] ?? c.description, viewAll: c.slug })),
     match: (p, s) => p.categorySlug === s,
   },
   "party-clutch-bags": {
