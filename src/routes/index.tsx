@@ -36,44 +36,43 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="bg-background">
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate flex min-h-screen flex-col overflow-hidden">
         <img
           src={heroImage}
-          alt="Hawa Mahal in Jaipur, the Pink City"
+          alt="Hawa Mahal in Jaipur at golden hour"
           width={1920}
           height={1088}
-          className="absolute inset-0 -z-30 h-full w-full object-cover object-[70%_center] saturate-[1.15] contrast-[1.05]"
+          className="absolute inset-0 -z-30 h-full w-full object-cover object-[70%_center] blur-[0.5px] scale-[1.02]"
         />
-        <div className="absolute inset-0 -z-20 bg-[image:var(--gradient-hero-text-mobile)] lg:bg-[image:var(--gradient-hero-text)]" />
-        <div className="mx-auto grid min-h-[calc(100vh-7rem)] w-[min(92%,80rem)] items-center gap-10 py-14 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="max-w-xl text-left">
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-gold-deep">Designed in Jaipur · The Pink City</p>
-            <h1 className="mt-5 font-display text-[clamp(2.6rem,5.6vw,5.2rem)] font-normal leading-[1.02] text-foreground">
-              Where Elegance Meets <span className="italic text-wine">Everyday Luxury</span>
-            </h1>
-            <p className="mt-5 text-base text-foreground/85 sm:text-lg">Handcrafted bags &amp; jewellery, inspired by the Pink City</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/category/$slug" params={{ slug: "jewellery" }} className="inline-flex min-h-12 items-center gap-2 bg-wine px-7 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-wine-foreground transition-colors hover:bg-rose">
-                Shop Jewellery <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <Link to="/category/$slug" params={{ slug: "bags" }} className="inline-flex min-h-12 items-center border border-wine bg-card px-7 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-wine transition-colors hover:bg-background">
-                Shop Bags
-              </Link>
-            </div>
-          </div>
-          <div className="relative mx-auto w-[min(78vw,22rem)] lg:mr-0 lg:w-[24rem]">
-            <div className="aspect-[3/4] overflow-hidden rounded-t-full border-4 border-card shadow-2xl ring-1 ring-gold/60">
-              <CatalogueImage src={rubyRedJhumkaModel.url} alt="Model wearing NEHA Lifestyle Ruby Red Oxidised Silver Long Jhumka Earrings" loading="eager" className="h-full w-full object-cover" />
-            </div>
-            <Link to="/category/$slug" params={{ slug: "earrings" }} className="absolute -bottom-6 -left-6 flex w-60 items-center gap-3 bg-card p-3 shadow-xl ring-1 ring-gold/30 sm:-left-12">
-              <span className="block h-16 w-14 shrink-0 overflow-hidden rounded-t-full"><CatalogueImage src={rubyRedJhumkaDisplay.url} alt="Ruby Red Oxidised Silver Long Jhumka Earrings" className="h-full w-full object-cover" /></span>
-              <span className="min-w-0">
-                <span className="block text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-gold-deep">Featured</span>
-                <span className="mt-1 block font-display text-base leading-tight text-foreground">Ruby Red Oxidised Silver Long Jhumka</span>
-              </span>
-            </Link>
+        <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_center,var(--hero-veil-strong)_0%,var(--hero-veil)_45%,var(--hero-veil-soft)_100%)]" />
+
+        <div className="mx-auto flex w-[min(92%,60rem)] flex-1 flex-col items-center justify-center py-10 text-center sm:py-14">
+          <span aria-hidden="true" className="hidden sm:block sm:h-[6.6rem]" />
+          <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,5.8rem)] font-normal leading-[1.02] text-foreground sm:mt-8">
+            Where Elegance Meets
+            <br />
+            <span className="italic text-rose">Everyday Luxury</span>
+          </h1>
+          <span className="mt-6 h-px w-16 bg-gold" aria-hidden="true" />
+          <p className="mt-6 max-w-md text-sm leading-7 lg:max-w-none lg:whitespace-nowrap text-foreground/95 sm:text-lg">
+            Discover Bags &amp; Jewellery Made to Make You Shine
+          </p>
+          <div className="mt-7 flex flex-wrap justify-center gap-3 sm:mt-8 sm:gap-4">
+            <a
+              href="#shop-by-category"
+              className="inline-flex min-h-12 items-center gap-2 bg-wine px-8 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-wine-foreground shadow-[0_10px_24px_-12px_var(--wine)] ring-1 ring-gold/40 transition-colors hover:bg-rose"
+            >
+              Shop Now <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a
+              href="#new-arrivals"
+              className="inline-flex min-h-12 items-center border border-foreground/30 bg-background/60 px-8 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm transition-colors hover:bg-background"
+            >
+              Explore Collection
+            </a>
           </div>
         </div>
+
       </section>
       <section aria-label="Why NEHA Lifestyle" className="border-y border-gold/25 bg-card">
         <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 py-6 text-center md:grid-cols-4">
