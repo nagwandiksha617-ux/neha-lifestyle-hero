@@ -47,6 +47,7 @@
   --color-wine-foreground: var(--wine-foreground);
   --color-gold: var(--gold);
   --color-rose: var(--rose);
+  --color-category-foreground: var(--category-foreground);
   --color-footer-surface: var(--footer-surface);
   --color-footer-foreground: var(--footer-foreground);
   --color-footer-accent: var(--footer-accent);
@@ -109,6 +110,8 @@
   --wine-foreground: oklch(0.97 0.014 68);
   --gold: oklch(0.76 0.09 78);
   --rose: oklch(0.47 0.1 12);
+  --category-foreground: oklch(0.98 0.012 62);
+  --gradient-category-caption: linear-gradient(180deg, oklch(0.25 0.025 43 / 0), oklch(0.25 0.025 43 / 0.55) 45%, oklch(0.25 0.025 43 / 0.88));
   --footer-surface: oklch(0.955 0.018 15);
   --footer-foreground: oklch(0.22 0.014 15);
   --footer-accent: oklch(0.38 0.1 12);
@@ -189,7 +192,7 @@
 
 /* Homepage category cards mirror the arrivals' unframed portrait format. */
 .shop-category-section .shop-category-grid {
-  max-width: 56rem;
+  max-width: 80rem;
   grid-auto-rows: 1fr;
 }
 
@@ -198,7 +201,6 @@
   flex-shrink: 0;
 }
 
-.shop-category-section .shop-category-name {
-  min-height: 3.5rem;
-  overflow-wrap: anywhere;
+.category-card-caption {
+  background: var(--gradient-category-caption);
 }

@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import type { ProductPhoto } from "@/lib/products";
+import { CatalogueImage } from "@/components/CatalogueImage";
 
 // Main photo + thumbnails for one product.
 // Clicking the main photo opens a large viewer where every photo can be browsed.
 export function ProductGallery({ title, photos }: { title: string; photos: ProductPhoto[] }) {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [open, setOpen] = useState(false);
-  const photo = photos[photoIndex] ?? photos[0]!;
+  const photo = photos[photoIndex] ?? photos[0];
   const step = (d: number) => setPhotoIndex((i) => (i + d + photos.length) % photos.length);
 
   useEffect(() => {
@@ -20,6 +21,8 @@ export function ProductGallery({ title, photos }: { title: string; photos: Produ
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   });
+
+  if (!photo) return <div className="aspect-[4/5]"><CatalogueImage alt={title} /></div>;
 
   const thumbs = (size: string) => (
     <ul className="flex flex-wrap justify-center gap-2">
@@ -47,7 +50,7 @@ export function ProductGallery({ title, photos }: { title: string; photos: Produ
         aria-label={`Enlarge photo: ${photo.alt}`}
         className="relative block w-full cursor-zoom-in"
       >
-        <img src={photo.src} alt={photo.alt} width={768} height={960} loading="lazy" className="aspect-[4/5] w-full object-contain p-4 transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+        <span className="block aspect-[4/5]"><CatalogueImage src={photo.src} alt={photo.alt} className="h-full w-full object-contain p-4 transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.03]" /></span>
         <span className="absolute bottom-3 right-3 grid h-8 w-8 place-items-center rounded-full bg-background/85 text-wine shadow-sm" aria-hidden="true">
           <Expand className="h-3.5 w-3.5" strokeWidth={1.5} />
         </span>

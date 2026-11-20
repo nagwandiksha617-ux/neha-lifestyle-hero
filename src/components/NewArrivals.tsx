@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { homepageArrivals } from "@/lib/homepage-arrivals";
+import { CatalogueImage } from "@/components/CatalogueImage";
+import { EnquiryButton } from "@/components/EnquiryButton";
 
 export function NewArrivals() {
   const [wishlist, setWishlist] = useState<Set<string>>(new Set());
@@ -29,14 +31,14 @@ export function NewArrivals() {
               <li key={product.id} className="group flex min-w-0 flex-col">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-card">
                   <Link to="/category/$slug" params={{ slug: product.categorySlug ?? "bags" }} aria-label={`View ${product.name}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-inset">
-                    <img src={product.image} alt={product.name} width={768} height={960} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.03]" />
+                    <CatalogueImage src={product.image} alt={product.name} className="h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.03]" />
                   </Link>
                   <Button type="button" variant="ghost" size="icon" onClick={() => toggleWishlist(product.id)} aria-pressed={saved} aria-label={`${saved ? "Remove" : "Add"} ${product.name} ${saved ? "from" : "to"} wishlist`} title={saved ? "Remove from wishlist" : "Add to wishlist"} className="absolute right-2 top-2 rounded-full bg-background/90 text-wine hover:bg-background">
                     <Heart fill={saved ? "currentColor" : "none"} strokeWidth={1.7} aria-hidden="true" />
                   </Button>
                 </div>
-                <Link to="/category/$slug" params={{ slug: product.categorySlug ?? "bags" }} className="mt-4 flex-1 font-display text-lg leading-snug text-foreground hover:text-rose">{product.name}</Link>
-                <p className="mt-2 text-xs leading-5 text-foreground/60">Price to be updated</p>
+                <Link to="/category/$slug" params={{ slug: product.categorySlug ?? "bags" }} className="mt-4 flex-1 font-display text-xl leading-snug text-foreground hover:text-rose sm:text-2xl">{product.name}</Link>
+                <EnquiryButton />
               </li>
             );
           })}

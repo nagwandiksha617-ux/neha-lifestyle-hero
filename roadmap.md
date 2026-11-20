@@ -1,5 +1,8 @@
 # Static shared-hosting migration (FTP, no Node at runtime)
 
+- [x] Category/product presentation — four desktop/two mobile overlay category cards, larger product names, photo skeletons and branded fallback.
+- [ ] Activate WhatsApp enquiry buttons — awaiting owner's confirmed number including country code.
+
 - [x] New Arrivals — twelve confirmed uploaded photos, preserving the first ten and appending two existing clutch products; five desktop/two mobile columns; catalogue preserved.
 
 - [x] Jewellery redesign — isolated collection page, five category destinations, existing arrivals only; no product reassignment or invented best sellers.
