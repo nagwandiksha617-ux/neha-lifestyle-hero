@@ -6,6 +6,7 @@ import { EnquiryButton } from "@/components/EnquiryButton";
 import { InformationDialog } from "@/components/SiteChrome";
 import { ProductGallery } from "@/components/ProductGallery";
 import type { Product } from "@/lib/products";
+import { productCardPhoto } from "@/lib/product-card-photos";
 
 export function ProductGrid({ products, showNewBadge = false, className = "mt-14" }: { products: Product[]; showNewBadge?: boolean; className?: string }) {
   const [wishlist, setWishlist] = useState<Set<string>>(new Set());
@@ -27,7 +28,7 @@ export function ProductGrid({ products, showNewBadge = false, className = "mt-14
             <li key={p.id} className="group flex flex-col">
               <div className="relative overflow-hidden rounded-sm bg-card shadow-sm ring-1 ring-gold/15 transition-shadow duration-500 group-hover:shadow-lg">
                 {p.gallery?.length ? (
-                  <ProductGallery title={p.colour ? `${p.name} — ${p.colour}` : p.name} photos={p.gallery} />
+                  <ProductGallery title={p.colour ? `${p.name} — ${p.colour}` : p.name} photos={p.gallery} coverPhoto={productCardPhoto(p) ?? p.gallery[0]} />
                 ) : (
                   <div className="aspect-[4/5] w-full">
                     <CatalogueImage src={p.image} alt={p.name} className="h-full w-full object-contain p-6 transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.04]" />

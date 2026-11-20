@@ -4,6 +4,7 @@ import { productsForCategoryPage } from "@/lib/products";
 import { ProductGrid } from "@/components/ProductGrid";
 import { BagsCollection } from "@/components/BagsCollection";
 import { JewelleryCollection } from "@/components/JewelleryCollection";
+import { CollectionBreadcrumb } from "@/components/CollectionBreadcrumb";
 
 export const Route = createFileRoute("/category/$slug")({
   loader: ({ params }) => {
@@ -47,6 +48,7 @@ function CategoryPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background px-6 py-20 text-center">
       <div className="max-w-xl">
+        <CollectionBreadcrumb current={category.name} centered />
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-gold">NEHA Lifestyle</p>
         <h1 className="mt-4 font-display text-4xl text-foreground sm:text-5xl">{category.name}</h1>
         <p className="mt-4 text-foreground/75">{category.description}</p>

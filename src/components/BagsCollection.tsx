@@ -4,6 +4,8 @@ import { bagCategories } from "@/lib/categories";
 import { products, type Product } from "@/lib/products";
 import { ProductGrid } from "@/components/ProductGrid";
 import { Button } from "@/components/ui/button";
+import { CatalogueImage } from "@/components/CatalogueImage";
+import { CollectionBreadcrumb } from "@/components/CollectionBreadcrumb";
 
 // Hero visual and section imagery reuse existing uploaded product photos only.
 import heroBag from "@/assets/beige-black-tote/bbt-d4-model.png";
@@ -41,6 +43,7 @@ export function BagsCollection() {
         <img src={heroBag} alt="Model in a white dress carrying the Beige & Black Printed Tote Bag" width={768} height={1152} fetchPriority="high" className="absolute bottom-0 right-0 -z-10 h-[380px] w-full object-contain sm:h-[440px] lg:h-full lg:w-3/5" />
         <div className="mx-auto flex min-h-[700px] max-w-7xl items-start px-6 pt-9 sm:min-h-[750px] sm:px-8 lg:min-h-[560px] lg:items-center lg:px-12 lg:py-16">
           <div className="w-full text-center lg:max-w-[44%] lg:text-left">
+            <CollectionBreadcrumb current="Bags" />
             <p className="text-[0.65rem] font-semibold uppercase text-wine">NEHA Lifestyle · Bags Collection</p>
             <h1 className="mt-4 font-display text-4xl leading-tight text-foreground sm:text-5xl lg:text-6xl">
               Discover Your <em className="block text-wine">Perfect Bag</em>
@@ -67,7 +70,7 @@ export function BagsCollection() {
               <li key={c.slug}>
                 <Link to="/category/$slug" params={{ slug: c.slug }} className="group flex flex-col items-center text-center">
                   <span className="relative block h-32 w-32 overflow-hidden rounded-full bg-card ring-1 ring-gold/40 transition-shadow duration-500 group-hover:shadow-lg sm:h-40 sm:w-40 lg:h-44 lg:w-44">
-                    {img && <img src={img.src} alt={img.alt} loading="lazy" className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-105" />}
+                    <CatalogueImage src={img?.src ?? null} alt={img?.alt ?? c.name} className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-105" />
                   </span>
                   <span className="mt-4 font-display text-lg text-foreground transition-colors group-hover:text-wine sm:text-xl">{c.name}</span>
                   <span className="mt-1 inline-flex items-center gap-1 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-wine">

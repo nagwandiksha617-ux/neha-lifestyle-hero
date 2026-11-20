@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import heroImage from "../assets/hawa-mahal-hero.jpg";
 import { products } from "@/lib/products";
 import { CatalogueImage } from "@/components/CatalogueImage";
+import { CollectionBreadcrumb } from "@/components/CollectionBreadcrumb";
 import rubyRedJhumkaModel from "@/assets/earrings/ruby-red-jhumka-model.png.asset.json";
 import rubyRedJhumkaDisplay from "@/assets/earrings/ruby-red-jhumka-display.jpg.asset.json";
 
@@ -85,9 +86,7 @@ function Index() {
       <section aria-labelledby="shop-by-category" className="shop-category-section bg-background px-6 py-20 sm:py-24 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <header className="mx-auto max-w-2xl text-center">
-            <nav aria-label="Category breadcrumb" className="mb-5 flex items-center justify-center gap-2 text-xs text-foreground/60">
-              <Link to="/" className="hover:text-rose">Home</Link><span aria-hidden="true">/</span><span>Collections</span>
-            </nav>
+            <CollectionBreadcrumb current="Collections" centered />
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-gold">Explore NEHA Lifestyle</p>
             <h2 id="shop-by-category" className="mt-3 font-display text-4xl font-normal text-foreground sm:text-5xl">Shop by Category</h2>
             <span className="mx-auto mt-5 block h-px w-24 bg-gold/35" aria-hidden="true" />
@@ -101,12 +100,12 @@ function Index() {
                   params={{ slug: c.slug }}
                   className="shop-category-card group flex h-full flex-col rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                 >
-                  <div className="shop-category-image relative aspect-[4/5] overflow-hidden rounded-t-full bg-card ring-1 ring-gold/40">
-                    <CatalogueImage src={c.image} alt={c.alt} className="h-full w-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.04]" />
-                    <div className="category-card-caption absolute inset-x-0 bottom-0 px-4 pb-5 pt-16 sm:px-5 sm:pb-6">
-                      <h3 className="font-display text-xl leading-tight text-category-foreground sm:text-2xl">{c.name}</h3>
-                      <p className="mt-2 text-xs text-category-foreground/85">{products.filter((p) => c.slug === "bags" ? Boolean(p.bagCategorySlug) || p.categorySlug === "party-clutch-bags" : c.slug === "jewellery" ? p.categorySlug === "jewellery" || p.categorySlug === "jewellery-sets" || p.categorySlug === "earrings" : p.categorySlug === c.slug).length} products</p>
-                      <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-category-foreground">Explore <ArrowRight className="h-4 w-4 transition-transform motion-safe:group-hover:translate-x-1" aria-hidden="true" /></span>
+                  <div className="shop-category-image grid min-h-[400px] grid-rows-[70%_30%] overflow-hidden rounded-t-full bg-card ring-1 ring-gold/40 sm:aspect-[4/5]">
+                    <div className="min-h-0 overflow-hidden"><CatalogueImage src={c.image} alt={c.alt} className="h-full w-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.04]" /></div>
+                    <div className="category-card-caption flex flex-col justify-center px-3 py-3 sm:px-5">
+                      <h3 className="font-display text-2xl font-semibold leading-tight text-category-foreground sm:text-3xl">{c.name}</h3>
+                      <p className="mt-1 text-sm font-medium text-category-foreground">{products.filter((p) => c.slug === "bags" ? Boolean(p.bagCategorySlug) || p.categorySlug === "party-clutch-bags" : c.slug === "jewellery" ? p.categorySlug === "jewellery" || p.categorySlug === "jewellery-sets" || p.categorySlug === "earrings" : p.categorySlug === c.slug).length} products</p>
+                      <span className="mt-2 inline-flex items-center gap-2 text-xs font-semibold text-category-foreground">Explore <ArrowRight className="h-4 w-4 transition-transform motion-safe:group-hover:translate-x-1" aria-hidden="true" /></span>
                     </div>
                   </div>
                 </Link>

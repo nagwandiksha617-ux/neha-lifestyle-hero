@@ -115,7 +115,7 @@
   --gradient-hero-text: linear-gradient(90deg, oklch(0.97 0.015 62 / 0.88) 0%, oklch(0.97 0.015 62 / 0.6) 38%, oklch(0.97 0.015 62 / 0) 68%);
   --rose: oklch(0.47 0.1 12);
   --category-foreground: oklch(0.98 0.012 62);
-  --gradient-category-caption: linear-gradient(180deg, oklch(0.25 0.025 43 / 0), oklch(0.25 0.025 43 / 0.55) 45%, oklch(0.25 0.025 43 / 0.88));
+  --gradient-category-caption: linear-gradient(180deg, oklch(0.38 0.07 15), oklch(0.34 0.07 15));
   --footer-surface: oklch(0.955 0.018 15);
   --footer-foreground: oklch(0.22 0.014 15);
   --footer-accent: oklch(0.38 0.1 12);
@@ -177,7 +177,7 @@
 
   /* Keep in-page section links clear of the sticky header. */
   html {
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 100px;
   }
 
   body {
@@ -207,6 +207,13 @@
 
 .category-card-caption {
   background: var(--gradient-category-caption);
+}
+
+.shop-category-image { min-height: 440px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .shop-category-card:hover .shop-category-image img { transform: scale(1.04); }
+  .shop-category-card:hover .category-card-caption svg { transform: translateX(4px); }
 }
 
 /* Jaipur jaali lattice used as a subtle section divider. */

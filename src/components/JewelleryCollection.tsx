@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ProductGrid } from "@/components/ProductGrid";
 import { jewelleryCategories, jewelleryNewArrivals } from "@/lib/jewellery";
 import jewelleryImage from "@/assets/category-jewellery.jpg";
+import { CatalogueImage } from "@/components/CatalogueImage";
+import { CollectionBreadcrumb } from "@/components/CollectionBreadcrumb";
 
 const imageAlt = "Ruby-red and gold necklace set with matching earrings on champagne silk";
 const picturedCategories = new Set(["jewellery-sets", "ethnic-jewellery", "wedding-occasion-jewellery"]);
@@ -15,6 +17,7 @@ export function JewelleryCollection() {
         <img src={jewelleryImage} alt={imageAlt} width={768} height={960} fetchPriority="high" className="absolute bottom-0 right-0 -z-10 h-[340px] w-full object-contain sm:h-[420px] lg:h-full lg:w-[55%]" />
         <div className="mx-auto flex min-h-[740px] max-w-7xl items-start px-6 pt-9 sm:min-h-[800px] sm:px-8 lg:min-h-[580px] lg:items-center lg:px-12 lg:py-16">
           <div className="w-full text-center lg:max-w-[44%] lg:text-left">
+            <CollectionBreadcrumb current="Jewellery" />
             <p className="text-[0.65rem] font-semibold uppercase text-wine">NEHA Lifestyle · Jewellery Collection</p>
             <h1 className="mt-4 font-display text-4xl leading-tight text-foreground sm:text-5xl">Jewellery That Makes <em className="text-wine">Every Moment Special</em></h1>
             <span className="mx-auto mt-5 block h-px w-14 bg-gold lg:mx-0" aria-hidden="true" />
@@ -37,7 +40,7 @@ export function JewelleryCollection() {
               <Link to="/category/$slug" params={{ slug: category.slug }} className="group flex flex-col items-center text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine">
                 <span className="grid size-32 place-items-center overflow-hidden rounded-full bg-card ring-1 ring-gold/40 sm:size-36">
                   {picturedCategories.has(category.slug) ? (
-                    <img src={jewelleryImage} alt={imageAlt} loading="lazy" className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-105" />
+                    <CatalogueImage src={jewelleryImage} alt={imageAlt} className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-105" />
                   ) : (
                     <span className="flex flex-col items-center gap-2 text-foreground/50"><ImageIcon className="size-7" strokeWidth={1} aria-hidden="true" /><span className="text-xs">Photo awaited</span></span>
                   )}

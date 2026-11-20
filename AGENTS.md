@@ -19,4 +19,6 @@
 - Bag-type pages (Tote, Handbags, Clutch, Potli) live in `bagCategories` and products join them via `bagCategorySlug`, separate from homepage `categories`, so bag-type pages can grow without changing the homepage category cards or a product's existing category.
 - Keep jewellery collection presentation isolated and jewellery subcategories separate from homepage categories; do not infer product assignments or best-seller status, so catalogue facts remain unchanged.
 - Use the shared CatalogueImage for category and main product photos with fixed-ratio wrappers, skeleton loading and a branded unavailable-photo fallback, so failed images never leave empty cards or substitute merchandise.
+- Use CollectionBreadcrumb on collection pages and the homepage collection heading, because a shared presentation keeps navigation consistent.
+- Keep single-photo card selections separate from catalogue galleries, because removing collage presentation must not delete or reorder original photos.
 - Keep enquiry controls disabled until the owner confirms a WhatsApp destination, so no invented contact or ordering flow is exposed.

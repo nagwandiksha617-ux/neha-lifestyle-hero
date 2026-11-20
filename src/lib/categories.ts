@@ -1,7 +1,7 @@
 import bags from "@/assets/category-bags.jpg";
 import jewellery from "@/assets/category-jewellery.jpg";
 import potli from "@/assets/category-potli.jpg";
-import watchesCard from "@/assets/watches/kundan-floral-watch-display.jpg.asset.json";
+import watchesCard from "@/assets/watches/kundan-floral-watch-model.png.asset.json";
 import { jewelleryCategories } from "@/lib/jewellery";
 import { watchCategories } from "@/lib/watches";
 
@@ -10,7 +10,7 @@ export const categories = [
   { slug: "bags", name: "Bags", description: "Elegant bags designed for everyday style.", image: bags, alt: "Cream and gold chain-strap handbag on a polished marble vanity with white flowers" },
   { slug: "jewellery", name: "Jewellery", description: "Timeless pieces made to elevate your look.", image: jewellery, alt: "Gold and ruby-red beaded necklace set with matching earrings on champagne silk" },
   { slug: "party-clutch-bags", name: "Party & Clutch Bags", description: "Statement pieces for celebrations and special occasions.", image: potli, alt: "Golden embroidered potli bag with pearl trim and beaded fringe on champagne satin" },
-  { slug: "watches", name: "Watches", description: "Traditional bracelet watches with timeless detailing.", image: watchesCard.url, alt: "Gold-tone traditional bracelet watch with red and green stone detailing on a white background" },
+  { slug: "watches", name: "Watches", description: "Traditional bracelet watches with timeless detailing.", image: watchesCard.url, alt: "Traditional gold Kundan floral bracelet watch worn on the wrist in a warm lifestyle setting" },
 ];
 
 // Bag types shown in the header's Bags menu and on the Bags page. Each has its own listing page.

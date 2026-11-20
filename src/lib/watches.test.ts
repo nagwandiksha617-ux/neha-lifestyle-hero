@@ -16,7 +16,7 @@ test("Watches is a distinct category page", () => {
 
 test("Watches appears in Shop by Category after the existing cards, which keep their order", () => {
   expect(categories.map((c) => c.slug)).toEqual(["bags", "jewellery", "party-clutch-bags", "watches"]);
-  expect(categories.find((c) => c.slug === "watches")?.image).toContain("kundan-floral-watch-display.jpg");
+  expect(categories.find((c) => c.slug === "watches")?.image).toContain("kundan-floral-watch-model.png");
 });
 
 test("Watches lists exactly the three bracelet watches in requested order", () => {
