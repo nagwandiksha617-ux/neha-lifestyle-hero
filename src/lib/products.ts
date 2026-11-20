@@ -132,6 +132,12 @@ import rubyRedJhumkaDisplay from "@/assets/earrings/ruby-red-jhumka-display.jpg.
 import rubyRedJhumkaModel from "@/assets/earrings/ruby-red-jhumka-model.png.asset.json";
 import emeraldGreenJhumkaDisplay from "@/assets/earrings/emerald-green-jhumka-display.jpg.asset.json";
 import emeraldGreenJhumkaModel from "@/assets/earrings/emerald-green-jhumka-model.png.asset.json";
+import emeraldGreenPearlJhumkaDisplay from "@/assets/earrings/emerald-green-pearl-jhumka-display.jpg.asset.json";
+import emeraldGreenPearlJhumkaModel from "@/assets/earrings/emerald-green-pearl-jhumka-model.png.asset.json";
+import greenRedLongPearlDisplay from "@/assets/earrings/green-red-long-pearl-earrings-display.jpg.asset.json";
+import greenRedLongPearlModel from "@/assets/earrings/green-red-long-pearl-earrings-model.png.asset.json";
+import peacockPinkGreenJhumkaDisplay from "@/assets/earrings/peacock-pink-green-jhumka-display.jpg.asset.json";
+import peacockPinkGreenJhumkaModel from "@/assets/earrings/peacock-pink-green-jhumka-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -764,6 +770,39 @@ export const products: Product[] = [
     gallery: [
       { src: emeraldGreenJhumkaDisplay.url, alt: "Emerald Green Oxidised Silver Long Jhumka Earrings — product display on white background" },
       { src: emeraldGreenJhumkaModel.url, alt: "Model wearing the Emerald Green Oxidised Silver Long Jhumka Earrings" },
+    ],
+  },
+  {
+    id: "emerald-green-stone-gold-pearl-jhumka-earrings",
+    name: "Emerald Green Stone Gold Pearl Jhumka Earrings",
+    category: "Earrings",
+    categorySlug: "earrings",
+    image: emeraldGreenPearlJhumkaDisplay.url,
+    gallery: [
+      { src: emeraldGreenPearlJhumkaDisplay.url, alt: "Emerald Green Stone Gold Pearl Jhumka Earrings — product display on white background" },
+      { src: emeraldGreenPearlJhumkaModel.url, alt: "Model wearing the Emerald Green Stone Gold Pearl Jhumka Earrings" },
+    ],
+  },
+  {
+    id: "traditional-green-red-stone-gold-pearl-long-earrings",
+    name: "Traditional Green Red Stone Gold Pearl Long Earrings",
+    category: "Earrings",
+    categorySlug: "earrings",
+    image: greenRedLongPearlDisplay.url,
+    gallery: [
+      { src: greenRedLongPearlDisplay.url, alt: "Traditional Green Red Stone Gold Pearl Long Earrings — product display on white background" },
+      { src: greenRedLongPearlModel.url, alt: "Model wearing the Traditional Green Red Stone Gold Pearl Long Earrings" },
+    ],
+  },
+  {
+    id: "peacock-design-pink-green-gold-jhumka-earrings",
+    name: "Peacock Design Pink Green Gold Jhumka Earrings",
+    category: "Earrings",
+    categorySlug: "earrings",
+    image: peacockPinkGreenJhumkaDisplay.url,
+    gallery: [
+      { src: peacockPinkGreenJhumkaDisplay.url, alt: "Peacock Design Pink Green Gold Jhumka Earrings — product display on white background" },
+      { src: peacockPinkGreenJhumkaModel.url, alt: "Model wearing the Peacock Design Pink Green Gold Jhumka Earrings" },
     ],
   },
 ];

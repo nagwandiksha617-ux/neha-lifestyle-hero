@@ -6,12 +6,15 @@ const earrings: Array<[string, string]> = [
   ["Antique Silver Gold-Tone Chain Jhumka Earrings", "gold-chain-jhumka"],
   ["Ruby Red Oxidised Silver Long Jhumka Earrings", "ruby-red-jhumka"],
   ["Emerald Green Oxidised Silver Long Jhumka Earrings", "emerald-green-jhumka"],
+  ["Emerald Green Stone Gold Pearl Jhumka Earrings", "emerald-green-pearl-jhumka"],
+  ["Traditional Green Red Stone Gold Pearl Long Earrings", "green-red-long-pearl-earrings"],
+  ["Peacock Design Pink Green Gold Jhumka Earrings", "peacock-pink-green-jhumka"],
 ];
 
-test("Earrings lists exactly the four requested sets in requested order", () => {
+test("Earrings lists exactly the seven requested listings in requested order", () => {
   const listed = productsForCategoryPage("earrings");
   expect(listed.map((p) => p.name)).toEqual(earrings.map(([name]) => name));
-  expect(new Set(listed.map((p) => p.id)).size).toBe(4);
+  expect(new Set(listed.map((p) => p.id)).size).toBe(7);
 });
 
 for (const [name, prefix] of earrings) {
