@@ -46,6 +46,7 @@
   --color-wine: var(--wine);
   --color-wine-foreground: var(--wine-foreground);
   --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
   --color-rose: var(--rose);
   --color-category-foreground: var(--category-foreground);
   --color-footer-surface: var(--footer-surface);
@@ -109,6 +110,9 @@
   --wine: oklch(0.36 0.09 15);
   --wine-foreground: oklch(0.97 0.014 68);
   --gold: oklch(0.76 0.09 78);
+  --gold-deep: oklch(0.55 0.09 70);
+  --gradient-hero-text-mobile: linear-gradient(180deg, oklch(0.97 0.015 62 / 0.9) 0%, oklch(0.97 0.015 62 / 0.75) 45%, oklch(0.97 0.015 62 / 0) 75%);
+  --gradient-hero-text: linear-gradient(90deg, oklch(0.97 0.015 62 / 0.88) 0%, oklch(0.97 0.015 62 / 0.6) 38%, oklch(0.97 0.015 62 / 0) 68%);
   --rose: oklch(0.47 0.1 12);
   --category-foreground: oklch(0.98 0.012 62);
   --gradient-category-caption: linear-gradient(180deg, oklch(0.25 0.025 43 / 0), oklch(0.25 0.025 43 / 0.55) 45%, oklch(0.25 0.025 43 / 0.88));
@@ -203,4 +207,11 @@
 
 .category-card-caption {
   background: var(--gradient-category-caption);
+}
+
+/* Jaipur jaali lattice used as a subtle section divider. */
+.jaali-divider {
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M12 2l10 10-10 10L2 12z M12 7l5 5-5 5-5-5z' fill='none' stroke='black' stroke-width='1.2'/%3E%3C/svg%3E") repeat-x center / 24px 24px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M12 2l10 10-10 10L2 12z M12 7l5 5-5 5-5-5z' fill='none' stroke='black' stroke-width='1.2'/%3E%3C/svg%3E") repeat-x center / 24px 24px;
 }

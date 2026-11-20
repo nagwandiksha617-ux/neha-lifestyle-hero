@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, User } from "lucide-react";
+import { ArrowUpRight, MapPin, MessageCircle, Facebook, Heart, Instagram, Menu, Search, ShoppingBag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { categories } from "@/lib/categories";
-import logo from "@/assets/neha-lifestyle-logo.jpeg";
 
 // Header action icons use the Luxury Premium Bold Outline set: Search, Heart, User, ShoppingBag.
 // The previously uploaded pink icon artwork is no longer rendered in the header.
@@ -68,6 +67,7 @@ export function SiteHeader() {
   const actionIcon = "size-[22px] shrink-0";
   return (
     <>
+      <p className="bg-wine px-4 py-2 text-center text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-wine-foreground">Designed in Jaipur · New arrivals now in store</p>
       <header className="sticky top-0 z-40 border-b border-gold/30 bg-background/95 shadow-[0_1px_0_0_var(--color-blush,transparent)] backdrop-blur-md" aria-label="NEHA Lifestyle header">
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-3 lg:h-[78px] px-4 sm:px-8 xl:px-10">
           <div className="flex items-center gap-2">
@@ -80,7 +80,8 @@ export function SiteHeader() {
               </SheetContent>
             </Sheet>
             <Link to="/" aria-label="NEHA Lifestyle home" className="shrink-0">
-              <img src={logo} alt="NEHA Lifestyle" width={108} height={63} className="h-12 w-20 object-contain sm:h-14 sm:w-24" />
+              <span className="block font-display text-2xl leading-none tracking-[0.12em] text-wine sm:text-3xl">NEHA</span>
+              <span className="mt-1 block text-[0.55rem] font-semibold uppercase tracking-[0.42em] text-gold">Lifestyle</span>
             </Link>
           </div>
           <nav aria-label="Main navigation" className="hidden items-center gap-4 min-[960px]:flex xl:gap-7">{navItems()}</nav>
@@ -120,10 +121,11 @@ export function SiteFooter() {
         {["left-0", "right-0 -scale-x-100"].map((pos) => <svg key={pos} aria-hidden="true" viewBox="0 0 160 120" className={`pointer-events-none absolute bottom-0 ${pos} h-28 w-36 text-footer-accent/25 sm:h-36 sm:w-48`} fill="none" stroke="currentColor" strokeWidth="1"><path d="M0 118 C30 90 50 70 60 40 M60 40 C62 25 72 18 80 20 C74 30 68 36 60 40 M38 76 C28 66 26 54 32 46 C40 54 42 66 38 76 M38 76 C52 74 62 80 66 90 C54 92 44 86 38 76 M14 104 C8 92 10 82 16 76 C22 86 20 96 14 104 M14 104 C26 100 36 104 40 112 C30 116 20 112 14 104" /><circle cx="84" cy="14" r="3" /></svg>)}
         <div className="mx-auto grid max-w-7xl relative grid-cols-2 gap-x-8 gap-y-10 px-6 py-12 sm:px-8 lg:grid-cols-[1.45fr_1fr_1fr_0.95fr] lg:gap-0 lg:px-12 lg:[&>div+div]:border-l lg:[&>div+div]:border-gold/40 lg:[&>div+div]:pl-7 lg:[&>div]:pr-5">
           <div className="col-span-2 lg:col-span-1">
-            <Link to="/" className="inline-block" aria-label="NEHA Lifestyle home"><img src={logo} alt="NEHA Lifestyle" width={108} height={63} loading="lazy" className="h-14 w-24 object-contain" /></Link>
-            <p className="mt-4 font-display text-3xl font-semibold text-footer-accent">NEHA Lifestyle</p>
+            <Link to="/" className="inline-block" aria-label="NEHA Lifestyle home"><span className="font-display text-4xl font-semibold tracking-[0.1em] text-footer-accent">NEHA Lifestyle</span></Link>
             <p className="mt-3 text-sm font-medium leading-6 text-footer-foreground">Bags &amp; Jewellery. Your Style, Always.</p>
             <p className="mt-3 max-w-xs text-sm leading-6 text-footer-foreground">Discover elegant bags and jewellery designed to add a touch of everyday luxury to your style.</p>
+            <p className="mt-4 flex items-start gap-2 text-sm leading-6"><MapPin className="mt-1 h-4 w-4 shrink-0 text-footer-accent" aria-hidden="true" /><span>Jaipur, Rajasthan, India<br /><span className="text-footer-foreground/70">Full studio address coming soon</span></span></p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Jaipur%2C+Rajasthan" target="_blank" rel="noreferrer" className="mt-1 inline-block text-xs font-semibold uppercase tracking-[0.16em] text-footer-accent underline-offset-4 hover:underline">View on map</a>
             <div className="mt-5 flex gap-2" aria-label="Social media">
               {[{ label: "Instagram", icon: Instagram }, { label: "Facebook", icon: Facebook }].map(({ label, icon: Icon }) => <Button key={label} variant="ghost" size="icon" aria-label={label} title={label} onClick={() => setTopic(label)} className="h-8 w-8 rounded-full border border-footer-accent/40 text-footer-accent hover:bg-footer-accent/10 hover:text-footer-accent [&_svg]:size-4"><Icon strokeWidth={1.5} /></Button>)}
             </div>
@@ -156,6 +158,7 @@ export function SiteFooter() {
         </div>
       </footer>
       <InformationDialog topic={topic} close={() => setTopic(null)} />
+      <Button disabled title="WhatsApp number awaiting confirmation" aria-label="Chat on WhatsApp (coming soon)" className="fixed bottom-5 right-5 z-50 h-14 w-14 rounded-full bg-wine p-0 text-wine-foreground shadow-lg ring-2 ring-gold/50 disabled:opacity-90 [&_svg]:size-6"><MessageCircle aria-hidden="true" /></Button>
     </>
   );
 }
