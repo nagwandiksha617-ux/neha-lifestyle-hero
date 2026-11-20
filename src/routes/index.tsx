@@ -69,26 +69,26 @@ function Index() {
       <section aria-labelledby="shop-by-category" className="bg-background px-6 py-20 sm:py-24 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <header className="mx-auto max-w-2xl text-center">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-gold">Explore NEHA Lifestyle</p>
-            <h2 id="shop-by-category" className="mt-4 font-display text-4xl font-normal text-foreground sm:text-5xl">Shop by Category</h2>
-            <span className="mx-auto mt-5 block h-px w-14 bg-gold" aria-hidden="true" />
-            <p className="mt-5 text-sm leading-7 text-foreground/75 sm:text-base">Discover bags and jewellery designed to add elegance to every occasion.</p>
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-gold">Explore NEHA Lifestyle</p>
+            <h2 id="shop-by-category" className="mt-3 font-display text-4xl font-normal text-foreground sm:text-5xl">Shop by Category</h2>
+            <span className="mx-auto mt-5 block h-px w-24 bg-gold/35" aria-hidden="true" />
+            <p className="mt-4 text-sm leading-7 text-foreground/60">Discover bags and jewellery designed to add elegance to every occasion.</p>
           </header>
-          <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 md:gap-x-6 lg:grid-cols-3">
             {categories.map((c) => (
-              <li key={c.slug}>
+              <li key={c.slug} className="min-w-0">
                 <Link
                   to="/category/$slug"
                   params={{ slug: c.slug }}
-                  className="group block h-full rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                  className="group flex h-full flex-col rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                 >
-                  <div className="overflow-hidden rounded-sm bg-muted shadow-sm transition-shadow duration-500 group-hover:shadow-lg">
-                    <img src={c.image} alt={c.alt} width={768} height={960} loading="lazy" className="aspect-[4/5] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-card">
+                    <img src={c.image} alt={c.alt} width={768} height={960} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.03]" />
                   </div>
-                  <div className="pt-5 text-center">
-                    <h3 className="font-display text-xl uppercase tracking-[0.12em] text-foreground sm:text-2xl">{c.name}</h3>
-                    <p className="mx-auto mt-2 max-w-xs text-sm leading-6 text-foreground/70">{c.description}</p>
-                    <span className="mt-4 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-wine transition-colors group-hover:text-rose">
+                  <div className="flex flex-1 flex-col pt-4 text-center">
+                    <h3 className="font-display text-lg leading-snug text-foreground transition-colors group-hover:text-rose sm:text-xl">{c.name}</h3>
+                    <p className="mx-auto mt-2 max-w-xs flex-1 text-xs leading-5 text-foreground/60">{c.description}</p>
+                    <span className="mt-3 inline-flex items-center justify-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-wine transition-colors group-hover:text-rose">
                       Shop Category <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                     </span>
                   </div>
