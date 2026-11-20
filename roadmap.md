@@ -1,6 +1,6 @@
 # Static shared-hosting migration (FTP, no Node at runtime)
 
-- [x] New Arrivals — ten confirmed uploaded photos, five desktop/two mobile columns, wishlist toggle and category navigation verified; catalogue preserved; followed written layout requirements.
+- [x] New Arrivals — twelve confirmed uploaded photos, preserving the first ten and appending two existing clutch products; five desktop/two mobile columns; catalogue preserved.
 
 - [x] Jewellery redesign — isolated collection page, five category destinations, existing arrivals only; no product reassignment or invented best sellers.
 

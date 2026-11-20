@@ -3,7 +3,7 @@ import { expect, test } from "bun:test";
 import { homepageArrivals } from "./homepage-arrivals";
 import { products } from "./products";
 
-test("New Arrivals uses only the ten received products in upload order", () => {
+test("New Arrivals preserves the previous ten products and appends the two uploaded clutches", () => {
   expect(homepageArrivals.map((p) => p.id)).toEqual([
     "golden-crescent-handbag",
     "peacock-design-pink-green-gold-jhumka-earrings",
@@ -15,8 +15,11 @@ test("New Arrivals uses only the ten received products in upload order", () => {
     "navy-blue-floral-statement-necklace-set",
     "multicolor-geometric-pendant-necklace-set",
     "golden-green-medallion-necklace-set",
+    "na-4",
+    "elegant-waist-clutch-gold",
   ]);
-  expect(new Set(homepageArrivals.map((p) => p.image)).size).toBe(10);
+  expect(new Set(homepageArrivals.map((p) => p.image)).size).toBe(12);
+  expect(new Set(homepageArrivals.map((p) => p.id)).size).toBe(12);
 });
 
 test("homepage photos do not replace any catalogue image, name or gallery", () => {

@@ -9,6 +9,8 @@ import kundanWatch from "@/assets/new-arrivals/kundan-watch.png.asset.json";
 import navy from "@/assets/new-arrivals/navy-necklace.png.asset.json";
 import geometric from "@/assets/new-arrivals/geometric-necklace.png.asset.json";
 import medallion from "@/assets/new-arrivals/medallion-necklace.png.asset.json";
+import shellClutch from "@/assets/new-arrivals/silver-shell-clutch.png.asset.json";
+import waistClutch from "@/assets/new-arrivals/gold-waist-clutch.png.asset.json";
 
 // Homepage-only photo selection: never overwrite catalogue images or galleries.
 const selection = [
@@ -22,6 +24,8 @@ const selection = [
   ["navy-blue-floral-statement-necklace-set", navy.url],
   ["multicolor-geometric-pendant-necklace-set", geometric.url],
   ["golden-green-medallion-necklace-set", medallion.url],
+  ["na-4", shellClutch.url],
+  ["elegant-waist-clutch-gold", waistClutch.url],
 ] as const;
 
 export const homepageArrivals = selection.flatMap(([id, image]) => {
