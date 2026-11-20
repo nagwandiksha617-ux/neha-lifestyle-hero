@@ -669,8 +669,6 @@ export const products: Product[] = [
     category: "Jewellery Sets",
     categorySlug: "jewellery-sets",
     image: royalPurpleDisplay.url,
-    newArrival: true,
-    newArrivalRank: 9,
     gallery: [
       { src: royalPurpleDisplay.url, alt: "Royal Purple Beaded Statement Necklace Set — product display on white background" },
       { src: royalPurpleModel.url, alt: "Model wearing the Royal Purple Beaded Statement Necklace Set" },
@@ -693,8 +691,6 @@ export const products: Product[] = [
     category: "Jewellery Sets",
     categorySlug: "jewellery-sets",
     image: navyFloralDisplay.url,
-    newArrival: true,
-    newArrivalRank: 8,
     gallery: [
       { src: navyFloralDisplay.url, alt: "Navy Blue Floral Statement Necklace Set — product display on white background" },
       { src: navyFloralModel.url, alt: "Model wearing the Navy Blue Floral Statement Necklace Set" },
@@ -728,8 +724,6 @@ export const products: Product[] = [
     category: "Watches",
     categorySlug: "watches",
     image: rubyGreenWatchDisplay.url,
-    newArrival: true,
-    newArrivalRank: 7,
     gallery: [
       { src: rubyGreenWatchDisplay.url, alt: "Royal Ruby Green Stone Gold Bracelet Watch — product display on white background" },
       { src: rubyGreenWatchModel.url, alt: "Royal Ruby Green Stone Gold Bracelet Watch worn on the wrist" },
@@ -785,8 +779,6 @@ export const products: Product[] = [
     category: "Earrings",
     categorySlug: "earrings",
     image: emeraldGreenPearlJhumkaDisplay.url,
-    newArrival: true,
-    newArrivalRank: 6,
     gallery: [
       { src: emeraldGreenPearlJhumkaDisplay.url, alt: "Emerald Green Stone Gold Pearl Jhumka Earrings — product display on white background" },
       { src: emeraldGreenPearlJhumkaModel.url, alt: "Model wearing the Emerald Green Stone Gold Pearl Jhumka Earrings" },

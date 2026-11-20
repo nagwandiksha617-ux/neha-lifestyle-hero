@@ -103,26 +103,22 @@ describe("Party & Clutch Bags listing", () => {
     expect(bag?.image).toBe(bag?.gallery?.[0]?.src);
   });
 
-  test("New Arrivals keeps its nine products in order", () => {
+  test("New Arrivals keeps its five products in order", () => {
     expect(newArrivals().map((p) => p.name)).toEqual([
       "Peacock Pearl Jhumka Earrings",
       "Green Stone Jhumka Earrings",
       "Silver Shell Embellished Clutch",
       "Red & Green Velvet Potli Bag",
       "Green Pearl Embroidered Potli Bag",
-      "Emerald Green Stone Gold Pearl Jhumka Earrings",
-      "Royal Ruby Green Stone Gold Bracelet Watch",
-      "Navy Blue Floral Statement Necklace Set",
-      "Royal Purple Beaded Statement Necklace Set",
     ]);
   });
 
-  test("the four selected New Arrivals reuse their existing listings with display photos first", () => {
-    const byId = (id: string) => products.find((p) => p.id === id);
-    expect(byId("emerald-green-stone-gold-pearl-jhumka-earrings")?.image?.split("/").pop()).toBe("emerald-green-pearl-jhumka-display.jpg");
-    expect(byId("royal-ruby-green-stone-gold-bracelet-watch")?.image?.split("/").pop()).toBe("ruby-green-watch-display.png");
-    expect(byId("navy-blue-floral-statement-necklace-set")?.image?.split("/").pop()).toBe("navy-floral-display.png");
-    expect(byId("royal-purple-beaded-statement-necklace-set")?.image?.split("/").pop()).toBe("royal-purple-display.png");
+  test("the four jewellery and watch products stay listed but out of New Arrivals", () => {
+    const ids = ["emerald-green-stone-gold-pearl-jhumka-earrings", "royal-ruby-green-stone-gold-bracelet-watch", "navy-blue-floral-statement-necklace-set", "royal-purple-beaded-statement-necklace-set"];
+    for (const id of ids) {
+      expect(products.find((p) => p.id === id)).toBeDefined();
+      expect(newArrivals().map((p) => p.id)).not.toContain(id);
+    }
   });
 });
 
