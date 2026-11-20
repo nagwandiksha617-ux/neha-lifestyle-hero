@@ -186,3 +186,19 @@
   from { transform: scale(1.02); }
   to { transform: scale(1.045); }
 }
+
+/* Homepage category cards mirror the arrivals' unframed portrait format. */
+.shop-category-section .shop-category-grid {
+  max-width: 56rem;
+  grid-auto-rows: 1fr;
+}
+
+.shop-category-section .shop-category-image {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.shop-category-section .shop-category-name {
+  min-height: 3.5rem;
+  overflow-wrap: anywhere;
+}

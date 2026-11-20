@@ -66,7 +66,7 @@ function Index() {
         </div>
 
       </section>
-      <section aria-labelledby="shop-by-category" className="bg-background px-6 py-20 sm:py-24 lg:px-12">
+      <section aria-labelledby="shop-by-category" className="shop-category-section bg-background px-6 py-20 sm:py-24 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <header className="mx-auto max-w-2xl text-center">
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-gold">Explore NEHA Lifestyle</p>
@@ -74,24 +74,18 @@ function Index() {
             <span className="mx-auto mt-5 block h-px w-24 bg-gold/35" aria-hidden="true" />
             <p className="mt-4 text-sm leading-7 text-foreground/60">Discover bags and jewellery designed to add elegance to every occasion.</p>
           </header>
-          <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 md:gap-x-6 lg:grid-cols-3">
+          <ul className="shop-category-grid mx-auto mt-10 grid grid-cols-2 gap-x-4 gap-y-10 md:gap-x-6 lg:grid-cols-3">
             {categories.map((c) => (
               <li key={c.slug} className="min-w-0">
                 <Link
                   to="/category/$slug"
                   params={{ slug: c.slug }}
-                  className="group flex h-full flex-col rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                  className="shop-category-card group flex h-full flex-col rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wine focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-card">
+                  <div className="shop-category-image relative aspect-[4/5] overflow-hidden rounded-sm bg-card">
                     <img src={c.image} alt={c.alt} width={768} height={960} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.03]" />
                   </div>
-                  <div className="flex flex-1 flex-col pt-4 text-center">
-                    <h3 className="font-display text-lg leading-snug text-foreground transition-colors group-hover:text-rose sm:text-xl">{c.name}</h3>
-                    <p className="mx-auto mt-2 max-w-xs flex-1 text-xs leading-5 text-foreground/60">{c.description}</p>
-                    <span className="mt-3 inline-flex items-center justify-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-wine transition-colors group-hover:text-rose">
-                      Shop Category <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                    </span>
-                  </div>
+                  <h3 className="shop-category-name mt-4 font-display text-lg leading-snug text-foreground transition-colors group-hover:text-rose">{c.name}</h3>
                 </Link>
               </li>
             ))}
