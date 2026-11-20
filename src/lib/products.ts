@@ -124,6 +124,14 @@ import templeWatchDisplay from "@/assets/watches/temple-watch-display.jpg.asset.
 import templeWatchModel from "@/assets/watches/temple-watch-model.png.asset.json";
 import rubyGreenWatchDisplay from "@/assets/watches/ruby-green-watch-display.png.asset.json";
 import rubyGreenWatchModel from "@/assets/watches/ruby-green-watch-model.png.asset.json";
+import blueStoneJhumkaDisplay from "@/assets/earrings/blue-stone-jhumka-display.jpg.asset.json";
+import blueStoneJhumkaModel from "@/assets/earrings/blue-stone-jhumka-model.png.asset.json";
+import goldChainJhumkaDisplay from "@/assets/earrings/gold-chain-jhumka-display.jpg.asset.json";
+import goldChainJhumkaModel from "@/assets/earrings/gold-chain-jhumka-model.png.asset.json";
+import rubyRedJhumkaDisplay from "@/assets/earrings/ruby-red-jhumka-display.jpg.asset.json";
+import rubyRedJhumkaModel from "@/assets/earrings/ruby-red-jhumka-model.png.asset.json";
+import emeraldGreenJhumkaDisplay from "@/assets/earrings/emerald-green-jhumka-display.jpg.asset.json";
+import emeraldGreenJhumkaModel from "@/assets/earrings/emerald-green-jhumka-model.png.asset.json";
 
 export type ProductPhoto = { src: string; alt: string };
 
@@ -714,10 +722,54 @@ export const products: Product[] = [
       { src: rubyGreenWatchModel.url, alt: "Royal Ruby Green Stone Gold Bracelet Watch worn on the wrist" },
     ],
   },
+  {
+    id: "blue-stone-oxidised-silver-jhumka-earrings",
+    name: "Blue Stone Oxidised Silver Jhumka Earrings",
+    category: "Earrings",
+    categorySlug: "earrings",
+    image: blueStoneJhumkaDisplay.url,
+    gallery: [
+      { src: blueStoneJhumkaDisplay.url, alt: "Blue Stone Oxidised Silver Jhumka Earrings — product display on white background" },
+      { src: blueStoneJhumkaModel.url, alt: "Model wearing the Blue Stone Oxidised Silver Jhumka Earrings" },
+    ],
+  },
+  {
+    id: "antique-silver-gold-tone-chain-jhumka-earrings",
+    name: "Antique Silver Gold-Tone Chain Jhumka Earrings",
+    category: "Earrings",
+    categorySlug: "earrings",
+    image: goldChainJhumkaDisplay.url,
+    gallery: [
+      { src: goldChainJhumkaDisplay.url, alt: "Antique Silver Gold-Tone Chain Jhumka Earrings — product display on white background" },
+      { src: goldChainJhumkaModel.url, alt: "Model wearing the Antique Silver Gold-Tone Chain Jhumka Earrings" },
+    ],
+  },
+  {
+    id: "ruby-red-oxidised-silver-long-jhumka-earrings",
+    name: "Ruby Red Oxidised Silver Long Jhumka Earrings",
+    category: "Earrings",
+    categorySlug: "earrings",
+    image: rubyRedJhumkaDisplay.url,
+    gallery: [
+      { src: rubyRedJhumkaDisplay.url, alt: "Ruby Red Oxidised Silver Long Jhumka Earrings — product display on white background" },
+      { src: rubyRedJhumkaModel.url, alt: "Model wearing the Ruby Red Oxidised Silver Long Jhumka Earrings" },
+    ],
+  },
+  {
+    id: "emerald-green-oxidised-silver-long-jhumka-earrings",
+    name: "Emerald Green Oxidised Silver Long Jhumka Earrings",
+    category: "Earrings",
+    categorySlug: "earrings",
+    image: emeraldGreenJhumkaDisplay.url,
+    gallery: [
+      { src: emeraldGreenJhumkaDisplay.url, alt: "Emerald Green Oxidised Silver Long Jhumka Earrings — product display on white background" },
+      { src: emeraldGreenJhumkaModel.url, alt: "Model wearing the Emerald Green Oxidised Silver Long Jhumka Earrings" },
+    ],
+  },
 ];
 
 // Category pages that list their products. Others keep their "coming soon" note.
-export const listedCategorySlugs = ["party-clutch-bags", "tote-bags", "handbags", "clutch-bags", "potli-bags", "jewellery-sets", "watches"];
+export const listedCategorySlugs = ["party-clutch-bags", "tote-bags", "handbags", "clutch-bags", "potli-bags", "jewellery-sets", "watches", "earrings"];
 
 export const newArrivals = () => products.filter((p) => p.newArrival);
 
