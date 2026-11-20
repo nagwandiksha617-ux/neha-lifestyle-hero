@@ -15,6 +15,8 @@ import waistClutch from "@/assets/new-arrivals/gold-waist-clutch.png.asset.json"
 // Homepage-only photo selection: never overwrite catalogue images or galleries.
 const selection = [
   ["golden-crescent-handbag", crescent.url],
+  ["na-4", shellClutch.url],
+  ["elegant-waist-clutch-gold", waistClutch.url],
   ["peacock-design-pink-green-gold-jhumka-earrings", peacock.url],
   ["traditional-green-red-stone-gold-pearl-long-earrings", greenRed.url],
   ["emerald-green-stone-gold-pearl-jhumka-earrings", emerald.url],
@@ -24,8 +26,6 @@ const selection = [
   ["navy-blue-floral-statement-necklace-set", navy.url],
   ["multicolor-geometric-pendant-necklace-set", geometric.url],
   ["golden-green-medallion-necklace-set", medallion.url],
-  ["na-4", shellClutch.url],
-  ["elegant-waist-clutch-gold", waistClutch.url],
 ] as const;
 
 export const homepageArrivals = selection.flatMap(([id, image]) => {
