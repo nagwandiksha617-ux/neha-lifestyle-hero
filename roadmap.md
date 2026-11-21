@@ -1,5 +1,7 @@
 # Static shared-hosting migration (FTP, no Node at runtime)
 
+- [ ] Connect the uploaded CategoryPage cards to complete product galleries and product detail destinations without restyling.
+
 - [x] Card refinements — separate category captions, lifestyle watch photo, shared breadcrumbs, 100px scroll offset, image fallbacks/loaders and gallery thumbnail visibility; hero preserved.
 
 - [x] Category/product presentation — four desktop/two mobile overlay category cards, larger product names, photo skeletons and branded fallback.
