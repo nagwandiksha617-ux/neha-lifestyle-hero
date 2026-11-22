@@ -1,6 +1,6 @@
 # Static shared-hosting migration (FTP, no Node at runtime)
 
-- [ ] Connect the uploaded CategoryPage cards to complete product galleries and product detail destinations without restyling.
+- [x] Product pages with full model-first photo galleries, linked from every product card.
 
 - [x] Card refinements — separate category captions, lifestyle watch photo, shared breadcrumbs, 100px scroll offset, image fallbacks/loaders and gallery thumbnail visibility; hero preserved.
 

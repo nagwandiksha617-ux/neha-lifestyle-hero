@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Heart, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CatalogueImage } from "@/components/CatalogueImage";
@@ -6,7 +7,7 @@ import { EnquiryButton } from "@/components/EnquiryButton";
 import { InformationDialog } from "@/components/SiteChrome";
 import { ProductGallery } from "@/components/ProductGallery";
 import type { Product } from "@/lib/products";
-import { productCardPhoto } from "@/lib/product-card-photos";
+import { productCardPhoto, productPhotos } from "@/lib/product-card-photos";
 
 export function ProductGrid({ products, showNewBadge = false, className = "mt-14" }: { products: Product[]; showNewBadge?: boolean; className?: string }) {
   const [wishlist, setWishlist] = useState<Set<string>>(new Set());
@@ -28,7 +29,7 @@ export function ProductGrid({ products, showNewBadge = false, className = "mt-14
             <li key={p.id} className="group flex flex-col">
               <div className="relative overflow-hidden rounded-sm bg-card shadow-sm ring-1 ring-gold/15 transition-shadow duration-500 group-hover:shadow-lg">
                 {p.gallery?.length ? (
-                  <ProductGallery title={p.colour ? `${p.name} — ${p.colour}` : p.name} photos={p.gallery} coverPhoto={productCardPhoto(p) ?? p.gallery[0]} />
+                  <ProductGallery title={p.colour ? `${p.name} — ${p.colour}` : p.name} photos={productPhotos(p)} coverPhoto={productCardPhoto(p)} />
                 ) : (
                   <div className="aspect-[4/5] w-full">
                     <CatalogueImage src={p.image} alt={p.name} className="h-full w-full object-contain p-6 transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.04]" />
@@ -47,7 +48,7 @@ export function ProductGrid({ products, showNewBadge = false, className = "mt-14
               </div>
               <div className="flex flex-1 flex-col pt-4 text-center">
                 <p className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-gold">{p.category}</p>
-                <h3 className="mt-2 font-display min-h-[3.5rem] text-xl leading-snug text-foreground sm:text-2xl">{p.name}</h3>
+                <h3 className="mt-2 font-display min-h-[3.5rem] text-xl leading-snug text-foreground sm:text-2xl"><Link to="/product/$id" params={{ id: p.id }} className="hover:text-wine">{p.name}</Link></h3>
                 {p.colour && <p className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-foreground/70">{p.colour}</p>}
                 <EnquiryButton />
                 <Button

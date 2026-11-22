@@ -1,13 +1,16 @@
 import type { Product, ProductPhoto } from "./products";
 
-// Card-only alternatives for uploaded collages; original galleries remain intact.
-const singlePhotoIndex: Record<string, number> = {
-  "brown-checkered-crossbody-bag": 1,
-  "brown-beige-printed-shoulder-bag": 1,
-  "olive-green-beige-printed-shoulder-bag": 1,
-  "sky-blue-crossbody-bag": 1,
-};
+// Photos showing the product worn or carried by a person (detected from the photo description).
+const modelPhoto = /\b(model|worn|wearing|wrist|held|holding|hand|lifestyle|carried|carrying)\b/i;
+
+// Every original photo of one product, model/worn photo first, then the rest in their saved order.
+// The product's own gallery data is never changed.
+export function productPhotos(product: Product): ProductPhoto[] {
+  const list = [...(product.gallery ?? [])];
+  if (product.image && !list.some((p) => p.src === product.image)) list.push({ src: product.image, alt: product.name });
+  return [...list.filter((p) => modelPhoto.test(p.alt)), ...list.filter((p) => !modelPhoto.test(p.alt))];
+}
 
 export function productCardPhoto(product: Product): ProductPhoto | undefined {
-  return product.gallery?.[singlePhotoIndex[product.id] ?? 0];
+  return productPhotos(product)[0];
 }

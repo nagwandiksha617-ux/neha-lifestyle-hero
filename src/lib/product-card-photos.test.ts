@@ -1,19 +1,20 @@
 import { expect, test } from "bun:test";
 import { products } from "./products";
-import { productCardPhoto } from "./product-card-photos";
+import { productCardPhoto, productPhotos } from "./product-card-photos";
 
-test("collage cards use their matching single front photos without altering galleries", () => {
-  for (const [id, file] of [
-    ["brown-checkered-crossbody-bag", "bcc-2-front.png"],
-    ["brown-beige-printed-shoulder-bag", "bbs-2-front.png"],
-    ["olive-green-beige-printed-shoulder-bag", "obs-2-front.png"],
-    ["sky-blue-crossbody-bag", "sbc-2-front.png"],
-  ]) {
+test("card shows the model photo first and the gallery keeps every original photo", () => {
+  for (const [id, file] of [["brown-checkered-crossbody-bag", "bcc-1-model.png"], ["sky-blue-crossbody-bag", "sbc-1-model.png"]]) {
     const product = products.find((p) => p.id === id);
-    expect(product).toBeDefined();
     if (!product) throw new Error("Missing product");
-    const gallery = product.gallery?.map((photo) => photo.src);
     expect(productCardPhoto(product)?.src.split("/").pop()).toBe(file);
-    expect(product.gallery?.map((photo) => photo.src)).toEqual(gallery);
+  }
+});
+
+test("no product loses or borrows a photo", () => {
+  for (const p of products) {
+    const own = new Set([...(p.gallery ?? []).map((g) => g.src), ...(p.image ? [p.image] : [])]);
+    const shown = productPhotos(p).map((g) => g.src);
+    expect(new Set(shown)).toEqual(own);
+    expect(shown.length).toBe(own.size);
   }
 });
