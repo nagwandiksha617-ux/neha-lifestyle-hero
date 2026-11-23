@@ -26,9 +26,18 @@ export const Route = createFileRoute("/category/jewellery")({
 
 function JewelleryPage() {
   const [topic, setTopic] = useState<string | null>(null);
+  const sections = jewelleryCategorySections();
 
   // Delegate photo clicks on this page only; the original template stays untouched.
   function openProductPhoto(event: MouseEvent<HTMLDivElement>) {
+    // Sub-category cards open their own category page instead of scrolling.
+    const card = (event.target as HTMLElement).closest('nav[aria-label="Sub-categories"] button');
+    if (card) {
+      const index = Array.from(card.parentElement?.children ?? []).indexOf(card);
+      const href = sections[index]?.viewAllHref;
+      if (href) { event.preventDefault(); window.location.assign(href); }
+      return;
+    }
     if (!(event.target instanceof HTMLImageElement)) return;
     const link = event.target.closest("article")?.querySelector<HTMLAnchorElement>("h3 a");
     if (link) window.location.assign(link.href);
@@ -44,7 +53,7 @@ function JewelleryPage() {
         tagline={description}
         ctaLabel="SHOP JEWELLERY"
         heroImage={jewelleryHeroImage ?? null}
-        sections={jewelleryCategorySections()}
+        sections={sections}
         hideEmpty={false}
         onAddToCart={() => setTopic("Cart")}
       />

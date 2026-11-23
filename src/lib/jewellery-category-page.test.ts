@@ -4,15 +4,15 @@ import { products } from "./products";
 import { productPhotos } from "./product-card-photos";
 
 describe("Jewellery CategoryPage data", () => {
-  test("keeps all five sections in the requested order, including empty sections", () => {
+  test("keeps all five sections in the requested order, without Bracelets", () => {
     const sections = jewelleryCategorySections();
-    expect(sections.map((section) => section.id)).toEqual(["earrings", "necklace-sets", "bracelets", "ethnic", "wedding"]);
-    expect(sections.find((section) => section.id === "bracelets")?.products).toEqual([]);
+    expect(sections.map((section) => section.id)).toEqual(["earrings", "necklace-sets", "ethnic", "wedding"]);
+    expect(sections.find((section) => section.id === "bracelets")).toBeUndefined();
   });
 
   test("uses existing sub-category assignments without reassigning other products", () => {
     const sections = jewelleryCategorySections();
-    const slugs = ["earrings", "jewellery-sets", "bracelets", "ethnic-jewellery", "wedding-occasion-jewellery"];
+    const slugs = ["earrings", "jewellery-sets", "ethnic-jewellery", "wedding-occasion-jewellery"];
     sections.forEach((section, index) => {
       expect(section.products.map((product) => product.id)).toEqual(products.filter((product) => product.categorySlug === slugs[index]).map((product) => product.id));
       expect(section.viewAllHref).toBe(`/category/${slugs[index]}`);

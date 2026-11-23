@@ -8,7 +8,6 @@ export type JewellerySection = Omit<CatSection, "products"> & { products: Jewell
 const groups = [
   { id: "earrings", title: "Earrings", slug: "earrings", description: "Explore jhumkas and statement earrings for every occasion." },
   { id: "necklace-sets", title: "Necklace Sets", slug: "jewellery-sets", description: "Discover necklace sets paired with their matching earrings." },
-  { id: "bracelets", title: "Bracelets", slug: "bracelets", description: "Explore the NEHA Lifestyle bracelet collection." },
   { id: "ethnic", title: "Ethnic", slug: "ethnic-jewellery", description: "Discover jewellery for traditional and festive looks." },
   { id: "wedding", title: "Wedding & Occasion", slug: "wedding-occasion-jewellery", description: "Explore jewellery for weddings and special occasions." },
 ];
