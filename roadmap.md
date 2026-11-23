@@ -1,5 +1,7 @@
 # Static shared-hosting migration (FTP, no Node at runtime)
 
+- [x] Jewellery page only — unchanged CategoryPage integrated with five existing sub-category groups, full model-first photo data, product links, and existing cart information action; 34 checks and desktop/mobile flows passed.
+
 - [x] Product pages with full model-first photo galleries, linked from every product card.
 
 - [x] Card refinements — separate category captions, lifestyle watch photo, shared breadcrumbs, 100px scroll offset, image fallbacks/loaders and gallery thumbnail visibility; hero preserved.
