@@ -26,3 +26,4 @@
 - Adapt Jewellery section IDs to existing catalogue slugs without reassigning merchandise, and retain all model-first photo URLs alongside the template's image/image2 fields, because the unchanged template does not consume an images array.
 - Apply uploaded Jewellery sub-category artwork only within its route wrapper, independently of catalogue photos, because the CategoryPage template must stay unchanged.
 - Product photo order for cards and product pages comes from productPhotos() in src/lib/product-card-photos.ts (worn/model photos first, gallery data untouched), so display order changes never edit catalogue galleries.
+- Contact form leads append to the "NEHA Lifestyle Website Leads" Google Sheet via a server function (src/lib/contact-leads.*) through the Sheets connector, because credentials must stay server-side.

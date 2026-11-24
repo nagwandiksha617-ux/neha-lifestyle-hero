@@ -1,4 +1,6 @@
 import { useState, type FormEvent } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { submitContactLead } from "@/lib/contact-leads.functions";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import {
@@ -118,15 +120,20 @@ function ContactPage() {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const saveLead = useServerFn(submitContactLead);
 
   function update(field: keyof MessageForm, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
     setSent(false);
+    setSubmitError(null);
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting) return;
     const result = messageSchema.safeParse(form);
     if (!result.success) {
       const next: FormErrors = {};
@@ -139,18 +146,21 @@ function ContactPage() {
       setErrors(next);
       return;
     }
-    const text = [
-      `Name: ${result.data.name}`,
-      `Email: ${result.data.email}`,
-      result.data.phone ? `Phone: ${result.data.phone}` : null,
-      `Subject: ${result.data.subject}`,
-      "",
-      result.data.message,
-    ]
-      .filter(Boolean)
-      .join("\n");
-    window.open(`${WHATSAPP_URL}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
-    setSent(true);
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await saveLead({ data: { ...result.data, phone: result.data.phone ?? "" } });
+      if (res.ok) {
+        setSent(true);
+        setForm({ name: "", email: "", phone: "", subject: "Product Enquiry", message: "" });
+      } else {
+        setSubmitError(res.error);
+      }
+    } catch {
+      setSubmitError("Message save nahi ho paya. Kripya dobara try karein.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -277,14 +287,18 @@ function ContactPage() {
               </div>
               <Button
                 type="submit"
+                disabled={submitting}
                 className="mt-6 h-12 w-full rounded-none bg-wine text-xs font-semibold uppercase tracking-[0.22em] text-wine-foreground hover:bg-wine/90"
               >
-                Send Message
+                {submitting ? "Sending..." : "Send Message"}
               </Button>
               {sent && (
                 <p className="mt-3 text-center text-xs text-foreground/70">
-                  WhatsApp khul gaya hai — wahan se apna message bhej dein.
+                  Thank you! Aapka message mil gaya hai — hum jald hi aapse contact karenge.
                 </p>
+              )}
+              {submitError && (
+                <p role="alert" className="mt-3 text-center text-xs text-wine">{submitError}</p>
               )}
             </form>
 
