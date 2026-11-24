@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CategorySlugRouteImport } from './routes/category.$slug'
 import { Route as CategoryJewelleryRouteImport } from './routes/category.jewellery'
 import { Route as CategoryPartyClutchBagsRouteImport } from './routes/category.party-clutch-bags'
+import { Route as CategoryWatchesRouteImport } from './routes/category.watches'
 import { Route as ProductIdRouteImport } from './routes/product.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const CategoryPartyClutchBagsRoute = CategoryPartyClutchBagsRouteImport.update({
   path: '/category/party-clutch-bags',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CategoryWatchesRoute = CategoryWatchesRouteImport.update({
+  id: '/category/watches',
+  path: '/category/watches',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductIdRoute = ProductIdRouteImport.update({
   id: '/product/$id',
   path: '/product/$id',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/category/$slug': typeof CategorySlugRoute
   '/category/jewellery': typeof CategoryJewelleryRoute
   '/category/party-clutch-bags': typeof CategoryPartyClutchBagsRoute
+  '/category/watches': typeof CategoryWatchesRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/category/$slug': typeof CategorySlugRoute
   '/category/jewellery': typeof CategoryJewelleryRoute
   '/category/party-clutch-bags': typeof CategoryPartyClutchBagsRoute
+  '/category/watches': typeof CategoryWatchesRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesById {
@@ -61,6 +69,7 @@ export interface FileRoutesById {
   '/category/$slug': typeof CategorySlugRoute
   '/category/jewellery': typeof CategoryJewelleryRoute
   '/category/party-clutch-bags': typeof CategoryPartyClutchBagsRoute
+  '/category/watches': typeof CategoryWatchesRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRouteTypes {
@@ -70,6 +79,7 @@ export interface FileRouteTypes {
     | '/category/$slug'
     | '/category/jewellery'
     | '/category/party-clutch-bags'
+    | '/category/watches'
     | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -77,6 +87,7 @@ export interface FileRouteTypes {
     | '/category/$slug'
     | '/category/jewellery'
     | '/category/party-clutch-bags'
+    | '/category/watches'
     | '/product/$id'
   id:
     | '__root__'
@@ -84,6 +95,7 @@ export interface FileRouteTypes {
     | '/category/$slug'
     | '/category/jewellery'
     | '/category/party-clutch-bags'
+    | '/category/watches'
     | '/product/$id'
   fileRoutesById: FileRoutesById
 }
@@ -92,6 +104,7 @@ export interface RootRouteChildren {
   CategorySlugRoute: typeof CategorySlugRoute
   CategoryJewelleryRoute: typeof CategoryJewelleryRoute
   CategoryPartyClutchBagsRoute: typeof CategoryPartyClutchBagsRoute
+  CategoryWatchesRoute: typeof CategoryWatchesRoute
   ProductIdRoute: typeof ProductIdRoute
 }
 
@@ -125,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CategoryPartyClutchBagsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/category/watches': {
+      id: '/category/watches'
+      path: '/category/watches'
+      fullPath: '/category/watches'
+      preLoaderRoute: typeof CategoryWatchesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/product/$id': {
       id: '/product/$id'
       path: '/product/$id'
@@ -140,6 +160,7 @@ const rootRouteChildren: RootRouteChildren = {
   CategorySlugRoute: CategorySlugRoute,
   CategoryJewelleryRoute: CategoryJewelleryRoute,
   CategoryPartyClutchBagsRoute: CategoryPartyClutchBagsRoute,
+  CategoryWatchesRoute: CategoryWatchesRoute,
   ProductIdRoute: ProductIdRoute,
 }
 export const routeTree = rootRouteImport
