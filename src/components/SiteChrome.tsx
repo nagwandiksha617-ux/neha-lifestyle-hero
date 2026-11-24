@@ -11,7 +11,7 @@ import { categories } from "@/lib/categories";
 
 // Header shows Home, Shop, New Arrivals, About and Contact only.
 // Bags, Jewellery and Best Sellers pages, categories and homepage sections remain intact and are reachable from the footer, search and the Shop section.
-const navigation = [
+const navigation: { label: string; href?: string; info?: string }[] = [
   { label: "Home", href: "/" },
   { label: "Shop", href: "/#shop-by-category" },
   { label: "New Arrivals", href: "/#new-arrivals" },
