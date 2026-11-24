@@ -1,5 +1,7 @@
 # Static shared-hosting migration (FTP, no Node at runtime)
 
+- [x] Jewellery category photos only — confirmed original photos applied to Earrings, Ethnic and Wedding & Occasion; unchanged template/catalogue, 32 tests and desktop/mobile photo/link checks passed.
+
 - [x] Jewellery page only — unchanged CategoryPage integrated with five existing sub-category groups, full model-first photo data, product links, and existing cart information action; 34 checks and desktop/mobile flows passed.
 
 - [x] Product pages with full model-first photo galleries, linked from every product card.

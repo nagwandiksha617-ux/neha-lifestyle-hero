@@ -1,8 +1,17 @@
-import { useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import CategoryPage from "@/components/CategoryPage";
 import { InformationDialog } from "@/components/SiteChrome";
 import { jewelleryCategorySections, jewelleryHeroImage } from "@/lib/jewellery-category-page";
+import earringsPhoto from "@/assets/jewellery-categories/earrings-peacock-jhumke.jpg.asset.json";
+import ethnicPhoto from "@/assets/jewellery-categories/ethnic-silver-red-earrings.jpg.asset.json";
+import weddingPhoto from "@/assets/jewellery-categories/wedding-necklace-set.png.asset.json";
+
+const categoryPhotos: Record<string, string> = {
+  Earrings: earringsPhoto.url,
+  Ethnic: ethnicPhoto.url,
+  "Wedding & Occasion": weddingPhoto.url,
+};
 
 const description = "Handcrafted jewellery inspired by the Pink City, made to make you shine.";
 
@@ -26,7 +35,25 @@ export const Route = createFileRoute("/category/jewellery")({
 
 function JewelleryPage() {
   const [topic, setTopic] = useState<string | null>(null);
+  const pageRef = useRef<HTMLDivElement>(null);
   const sections = jewelleryCategorySections();
+
+  // Override only this page's category artwork without changing the frozen template
+  // or using category photos as catalogue merchandise.
+  useEffect(() => {
+    const cards = pageRef.current?.querySelectorAll<HTMLButtonElement>('nav[aria-label="Sub-categories"] button');
+    cards?.forEach((card) => {
+      const title = card.querySelector("span")?.textContent ?? "";
+      const src = categoryPhotos[title];
+      const frame = card.querySelector("div");
+      if (!src || !frame) return;
+      const image = frame.querySelector("img") ?? document.createElement("img");
+      image.src = src;
+      image.alt = title;
+      image.className = "absolute inset-0 h-full w-full object-cover";
+      if (!image.parentElement) frame.replaceChildren(image);
+    });
+  }, []);
 
   // Delegate photo clicks on this page only; the original template stays untouched.
   function openProductPhoto(event: MouseEvent<HTMLDivElement>) {
@@ -44,7 +71,7 @@ function JewelleryPage() {
   }
 
   return (
-    <div onClick={openProductPhoto}>
+    <div ref={pageRef} onClick={openProductPhoto}>
       <CategoryPage
         breadcrumb={["Home", "Shop", "Jewellery"]}
         label="NEHA LIFESTYLE · JEWELLERY"

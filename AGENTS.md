@@ -24,4 +24,5 @@
 - Keep enquiry controls disabled until the owner confirms a WhatsApp destination, so no invented contact or ordering flow is exposed.
 - Bags, party-clutch-bags and watches render shared CategoryCollection; Jewellery alone uses the unchanged CategoryPage template with a catalogue adapter, so its requested integration cannot affect other collections.
 - Adapt Jewellery section IDs to existing catalogue slugs without reassigning merchandise, and retain all model-first photo URLs alongside the template's image/image2 fields, because the unchanged template does not consume an images array.
+- Apply uploaded Jewellery sub-category artwork only within its route wrapper, independently of catalogue photos, because the CategoryPage template must stay unchanged.
 - Product photo order for cards and product pages comes from productPhotos() in src/lib/product-card-photos.ts (worn/model photos first, gallery data untouched), so display order changes never edit catalogue galleries.
