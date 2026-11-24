@@ -16,7 +16,7 @@ const navigation = [
   { label: "Shop", href: "/#shop-by-category" },
   { label: "New Arrivals", href: "/#new-arrivals" },
   { label: "About", href: "/#brand-story" },
-  { label: "Contact", info: "Contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function InformationDialog({ topic, close }: { topic: string | null; close: () => void }) {
@@ -140,7 +140,10 @@ export function SiteFooter() {
           </div>
           <div>
             <h2 className="font-display text-2xl font-semibold leading-none lg:whitespace-nowrap text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Customer Care</h2>
-            <ul className="mt-4 space-y-1.5">{["Contact Us", "FAQ", "Shipping", "Returns", "Order Tracking"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}</ul>
+            <ul className="mt-4 space-y-1.5">
+              <li><Link to="/contact" className={linkClass}>Contact Us</Link></li>
+              {["FAQ", "Shipping", "Returns", "Order Tracking"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}
+            </ul>
           </div>
           <div>
             <h2 className="font-display text-2xl font-semibold leading-none lg:whitespace-nowrap text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Company</h2>
@@ -158,7 +161,7 @@ export function SiteFooter() {
         </div>
       </footer>
       <InformationDialog topic={topic} close={() => setTopic(null)} />
-      <Button disabled title="WhatsApp number awaiting confirmation" aria-label="Chat on WhatsApp (coming soon)" className="fixed bottom-5 right-5 z-50 h-14 w-14 rounded-full bg-wine p-0 text-wine-foreground shadow-lg ring-2 ring-gold/50 disabled:opacity-90 [&_svg]:size-6"><MessageCircle aria-hidden="true" /></Button>
+      <Button asChild title="Chat on WhatsApp" aria-label="Chat on WhatsApp" className="fixed bottom-5 right-5 z-50 h-14 w-14 rounded-full bg-wine p-0 text-wine-foreground shadow-lg ring-2 ring-gold/50 hover:bg-wine/90 [&_svg]:size-6"><a href="https://wa.me/919664366547" target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /></a></Button>
     </>
   );
 }

@@ -29,6 +29,7 @@ const PRERENDER_PATHS = [
   "/category/ethnic-jewellery",
   "/category/wedding-occasion-jewellery",
   "/category/watches",
+  "/contact",
   ...PRODUCT_IDS.map((id) => `/product/${id}`),
 ];
 

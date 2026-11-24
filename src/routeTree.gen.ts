@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CategorySlugRouteImport } from './routes/category.$slug'
 import { Route as CategoryJewelleryRouteImport } from './routes/category.jewellery'
 import { Route as CategoryPartyClutchBagsRouteImport } from './routes/category.party-clutch-bags'
@@ -19,6 +20,11 @@ import { Route as ProductIdRouteImport } from './routes/product.$id'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CategorySlugRoute = CategorySlugRouteImport.update({
@@ -49,6 +55,7 @@ const ProductIdRoute = ProductIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/category/$slug': typeof CategorySlugRoute
   '/category/jewellery': typeof CategoryJewelleryRoute
   '/category/party-clutch-bags': typeof CategoryPartyClutchBagsRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/category/$slug': typeof CategorySlugRoute
   '/category/jewellery': typeof CategoryJewelleryRoute
   '/category/party-clutch-bags': typeof CategoryPartyClutchBagsRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/category/$slug': typeof CategorySlugRoute
   '/category/jewellery': typeof CategoryJewelleryRoute
   '/category/party-clutch-bags': typeof CategoryPartyClutchBagsRoute
@@ -76,6 +85,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/contact'
     | '/category/$slug'
     | '/category/jewellery'
     | '/category/party-clutch-bags'
@@ -84,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/contact'
     | '/category/$slug'
     | '/category/jewellery'
     | '/category/party-clutch-bags'
@@ -92,6 +103,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/contact'
     | '/category/$slug'
     | '/category/jewellery'
     | '/category/party-clutch-bags'
@@ -101,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
   CategorySlugRoute: typeof CategorySlugRoute
   CategoryJewelleryRoute: typeof CategoryJewelleryRoute
   CategoryPartyClutchBagsRoute: typeof CategoryPartyClutchBagsRoute
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/category/$slug': {
@@ -157,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
   CategorySlugRoute: CategorySlugRoute,
   CategoryJewelleryRoute: CategoryJewelleryRoute,
   CategoryPartyClutchBagsRoute: CategoryPartyClutchBagsRoute,
