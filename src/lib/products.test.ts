@@ -2,6 +2,45 @@
 import { describe, expect, test } from "bun:test";
 
 import { newArrivals, products, productsForCategoryPage } from "./products";
+import { productPrice } from "./product-price";
+
+describe("Confirmed Tote and Handbag prices", () => {
+  const confirmed = [
+    ["Beige & Black Monogram Tote Bag", "tote-bags", 599],
+    ["Beige & Black Printed Tote Bag", "tote-bags", 599],
+    ["Cream Beige Tote Bag with Gold Chain Handles", "tote-bags", 599],
+    ["Brown Checkered Crossbody Bag with Mini Pouch", "handbags", 749],
+    ["Blue Printed Crossbody Bag with Mini Pouch", "handbags", 749],
+    ["White Checkered Crossbody Bag with Mini Pouch", "handbags", 749],
+    ["Olive Green Beige Printed Shoulder Bag", "handbags", 1150],
+    ["Brown Beige Printed Shoulder Bag", "handbags", 1150],
+    ["Sky Blue Crossbody Bag with Mini Pouch", "handbags", 749],
+  ] as const;
+
+  for (const [name, category, price] of confirmed) {
+    test(`${name} is uniquely matched in ${category} at INR ${price}`, () => {
+      const matches = products.filter((p) => p.name === name);
+      expect(matches).toHaveLength(1);
+      const product = matches[0];
+      if (!product) throw new Error(`Missing confirmed product: ${name}`);
+      expect(product?.bagCategorySlug).toBe(category);
+      expect(product?.price).toBe(price);
+      expect(productsForCategoryPage(category).map((p) => p.id)).toContain(product.id);
+    });
+  }
+
+  test("unrelated products retain unconfirmed prices", () => {
+    const names = new Set<string>(confirmed.map(([name]) => name));
+    expect(products.filter((p) => !names.has(p.name)).every((p) => p.price === undefined)).toBe(true);
+  });
+
+  test("formats confirmed INR prices and leaves missing prices pending", () => {
+    expect(productPrice({ price: 599 })).toBe("₹599");
+    expect(productPrice({ price: 749 })).toBe("₹749");
+    expect(productPrice({ price: 1150 })).toBe("₹1,150");
+    expect(productPrice({})).toBe("Price to be updated");
+  });
+});
 
 describe("Party & Clutch Bags listing", () => {
   test("lists every product assigned to the Party & Clutch Bags category", () => {

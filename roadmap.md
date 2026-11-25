@@ -1,5 +1,7 @@
 # Static shared-hosting migration (FTP, no Node at runtime)
 
+- [x] Current product update — all nine Tote/Handbag prices matched; standalone branding retouched in twelve Handbag photos, printed patterns and original gallery order preserved; 91 tests and desktop/mobile category-to-product gallery checks passed; no unrelated changes.
+
 - [x] Jewellery category photos only — confirmed original photos applied to Earrings, Ethnic and Wedding & Occasion; unchanged template/catalogue, 32 tests and desktop/mobile photo/link checks passed.
 
 - [x] Jewellery page only — unchanged CategoryPage integrated with five existing sub-category groups, full model-first photo data, product links, and existing cart information action; 34 checks and desktop/mobile flows passed.

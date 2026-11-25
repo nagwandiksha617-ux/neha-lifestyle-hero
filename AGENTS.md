@@ -14,6 +14,7 @@
 - Header action artwork uses original-image asset pointers inside existing controls, so artwork changes preserve accessible labels, spacing and click behavior.
 - Link collection navigation to existing category routes and homepage section anchors; show unavailable service details explicitly rather than invent policies, contact information, social URLs, or checkout behavior.
 - Keep confirmed product facts (prices, specs, descriptions) in plain data modules under src/lib with bun tests beside them, because merchandise rules must be checkable without rendering the UI.
+- Store optional INR prices on shared products and format them through productPrice(), because category cards and detail pages must agree without inventing unconfirmed prices.
 - Keep every shop product in one shared product list tagged with its category slug, and render category pages and New Arrivals from it, so newly added products appear on their category page without page edits.
 - Keep homepage-only arrivals selections and uploaded photo overrides separate from catalogue galleries, deriving names and details from the shared product list, so section-specific photo changes cannot alter category merchandise.
 - Bag-type pages (Tote, Handbags, Clutch, Potli) live in `bagCategories` and products join them via `bagCategorySlug`, separate from homepage `categories`, so bag-type pages can grow without changing the homepage category cards or a product's existing category.

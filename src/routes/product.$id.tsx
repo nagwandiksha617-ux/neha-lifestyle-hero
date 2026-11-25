@@ -4,6 +4,7 @@ import { productPhotos } from "@/lib/product-card-photos";
 import { ProductGallery } from "@/components/ProductGallery";
 import { CollectionBreadcrumb } from "@/components/CollectionBreadcrumb";
 import { EnquiryButton } from "@/components/EnquiryButton";
+import { productPrice } from "@/lib/product-price";
 
 export const Route = createFileRoute("/product/$id")({
   loader: ({ params }) => {
@@ -50,7 +51,7 @@ function ProductPage() {
           <p className="mt-4 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-gold-deep">{p.category}</p>
           <h1 className="mt-3 font-display text-4xl leading-tight text-foreground sm:text-5xl">{p.name}</h1>
           {p.colour && <p className="mt-2 text-xs font-semibold uppercase tracking-[0.22em] text-foreground/70">{p.colour}</p>}
-          <p className="mt-4 text-lg font-medium text-wine">Price to be updated</p>
+          <p className="mt-4 text-lg font-medium text-wine">{productPrice(p)}</p>
           {p.description && <p className="mt-5 text-sm leading-relaxed text-foreground/75">{p.description}</p>}
           <EnquiryButton />
         </div>

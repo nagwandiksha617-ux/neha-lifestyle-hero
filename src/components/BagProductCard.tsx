@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { CatalogueImage } from "@/components/CatalogueImage";
 import type { Product } from "@/lib/products";
 import { cardPhotos } from "@/lib/category-collections";
+import { productPrice } from "@/lib/product-price";
 
 export function BagProductCard({ product: p, label, onCart }: { product: Product; label: string; onCart: () => void }) {
   const [saved, setSaved] = useState(false);
@@ -26,7 +27,7 @@ export function BagProductCard({ product: p, label, onCart }: { product: Product
       <div className="flex flex-1 flex-col p-4">
         <p className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-gold-deep">{label}</p>
         <h3 className="mt-2 line-clamp-2 h-[3.25rem] font-display text-lg leading-[1.625rem] text-foreground sm:text-xl"><Link to="/product/$id" params={{ id: p.id }} className="hover:text-wine">{p.name}</Link></h3>
-        <p className="mt-2 text-sm font-medium text-wine">Price to be updated</p>
+        <p className="mt-2 text-sm font-medium text-wine">{productPrice(p)}</p>
         <div className="mt-auto flex items-center gap-2 pt-3">
           <Button type="button" onClick={onCart} className="min-h-11 flex-1 rounded-sm bg-wine px-3 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-wine-foreground hover:bg-rose">
             <ShoppingBag className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" /> Add to Cart

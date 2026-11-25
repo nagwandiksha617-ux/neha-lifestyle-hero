@@ -8,6 +8,7 @@ import { InformationDialog } from "@/components/SiteChrome";
 import { ProductGallery } from "@/components/ProductGallery";
 import type { Product } from "@/lib/products";
 import { productCardPhoto, productPhotos } from "@/lib/product-card-photos";
+import { productPrice } from "@/lib/product-price";
 
 export function ProductGrid({ products, showNewBadge = false, className = "mt-14" }: { products: Product[]; showNewBadge?: boolean; className?: string }) {
   const [wishlist, setWishlist] = useState<Set<string>>(new Set());
@@ -50,6 +51,7 @@ export function ProductGrid({ products, showNewBadge = false, className = "mt-14
                 <p className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-gold">{p.category}</p>
                 <h3 className="mt-2 font-display min-h-[3.5rem] text-xl leading-snug text-foreground sm:text-2xl"><Link to="/product/$id" params={{ id: p.id }} className="hover:text-wine">{p.name}</Link></h3>
                 {p.colour && <p className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-foreground/70">{p.colour}</p>}
+                {p.price !== undefined && <p className="mt-4 text-sm font-medium text-wine">{productPrice(p)}</p>}
                 <EnquiryButton />
                 <Button
                   type="button"

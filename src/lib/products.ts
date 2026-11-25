@@ -36,25 +36,25 @@ import gpp1 from "@/assets/green-pearl-potli/gpp-1-light.png";
 import gpp2 from "@/assets/green-pearl-potli/gpp-2-side.png";
 import gpp3 from "@/assets/green-pearl-potli/gpp-3-back.png";
 import gpp4 from "@/assets/green-pearl-potli/gpp-4-dark.png";
-import bcc1 from "@/assets/brown-checkered-crossbody/bcc-1-model.png";
-import bcc2 from "@/assets/brown-checkered-crossbody/bcc-2-front.png";
-import bcc3 from "@/assets/brown-checkered-crossbody/bcc-3-back.png";
+import bcc1Asset from "@/assets/brown-checkered-crossbody/bcc-1-model.png.asset.json";
+import bcc2Asset from "@/assets/brown-checkered-crossbody/bcc-2-front.png.asset.json";
+import bcc3Asset from "@/assets/brown-checkered-crossbody/bcc-3-back.png.asset.json";
 import bpc1 from "@/assets/blue-printed-crossbody/bpc-1-model.png";
 import bpc2 from "@/assets/blue-printed-crossbody/bpc-2-front.png";
-import bpc3 from "@/assets/blue-printed-crossbody/bpc-3-back.png";
-import bpc4 from "@/assets/blue-printed-crossbody/bpc-4-side.png";
+import bpc3Asset from "@/assets/blue-printed-crossbody/bpc-3-back.png.asset.json";
+import bpc4Asset from "@/assets/blue-printed-crossbody/bpc-4-side.png.asset.json";
 import wcc1 from "@/assets/white-checkered-crossbody/wcc-1-model.png";
-import wcc2 from "@/assets/white-checkered-crossbody/wcc-2-front.png";
+import wcc2Asset from "@/assets/white-checkered-crossbody/wcc-2-front.png.asset.json";
 import wcc3 from "@/assets/white-checkered-crossbody/wcc-3-back.png";
-import obs1 from "@/assets/olive-beige-shoulder/obs-1-model.png";
-import obs2 from "@/assets/olive-beige-shoulder/obs-2-front.png";
+import obs1Asset from "@/assets/olive-beige-shoulder/obs-1-model.png.asset.json";
+import obs2Asset from "@/assets/olive-beige-shoulder/obs-2-front.png.asset.json";
 import obs3 from "@/assets/olive-beige-shoulder/obs-3-back.png";
 import obs4 from "@/assets/olive-beige-shoulder/obs-4-bottom.png";
-import bbs1 from "@/assets/brown-beige-shoulder/bbs-1-model.png";
-import bbs2 from "@/assets/brown-beige-shoulder/bbs-2-front.png";
+import bbs1Asset from "@/assets/brown-beige-shoulder/bbs-1-model.png.asset.json";
+import bbs2Asset from "@/assets/brown-beige-shoulder/bbs-2-front.png.asset.json";
 import bbs3 from "@/assets/brown-beige-shoulder/bbs-3-back.png";
-import sbc1 from "@/assets/sky-blue-crossbody/sbc-1-model.png";
-import sbc2 from "@/assets/sky-blue-crossbody/sbc-2-front.png";
+import sbc1Asset from "@/assets/sky-blue-crossbody/sbc-1-model.png.asset.json";
+import sbc2Asset from "@/assets/sky-blue-crossbody/sbc-2-front.png.asset.json";
 import sbc3 from "@/assets/sky-blue-crossbody/sbc-3-back.png";
 import cbt1 from "@/assets/cream-beige-tote/cbt-1-lifestyle.png";
 import cbt2 from "@/assets/cream-beige-tote/cbt-2-back.png";
@@ -139,6 +139,20 @@ import greenRedLongPearlModel from "@/assets/earrings/green-red-long-pearl-earri
 import peacockPinkGreenJhumkaDisplay from "@/assets/earrings/peacock-pink-green-jhumka-display.jpg.asset.json";
 import peacockPinkGreenJhumkaModel from "@/assets/earrings/peacock-pink-green-jhumka-model.png.asset.json";
 
+// Branding-only edits of the corresponding originals; gallery order and patterns stay intact.
+const bcc1 = bcc1Asset.url;
+const bcc2 = bcc2Asset.url;
+const bcc3 = bcc3Asset.url;
+const bpc3 = bpc3Asset.url;
+const bpc4 = bpc4Asset.url;
+const wcc2 = wcc2Asset.url;
+const obs1 = obs1Asset.url;
+const obs2 = obs2Asset.url;
+const bbs1 = bbs1Asset.url;
+const bbs2 = bbs2Asset.url;
+const sbc1 = sbc1Asset.url;
+const sbc2 = sbc2Asset.url;
+
 export type ProductPhoto = { src: string; alt: string };
 
 export type Product = {
@@ -148,6 +162,7 @@ export type Product = {
   categorySlug?: string;
   bagCategorySlug?: "tote-bags" | "handbags" | "clutch-bags" | "potli-bags"; // page under the header's Bags menu
   image: string | null;
+  price?: number; // confirmed selling price in INR; omitted when not supplied
   newArrival?: boolean;
   newArrivalRank?: number; // display order within New Arrivals (defaults to catalogue position)
   colour?: string; // shown under the name when two listings share a name
@@ -300,6 +315,7 @@ export const products: Product[] = [
     id: "brown-checkered-crossbody-bag",
     bagCategorySlug: "handbags",
     name: "Brown Checkered Crossbody Bag with Mini Pouch",
+    price: 749,
     category: "Handbags",
     image: bcc1,
     gallery: [
@@ -312,6 +328,7 @@ export const products: Product[] = [
     id: "blue-printed-crossbody-bag",
     bagCategorySlug: "handbags",
     name: "Blue Printed Crossbody Bag with Mini Pouch",
+    price: 749,
     category: "Handbags",
     image: bpc1,
     gallery: [
@@ -325,6 +342,7 @@ export const products: Product[] = [
     id: "white-checkered-crossbody-bag",
     bagCategorySlug: "handbags",
     name: "White Checkered Crossbody Bag with Mini Pouch",
+    price: 749,
     category: "Handbags",
     image: wcc1,
     gallery: [
@@ -337,6 +355,7 @@ export const products: Product[] = [
     id: "olive-green-beige-printed-shoulder-bag",
     bagCategorySlug: "handbags",
     name: "Olive Green Beige Printed Shoulder Bag",
+    price: 1150,
     category: "Handbags",
     image: obs1,
     gallery: [
@@ -350,6 +369,7 @@ export const products: Product[] = [
     id: "brown-beige-printed-shoulder-bag",
     bagCategorySlug: "handbags",
     name: "Brown Beige Printed Shoulder Bag",
+    price: 1150,
     category: "Handbags",
     image: bbs1,
     gallery: [
@@ -362,6 +382,7 @@ export const products: Product[] = [
     id: "sky-blue-crossbody-bag",
     bagCategorySlug: "handbags",
     name: "Sky Blue Crossbody Bag with Mini Pouch",
+    price: 749,
     category: "Handbags",
     image: sbc1,
     gallery: [
@@ -374,6 +395,7 @@ export const products: Product[] = [
     id: "cream-beige-tote-bag-gold-chain",
     bagCategorySlug: "tote-bags",
     name: "Cream Beige Tote Bag with Gold Chain Handles",
+    price: 599,
     category: "Tote Bags",
     image: cbt1,
     gallery: [
@@ -386,6 +408,7 @@ export const products: Product[] = [
     id: "beige-black-printed-tote-bag",
     bagCategorySlug: "tote-bags",
     name: "Beige & Black Printed Tote Bag",
+    price: 599,
     category: "Tote Bags",
     image: bbt1,
     gallery: [
@@ -399,6 +422,7 @@ export const products: Product[] = [
     id: "beige-black-monogram-tote-bag",
     bagCategorySlug: "tote-bags",
     name: "Beige & Black Monogram Tote Bag",
+    price: 599,
     category: "Tote Bags",
     image: bbm3,
     gallery: [
