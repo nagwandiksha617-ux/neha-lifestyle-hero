@@ -21,7 +21,7 @@ describe("Jewellery CategoryPage data", () => {
 
   test("passes every original photo, model-first, and existing product detail URLs", () => {
     const cards = jewelleryCategorySections().flatMap((section) => section.products);
-    expect(cards.length).toBe(33);
+    expect(cards.length).toBe(36);
     for (const card of cards) {
       const product = products.find((item) => item.id === card.id);
       if (!product) throw new Error(`Missing original product ${card.id}`);
@@ -31,6 +31,24 @@ describe("Jewellery CategoryPage data", () => {
       expect(card.image).toBe(card.images[0] ?? null);
       expect(card.image2).toBe(card.images[1] ?? null);
       expect(card.price).toBe("Price to be updated");
+    }
+  });
+
+  test("the three new necklace sets join Jewellery Sets with matched display/model photo pairs", () => {
+    const expected = [
+      ["multicolor-gemstone-necklace-set", "Multicolor Gemstone Necklace Set", "multicolor-gemstone-display.webp", "multicolor-gemstone-model.webp"],
+      ["green-deer-motif-necklace-set", "Green Deer Motif Necklace Set", "green-deer-display.webp", "green-deer-model.webp"],
+      ["multicolor-stone-statement-necklace-set", "Multicolor Stone Statement Necklace Set", "multicolor-statement-display.webp", "multicolor-statement-model.webp"],
+    ] as const;
+    for (const [id, name, displayFile, modelFile] of expected) {
+      const product = products.find((item) => item.id === id);
+      if (!product) throw new Error(`Missing product ${id}`);
+      expect(product.name).toBe(name);
+      expect(product.categorySlug).toBe("jewellery-sets");
+      expect(product.price).toBeUndefined();
+      const files = product.gallery?.map((photo) => photo.src.split("/").pop());
+      expect(files).toEqual([displayFile, modelFile]);
+      expect(product.image).toBe(product.gallery?.[0]?.src ?? null);
     }
   });
 });

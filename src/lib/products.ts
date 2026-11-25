@@ -118,6 +118,12 @@ import multicolorGeometricDisplay from "@/assets/jewellery-sets/multicolor-geome
 import multicolorGeometricModel from "@/assets/jewellery-sets/multicolor-geometric-model.png.asset.json";
 import navyFloralDisplay from "@/assets/jewellery-sets/navy-floral-display.png.asset.json";
 import navyFloralModel from "@/assets/jewellery-sets/navy-floral-model.png.asset.json";
+import multicolorGemstoneDisplay from "@/assets/jewellery-sets/multicolor-gemstone-display.webp.asset.json";
+import multicolorGemstoneModel from "@/assets/jewellery-sets/multicolor-gemstone-model.webp.asset.json";
+import greenDeerDisplay from "@/assets/jewellery-sets/green-deer-display.webp.asset.json";
+import greenDeerModel from "@/assets/jewellery-sets/green-deer-model.webp.asset.json";
+import multicolorStatementDisplay from "@/assets/jewellery-sets/multicolor-statement-display.webp.asset.json";
+import multicolorStatementModel from "@/assets/jewellery-sets/multicolor-statement-model.webp.asset.json";
 import kundanFloralWatchDisplay from "@/assets/watches/kundan-floral-watch-display.jpg.asset.json";
 import kundanFloralWatchModel from "@/assets/watches/kundan-floral-watch-model.png.asset.json";
 import templeWatchDisplay from "@/assets/watches/temple-watch-display.jpg.asset.json";
@@ -715,6 +721,39 @@ export const products: Product[] = [
     gallery: [
       { src: navyFloralDisplay.url, alt: "Navy Blue Floral Statement Necklace Set — product display on white background" },
       { src: navyFloralModel.url, alt: "Model wearing the Navy Blue Floral Statement Necklace Set" },
+    ],
+  },
+  {
+    id: "multicolor-gemstone-necklace-set",
+    name: "Multicolor Gemstone Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: multicolorGemstoneDisplay.url,
+    gallery: [
+      { src: multicolorGemstoneDisplay.url, alt: "Multicolor Gemstone Necklace Set — product display on white background" },
+      { src: multicolorGemstoneModel.url, alt: "Multicolor Gemstone Necklace Set — styled on a person" },
+    ],
+  },
+  {
+    id: "green-deer-motif-necklace-set",
+    name: "Green Deer Motif Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: greenDeerDisplay.url,
+    gallery: [
+      { src: greenDeerDisplay.url, alt: "Green Deer Motif Necklace Set — product display on white background" },
+      { src: greenDeerModel.url, alt: "Green Deer Motif Necklace Set — styled on a person" },
+    ],
+  },
+  {
+    id: "multicolor-stone-statement-necklace-set",
+    name: "Multicolor Stone Statement Necklace Set",
+    category: "Jewellery Sets",
+    categorySlug: "jewellery-sets",
+    image: multicolorStatementDisplay.url,
+    gallery: [
+      { src: multicolorStatementDisplay.url, alt: "Multicolor Stone Statement Necklace Set — product display on white background" },
+      { src: multicolorStatementModel.url, alt: "Multicolor Stone Statement Necklace Set — styled on a person" },
     ],
   },
   {

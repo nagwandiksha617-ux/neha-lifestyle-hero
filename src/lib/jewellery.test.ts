@@ -12,7 +12,7 @@ test("Jewellery collection arrivals remain empty after the old arrivals were cle
   expect(jewelleryNewArrivals.map((p) => p.id)).toEqual([]);
 });
 
-const sets: Array<[string, string, string]> = [
+const sets: Array<[string, string, string, string?]> = [
   ["Navy Blue & Silver Crystal Necklace Set", "navy-silver", "png"],
   ["Pink & Gold Statement Necklace Set", "pink-gold", "png"],
   ["Gold & Ruby Red Necklace Set", "gold-ruby", "png"],
@@ -39,18 +39,21 @@ const sets: Array<[string, string, string]> = [
   ["Royal Purple Beaded Statement Necklace Set", "royal-purple", "png"],
   ["Multicolor Geometric Pendant Necklace Set", "multicolor-geometric", "png"],
   ["Navy Blue Floral Statement Necklace Set", "navy-floral", "png"],
+  ["Multicolor Gemstone Necklace Set", "multicolor-gemstone", "webp", "webp"],
+  ["Green Deer Motif Necklace Set", "green-deer", "webp", "webp"],
+  ["Multicolor Stone Statement Necklace Set", "multicolor-statement", "webp", "webp"],
 ];
 
-test("Jewellery Sets lists exactly twenty-six distinct sets in requested order", () => {
+test("Jewellery Sets lists exactly twenty-nine distinct sets in requested order", () => {
   const listed = productsForCategoryPage("jewellery-sets");
   expect(listed.map((p) => p.name)).toEqual(sets.map(([name]) => name));
-  expect(new Set(listed.map((p) => p.id)).size).toBe(26);
+  expect(new Set(listed.map((p) => p.id)).size).toBe(29);
 });
 
-for (const [name, prefix, displayExt] of sets) {
+for (const [name, prefix, displayExt, modelExt = "png"] of sets) {
   test(`${name} keeps its own display photo first and model photo second, with details pending`, () => {
     const product = products.find((p) => p.name === name);
-    expect(product?.gallery?.map((photo) => photo.src.split("/").pop())).toEqual([`${prefix}-display.${displayExt}`, `${prefix}-model.png`]);
+    expect(product?.gallery?.map((photo) => photo.src.split("/").pop())).toEqual([`${prefix}-display.${displayExt}`, `${prefix}-model.${modelExt}`]);
     expect(product?.image).toBe(product?.gallery?.[0]?.src);
     expect(product?.categorySlug).toBe("jewellery-sets");
     expect(product?.description).toBeUndefined();
