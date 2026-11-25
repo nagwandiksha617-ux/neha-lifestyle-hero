@@ -28,3 +28,27 @@ export function pageSeo({ path, title, description, type = "website", image }: P
     links: [{ rel: "canonical", href: url }],
   };
 }
+
+// Owner-confirmed business details only (see project memory: official contact details).
+export function organizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "NEHA Lifestyle",
+    url: absoluteUrl("/"),
+    email: "Er.neha17071993@gmail.com",
+    telephone: "+91-9664366547",
+    address: { "@type": "PostalAddress", addressLocality: "Jaipur", addressRegion: "Rajasthan", addressCountry: "IN" },
+    sameAs: ["https://www.instagram.com/nehalifestyle_93/"],
+  };
+}
+
+export type Crumb = { name: string; path: string };
+
+export function breadcrumbJsonLd(crumbs: Crumb[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: absoluteUrl(c.path) })),
+  };
+}

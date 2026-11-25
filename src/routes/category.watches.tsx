@@ -3,7 +3,7 @@ import { useState, type MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import CategoryPage from "@/components/CategoryPage";
 import { InformationDialog } from "@/components/SiteChrome";
-import { watchCategorySections, watchHeroImage } from "@/lib/watches-category-page";
+import { watchCategorySections, watchHeroImage, watchHeroAlt } from "@/lib/watches-category-page";
 
 const description = "Bracelet watches with traditional kundan and stone work.";
 
@@ -33,6 +33,7 @@ function WatchesPage() {
         tagline={description}
         ctaLabel="SHOP WATCHES"
         heroImage={watchHeroImage ?? null}
+        heroAlt={watchHeroAlt ?? ""}
         sections={sections}
         showSubIcons={false}
         showFilters={false}

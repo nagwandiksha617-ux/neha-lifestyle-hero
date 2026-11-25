@@ -32,8 +32,10 @@ export function jewelleryCategorySections(catalogue: Product[] = products): Jewe
 }
 
 // Use an original, already-matched necklace photo rather than a new promotional image.
-export const jewelleryHeroImage = productPhotos(
+const heroPhoto = productPhotos(
   products.find((product) => product.id === "navy-blue-silver-crystal-necklace-set")
     ?? products.find((product) => product.categorySlug === "jewellery-sets")
     ?? { id: "", name: "", category: "", image: null },
-)[0]?.src;
+)[0];
+export const jewelleryHeroImage = heroPhoto?.src;
+export const jewelleryHeroAlt = heroPhoto?.alt;

@@ -1,4 +1,4 @@
-import { pageSeo } from "@/lib/seo";
+import { organizationJsonLd, pageSeo } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { categories } from "@/lib/categories";
 import { NewArrivals } from "@/components/NewArrivals";
@@ -15,10 +15,13 @@ function JaaliDivider() {
 }
 
 export const Route = createFileRoute("/")({
-  head: () => pageSeo({
+  head: () => ({
+    ...pageSeo({
     path: "/",
     title: "NEHA Lifestyle — Everyday Luxury",
     description: "Discover premium bags and jewellery crafted to bring elegance to every occasion.",
+    }),
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(organizationJsonLd()) }],
   }),
   component: Index,
 });

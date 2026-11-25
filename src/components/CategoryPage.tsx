@@ -30,6 +30,7 @@ export type CategoryPageProps = {
   ctaLabel: string;
   ctaHref?: string;
   heroImage?: string | null; // shown inside the arch frame
+  heroAlt?: string; // description of the hero photo
   sections: CatSection[];
   showSubIcons?: boolean; // default true
   showFilters?: boolean; // default true
@@ -72,7 +73,7 @@ function ProductCard({
           <Placeholder />
         )}
         {p.image && p.image2 && (
-          <img src={p.image2} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <img src={p.image2} alt={`${p.name} — second photo`} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         )}
         <button aria-label="Add to wishlist" className="absolute right-2.5 top-2.5 flex h-8 w-8 items-center justify-center rounded-full bg-[#FDF3EC] text-base text-[#6B2737]">♡</button>
       </div>
@@ -123,7 +124,7 @@ export function GiftBand({ title, text, href, label = "Enquire on WhatsApp" }: {
 export default function CategoryPage(props: CategoryPageProps) {
   const {
     breadcrumb, label, headingStart, headingAccent, tagline, ctaLabel, ctaHref = "#products",
-    heroImage, sections, showSubIcons = true, showFilters = true, hideEmpty = false,
+    heroImage, heroAlt = "", sections, showSubIcons = true, showFilters = true, hideEmpty = false,
     whatsappNumber, onAddToCart, extraCard, children,
   } = props;
 
@@ -157,7 +158,7 @@ export default function CategoryPage(props: CategoryPageProps) {
           <a href={ctaHref} className="inline-block bg-[#6B2737] px-9 py-4 text-xs font-semibold uppercase tracking-[.18em] text-[#FDF3EC]">{ctaLabel} →</a>
         </div>
         <div className="relative h-[420px] w-[340px] max-w-full overflow-hidden rounded-t-[999px] border border-[#E0C0B0] bg-[#F3DCCF]">
-          {heroImage ? <img src={heroImage} alt="" className="absolute inset-0 h-full w-full object-cover" /> : <Placeholder text="Hero photo" />}
+          {heroImage ? <img src={heroImage} alt={heroAlt} className="absolute inset-0 h-full w-full object-cover" /> : <Placeholder text="Hero photo" />}
         </div>
       </header>
 
@@ -165,11 +166,12 @@ export default function CategoryPage(props: CategoryPageProps) {
       {showSubIcons && sections.length > 1 && (
         <nav aria-label="Sub-categories" className="mx-auto flex max-w-[1280px] flex-wrap justify-center gap-8 px-4 pb-10 md:gap-14">
           {sections.map((s) => {
-            const img = s.products.find((p) => p.image)?.image;
+            const first = s.products.find((p) => p.image);
+            const img = first?.image;
             return (
               <button key={s.id} onClick={() => goTo(s.id)} className="w-[150px] text-center">
                 <div className="relative mx-auto h-[190px] w-[150px] overflow-hidden rounded-t-[75px] border border-[#E0C0B0] bg-[#F3DCCF]">
-                  {img ? <img src={img} alt="" className="absolute inset-0 h-full w-full object-cover" /> : <Placeholder text="Photo" />}
+                  {img ? <img src={img} alt={first ? `${s.title}: ${first.name}` : ""} className="absolute inset-0 h-full w-full object-cover" /> : <Placeholder text="Photo" />}
                 </div>
                 <span className={`mt-3.5 block text-xl font-medium ${serif}`}>{s.title}</span>
               </button>

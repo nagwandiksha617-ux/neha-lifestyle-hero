@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import CategoryPage from "@/components/CategoryPage";
 import { InformationDialog } from "@/components/SiteChrome";
-import { jewelleryCategorySections, jewelleryHeroImage } from "@/lib/jewellery-category-page";
+import { jewelleryCategorySections, jewelleryHeroImage, jewelleryHeroAlt } from "@/lib/jewellery-category-page";
 import earringsPhoto from "@/assets/jewellery-categories/earrings-peacock-jhumke.jpg.asset.json";
 import ethnicPhoto from "@/assets/jewellery-categories/ethnic-silver-red-earrings.jpg.asset.json";
 import weddingPhoto from "@/assets/jewellery-categories/wedding-necklace-set.png.asset.json";
@@ -68,6 +68,7 @@ function JewelleryPage() {
         tagline={description}
         ctaLabel="SHOP JEWELLERY"
         heroImage={jewelleryHeroImage ?? null}
+        heroAlt={jewelleryHeroAlt ?? ""}
         sections={sections}
         hideEmpty={false}
         onAddToCart={() => setTopic("Cart")}

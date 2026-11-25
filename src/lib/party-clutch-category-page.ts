@@ -51,8 +51,10 @@ export function partyClutchCategorySections(catalogue: Product[] = products): Pa
 }
 
 // Use an original, already-matched party clutch photo rather than a new promotional image.
-export const partyClutchHeroImage = productPhotos(
+const heroPhoto = productPhotos(
   products.find((product) => product.id === "golden-traditional-potli-bag")
     ?? products.find((product) => product.categorySlug === "party-clutch-bags")
     ?? { id: "", name: "", category: "", image: null },
-)[0]?.src;
+)[0];
+export const partyClutchHeroImage = heroPhoto?.src;
+export const partyClutchHeroAlt = heroPhoto?.alt;

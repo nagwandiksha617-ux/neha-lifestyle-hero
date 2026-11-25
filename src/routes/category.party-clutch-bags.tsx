@@ -3,7 +3,7 @@ import { useState, type MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import CategoryPage from "@/components/CategoryPage";
 import { InformationDialog } from "@/components/SiteChrome";
-import { partyClutchCategorySections, partyClutchHeroImage } from "@/lib/party-clutch-category-page";
+import { partyClutchCategorySections, partyClutchHeroImage, partyClutchHeroAlt } from "@/lib/party-clutch-category-page";
 
 const description = "Potlis, clutches and waist clutches for weddings, sangeets and festive evenings.";
 
@@ -33,6 +33,7 @@ function PartyClutchBagsPage() {
         tagline={description}
         ctaLabel="SHOP CLUTCHES"
         heroImage={partyClutchHeroImage ?? null}
+        heroAlt={partyClutchHeroAlt ?? ""}
         sections={sections}
         hideEmpty={false}
         onAddToCart={() => setTopic("Cart")}

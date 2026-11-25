@@ -17,7 +17,7 @@ export function BagProductCard({ product: p, label, onCart }: { product: Product
       <div className="relative aspect-[4/5] overflow-hidden bg-background">
         <Link to="/product/$id" params={{ id: p.id }} aria-label={`View ${name}`} className="absolute inset-0 z-[1]" />
         <CatalogueImage src={main.src} alt={main.alt} className="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-105" />
-        {hover && <img src={hover.src} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full object-cover pointer-events-none opacity-0 transition-opacity duration-500 group-hover:opacity-100" />}
+        {hover && <img src={hover.src} alt={hover.alt} aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full object-cover pointer-events-none opacity-0 transition-opacity duration-500 group-hover:opacity-100" />}
         <Button variant="ghost" size="icon" type="button" onClick={() => setSaved((s) => !s)} aria-pressed={saved}
           aria-label={saved ? `Remove ${name} from wishlist` : `Add ${name} to wishlist`}
           className="absolute right-3 top-3 z-[2] h-9 w-9 rounded-full bg-background/85 text-wine shadow-sm hover:bg-background">

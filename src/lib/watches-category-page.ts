@@ -30,8 +30,10 @@ export function watchCategorySections(catalogue: Product[] = products): WatchSec
 }
 
 // Original, already-matched watch photo; no new promotional image.
-export const watchHeroImage = productPhotos(
+const heroPhoto = productPhotos(
   products.find((product) => product.id === "royal-ruby-green-stone-gold-bracelet-watch")
     ?? products.find((product) => product.categorySlug === "watches")
     ?? { id: "", name: "", category: "", image: null },
-)[0]?.src;
+)[0];
+export const watchHeroImage = heroPhoto?.src;
+export const watchHeroAlt = heroPhoto?.alt;

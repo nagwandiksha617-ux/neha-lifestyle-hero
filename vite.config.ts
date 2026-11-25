@@ -8,7 +8,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { readFileSync } from "node:fs";
 
 // Product detail pages: one per catalogue product id.
-const PRODUCT_IDS = [...readFileSync("src/lib/products.ts", "utf8").matchAll(/^\s+id: "([^"]+)"/gm)].map((m) => m[1]);
+const PRODUCT_IDS = [...readFileSync("src/lib/products.ts", "utf8").matchAll(/(?:^\s+|\{ )id: "([^"]+)"/gm)].map((m) => m[1]);
 
 // Static-hosting migration: the complete set of public URLs is prerendered to
 // real HTML files at build time, so Apache/cPanel can serve the site with no

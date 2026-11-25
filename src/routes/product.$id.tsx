@@ -1,4 +1,5 @@
-import { pageSeo } from "@/lib/seo";
+import { breadcrumbJsonLd, pageSeo } from "@/lib/seo";
+import { productBreadcrumb } from "@/lib/product-breadcrumb";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { products } from "@/lib/products";
 import { productPhotos } from "@/lib/product-card-photos";
@@ -18,7 +19,10 @@ export const Route = createFileRoute("/product/$id")({
     const desc = loaderData?.product.description ?? `${name} from NEHA Lifestyle.`;
     const product = loaderData?.product;
     if (!product) return { meta: [{ title: "Product — NEHA Lifestyle" }, { name: "robots", content: "noindex" }] };
-    return pageSeo({ path: `/product/${encodeURIComponent(product.id)}`, title: `${name} — NEHA Lifestyle`, description: desc, type: "product", image: productPhotos(product)[0]?.src });
+    return {
+      ...pageSeo({ path: `/product/${encodeURIComponent(product.id)}`, title: `${name} — NEHA Lifestyle`, description: desc, type: "product", image: productPhotos(product)[0]?.src }),
+      scripts: [{ type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd(productBreadcrumb(product))) }],
+    };
   },
   notFoundComponent: () => (
     <main className="grid min-h-screen place-items-center bg-background px-6 text-center">
