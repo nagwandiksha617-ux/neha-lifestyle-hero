@@ -1,3 +1,4 @@
+import { pageSeo } from "@/lib/seo";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { bagCategories, findCategory } from "@/lib/categories";
 import { productsForCategoryPage } from "@/lib/products";
@@ -15,16 +16,9 @@ export const Route = createFileRoute("/category/$slug")({
   head: ({ loaderData }) => {
     const name = loaderData?.category.name ?? "Category";
     const desc = loaderData?.category.description ?? "Shop NEHA Lifestyle.";
-    return {
-      meta: [
-        { title: `${name} — NEHA Lifestyle` },
-        { name: "description", content: desc },
-        { property: "og:title", content: `${name} — NEHA Lifestyle` },
-        { property: "og:description", content: desc },
-        { property: "og:type", content: "website" },
-        { name: "twitter:card", content: "summary" },
-      ],
-    };
+    const slug = loaderData?.category.slug;
+    const seo = pageSeo({ path: slug ? `/category/${slug}` : "/", title: `${name} — NEHA Lifestyle`, description: desc });
+    return slug ? seo : { meta: [...seo.meta.filter((m) => !("property" in m && m.property === "og:url")), { name: "robots", content: "noindex" }] };
   },
   notFoundComponent: () => (
     <main className="grid min-h-screen place-items-center bg-background px-6 text-center">

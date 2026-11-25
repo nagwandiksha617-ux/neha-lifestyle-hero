@@ -1,3 +1,4 @@
+import { pageSeo } from "@/lib/seo";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { products } from "@/lib/products";
 import { productPhotos } from "@/lib/product-card-photos";
@@ -15,16 +16,9 @@ export const Route = createFileRoute("/product/$id")({
   head: ({ loaderData }) => {
     const name = loaderData?.product.name ?? "Product";
     const desc = loaderData?.product.description ?? `${name} from NEHA Lifestyle.`;
-    return {
-      meta: [
-        { title: `${name} — NEHA Lifestyle` },
-        { name: "description", content: desc },
-        { property: "og:title", content: `${name} — NEHA Lifestyle` },
-        { property: "og:description", content: desc },
-        { property: "og:type", content: "product" },
-        { name: "twitter:card", content: "summary" },
-      ],
-    };
+    const product = loaderData?.product;
+    if (!product) return { meta: [{ title: "Product — NEHA Lifestyle" }, { name: "robots", content: "noindex" }] };
+    return pageSeo({ path: `/product/${encodeURIComponent(product.id)}`, title: `${name} — NEHA Lifestyle`, description: desc, type: "product", image: productPhotos(product)[0]?.src });
   },
   notFoundComponent: () => (
     <main className="grid min-h-screen place-items-center bg-background px-6 text-center">

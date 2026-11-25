@@ -1,3 +1,4 @@
+import { pageSeo } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { categories } from "@/lib/categories";
 import { NewArrivals } from "@/components/NewArrivals";
@@ -14,21 +15,10 @@ function JaaliDivider() {
 }
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "NEHA Lifestyle — Everyday Luxury" },
-      {
-        name: "description",
-        content: "Discover premium bags and jewellery crafted to bring elegance to every occasion.",
-      },
-      { property: "og:title", content: "NEHA Lifestyle — Everyday Luxury" },
-      {
-        property: "og:description",
-        content: "Discover premium bags and jewellery crafted to bring elegance to every occasion.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
+  head: () => pageSeo({
+    path: "/",
+    title: "NEHA Lifestyle — Everyday Luxury",
+    description: "Discover premium bags and jewellery crafted to bring elegance to every occasion.",
   }),
   component: Index,
 });

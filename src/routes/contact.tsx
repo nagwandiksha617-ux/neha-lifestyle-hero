@@ -1,3 +1,4 @@
+import { pageSeo } from "@/lib/seo";
 import { useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitContactLead } from "@/lib/contact-leads.functions";
@@ -93,16 +94,7 @@ const benefits = [
 const helpTopics = ["FAQ", "Shipping", "Returns", "Order Tracking"];
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact Us — NEHA Lifestyle" },
-      { name: "description", content: description },
-      { property: "og:title", content: "Contact Us — NEHA Lifestyle" },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-    ],
-  }),
+  head: () => pageSeo({ path: "/contact", title: "Contact Us — NEHA Lifestyle", description }),
   component: ContactPage,
 });
 

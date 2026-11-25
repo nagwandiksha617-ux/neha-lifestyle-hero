@@ -1,3 +1,4 @@
+import { pageSeo } from "@/lib/seo";
 import { useState, type MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import CategoryPage from "@/components/CategoryPage";
@@ -7,16 +8,7 @@ import { watchCategorySections, watchHeroImage } from "@/lib/watches-category-pa
 const description = "Bracelet watches with traditional kundan and stone work.";
 
 export const Route = createFileRoute("/category/watches")({
-  head: () => ({
-    meta: [
-      { title: "Watches — NEHA Lifestyle" },
-      { name: "description", content: description },
-      { property: "og:title", content: "Watches — NEHA Lifestyle" },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-    ],
-  }),
+  head: () => pageSeo({ path: "/category/watches", title: "Watches — NEHA Lifestyle", description }),
   component: WatchesPage,
 });
 

@@ -1,3 +1,4 @@
+import { pageSeo } from "@/lib/seo";
 import { useState, type MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import CategoryPage from "@/components/CategoryPage";
@@ -7,16 +8,7 @@ import { partyClutchCategorySections, partyClutchHeroImage } from "@/lib/party-c
 const description = "Potlis, clutches and waist clutches for weddings, sangeets and festive evenings.";
 
 export const Route = createFileRoute("/category/party-clutch-bags")({
-  head: () => ({
-    meta: [
-      { title: "Party & Clutch Bags — NEHA Lifestyle" },
-      { name: "description", content: description },
-      { property: "og:title", content: "Party & Clutch Bags — NEHA Lifestyle" },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-    ],
-  }),
+  head: () => pageSeo({ path: "/category/party-clutch-bags", title: "Party & Clutch Bags — NEHA Lifestyle", description }),
   component: PartyClutchBagsPage,
 });
 

@@ -1,3 +1,4 @@
+import { pageSeo } from "@/lib/seo";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import CategoryPage from "@/components/CategoryPage";
@@ -16,20 +17,7 @@ const categoryPhotos: Record<string, string> = {
 const description = "Handcrafted jewellery inspired by the Pink City, made to make you shine.";
 
 export const Route = createFileRoute("/category/jewellery")({
-  head: () => ({
-    meta: [
-      { title: "Jewellery Collections — NEHA Lifestyle" },
-      { name: "description", content: description },
-      { property: "og:title", content: "Jewellery Collections — NEHA Lifestyle" },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      ...(jewelleryHeroImage?.startsWith("https://") ? [
-        { property: "og:image", content: jewelleryHeroImage },
-        { name: "twitter:image", content: jewelleryHeroImage },
-      ] : []),
-    ],
-  }),
+  head: () => pageSeo({ path: "/category/jewellery", title: "Jewellery Collections — NEHA Lifestyle", description, image: jewelleryHeroImage }),
   component: JewelleryPage,
 });
 

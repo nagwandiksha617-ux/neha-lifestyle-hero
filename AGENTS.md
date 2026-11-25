@@ -28,3 +28,4 @@
 - Apply uploaded Jewellery sub-category artwork only within its route wrapper, independently of catalogue photos, because the CategoryPage template must stay unchanged.
 - Product photo order for cards and product pages comes from productPhotos() in src/lib/product-card-photos.ts (worn/model photos first, gallery data untouched), so display order changes never edit catalogue galleries.
 - Contact form leads append to the "NEHA Lifestyle Website Leads" Google Sheet via a server function (src/lib/contact-leads.*) through the Sheets connector, because credentials must stay server-side.
+- Build canonical, og:url and Twitter tags through pageSeo() in src/lib/seo.ts with SITE_URL as the single domain constant, because every page must self-reference one production domain.
