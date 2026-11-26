@@ -2,11 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Image as ImageIcon, List } from "lucide-react";
 import { blogBreadcrumb, blogCategoryName, type BlogBlock, type BlogPost } from "@/lib/blog";
 
-function ArticleImageSlot({ label, hero = false }: { label: string; hero?: boolean }) {
+function ArticleImageSlot({ label, alt, hero = false }: { label: string; alt: string; hero?: boolean }) {
   return (
     <div
       role="img"
-      aria-label={`${label} — image to be added`}
+      aria-label={`${alt} — image to be added`}
       className={`flex w-full flex-col items-center justify-center border border-dashed border-gold/50 bg-card px-6 text-center ${hero ? "aspect-[16/8]" : "aspect-[16/7]"}`}
     >
       <span className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 text-gold-deep">
@@ -31,7 +31,7 @@ function ArticleBlock({ block }: { block: BlogBlock }) {
     case "subheading":
       return <h3 className="pt-3 font-display text-2xl text-wine sm:text-3xl">{block.text}</h3>;
     case "image":
-      return <ArticleImageSlot label={block.label} />;
+      return <ArticleImageSlot label={block.label} alt={block.alt} />;
     case "table":
       return (
         <div className="overflow-x-auto border border-gold/25 bg-card" role="region" aria-label={block.caption} tabIndex={0}>
@@ -98,7 +98,11 @@ export function BlogArticleContent({ post }: { post: BlogPost }) {
           {post.image ? (
             <img src={post.image.src} alt={post.image.alt} className="aspect-[16/8] w-full object-cover" />
           ) : (
-            <ArticleImageSlot label="Hero image · Artificial jewellery for women" hero />
+            <ArticleImageSlot
+              label={post.heroPlaceholder?.label ?? "Article hero image"}
+              alt={post.heroPlaceholder?.alt ?? post.title}
+              hero
+            />
           )}
         </div>
 
@@ -127,12 +131,6 @@ export function BlogArticleContent({ post }: { post: BlogPost }) {
           </aside>
 
           <div className="min-w-0">
-            {post.contentPending && (
-              <p className="mb-10 border-l-2 border-gold bg-card px-5 py-4 text-sm leading-6 text-foreground/75">
-                The complete article text, tables and FAQs will be added from the content supplied by NEHA Lifestyle.
-              </p>
-            )}
-
             {post.body.length > 0 && (
               <div className="space-y-5 leading-8 text-foreground/85">
                 {post.body.map((paragraph, index) => <p key={index}>{paragraph}</p>)}

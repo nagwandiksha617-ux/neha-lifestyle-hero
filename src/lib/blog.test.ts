@@ -20,6 +20,18 @@ test("requested article uses its short breadcrumb label and individual URL", () 
   ]);
 });
 
+test("complete guide includes all supplied sections, tables and FAQs", () => {
+  const post = blogPosts[0]!;
+  expect(post.body).toHaveLength(3);
+  expect(post.sections).toHaveLength(9);
+  expect(post.faqs).toHaveLength(8);
+  const tables = post.sections!.flatMap((section) => section.blocks).filter((block) => block.type === "table");
+  expect(tables).toHaveLength(4);
+  for (const table of tables) {
+    for (const row of table.rows) expect(row).toHaveLength(table.headers.length);
+  }
+});
+
 test("article schema omits author when none is confirmed", () => {
   const a = articleJsonLd(sample);
   expect(a["@type"]).toBe("Article");
