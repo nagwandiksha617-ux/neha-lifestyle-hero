@@ -73,13 +73,33 @@ test("necklace collection photo sits in the Necklace Sets subsection with the co
   expect(necklaceSets).toBeLessThan(index);
 });
 
-test("unfilled image spots stay placeholders and the other two keep their reserved positions", () => {
+test("unfilled image spots stay placeholders and the remaining one keeps its reserved position", () => {
   const post = blogPosts[0]!;
   const images = post.sections!.flatMap((section) => section.blocks).filter((block) => block.type === "image");
   expect(images).toHaveLength(3);
   const pending = images.filter((block) => block.type === "image" && !block.src);
   expect(pending.map((block) => block.type === "image" && block.label)).toEqual([
-    "Occasion styling collage",
     "Jewellery care image",
   ]);
+});
+
+test("occasion section shows the owner-supplied photo with the confirmed alt text", () => {
+  const post = blogPosts[0]!;
+  const sections = post.sections!.filter((section) => section.id === "jewellery-for-different-occasions");
+  expect(sections).toHaveLength(1);
+  const blocks = sections[0]!.blocks;
+  const photos = blocks.filter((block) => block.type === "image" && block.src);
+  expect(photos).toHaveLength(1);
+  const photo = photos[0]!;
+  if (photo.type !== "image") return;
+  expect(photo.src).toContain("occasion-style-collection.webp");
+  expect(photo.alt).toBe(
+    "Artificial jewellery for women for wedding, festivals, Navratri, sangeet and party occasions",
+  );
+  expect(photo.width).toBe(1920);
+  expect(photo.height).toBe(1080);
+  const table = blocks.findIndex((block) => block.type === "table");
+  const index = blocks.indexOf(photo);
+  expect(table).toBeGreaterThan(-1);
+  expect(index).toBeGreaterThan(table);
 });

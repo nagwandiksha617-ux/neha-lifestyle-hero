@@ -1,5 +1,6 @@
 import heroImage from "@/assets/blog-jewellery-hero.webp.asset.json";
 import necklaceCollectionImage from "@/assets/necklace-collection.webp.asset.json";
+import occasionStyleImage from "@/assets/occasion-style-collection.webp.asset.json";
 import { absoluteUrl, breadcrumbJsonLd, type Crumb } from "./seo";
 
 export type BlogCategorySlug = "bags" | "jewellery" | "fashion" | "styling-tips";
@@ -170,7 +171,10 @@ export const blogPosts: BlogPost[] = [
           {
             type: "image",
             label: "Occasion styling collage",
-            alt: "Artificial jewellery styling ideas for women for office, casual, festive and party occasions",
+            alt: "Artificial jewellery for women for wedding, festivals, Navratri, sangeet and party occasions",
+            src: occasionStyleImage.url,
+            width: 1920,
+            height: 1080,
           },
         ],
       },
