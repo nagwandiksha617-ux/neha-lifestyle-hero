@@ -141,11 +141,6 @@ export const blogPosts: BlogPost[] = [
           { type: "subheading", text: "E. Bracelets and Rings" },
           { type: "paragraph", text: "Bracelets and rings are versatile accessories that can add smaller details to your overall look." },
           { type: "paragraph", text: "Choose delicate designs for simple everyday styling or decorative pieces when you want a more noticeable accessory." },
-          {
-            type: "image",
-            label: "Infographic · 5 Popular Types of Artificial Jewellery for Women",
-            alt: "Five popular types of artificial jewellery: necklace sets, earrings, chokers, oxidised jewellery, bracelets and rings",
-          },
         ],
       },
       {
@@ -222,11 +217,6 @@ export const blogPosts: BlogPost[] = [
           { type: "paragraph", text: "Read delivery, cancellation, exchange and return conditions before placing your order." },
           { type: "subheading", text: "6. Customer Support" },
           { type: "paragraph", text: "Check whether the seller provides a contact option for product-related questions and order assistance." },
-          {
-            type: "image",
-            label: "Infographic · 6 Things to Check Before Buying Artificial Jewellery Online",
-            alt: "Six things to check before buying artificial jewellery online: images, description, size, price, return policy and customer support",
-          },
         ],
       },
       {
