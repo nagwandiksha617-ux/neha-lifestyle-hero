@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { BlogArticleContent } from "@/components/BlogArticleContent";
-import { pageSeo } from "@/lib/seo";
+import { pageSeo, shareImageUrl } from "@/lib/seo";
 import { articleJsonLd, blogBreadcrumb, blogPostPath, blogPosts, breadcrumbJsonLd } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/$slug")({
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/blog/$slug")({
       title: `${post.title} | NEHA Lifestyle`,
       description: post.excerpt,
       type: "article",
-      image: post.image?.src,
+      image: post.image ? shareImageUrl(post.image.src) : undefined,
     });
     return {
       ...seo,

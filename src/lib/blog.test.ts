@@ -32,6 +32,13 @@ test("complete guide includes all supplied sections, tables and FAQs", () => {
   }
 });
 
+test("article hero shows the owner-supplied photo with the confirmed alt text", () => {
+  const post = blogPosts[0]!;
+  expect(post.image?.alt).toBe("Artificial jewellery for women by NEHA Lifestyle");
+  expect(post.image?.src).toContain("blog-jewellery-hero.webp");
+  expect(post.heroPlaceholder).toBeUndefined();
+});
+
 test("article schema omits author when none is confirmed", () => {
   const a = articleJsonLd(sample);
   expect(a["@type"]).toBe("Article");

@@ -96,7 +96,14 @@ export function BlogArticleContent({ post }: { post: BlogPost }) {
 
         <div className="mx-auto mt-10 max-w-5xl">
           {post.image ? (
-            <img src={post.image.src} alt={post.image.alt} className="aspect-[16/8] w-full object-cover" />
+            <img
+              src={post.image.src}
+              alt={post.image.alt}
+              width={post.image.width}
+              height={post.image.height}
+              loading="eager"
+              className="h-auto w-full"
+            />
           ) : (
             <ArticleImageSlot
               label={post.heroPlaceholder?.label ?? "Article hero image"}

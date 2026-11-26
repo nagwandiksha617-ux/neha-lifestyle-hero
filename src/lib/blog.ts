@@ -1,3 +1,4 @@
+import heroImage from "@/assets/blog-jewellery-hero.webp.asset.json";
 import { absoluteUrl, breadcrumbJsonLd, type Crumb } from "./seo";
 
 export type BlogCategorySlug = "bags" | "jewellery" | "fashion" | "styling-tips";
@@ -32,7 +33,8 @@ export type BlogPost = {
   breadcrumbTitle?: string;
   excerpt: string;
   category: BlogCategorySlug;
-  image?: { src: string; alt: string };
+  image?: { src: string; alt: string; width?: number; height?: number };
+  /** Shown only while an article has no supplied hero photo. */
   heroPlaceholder?: { label: string; alt: string };
   /** ISO date, only once the owner confirms publication. */
   publishedAt?: string;
@@ -52,9 +54,11 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Explore artificial jewellery for women, including popular types, outfit styling, online buying tips and simple jewellery care practices.",
     category: "jewellery",
     featured: true,
-    heroPlaceholder: {
-      label: "Hero image · Artificial jewellery for women",
-      alt: "Artificial jewellery for women featuring necklace sets, earrings, bracelets and rings",
+    image: {
+      src: heroImage.url,
+      alt: "Artificial jewellery for women by NEHA Lifestyle",
+      width: 1920,
+      height: 1080,
     },
     body: [
       "Artificial jewellery for women has become a popular choice for creating beautiful looks without depending only on precious jewellery. From elegant necklace sets to stylish earrings, women can explore a wide variety of designs for everyday wear, festivals, parties and special occasions.",

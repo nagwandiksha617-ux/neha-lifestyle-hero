@@ -6,6 +6,11 @@ export function absoluteUrl(path: string): string {
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+/** Absolute share URL for a page image; relative CDN pointers resolve against SITE_URL. */
+export function shareImageUrl(src: string): string {
+  return src.startsWith("http") ? src : absoluteUrl(src);
+}
+
 type PageSeo = { path: string; title: string; description: string; type?: string; image?: string | null | undefined };
 
 /** Self-referencing canonical, Open Graph and Twitter Card tags for one page. */
