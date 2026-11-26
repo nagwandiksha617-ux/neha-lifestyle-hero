@@ -30,3 +30,4 @@
 - Contact form leads append to the "NEHA Lifestyle Website Leads" Google Sheet via a server function (src/lib/contact-leads.*) through the Sheets connector, because credentials must stay server-side.
 - Build canonical, og:url and Twitter tags through pageSeo() in src/lib/seo.ts with SITE_URL as the single domain constant, because every page must self-reference one production domain.
 - Product sitemap/prerender ids come from a regex over src/lib/products.ts matching both multi-line and inline `{ id: ... }` entries; seo-structured.test.ts guards that every product is in public/sitemap.xml.
+- Blog articles live in src/lib/blog.ts (`blogPosts`, owner-supplied only) at /blog/<slug> with Article + Breadcrumb JSON-LD; categories filter via /blog?category=<slug>, because one data module keeps listing, schema and URLs in sync. Blog is linked from the footer only. Add each new article's URL to PRERENDER_PATHS and public/sitemap.xml.

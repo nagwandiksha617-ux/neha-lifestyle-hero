@@ -149,6 +149,7 @@ export function SiteFooter() {
             <h2 className="font-display text-2xl font-semibold leading-none lg:whitespace-nowrap text-footer-accent after:mt-2 after:block after:h-px after:w-8 after:bg-gold">Company</h2>
             <ul className="mt-4 space-y-1.5">
               <li><a href="/#brand-story" className={linkClass}>About Us</a></li>
+              <li><Link to="/blog" className={linkClass}>Blog</Link></li>
               {["Privacy Policy", "Terms & Conditions"].map((label) => <li key={label}><Button variant="link" onClick={() => setTopic(label)} className={`${linkClass} h-auto whitespace-normal rounded-none p-0 text-left font-normal no-underline hover:no-underline`}>{label}</Button></li>)}
             </ul>
           </div>
