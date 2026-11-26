@@ -1,4 +1,5 @@
 import heroImage from "@/assets/blog-jewellery-hero.webp.asset.json";
+import necklaceCollectionImage from "@/assets/necklace-collection.webp.asset.json";
 import { absoluteUrl, breadcrumbJsonLd, type Crumb } from "./seo";
 
 export type BlogCategorySlug = "bags" | "jewellery" | "fashion" | "styling-tips";
@@ -19,7 +20,7 @@ export type BlogBlock =
   | { type: "paragraph"; text: string }
   | { type: "list"; items: string[] }
   | { type: "subheading"; text: string }
-  | { type: "image"; label: string; alt: string }
+  | { type: "image"; label: string; alt: string; src?: string; caption?: string; width?: number; height?: number }
   | { type: "table"; caption: string; headers: string[]; rows: string[][] }
   | { type: "links"; links: BlogInternalLink[] };
 
@@ -123,7 +124,11 @@ export const blogPosts: BlogPost[] = [
           {
             type: "image",
             label: "Necklace collection image",
-            alt: "Different artificial necklace sets for women in traditional and modern designs",
+            alt: "Artificial necklace sets collection for women by NEHA Lifestyle",
+            src: necklaceCollectionImage.url,
+            caption: "Explore different necklace styles at NEHA Lifestyle.",
+            width: 1920,
+            height: 1080,
           },
           { type: "subheading", text: "B. Earrings" },
           { type: "paragraph", text: "Earrings can add an attractive detail to both simple and elaborate outfits." },

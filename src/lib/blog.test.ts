@@ -53,3 +53,33 @@ test("requested article schema omits unconfirmed dates, authorship and images", 
   expect("image" in a).toBe(false);
   expect(a.mainEntityOfPage).toBe("https://nehalifestyle.com/blog/artificial-jewellery-for-women");
 });
+
+test("necklace collection photo sits in the Necklace Sets subsection with the confirmed alt and caption", () => {
+  const post = blogPosts[0]!;
+  const blocks = post.sections!.flatMap((section) => section.blocks);
+  const index = blocks.findIndex((block) => block.type === "image" && block.src);
+  expect(index).toBeGreaterThan(-1);
+  const photo = blocks[index]!;
+  expect(photo.type).toBe("image");
+  if (photo.type !== "image") return;
+  expect(photo.src).toContain("necklace-collection.webp");
+  expect(photo.alt).toBe("Artificial necklace sets collection for women by NEHA Lifestyle");
+  expect(photo.caption).toBe("Explore different necklace styles at NEHA Lifestyle.");
+  expect(photo.width).toBe(1920);
+  expect(photo.height).toBe(1080);
+  const earrings = blocks.findIndex((block) => block.type === "subheading" && block.text === "B. Earrings");
+  expect(index).toBeLessThan(earrings);
+  const necklaceSets = blocks.findIndex((block) => block.type === "subheading" && block.text === "A. Necklace Sets");
+  expect(necklaceSets).toBeLessThan(index);
+});
+
+test("unfilled image spots stay placeholders and the other two keep their reserved positions", () => {
+  const post = blogPosts[0]!;
+  const images = post.sections!.flatMap((section) => section.blocks).filter((block) => block.type === "image");
+  expect(images).toHaveLength(3);
+  const pending = images.filter((block) => block.type === "image" && !block.src);
+  expect(pending.map((block) => block.type === "image" && block.label)).toEqual([
+    "Occasion styling collage",
+    "Jewellery care image",
+  ]);
+});

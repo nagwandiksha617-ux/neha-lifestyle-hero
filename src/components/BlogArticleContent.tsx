@@ -31,6 +31,25 @@ function ArticleBlock({ block }: { block: BlogBlock }) {
     case "subheading":
       return <h3 className="pt-3 font-display text-2xl text-wine sm:text-3xl">{block.text}</h3>;
     case "image":
+      if (block.src) {
+        return (
+          <figure className="w-full">
+            <img
+              src={block.src}
+              alt={block.alt}
+              width={block.width}
+              height={block.height}
+              loading="lazy"
+              className="h-auto w-full"
+            />
+            {block.caption && (
+              <figcaption className="mt-3 text-center text-xs italic leading-6 text-foreground/65">
+                {block.caption}
+              </figcaption>
+            )}
+          </figure>
+        );
+      }
       return <ArticleImageSlot label={block.label} alt={block.alt} />;
     case "table":
       return (
