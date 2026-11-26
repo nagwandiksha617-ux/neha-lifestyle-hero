@@ -73,13 +73,15 @@ test("necklace collection photo sits in the Necklace Sets subsection with the co
   expect(necklaceSets).toBeLessThan(index);
 });
 
-test("unfilled image spots stay placeholders and the remaining one keeps its reserved position", () => {
+test("both remaining image spots show owner-supplied photos and no placeholder is left", () => {
   const post = blogPosts[0]!;
   const images = post.sections!.flatMap((section) => section.blocks).filter((block) => block.type === "image");
-  expect(images).toHaveLength(3);
+  expect(images).toHaveLength(2);
   const pending = images.filter((block) => block.type === "image" && !block.src);
-  expect(pending.map((block) => block.type === "image" && block.label)).toEqual([
-    "Jewellery care image",
+  expect(pending).toHaveLength(0);
+  expect(images.map((block) => block.type === "image" && block.label)).toEqual([
+    "Necklace collection image",
+    "Occasion styling collage",
   ]);
 });
 

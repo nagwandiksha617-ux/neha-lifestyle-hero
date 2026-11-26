@@ -247,11 +247,6 @@ export const blogPosts: BlogPost[] = [
             ],
           },
           { type: "paragraph", text: "Important: Jewellery materials and finishes vary. Always follow the care instructions provided for the specific product." },
-          {
-            type: "image",
-            label: "Jewellery care image",
-            alt: "Jewellery storage and care tips for artificial jewellery",
-          },
         ],
       },
       {
