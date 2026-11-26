@@ -1,5 +1,6 @@
 import { expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
+import { blogPosts } from "./blog";
 import { products } from "./products";
 import { productBreadcrumb } from "./product-breadcrumb";
 import { organizationJsonLd } from "./seo";
@@ -11,6 +12,14 @@ test("sitemap lists every product page exactly once", () => {
     expect(xml.split(loc).length - 1).toBe(1);
   }
   expect(xml).not.toContain("<lastmod>");
+});
+
+test("sitemap lists every owner-supplied blog article exactly once", () => {
+  const xml = readFileSync("public/sitemap.xml", "utf8");
+  for (const post of blogPosts) {
+    const loc = `<loc>https://nehalifestyle.com/blog/${post.slug}</loc>`;
+    expect(xml.split(loc).length - 1).toBe(1);
+  }
 });
 
 test("tote bag breadcrumb follows Home > Bags > Tote Bags > product", () => {

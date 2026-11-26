@@ -9,22 +9,87 @@ export const blogCategories: { slug: BlogCategorySlug; name: string; description
   { slug: "styling-tips", name: "Styling Tips", description: "How to pair and wear your pieces." },
 ];
 
+export type BlogInternalLink = {
+  label: string;
+  slug: "jewellery" | "jewellery-sets" | "earrings";
+};
+
+export type BlogBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "list"; items: string[] }
+  | { type: "subheading"; text: string }
+  | { type: "image"; label: string }
+  | { type: "table"; caption: string; headers: string[]; rows: string[][] }
+  | { type: "links"; links: BlogInternalLink[] };
+
+export type BlogSection = { id: string; title: string; blocks: BlogBlock[] };
+
 export type BlogPost = {
   /** URL segment: /blog/<slug>. Lowercase words joined by hyphens. */
   slug: string;
   title: string;
+  /** Optional shorter label for breadcrumbs. */
+  breadcrumbTitle?: string;
   excerpt: string;
   category: BlogCategorySlug;
-  image: { src: string; alt: string };
+  image?: { src: string; alt: string };
   /** ISO date, only once the owner confirms publication. */
-  publishedAt: string;
+  publishedAt?: string;
   author?: string;
   featured?: boolean;
   body: string[];
+  sections?: BlogSection[];
+  faqs?: { question: string; answer: string }[];
+  /** Keeps unprovided owner copy visibly unpublished rather than inventing it. */
+  contentPending?: boolean;
 };
 
-// Owner-supplied articles only — no placeholder posts, authors or dates.
-export const blogPosts: BlogPost[] = [];
+// Owner-supplied articles only — no invented articles, authors or dates.
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "artificial-jewellery-for-women",
+    title: "Artificial Jewellery for Women: A Complete Guide to Types, Styling and Buying",
+    breadcrumbTitle: "Artificial Jewellery for Women",
+    excerpt: "A complete guide to artificial jewellery for women, covering types, styling and buying.",
+    category: "jewellery",
+    featured: true,
+    body: [],
+    contentPending: true,
+    sections: [
+      {
+        id: "types-of-artificial-jewellery",
+        title: "Types of Artificial Jewellery",
+        blocks: [
+          { type: "image", label: "Jewellery types image" },
+          {
+            type: "links",
+            links: [
+              { label: "Jewellery", slug: "jewellery" },
+              { label: "Necklace Sets", slug: "jewellery-sets" },
+              { label: "Earrings", slug: "earrings" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "occasion-styling",
+        title: "Occasion Styling",
+        blocks: [{ type: "image", label: "Occasion styling image" }],
+      },
+      {
+        id: "buying-artificial-jewellery",
+        title: "Buying Artificial Jewellery",
+        blocks: [{ type: "image", label: "Buying guide infographic" }],
+      },
+      {
+        id: "jewellery-care",
+        title: "Jewellery Care",
+        blocks: [{ type: "image", label: "Jewellery care image" }],
+      },
+    ],
+    faqs: [],
+  },
+];
 
 export function blogPostPath(slug: string) {
   return `/blog/${slug}`;
@@ -38,7 +103,7 @@ export function blogBreadcrumb(post: BlogPost): Crumb[] {
   return [
     { name: "Home", path: "/" },
     { name: "Blog", path: "/blog" },
-    { name: post.title, path: blogPostPath(post.slug) },
+    { name: post.breadcrumbTitle ?? post.title, path: blogPostPath(post.slug) },
   ];
 }
 
@@ -48,11 +113,11 @@ export function articleJsonLd(post: BlogPost) {
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    datePublished: post.publishedAt,
     mainEntityOfPage: absoluteUrl(blogPostPath(post.slug)),
     articleSection: blogCategoryName(post.category),
     publisher: { "@type": "Organization", name: "NEHA Lifestyle", url: absoluteUrl("/") },
-    ...(post.image.src.startsWith("https://") ? { image: post.image.src } : {}),
+    ...(post.publishedAt ? { datePublished: post.publishedAt } : {}),
+    ...(post.image?.src.startsWith("https://") ? { image: post.image.src } : {}),
     ...(post.author ? { author: { "@type": "Person", name: post.author } } : {}),
   };
 }

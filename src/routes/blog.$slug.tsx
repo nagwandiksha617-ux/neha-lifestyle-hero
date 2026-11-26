@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { BlogArticleContent } from "@/components/BlogArticleContent";
 import { pageSeo } from "@/lib/seo";
-import { articleJsonLd, blogBreadcrumb, blogCategoryName, blogPostPath, blogPosts, breadcrumbJsonLd } from "@/lib/blog";
+import { articleJsonLd, blogBreadcrumb, blogPostPath, blogPosts, breadcrumbJsonLd } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -11,7 +12,13 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ params, loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Article not found — NEHA Lifestyle" }, { name: "robots", content: "noindex" }] };
     const { post } = loaderData;
-    const seo = pageSeo({ path: blogPostPath(params.slug), title: `${post.title} | NEHA Lifestyle Blog`, description: post.excerpt, type: "article", image: post.image.src });
+    const seo = pageSeo({
+      path: blogPostPath(params.slug),
+      title: `${post.title} | NEHA Lifestyle`,
+      description: post.excerpt,
+      type: "article",
+      image: post.image?.src,
+    });
     return {
       ...seo,
       scripts: [
@@ -32,15 +39,5 @@ export const Route = createFileRoute("/blog/$slug")({
 
 function BlogArticle() {
   const { post } = Route.useLoaderData();
-  return (
-    <main className="mx-auto max-w-3xl px-6 py-12">
-      <nav aria-label="Breadcrumb" className="text-xs uppercase tracking-[0.16em] text-foreground/60">
-        <Link to="/" className="hover:text-wine">Home</Link> / <Link to="/blog" className="hover:text-wine">Blog</Link> / <span className="text-wine">{post.title}</span>
-      </nav>
-      <p className="mt-8 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-gold">{blogCategoryName(post.category)}</p>
-      <h1 className="mt-3 font-display text-4xl text-wine sm:text-5xl">{post.title}</h1>
-      <img src={post.image.src} alt={post.image.alt} className="mt-8 aspect-[16/9] w-full object-cover" />
-      <div className="mt-8 space-y-5 leading-8 text-foreground/85">{post.body.map((para, i) => <p key={i}>{para}</p>)}</div>
-    </main>
-  );
+  return <BlogArticleContent post={post} />;
 }

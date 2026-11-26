@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Image as ImageIcon } from "lucide-react";
 import { pageSeo } from "@/lib/seo";
 import { blogCategories, blogCategoryName, blogPosts, type BlogCategorySlug, type BlogPost } from "@/lib/blog";
 
@@ -16,7 +16,14 @@ function PostCard({ post, large = false }: { post: BlogPost; large?: boolean }) 
   return (
     <article className={`group flex flex-col overflow-hidden border border-gold/25 bg-card ${large ? "md:grid md:grid-cols-2" : ""}`}>
       <Link to="/blog/$slug" params={{ slug: post.slug }} className="block aspect-[4/3] overflow-hidden bg-muted">
-        <img src={post.image.src} alt={post.image.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        {post.image ? (
+          <img src={post.image.src} alt={post.image.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        ) : (
+          <div className="flex h-full flex-col items-center justify-center border border-dashed border-gold/40 bg-card px-6 text-center">
+            <ImageIcon className="h-7 w-7 text-gold-deep" aria-hidden="true" />
+            <span className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-wine">Article image to be added</span>
+          </div>
+        )}
       </Link>
       <div className="flex flex-1 flex-col p-6">
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-gold">{blogCategoryName(post.category)}</p>
@@ -65,14 +72,16 @@ function BlogPage() {
           </div>
         </section>
 
-        <section aria-labelledby="latest-heading" className="mt-16">
-          <h2 id="latest-heading" className="font-display text-3xl text-wine">{active ? `${blogCategoryName(active)} Articles` : "Latest Articles"}</h2>
-          {rest.length > 0 ? (
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{rest.map((p) => <PostCard key={p.slug} post={p} />)}</div>
-          ) : (
-            <p className="mt-4 text-sm text-foreground/70">No articles here yet.</p>
-          )}
-        </section>
+        {(rest.length > 0 || !featured) && (
+          <section aria-labelledby="latest-heading" className="mt-16">
+            <h2 id="latest-heading" className="font-display text-3xl text-wine">{active ? `${blogCategoryName(active)} Articles` : "Latest Articles"}</h2>
+            {rest.length > 0 ? (
+              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{rest.map((p) => <PostCard key={p.slug} post={p} />)}</div>
+            ) : (
+              <p className="mt-4 text-sm text-foreground/70">No articles here yet.</p>
+            )}
+          </section>
+        )}
 
         <section aria-labelledby="topics-heading" className="mt-16">
           <h2 id="topics-heading" className="font-display text-3xl text-wine">Explore Topics</h2>

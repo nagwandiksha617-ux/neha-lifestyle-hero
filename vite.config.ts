@@ -31,6 +31,7 @@ const PRERENDER_PATHS = [
   "/category/watches",
   "/contact",
   "/blog",
+  "/blog/artificial-jewellery-for-women",
   ...PRODUCT_IDS.map((id) => `/product/${id}`),
 ];
 

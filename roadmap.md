@@ -1,5 +1,8 @@
 # Static shared-hosting migration (FTP, no Node at runtime)
 
+- [x] Blog article page — `/blog/artificial-jewellery-for-women` added to the listing, prerender and sitemap with premium responsive layout, contents, image slots, internal links and SEO.
+- [ ] Blog article content — full copy, tables, FAQs and images await the owner's supplied content.
+
 - [x] Current product update — all nine Tote/Handbag prices matched; standalone branding retouched in twelve Handbag photos, printed patterns and original gallery order preserved; 91 tests and desktop/mobile category-to-product gallery checks passed; no unrelated changes.
 
 - [x] Jewellery category photos only — confirmed original photos applied to Earrings, Ethnic and Wedding & Occasion; unchanged template/catalogue, 32 tests and desktop/mobile photo/link checks passed.
