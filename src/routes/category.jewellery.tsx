@@ -10,7 +10,7 @@ import weddingPhoto from "@/assets/jewellery-categories/wedding-necklace-set.png
 
 const categoryPhotos: Record<string, string> = {
   Earrings: earringsPhoto.url,
-  Ethnic: ethnicPhoto.url,
+  Oxidised: ethnicPhoto.url,
   "Wedding & Occasion": weddingPhoto.url,
 };
 

@@ -10,6 +10,15 @@ describe("Jewellery CategoryPage data", () => {
     expect(sections.find((section) => section.id === "bracelets")).toBeUndefined();
   });
 
+  test("renames the Ethnic section to Oxidised with the owner-confirmed copy", () => {
+    const section = jewelleryCategorySections().find((item) => item.id === "ethnic");
+    if (!section) throw new Error("Missing the Oxidised section");
+    expect(section.title).toBe("Oxidised");
+    expect(section.description).toBe("Discover oxidised jewellery for traditional, festive and everyday looks.");
+    expect(section.viewAllHref).toBe("/category/ethnic-jewellery");
+    expect(jewelleryCategorySections().find((item) => item.id === "wedding")?.title).toBe("Wedding & Occasion");
+  });
+
   test("uses existing sub-category assignments without reassigning other products", () => {
     const sections = jewelleryCategorySections();
     const slugs = ["earrings", "jewellery-sets", "ethnic-jewellery", "wedding-occasion-jewellery"];

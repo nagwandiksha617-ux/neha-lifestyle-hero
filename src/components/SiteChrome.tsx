@@ -10,7 +10,7 @@ import { categories } from "@/lib/categories";
 // The previously uploaded pink icon artwork is no longer rendered in the header.
 
 // Header shows Home, Shop, New Arrivals, About and Contact only.
-// Bags, Jewellery and Best Sellers pages, categories and homepage sections remain intact and are reachable from the footer, search and the Shop section.
+// Bags, Jewellery and Best Sellers pages, categories and homepage sections remain intact and are reachable from search and the Shop section.
 const navigation: { label: string; href?: string; info?: string }[] = [
   { label: "Home", href: "/" },
   { label: "Shop", href: "/#shop-by-category" },
@@ -135,7 +135,6 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-1.5">
               {[{ label: "Bags", slug: "bags" }, { label: "Party & Clutch Bags", slug: "party-clutch-bags" }, { label: "Jewellery", slug: "jewellery" }, { label: "Watches", slug: "watches" }].map((item) => <li key={item.label}><Link to="/category/$slug" params={{ slug: item.slug }} className={linkClass}>{item.label}</Link></li>)}
               <li><a href="/#new-arrivals" className={linkClass}>New Arrivals</a></li>
-              <li><a href="/#best-sellers" className={linkClass}>Best Sellers</a></li>
             </ul>
           </div>
           <div>
