@@ -236,8 +236,9 @@ for (const [id, name] of [
   });
 }
 
-test("all 36 owned jewellery products keep their current categories pending approval", () => {
-  expect(products.filter((product) => product.categorySlug === "jewellery-sets")).toHaveLength(29);
+test("all 36 owned jewellery products follow the approved category totals", () => {
+  expect(products.filter((product) => product.categorySlug === "jewellery-sets")).toHaveLength(15);
   expect(products.filter((product) => product.categorySlug === "earrings")).toHaveLength(7);
-  expect(products.filter((product) => product.categorySlug === "ethnic-jewellery" || product.categorySlug === "wedding-occasion-jewellery")).toEqual([]);
+  expect(products.filter((product) => product.categorySlug === "ethnic-jewellery")).toHaveLength(7);
+  expect(products.filter((product) => product.categorySlug === "wedding-occasion-jewellery")).toHaveLength(7);
 });

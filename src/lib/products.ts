@@ -450,7 +450,7 @@ export const products: Product[] = [
     id: "pink-gold-statement-necklace-set",
     name: "Pink & Gold Statement Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "wedding-occasion-jewellery",
     image: pinkDisplay.url,
     gallery: [
       { src: pinkDisplay.url, alt: "Pink & Gold Statement Necklace Set — product display on white background" },
@@ -461,7 +461,7 @@ export const products: Product[] = [
     id: "gold-ruby-red-necklace-set",
     name: "Gold & Ruby Red Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "wedding-occasion-jewellery",
     image: rubyDisplay.url,
     gallery: [
       { src: rubyDisplay.url, alt: "Gold & Ruby Red Necklace Set — product display on white background" },
@@ -472,7 +472,7 @@ export const products: Product[] = [
     id: "pearl-pink-green-ethnic-necklace-set",
     name: "Pearl, Pink & Green Ethnic Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "wedding-occasion-jewellery",
     image: pearlDisplay.url,
     gallery: [
       { src: pearlDisplay.url, alt: "Pearl, Pink & Green Ethnic Necklace Set — product display on white background" },
@@ -505,7 +505,7 @@ export const products: Product[] = [
     id: "gold-white-pink-kundan-necklace-set",
     name: "Gold, White & Pink Kundan Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "wedding-occasion-jewellery",
     image: kundanDisplay.url,
     gallery: [
       { src: kundanDisplay.url, alt: "Gold, White & Pink Kundan Necklace Set — product display on white background" },
@@ -571,7 +571,7 @@ export const products: Product[] = [
     id: "antique-silver-oxidised-floral-necklace-set",
     name: "Antique Silver Oxidised Floral Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "ethnic-jewellery",
     image: oxidisedFloralDisplay.url,
     gallery: [
       { src: oxidisedFloralDisplay.url, alt: "Antique Silver Oxidised Floral Necklace Set — product display on white background" },
@@ -582,7 +582,7 @@ export const products: Product[] = [
     id: "maroon-thread-green-stone-oxidised-necklace-set",
     name: "Maroon Thread & Green Stone Oxidised Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "ethnic-jewellery",
     image: maroonThreadOxidisedDisplay.url,
     gallery: [
       { src: maroonThreadOxidisedDisplay.url, alt: "Maroon Thread & Green Stone Oxidised Necklace Set — product display on white background" },
@@ -615,7 +615,7 @@ export const products: Product[] = [
     id: "antique-silver-oxidised-cascade-necklace-set",
     name: "Antique Silver Oxidised Cascade Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "ethnic-jewellery",
     image: oxidisedCascadeDisplay.url,
     gallery: [
       { src: oxidisedCascadeDisplay.url, alt: "Antique Silver Oxidised Cascade Necklace Set — product display on white background" },
@@ -626,7 +626,7 @@ export const products: Product[] = [
     id: "silver-floral-pearl-pendant-necklace-set",
     name: "Silver Floral Pearl Pendant Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "ethnic-jewellery",
     image: silverFloralPearlDisplay.url,
     gallery: [
       { src: silverFloralPearlDisplay.url, alt: "Silver Floral Pearl Pendant Necklace Set — product display on white background" },
@@ -637,7 +637,7 @@ export const products: Product[] = [
     id: "antique-silver-elephant-motif-necklace-set",
     name: "Antique Silver Elephant Motif Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "ethnic-jewellery",
     image: elephantMotifDisplay.url,
     gallery: [
       { src: elephantMotifDisplay.url, alt: "Antique Silver Elephant Motif Necklace Set — product display on white background" },
@@ -648,7 +648,7 @@ export const products: Product[] = [
     id: "antique-silver-gold-coin-pendant-necklace-set",
     name: "Antique Silver Gold Coin Pendant Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "ethnic-jewellery",
     image: goldCoinPendantDisplay.url,
     gallery: [
       { src: goldCoinPendantDisplay.url, alt: "Antique Silver Gold Coin Pendant Necklace Set — product display on white background" },
@@ -659,7 +659,7 @@ export const products: Product[] = [
     id: "multicolor-kundan-stone-pearl-necklace-set",
     name: "Multicolor Kundan Stone Pearl Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "wedding-occasion-jewellery",
     image: multicolorKundanDisplay.url,
     gallery: [
       { src: multicolorKundanDisplay.url, alt: "Multicolor Kundan Stone Pearl Necklace Set — product display on white background" },
@@ -681,7 +681,7 @@ export const products: Product[] = [
     id: "green-stone-butterfly-pendant-necklace-set",
     name: "Green Stone Butterfly Pendant Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "ethnic-jewellery",
     image: greenButterflyDisplay.url,
     gallery: [
       { src: greenButterflyDisplay.url, alt: "Green Stone Butterfly Pendant Necklace Set — product display on white background" },
@@ -692,7 +692,7 @@ export const products: Product[] = [
     id: "royal-purple-beaded-statement-necklace-set",
     name: "Royal Purple Beaded Statement Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "wedding-occasion-jewellery",
     image: royalPurpleDisplay.url,
     gallery: [
       { src: royalPurpleDisplay.url, alt: "Royal Purple Beaded Statement Necklace Set — product display on white background" },
@@ -725,7 +725,7 @@ export const products: Product[] = [
     id: "multicolor-gemstone-necklace-set",
     name: "Multicolor Gemstone Necklace Set",
     category: "Jewellery Sets",
-    categorySlug: "jewellery-sets",
+    categorySlug: "wedding-occasion-jewellery",
     image: multicolorGemstoneDisplay.url,
     gallery: [
       { src: multicolorGemstoneDisplay.url, alt: "Multicolor Gemstone Necklace Set — product display on white background" },
@@ -867,7 +867,7 @@ export const products: Product[] = [
 ];
 
 // Category pages that list their products. Others keep their "coming soon" note.
-export const listedCategorySlugs = ["party-clutch-bags", "tote-bags", "handbags", "clutch-bags", "potli-bags", "jewellery-sets", "watches", "earrings"];
+export const listedCategorySlugs = ["party-clutch-bags", "tote-bags", "handbags", "clutch-bags", "potli-bags", "jewellery-sets", "watches", "earrings", "ethnic-jewellery", "wedding-occasion-jewellery"];
 
 export const newArrivals = () =>
   products

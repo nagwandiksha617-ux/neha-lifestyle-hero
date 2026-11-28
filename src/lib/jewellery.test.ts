@@ -5,7 +5,7 @@ import { products, productsForCategoryPage } from "./products";
 test("Jewellery has five distinct category pages without reassignment of existing products", () => {
   expect(jewelleryCategories.map((c) => c.slug)).toEqual(["earrings", "jewellery-sets", "bracelets", "ethnic-jewellery", "wedding-occasion-jewellery"]);
   expect(products.filter((p) => p.categorySlug === "jewellery").map((p) => p.id)).toEqual([]);
-  expect(products.filter((p) => jewelleryCategories.some((c) => c.slug !== "jewellery-sets" && c.slug !== "earrings" && c.slug === p.categorySlug))).toEqual([]);
+  expect(products.filter((p) => p.categorySlug === "bracelets")).toEqual([]);
 });
 
 test("Jewellery collection arrivals remain empty after the old arrivals were cleared", () => {
@@ -44,10 +44,85 @@ const sets: Array<[string, string, string, string?]> = [
   ["Multicolor Stone Statement Necklace Set", "multicolor-statement", "webp", "webp"],
 ];
 
-test("Jewellery Sets lists exactly twenty-nine distinct sets in requested order", () => {
+const approvedMoves: Record<string, string> = {
+  "Pink & Gold Statement Necklace Set": "wedding-occasion-jewellery",
+  "Gold & Ruby Red Necklace Set": "wedding-occasion-jewellery",
+  "Pearl, Pink & Green Ethnic Necklace Set": "wedding-occasion-jewellery",
+  "Gold, White & Pink Kundan Necklace Set": "wedding-occasion-jewellery",
+  "Antique Silver Oxidised Floral Necklace Set": "ethnic-jewellery",
+  "Maroon Thread & Green Stone Oxidised Necklace Set": "ethnic-jewellery",
+  "Antique Silver Oxidised Cascade Necklace Set": "ethnic-jewellery",
+  "Silver Floral Pearl Pendant Necklace Set": "ethnic-jewellery",
+  "Antique Silver Elephant Motif Necklace Set": "ethnic-jewellery",
+  "Antique Silver Gold Coin Pendant Necklace Set": "ethnic-jewellery",
+  "Multicolor Kundan Stone Pearl Necklace Set": "wedding-occasion-jewellery",
+  "Green Stone Butterfly Pendant Necklace Set": "ethnic-jewellery",
+  "Royal Purple Beaded Statement Necklace Set": "wedding-occasion-jewellery",
+  "Multicolor Gemstone Necklace Set": "wedding-occasion-jewellery"
+};
+
+test("jewellery-sets lists exactly 15 approved products without duplicates", () => {
   const listed = productsForCategoryPage("jewellery-sets");
-  expect(listed.map((p) => p.name)).toEqual(sets.map(([name]) => name));
-  expect(new Set(listed.map((p) => p.id)).size).toBe(29);
+  expect(listed.map((product) => product.name)).toEqual([
+  "Navy Blue & Silver Crystal Necklace Set",
+  "Gold Multi-Layer Ruby Necklace Set",
+  "Green & Pink Peacock Designer Necklace Set",
+  "Maroon Deer Pendant Statement Necklace Set",
+  "Antique Gold Temple Elephant Necklace Set",
+  "Gold, Black & Pink Beaded Statement Necklace Set",
+  "Green & White Pearl Long Necklace Set",
+  "Green & Gold Traditional Long Necklace Set",
+  "Golden Green Medallion Necklace Set",
+  "Black Krishna Face Pendant Necklace Set",
+  "Traditional Green Meenakari Gold Necklace Set",
+  "Multicolor Geometric Pendant Necklace Set",
+  "Navy Blue Floral Statement Necklace Set",
+  "Green Deer Motif Necklace Set",
+  "Multicolor Stone Statement Necklace Set"
+]);
+  expect(new Set(listed.map((product) => product.id)).size).toBe(15);
+});
+
+test("ethnic-jewellery lists exactly 7 approved products without duplicates", () => {
+  const listed = productsForCategoryPage("ethnic-jewellery");
+  expect(listed.map((product) => product.name)).toEqual([
+  "Antique Silver Oxidised Floral Necklace Set",
+  "Maroon Thread & Green Stone Oxidised Necklace Set",
+  "Antique Silver Oxidised Cascade Necklace Set",
+  "Silver Floral Pearl Pendant Necklace Set",
+  "Antique Silver Elephant Motif Necklace Set",
+  "Antique Silver Gold Coin Pendant Necklace Set",
+  "Green Stone Butterfly Pendant Necklace Set"
+]);
+  expect(new Set(listed.map((product) => product.id)).size).toBe(7);
+});
+
+test("wedding-occasion-jewellery lists exactly 7 approved products without duplicates", () => {
+  const listed = productsForCategoryPage("wedding-occasion-jewellery");
+  expect(listed.map((product) => product.name)).toEqual([
+  "Pink & Gold Statement Necklace Set",
+  "Gold & Ruby Red Necklace Set",
+  "Pearl, Pink & Green Ethnic Necklace Set",
+  "Gold, White & Pink Kundan Necklace Set",
+  "Multicolor Kundan Stone Pearl Necklace Set",
+  "Royal Purple Beaded Statement Necklace Set",
+  "Multicolor Gemstone Necklace Set"
+]);
+  expect(new Set(listed.map((product) => product.id)).size).toBe(7);
+});
+
+test("earrings lists exactly 7 approved products without duplicates", () => {
+  const listed = productsForCategoryPage("earrings");
+  expect(listed.map((product) => product.name)).toEqual([
+  "Blue Stone Oxidised Silver Jhumka Earrings",
+  "Antique Silver Gold-Tone Chain Jhumka Earrings",
+  "Ruby Red Oxidised Silver Long Jhumka Earrings",
+  "Emerald Green Oxidised Silver Long Jhumka Earrings",
+  "Emerald Green Stone Gold Pearl Jhumka Earrings",
+  "Traditional Green Red Stone Gold Pearl Long Earrings",
+  "Peacock Design Pink Green Gold Jhumka Earrings"
+]);
+  expect(new Set(listed.map((product) => product.id)).size).toBe(7);
 });
 
 for (const [name, prefix, displayExt, modelExt = "png"] of sets) {
@@ -55,7 +130,7 @@ for (const [name, prefix, displayExt, modelExt = "png"] of sets) {
     const product = products.find((p) => p.name === name);
     expect(product?.gallery?.map((photo) => photo.src.split("/").pop())).toEqual([`${prefix}-display.${displayExt}`, `${prefix}-model.${modelExt}`]);
     expect(product?.image).toBe(product?.gallery?.[0]?.src);
-    expect(product?.categorySlug).toBe("jewellery-sets");
+    expect(product?.categorySlug).toBe(approvedMoves[name] ?? "jewellery-sets");
     expect(product?.description).toBeUndefined();
     expect(product).not.toHaveProperty("price");
     expect(product).not.toHaveProperty("materials");
