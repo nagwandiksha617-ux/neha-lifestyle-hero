@@ -1,5 +1,8 @@
 # Static shared-hosting migration (FTP, no Node at runtime)
 
+- [x] Remove only the two unowned jhumka listings; update the category review to 36 products; all other product data and proposed assignments preserved.
+- [ ] Apply the 14 jewellery category moves — awaiting owner approval of the corrected 36-product review.
+
 - [x] Blog article page — `/blog/artificial-jewellery-for-women` added to the listing, prerender and sitemap with premium responsive layout, contents, image slots, internal links and SEO.
 - [x] Blog article content — complete owner-supplied copy, four tables and eight FAQs integrated; six requested visual positions retain supplied alt text for future images.
 

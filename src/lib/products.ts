@@ -178,8 +178,6 @@ export type Product = {
 };
 
 export const products: Product[] = [
-  { id: "na-1", name: "Peacock Pearl Jhumka Earrings", category: "Jewellery", categorySlug: "jewellery", image: null },
-  { id: "na-2", name: "Green Stone Jhumka Earrings", category: "Jewellery", categorySlug: "jewellery", image: null },
   {
     id: "na-4",
     bagCategorySlug: "clutch-bags",

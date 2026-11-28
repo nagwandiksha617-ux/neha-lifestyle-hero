@@ -146,8 +146,8 @@ describe("Party & Clutch Bags listing", () => {
     expect(newArrivals()).toEqual([]);
   });
 
-  test("the five former New Arrivals products remain listed on the website", () => {
-    const ids = ["na-1", "na-2", "na-4", "na-5", "na-6"];
+  test("the three owned former New Arrivals products remain listed on the website", () => {
+    const ids = ["na-4", "na-5", "na-6"];
     for (const id of ids) {
       expect(products.find((p) => p.id === id)).toBeDefined();
     }
@@ -225,4 +225,19 @@ describe("Bags menu categories", () => {
     const ids = products.map((p) => p.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
+});
+
+for (const [id, name] of [
+  ["na-1", "Peacock Pearl Jhumka Earrings"],
+  ["na-2", "Green Stone Jhumka Earrings"],
+] as const) {
+  test(`${name} is removed because the owner does not own it`, () => {
+    expect(products.filter((product) => product.id === id || product.name === name)).toEqual([]);
+  });
+}
+
+test("all 36 owned jewellery products keep their current categories pending approval", () => {
+  expect(products.filter((product) => product.categorySlug === "jewellery-sets")).toHaveLength(29);
+  expect(products.filter((product) => product.categorySlug === "earrings")).toHaveLength(7);
+  expect(products.filter((product) => product.categorySlug === "ethnic-jewellery" || product.categorySlug === "wedding-occasion-jewellery")).toEqual([]);
 });
